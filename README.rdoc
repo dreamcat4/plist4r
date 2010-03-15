@@ -1,17 +1,128 @@
 = plist4r
 
-Description goes here.
+Welcome to Plist4r, a ruby library for reading and writing plist files.
 
-== Note on Patches/Pull Requests
+Current project status: in alpha
+
+== Installation
+
+  gem install plist4r
+
+== Quick Start
+
+  Plist4r::Config.default_dir "/Library/LaunchDaemons"
+  filename = "com.github.myservice.plist"
+  p = Plist4r.open(filename)
+
+  p.plist_type
+  # => :launchd
+
+  p.file_format
+  # => :xml
+
+  p.<< do
+    ProgramArguments ["/usr/local/bin/myservice"]
+  end
+
+  p.edit do
+    WatchPaths ["/var/db/myservice"]
+  end
+
+  p.save
+
+== Plist 'Types'
+
+A Plist type can be one of `%w[info launchd]`, and is the data type for the whole plist file. A plist data type can provide convenience methods to set Type-specific plist structures. For example "Sockets" in a launchd plist.
+
+Plist types are also useful to disallow keys which arent recognized or supported by that format. Flicking `:unsupported_keys` the Plist4r config will enable this:
+
+  ::Plist4r::Config[:unsupported_keys] = false
+
+Or individually, per plist object with
+
+  plist.unsupported_keys false
+  
+Default is true, which allows editing of any plist keys. We think thats a good choice, since unsupported keys can already be present in existing plist files, which are loadable by Plist4r.
+
+== Plist4r Backends
+
+There are now a number of ruby libraries which can read / write plist files. The aim of plist4r is to utilize the individual best features from all of those libraries, as a series of "backends". And hide those behind a "frontend" that is easy to work with.
+
+Backends often only need to be a single ruby file, which implements the Plist4r API methods and calls out to other (existing) ruby code. No single backend has to provide the whole API. Instead, Plist4r simply iterates over all of the backends it knows about, and then calls the first backend that can responds to the API method.
+
+There are just 6 supported API methods
+
+  ApiMethods = %w[from_string to_xml to_binary to_next_step open save]
+
+And (as above) the 3 supported Plist file formats are
+
+  FileFormats = %w[binary xml next_step]
+
+We believe thats allright for most uses, and decided to include `next_step` for completeness. `NextStep` is also known by other names such as `OpenStep` and (more updated version) `GNU Step`. For example the apple `defaults` command on Mac OS-X will still return `NextStep` formatted plist data.
+
+== More Examples
+
+	module ::Plist4r::Backend::MyPlistReaderWriter
+	  # implement some plist4r api calls here
+	end
+
+  # append my backend to the end of the list
+	Plist4r::Config[:backends] << :my_plist_reader_writer
+	
+	# or to the front of the list (executes first)
+	Plist4r::Config[:backends].insert 0 :my_plist_reader_writer
+
+	# The default directory to load / save files from
+	Plist4r::Config.default_path "/Library/Cars"
+	
+	car = Plist4r.new("car.plist")
+	
+	car.load	
+
+	car.file_format :binary
+  # car.plist_type  :car # not implemented *yet*
+	
+	car.save
+	
+	car.<< do
+	  road_legal true
+	  brake_light_color "red"
+	end
+	
+	car.save_as("car2.plist", :binary => true)
+	
+	car.<< do
+	  eyes "blue"
+	end
+	# => Exception, invalid plist key name "Eyes"
+	
+	car.<< do
+	  tyres "Pirelli"
+	end
+	
+	car.to_xml
+	# => xml string
+
+== Remaining Work
+
+Plist4r is currently alpha - quality software. Yet to be completed...
+
+* Regression Tests (rspec)
+* Test harness for the backends
+* Testing of the individual backends
+* Tests for Plist Types
+* RDoc Documentation
+* Script for embedding / inlining Plist4r into Homebrew
+* A Plist Type for Info.plist
+* Command line interface (hopefully mixlib-cli)
+
+== Notes on Patches/Pull Requests
  
-* Fork the project.
+* Fork the project, and create a topic branch as per {these instructions}[http://wiki.opscode.com/display/opscode/Working+with+Git].
 * Make your feature addition or bug fix.
-* Add tests for it. This is important so I don't break it in a
-  future version unintentionally.
-* Commit, do not mess with rakefile, version, or history.
-  (if you want to have your own version, that is fine but bump version in a commit by itself I can ignore when I pull)
-* Send me a pull request. Bonus points for topic branches.
+* Include documentation for it.
+* Include a regression test for it. So I don't break it in a future version unintentionally.
 
 == Copyright
 
-Copyright (c) 2010 dreamcat4. See LICENSE for details.
+Copyright (c) 2010 Dreamcat4. See LICENSE for details.
