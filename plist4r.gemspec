@@ -9,7 +9,7 @@ Gem::Specification.new do |s|
 
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
   s.authors = ["dreamcat4"]
-  s.date = %q{2010-03-08}
+  s.date = %q{2010-03-15}
   s.description = %q{In development. Plist4R is a gem which is striving for 3 things: ease of use, speed, and reliability handling of plists. To help achieve these goals, we may plug-in or re-write this gem with one or several backends. Notably, we try to distinguish this gem by providing easy-to use DSL interface for users. For common plist type(s), such as convenience methods for Launchd Plist}
   s.email = %q{dreamcat4@gmail.com}
   s.extra_rdoc_files = [
@@ -27,6 +27,28 @@ Gem::Specification.new do |s|
      "features/step_definitions/plist4r_steps.rb",
      "features/support/env.rb",
      "lib/plist4r.rb",
+     "lib/plist4r/backend.rb",
+     "lib/plist4r/backend/example.rb",
+     "lib/plist4r/backend/haml.rb",
+     "lib/plist4r/backend/libxml4r.rb",
+     "lib/plist4r/backend/plutil.rb",
+     "lib/plist4r/backend/ruby_cocoa.rb",
+     "lib/plist4r/config.rb",
+     "lib/plist4r/mixin.rb",
+     "lib/plist4r/mixin/class_attributes.rb",
+     "lib/plist4r/mixin/data_methods.rb",
+     "lib/plist4r/mixin/mixlib_config.rb",
+     "lib/plist4r/mixin/ordered_hash.rb",
+     "lib/plist4r/mixin/popen4.rb",
+     "lib/plist4r/mixin/ruby_stdlib.rb",
+     "lib/plist4r/plist.rb",
+     "lib/plist4r/plist_cache.rb",
+     "lib/plist4r/plist_type.rb",
+     "lib/plist4r/plist_type/info.rb",
+     "lib/plist4r/plist_type/launchd.rb",
+     "lib/plist4r/plist_type/plist.rb",
+     "plist4r.gemspec",
+     "spec/examples.rb",
      "spec/plist4r_spec.rb",
      "spec/spec.opts",
      "spec/spec_helper.rb"
@@ -37,7 +59,8 @@ Gem::Specification.new do |s|
   s.rubygems_version = %q{1.3.5}
   s.summary = %q{Dreamcat4's plist4r gem. For reading/writing plists in ruby}
   s.test_files = [
-    "spec/plist4r_spec.rb",
+    "spec/examples.rb",
+     "spec/plist4r_spec.rb",
      "spec/spec_helper.rb"
   ]
 
