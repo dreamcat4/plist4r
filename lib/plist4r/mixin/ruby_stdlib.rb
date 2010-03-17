@@ -1,4 +1,6 @@
 
+# These methods should all be nemespaced to ::Plist4r
+# we don't want to upset anyone else's code
 
 class Object
   def method_name

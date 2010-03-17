@@ -1,23 +1,24 @@
 
-$:.unshift(File.dirname(__FILE__)) unless
-  $:.include?(File.dirname(__FILE__)) || $:.include?(File.expand_path(File.dirname(__FILE__)))
+dir = File.dirname(__FILE__)
+$LOAD_PATH.unshift dir unless $LOAD_PATH.include?(dir)
 
 require 'plist4r/plist'
 
 module Plist4r
   class << self
     def new *args, &blk
-      puts args.inspect
+      # puts args.inspect
       return Plist.new *args, &blk
     end
 
     def open filename, *args, &blk
-      puts args.inspect
-      return Plist.new filename, *args, &blk
+      # puts args.inspect
+      p = Plist.new filename, *args, &blk
+      p.open
     end
     
     def string_detect_format string
-      s.strip!
+      s = string.strip!
       case s[0,1]
       when "{","("
         :next_step

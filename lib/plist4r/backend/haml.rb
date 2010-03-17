@@ -1,7 +1,7 @@
 
-require 'plist4r/backend'
+require 'plist4r/backend_base'
 
-module Plist4r::Backend::HamlXmlWriter
+module Plist4r::Backend::Haml
   class << self
     def to_xml_haml
       @to_xml_haml ||= <<-'EOC'
@@ -66,7 +66,7 @@ EOC
       hash = plist.to_hash
       filename = plist.filename_path
       File.open(filename,'w') do |out|
-        out << to_xml plist
+        out << to_xml(plist)
       end
     end
   end

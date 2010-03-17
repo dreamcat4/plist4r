@@ -1,7 +1,7 @@
 
-require 'plist4r/backend'
+require 'plist4r/backend_base'
 
-module Plist4r::Backend::Libxml4rXmlReader
+module Plist4r::Backend::Libxml4r
   class << self
     def tree_hash n
       hash = ::ActiveSupport::OrderedHash.new
@@ -49,6 +49,7 @@ module Plist4r::Backend::Libxml4rXmlReader
     end
 
     def parse_plist_xml string
+      require 'rubygems'
       require 'libxml4r'
       ::LibXML::XML.default_keep_blanks = false
       doc = string.to_xmldoc
@@ -60,10 +61,9 @@ module Plist4r::Backend::Libxml4rXmlReader
     def from_string plist, string
       plist_format = Plist4r.string_detect_format string
       raise "#{self} - cant convert string of format #{plist_format}" unless plist_format == :xml
-
       hash = parse_plist_xml string
       plist.import_hash hash
-      plist.file_format = file_format
+      plist.file_format plist_format
       return plist
     end
 

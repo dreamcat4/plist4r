@@ -1,5 +1,5 @@
 
-require 'plist4r/backend'
+require 'plist4r/backend_base'
 
 module Plist4r::Backend::RubyCocoa
   class << self
@@ -103,7 +103,7 @@ EOC
       require 'tempfile'
       require 'plist4r/mixin/popen4'
 
-      if @rb_script && File.exists?(@rb_script.path)
+      unless @rb_script && File.exists?(@rb_script.path)
         @rb_script ||= Tempfile.new("ruby_cocoa_wrapper.rb") do |o|
           o << ruby_cocoa_rb
         end
@@ -113,7 +113,7 @@ EOC
       cmd = @rb_script.path
       ordered_hash_rb = File.join(File.dirname(__FILE__), "..", "mixin", "ordered_hash.rb")
 
-      pid, stdin, stdout, stderr = Popen4::popen4 [cmd, ordered_hash_rb]
+      pid, stdin, stdout, stderr = ::Plist4r::Popen4::popen4 cmd, ordered_hash_rb
 
         stdin.puts stdin_str
 

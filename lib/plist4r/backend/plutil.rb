@@ -1,4 +1,6 @@
 
+require 'plist4r/backend_base'
+
 module Plist4r::Backend::Plutil
   # maybe this should be a helper, included by other backends
   class << self

@@ -1,5 +1,5 @@
 
-require 'plist4r/backend'
+require 'plist4r/backend_base'
 
 module Plist4r::Backend::Example
   class << self
