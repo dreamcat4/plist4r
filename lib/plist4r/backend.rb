@@ -21,11 +21,11 @@ module Plist4r
       end
     end
 
-    # vv We also need a version of :call for matrix test harness vv
+    # vv We need a version of this to call our matrix test harness vv
 
     def call method_sym, *args, &blk
-      puts "in call"
-      puts "#{method_sym.inspect} #{args.inspect}"
+      # puts "in call"
+      # puts "#{method_sym.inspect} #{args.inspect}"
       raise "Unsupported api call #{method_sym.inspect}" unless ApiMethods.include? method_sym.to_s
       exceptions = []
       @backends.each do |backend|

@@ -4,16 +4,15 @@ require 'plist4r/plist_type'
 module Plist4r
   class PlistType::Launchd < PlistType
 
-    def valid_keys
+    def self.valid_keys
       {
         :string => %w[Label UserName GroupName LimitLoadToSessionType Program RootDirectory WorkingDirectory StandardInPath StandardOutPath StandardErrorPath],
         :bool => %w[Disabled EnableGlobbing EnableTransactions OnDemand RunAtLoad InitGroups StartOnMount Debug WaitForDebugger AbandonProcessGroup HopefullyExitsFirst HopefullyExitsLast LowPriorityIO LaunchOnlyOnce],
         :integer => %w[Umask TimeOut ExitTimeOut ThrottleInterval StartInterval Nice],
         :array_of_strings => %w[LimitLoadToHosts LimitLoadFromHosts ProgramArguments WatchPaths QueueDirectories],
-        :complex_keys => %w[inetdCompatibility KeepAlive EnvironmentVariables StartCalendarInterval SoftResourceLimits, HardResourceLimits MachServices Sockets]
+        :method_defined => %w[inetdCompatibility KeepAlive EnvironmentVariables StartCalendarInterval SoftResourceLimits, HardResourceLimits MachServices Sockets]
       }
     end
-  
 
     # :call-seq:
     #   inetdCompatibility({:wait => true})

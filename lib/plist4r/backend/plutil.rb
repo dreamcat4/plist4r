@@ -2,18 +2,19 @@
 require 'plist4r/backend_base'
 
 module Plist4r::Backend::Plutil
-  # maybe this should be a helper, included by other backends
+  # maybe this could be useful as a helper, used by other backends
   class << self
-    # use tempfile to write out data
-    # convert it into target format
+    def convert_file_to_xml
+      system "plutil -convert xml1 #{@filename}"
+    end
 
-    # plutil -convert xml1 @filename
-    # plutil -convert binary1 @filename
-    # next step is not supported
-
-    # def validate
-    #   system "plutil #{@filename}"
-    # end
+    def convert_file_to_binary
+      system "plutil -convert binary1 #{@filename}"
+    end
+    
+    def validate
+      system "plutil #{@filename}"
+    end
   end
 end
 

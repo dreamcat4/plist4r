@@ -1,4 +1,5 @@
 
+require 'plist4r/config'
 require 'plist4r/mixin/ordered_hash'
 
 module Plist4r
@@ -21,13 +22,26 @@ module Plist4r
     end
 
     def method_missing method_symbol, *args, &blk
-      puts "method_missing: #{method_symbol.inspect}, args: #{args.inspect}"
+      # puts "method_missing: #{method_symbol.inspect}, args: #{args.inspect}"
+      # puts "@hash = #{@hash.inspect}"
+      # puts "hi"
       valid_keys.each do |key_type, valid_keys_of_those_type|
         if valid_keys_of_those_type.include?(method_symbol.to_s.camelcase)
           puts "key_type = #{key_type}, method_symbol.to_s.camelcase = #{method_symbol.to_s.camelcase}, args = #{args.inspect}"
-          return eval("set_or_return key_type, method_symbol.to_s.camelcase, *args, &blk")
+          # return eval("set_or_return key_type, method_symbol.to_s.camelcase, *args, &blk")
+          return set_or_return key_type, method_symbol.to_s.camelcase, *args, &blk
         end
       end
+      # puts "there"
+      # puts @plist.inspect
+      if @plist.unsupported_keys
+        key_type = nil
+        # return eval("set_or_return key_type, method_symbol.to_s.camelcase, *args, &blk")
+        return set_or_return key_type, method_symbol.to_s.camelcase, *args, &blk
+      else
+        raise "Unrecognized key for class: #{self.class.inspect}. Tried to set_or_return #{method_symbol.inspect}, with: #{args.inspect}"
+      end
+      # puts "bob"
     end
 
     def validate_value key_type, key, value
@@ -53,7 +67,7 @@ module Plist4r
     end
 
     def set_or_return key_type, key, value=nil
-      puts "#{method_name}, key_type: #{key_type.inspect}, value: #{value.inspect}"
+      # puts "#{method_name}, key_type: #{key_type.inspect}, key: #{key.inspect}, value: #{value.inspect}"
       if value
         validate_value key_type, key, value unless key_type == nil
         @hash[key] = value
@@ -63,3 +77,7 @@ module Plist4r
     end
   end
 end
+
+
+
+

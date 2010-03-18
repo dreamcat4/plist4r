@@ -3,15 +3,16 @@ require 'plist4r/backend_base'
 
 module Plist4r::Backend::Example
   class << self
-    def from_string plist, string
-      plist_format = Plist4r.string_detect_format string
+    def from_string plist
+      plist_string = plist.from_string
+      plist_format = Plist4r.string_detect_format plist.from_string
       unless [:supported_fmt1,:supported_fmt2].include? plist_format
         raise "#{self} - cant convert string of format #{plist_format}"
       end
       hash = ::ActiveSupport::OrderedHash.new
       # import / convert plist data into ruby ordered hash
       plist.import_hash hash
-      plist.file_format = plist_format
+      plist.file_format plist_format
       return plist
     end
 
@@ -43,7 +44,7 @@ module Plist4r::Backend::Example
       hash = ::ActiveSupport::OrderedHash.new
       # import / convert plist data into ruby ordered hash
       plist.import_hash hash
-      plist.file_format = file_format
+      plist.file_format file_format
       return plist
     end
 

@@ -154,9 +154,10 @@ module ActiveSupport
         self
       end
 
-      def inspect
-        "#<OrderedHash #{super}>"
-      end
+      # This breaks passing the Hash through Stdin to RubyCocoa
+      # def inspect
+      #   "#<OrderedHash #{super}>"
+      # end
 
     private
 

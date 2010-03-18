@@ -18,18 +18,23 @@ module Plist4r
     end
     
     def string_detect_format string
-      s = string.strip!
-      case s[0,1]
+      # puts "in string_detect_format"
+      # puts "string = #{string.inspect}"
+      # s = string.strip
+      string.strip! if string[0,1] =~ /\s/
+      # s = string
+      # puts "s = #{s.inspect}"
+      case string[0,1]
       when "{","("
         :next_step
       when "b"
-        if s =~ /^bplist/
+        if string =~ /^bplist/
           :binary
         else
           nil
         end
       when "<"
-        if s =~ /^\<\?xml/ && s =~ /\<\!DOCTYPE plist/
+        if string =~ /^\<\?xml/ && string =~ /\<\!DOCTYPE plist/
           :xml
         else
           nil

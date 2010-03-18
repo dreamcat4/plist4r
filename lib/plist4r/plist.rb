@@ -8,14 +8,16 @@ require 'plist4r/backend'
 
 module Plist4r
   class Plist
-    PlistOptionsHash = %w[from_string filename path file_format plist_type unsupported_keys backends]
+    PlistOptionsHash = %w[filename path file_format plist_type unsupported_keys backends from_string]
     FileFormats      = %w[binary xml next_step]
   
     def initialize *args, &blk
       @hash             = ::ActiveSupport::OrderedHash.new
-      # @plist_type       = plist_type PlistType::Plist
+      @plist_type       = plist_type :plist
+
       @unsupported_keys = Config[:unsupported_keys]
       @backends         = Config[:backends]
+
       @from_string      = nil
       @filename         = nil
       @file_format      = nil
@@ -32,19 +34,20 @@ module Plist4r
         raise "Unrecognized first argument: #{args.first.inspect}"
       end
       
-      @plist_cache = PlistCache.new self
+      @plist_cache ||= PlistCache.new self
     end
 
     def from_string string=nil
       case string
       when String
-        plist_format = ::Plist4r.string_detect_format string
+        plist_format = ::Plist4r.string_detect_format(string)
         if plist_format
-          eval "@plist_cache.from_#{format}, string"
+          @from_string = string
+          @plist_cache ||= PlistCache.new self
+          @plist_cache.from_string
         else
           raise "Unknown plist format for string: #{string}"
         end
-        @from_string = string
       when nil
         @from_string
       else
@@ -101,25 +104,63 @@ module Plist4r
       end
     end
 
+    def detect_plist_type
+      stat_m = {}
+      stat_r = {}
+      Config[:types].each do |t|
+        case t
+        when String, Symbol
+          t = eval "::Plist4r::PlistType::#{t.to_s.camelcase}"
+        when Class
+          t = t
+        else
+          raise "Unrecognized plist type: #{t.inspect}"
+        end
+        t_sym = t.to_s.gsub(/.*:/,"").snake_case.to_sym
+        stat_t = t.match_stat @hash.keys
+
+        stat_m.store stat_t[:matches], t_sym
+        stat_r.store stat_t[:ratio], t_sym
+      end
+
+      most_matches = stat_m.keys.sort.last      
+      if most_matches == 0
+        plist_type :plist
+      elsif stat_m.keys.select{ |m| m == most_matches }.size > 1
+        most_matches = stat_r.keys.sort.last          
+        if stat_r.keys.select{ |m| m == most_matches }.size > 1
+          plist_type :plist
+        else
+          plist_type stat_r[most_matches]
+        end
+      else
+        plist_type stat_m[most_matches]
+      end
+      return true
+    end
+
     def plist_type plist_type=nil
       begin
         case plist_type
         when Class
-          @plist_type = PlistType::Plist.new :hash => @hash
+          unless plist_type.is_a? ::Plist4r::PlistType
+            raise "Unrecognized Plist type. Class #{plist_type.inspect} isnt inherited from ::Plist4r::PlistType"
+          end
         when Symbol, String
-          eval "pt_klass = PlistType::#{plist_type.to_s.camelcase}"
-          @plist_type = pt_klass.new :hash => @hash
+          plist_type = eval "::Plist4r::PlistType::#{plist_type.to_s.camelcase}"
         when nil
-          @plist_type
+          return @plist_type.to_sym
         else
           raise "Please specify a valid plist class name, eg ::Plist4r::PlistType::ClassName, \"class_name\" or :class_name"
         end
+        @plist_type = plist_type.new self
+        return @plist_type.to_sym
       rescue
         raise "Please specify a valid plist class name, eg ::Plist4r::PlistType::ClassName, \"class_name\" or :class_name"
       end
     end
-  
-    def unsupported_keys bool
+
+    def unsupported_keys bool=nil
       case bool
       when true,false
         @unsupported_keys = bool
@@ -143,14 +184,16 @@ module Plist4r
   
     def parse_opts opts
       PlistOptionsHash.each do |opt|
-        eval "@#{opt} = #{opts[opt.to_sym]}" if opts[opt.to_sym]
+        if opts[opt.to_sym]
+          value = opts[opt.to_sym]
+          eval "self.#{opt}(value)"
+        end
       end
     end
 
     def open filename=nil
       @filename = filename if filename
       raise "No filename specified" unless @filename
-      # @hash = @plist_cache.open
       @plist_cache.open
     end
 
@@ -159,7 +202,10 @@ module Plist4r
     end
 
     def edit *args, &blk
-      instance_eval &blk
+      @plist_type.hash @hash
+      instance_eval *args, &blk
+      detect_plist_type
+      @plist_cache.update_checksum
     end
   
     def method_missing method_sym, *args, &blk
@@ -227,37 +273,24 @@ module Plist4r
       instance_eval(&@block) if @block
     end
 
-    def finalize
-      if File.exists? @filename
-        if override_plist_keys?
-          # @hash = @obj = ::LibxmlLaunchdPlistParser.new(@filename).plist_struct
-          # eval_plist_block(&@block) if @block
-          write_plist
-        end
-      else
-        write_plist
-      end
-      validate
-    end
-  
     def override_plist_keys?
       return true unless @label == @filename.match(/^.*\/(.*)\.plist$/)[1]
       vars = self.instance_variables - ["@filename","@label","@shortname","@block","@hash","@obj"]
       return true unless vars.empty?
     end
 
-    def write_plist
-      require 'haml'
-      engine = Haml::Engine.new File.read("launchd_plist.haml")
-      rendered_xml_output = engine.render self
-      File.open(@filename,'w') do |o|
-        o << rendered_xml_output
+    def finalize
+      if File.exists? @filename
+        if override_plist_keys?
+          # @hash = @obj = ::LibxmlLaunchdPlistParser.new(@filename).plist_struct
+          # eval_plist_block(&@block) if @block
+          # write_plist
+        end
+      else
+        # write_plist
       end
-
-    end
-
-    def validate
-      system "/usr/bin/plutil #{@filename}"
-    end
+    end  
   end
 end
+
+

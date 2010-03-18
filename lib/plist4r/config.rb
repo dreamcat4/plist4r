@@ -7,15 +7,18 @@ module Plist4r
   class Config
     extend Mixlib::Config
 
-    backends [
-      ::Plist4r::Backend::RubyCocoa,
-      ::Plist4r::Backend::Haml,
-      ::Plist4r::Backend::Libxml4r
-    ]
+    types [] << Dir.glob(File.dirname(__FILE__) + "/plist_type/**/*.rb").collect {|b| File.basename(b,".rb") }
+    types.flatten!.uniq!
+    
+    backends ["ruby_cocoa","haml","libxml4r"]
+    backends << Dir.glob(File.dirname(__FILE__) + "/backend/**/*.rb").collect {|b| File.basename(b,".rb") }
+    backends.flatten!.uniq!
 
     unsupported_keys true
-    raise_any_failure false
+    raise_any_failure true
     deafult_format :xml
     default_path nil
   end
 end
+
+

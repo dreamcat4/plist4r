@@ -2,7 +2,11 @@
 
 Welcome to Plist4r, a ruby library for reading and writing plist files.
 
-Current project status: in alpha
+Current status: `Beta`, 0.2.x series
+
+We can read / write a `:launchd` plist. So thats pretty good. The API interfaces (for the pluggable backends and plist_types) are not going to change any more. The user API seems to work. If anyone would like to review the Plist4r code and give feedback / suggestions. Now is the time (whilst were still in beta).
+
+Future `Stable` will be targeted, 0.3.x series.
 
 == Installation
 
@@ -107,7 +111,7 @@ We believe thats allright for most uses, and decided to include `next_step` for 
 
 == Remaining Work
 
-Plist4r is currently alpha - quality software. Yet to be completed...
+Plist4r has now moved from alpha to beta - quality software. TBC...
 
 * Regression Tests (rspec)
 * Test harness for the backends

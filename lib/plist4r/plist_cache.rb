@@ -23,19 +23,25 @@ module Plist4r
       checksum != last_checksum
     end
 
+    def from_string
+      @backend.call :from_string
+      update_checksum
+      @plist.detect_plist_type
+      @plist
+    end
+
     def to_xml
-      puts "in to_xml"
-      # if needs_update
+      if needs_update || @xml.nil?
         puts "needs update"
         update_checksum
         @xml = @backend.call :to_xml
-      # else
-        # @xml
-      # end
+      else
+        @xml
+      end
     end
   
     def to_binary
-      if needs_update
+      if needs_update || @binary.nil?
         update_checksum
         @binary = @backend.call :to_binary
       else
@@ -44,7 +50,7 @@ module Plist4r
     end
 
     def to_next_step
-      if needs_update
+      if needs_update || @next_step.nil?
         update_checksum
         @next_step = @backend.call :to_next_step
       else
@@ -55,6 +61,7 @@ module Plist4r
     def open
       @backend.call :open
       update_checksum
+      @plist.detect_plist_type
       @plist
     end
   

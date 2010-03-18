@@ -6,16 +6,17 @@ module Plist4r::Backend::RubyCocoa
     def ruby_cocoa_wrapper_rb
       @ruby_cocoa_wrapper_rb ||= <<-'EOC'
 #!/usr/bin/ruby
+raise "No path given to plist4r" unless ARGV[0] && File.exists?("#{ARGV[0]}/plist4r.rb")
 
-include_endpath = "plist4r/mixin/ordered_hash.rb"
-raise "No path given to include #{include_endpath}" unless ARGV[0] && ARGV[0] =~ /#{include_endpath}$/
-ordered_hash_rb = ARGV[0]
+dir = ARGV[0]
+$LOAD_PATH.unshift dir unless $LOAD_PATH.include?(dir)
 
-require ordered_hash_rb
+require 'plist4r/mixin/ordered_hash'
+require 'osx/cocoa'
 
 class OSX::NSObject
   def to_ruby
-    case self 
+    case self
     when OSX::NSDate
       self.to_time
     when OSX::NSCFBoolean
@@ -45,12 +46,13 @@ end
 module Plist
   def to_xml hash
     # to_plist defaults to NSPropertyListXMLFormat_v1_0
-    x = hash.to_ruby.to_plist
+    x = hash.to_plist
     puts "#{x}"
   end
+
   def to_binary hash
     # Here 200 == NSPropertyListBinaryFormat_v1_0
-    x = hash.to_ruby.to_plist 200
+    x = hash.to_plist 200
     puts "#{x}"
   end
 
@@ -78,15 +80,8 @@ class RubyCocoaWrapper
   include Plist
 
   def exec stdin
-    begin
-      require 'osx/cocoa'
-      instance_eval stdin
-      exit 0
-    rescue LoadError
-      raise $!
-    rescue
-      raise $!
-    end
+    instance_eval stdin
+    exit 0
   end
 end
 
@@ -104,16 +99,16 @@ EOC
       require 'plist4r/mixin/popen4'
 
       unless @rb_script && File.exists?(@rb_script.path)
-        @rb_script ||= Tempfile.new("ruby_cocoa_wrapper.rb") do |o|
-          o << ruby_cocoa_rb
-        end
+        @rb_script = Tempfile.new "ruby_cocoa_wrapper.rb."
+        @rb_script.puts ruby_cocoa_wrapper_rb
+        @rb_script.close
         File.chmod 0755, @rb_script.path
       end
-
+      
+      plist4r_root = File.expand_path File.join(File.dirname(__FILE__), "..", "..")
       cmd = @rb_script.path
-      ordered_hash_rb = File.join(File.dirname(__FILE__), "..", "mixin", "ordered_hash.rb")
 
-      pid, stdin, stdout, stderr = ::Plist4r::Popen4::popen4 cmd, ordered_hash_rb
+      pid, stdin, stdout, stderr = ::Plist4r::Popen4::popen4 [cmd, plist4r_root]
 
         stdin.puts stdin_str
 
@@ -126,16 +121,12 @@ EOC
       return [cmd, status, stdout_result, stderr_result]    
     end
 
-    def from_string plist, string
-      raise "method not implemented yet (unfinished)"
-    end
-
     def to_xml plist
       hash = plist.to_hash
-      result = ruby_cocoa_exec "to_xml(\"#{hash}\")"
+      result = ruby_cocoa_exec "to_xml(#{hash.inspect})"
       case result[1].exitstatus
       when 0
-        xml_string = eval result[2]
+        xml_string = result[2]
         return xml_string
       else
         $stderr.puts result[3]
@@ -145,31 +136,44 @@ EOC
 
     def to_binary plist
       hash = plist.to_hash
-      result = ruby_cocoa_exec "to_binary(\"#{hash}\")"
+      result = ruby_cocoa_exec "to_binary(#{hash.inspect})"
       case result[1].exitstatus
       when 0
-        binary_string = eval result[2]
+        binary_string = result[2]
         return binary_string
       else
         $stderr.puts result[3]
         raise "Error executing #{result[0]}. See stderr for more information"
       end
     end
-
-    def open plist
-      filename = plist.filename
+    
+    def open_with_args plist, filename
       result = ruby_cocoa_exec "open(\"#{filename}\")"
       case result[1].exitstatus
       when 0
-        hash = eval result[2]
+        hash = ::ActiveSupport::OrderedHash.new
+        eval("hash.replace("+result[2]+")")
         plist.import_hash hash
       else
         $stderr.puts result[3]
         raise "Error executing #{result[0]}. See stderr for more information"
       end
       file_format = Plist4r.file_detect_format filename
-      plist.file_format = file_format
+      plist.file_format file_format
       return plist
+    end
+
+    def from_string plist
+      require 'tempfile'
+      tf = Tempfile.new "from_string.plist."
+      tf.write plist.from_string
+      tf.close
+      filename = tf.path
+      return open_with_args plist, filename
+    end
+
+    def open plist
+      return open_with_args plist, plist.filename
     end
 
     def save hash, filename, file_format
@@ -178,7 +182,7 @@ EOC
       raise "#{self} - cant save file of format #{file_format}" unless [:xml,:binary].include? file_format
 
       hash = plist.to_hash
-      result = ruby_cocoa_exec "save(\"#{hash}\",#{filename},#{file_format})"
+      result = ruby_cocoa_exec "save(\"#{hash.inspect}\",#{filename},#{file_format})"
       case result[1].exitstatus
       when 0
         return true
