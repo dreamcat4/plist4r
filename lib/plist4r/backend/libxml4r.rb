@@ -54,8 +54,19 @@ module Plist4r::Backend::Libxml4r
       ::LibXML::XML.default_keep_blanks = false
       doc = string.to_xmldoc
       doc.strip!
+
       root = doc.node["/plist/dict"]
-      ordered_hash = tree_hash root
+      ordered_hash = nil
+      if root
+        ordered_hash = tree_hash root
+      else
+        root = doc.node["/plist/array"]
+        if root
+          ordered_hash = ::ActiveSupport::OrderedHash.new
+          ordered_hash["Array"] = tree_array root
+        end
+      end
+      ordered_hash
     end
 
     def from_string plist, string

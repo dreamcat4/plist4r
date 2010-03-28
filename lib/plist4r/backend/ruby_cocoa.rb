@@ -58,7 +58,15 @@ module Plist
 
   def open filename
     plist_dict = ::OSX::NSDictionary.dictionaryWithContentsOfFile(filename)
-    puts "#{plist_dict.to_ruby.inspect}"
+    if plist_dict
+      puts "#{plist_dict.to_ruby.inspect}"
+    else
+      plist_array = ::OSX::NSArray.arrayWithContentsOfFile(filename) unless plist_dict
+      raise "Couldnt parse file: #{filename}" unless plist_array
+      plist_dict = ::ActiveSupport::OrderedHash.new
+      plist_dict["Array"] = plist_array.to_ruby
+      puts "#{plist_dict.inspect}"
+    end
   end
 
   def save hash, filename, file_format

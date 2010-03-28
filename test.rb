@@ -5,9 +5,10 @@ require 'lib/plist4r'
 # puts "Backends = #{::Plist4r::Config[:backends].inspect}"
 # Plist4r.new
 
-p = Plist4r.open "plists/mini.xml"
+Plist4r::Config[:backends].replace ["haml","libxml4r"]
+p = Plist4r.open "plists/array_mini.xml"
 
-# puts p.inspect
+puts p.inspect
 # puts p.to_hash.inspect
 # puts p.to_xml
 
