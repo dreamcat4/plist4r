@@ -5,11 +5,11 @@
 
 Gem::Specification.new do |s|
   s.name = %q{plist4r}
-  s.version = "0.2.0"
+  s.version = "0.2.1"
 
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
   s.authors = ["dreamcat4"]
-  s.date = %q{2010-03-18}
+  s.date = %q{2010-03-27}
   s.description = %q{In development. Plist4R is a gem which is striving for 3 things: ease of use, speed, and reliability handling of plists. To help achieve these goals, we may plug-in or re-write this gem with one or several backends. Notably, we try to distinguish this gem by providing easy-to use DSL interface for users. For common plist type(s), such as convenience methods for Launchd Plist}
   s.email = %q{dreamcat4@gmail.com}
   s.extra_rdoc_files = [
@@ -49,6 +49,7 @@ Gem::Specification.new do |s|
      "lib/plist4r/plist_type/launchd.rb",
      "lib/plist4r/plist_type/plist.rb",
      "plist4r.gemspec",
+     "plists/array_mini.xml",
      "plists/example_big_binary.plist",
      "plists/example_medium_binary_launchd.plist",
      "plists/example_medium_launchd.xml",
@@ -63,7 +64,7 @@ Gem::Specification.new do |s|
   s.homepage = %q{http://github.com/dreamcat4/plist4r}
   s.rdoc_options = ["--charset=UTF-8"]
   s.require_paths = ["lib"]
-  s.rubygems_version = %q{1.3.5}
+  s.rubygems_version = %q{1.3.6}
   s.summary = %q{Dreamcat4's plist4r gem. For reading/writing plists in ruby}
   s.test_files = [
     "spec/examples.rb",
