@@ -55,3 +55,15 @@ rescue LoadError
     abort "YARD is not available. In order to run yardoc, you must: sudo gem install yard"
   end
 end
+
+Jeweler::GhpagesTasks.new do |ghpages|
+  ghpages.push_on_release   = true
+  ghpages.set_repo_homepage = true
+  ghpages.user_github_com   = false
+  ghpages.doc_task    = "yard"
+  ghpages.keep_files  = []
+  ghpages.map_paths   = {
+    "doc" => "",
+  }
+end
+
