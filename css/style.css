@@ -63,6 +63,11 @@ p.inherited {
 #info_box { position: relative; float: left; top: 0px; }
 /*#info_box { margin-top: 15px; margin-bottom: -30px; }*/
 
+#info_box { 
+	  border: 1px solid #aaa;
+	  border-width: 1px 1px 1px 1px;
+}
+
 #info_box a:link, #info_box a:visited { 
 	clear: both;
   display: inline;
@@ -94,22 +99,23 @@ dl.box dt {
   margin: 0;
   text-align: right;
   font-weight: bold;
-  border: 1px solid #aaa;
-  border-width: 1px 0px 0px 1px;
+/*  border: 1px solid #aaa;*/
+/*  border-width: 1px 0px 0px 1px;*/
   padding: 6px 0;
   padding-right: 10px;
 }
 dl.box dd {
   float: left;
-  min-width: 380px;
+  width: 380px;
+	word-wrap: break-word;
   margin: 0;
   padding: 6px 0;
   padding-right: 20px;
-  border: 1px solid #aaa;
-  border-width: 1px 1px 0 0;
+/*  border: 1px solid #aaa;*/
+/*  border-width: 1px 1px 0 0;*/
 }
 dl.box .last {
-  border-bottom: 1px solid #aaa;
+/*  border-bottom: 1px solid #aaa;*/
 }
 dl.box .r1 { background: #eee; }
 
