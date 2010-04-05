@@ -63,6 +63,7 @@ Jeweler::GhpagesTasks.new do |ghpages|
   ghpages.doc_task    = "yard"
   ghpages.keep_files  = []
   ghpages.map_paths   = {
+    ".nojekyll" => "",
     "doc" => "",
   }
 end
