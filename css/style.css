@@ -68,7 +68,7 @@ p.inherited {
 	  border-width: 1px 1px 1px 1px;
 }
 
-#info_box a:link, #info_box a:visited { 
+/*#info_box a:link, #info_box a:visited { 
 	clear: both;
   display: inline;
 	float: left; margin-right: 4px;
@@ -77,6 +77,7 @@ p.inherited {
   -moz-border-radius-bottomleft: 3px; -moz-border-radius-bottomright: 3px; 
   -webkit-border-bottom-left-radius: 3px; -webkit-border-bottom-right-radius: 3px;
 }
+*/
 #info_box a:hover { background: #eef; color: #06b; }
 #info_box a.active { 
   background: #568; padding-bottom: 20px; color: #fff; border: 1px solid #457; 
