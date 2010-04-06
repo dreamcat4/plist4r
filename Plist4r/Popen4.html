@@ -5,6 +5,7 @@
     <meta name="Content-Type" content="text/html; charset=utf-8" />
 <title>Module: Plist4r::Popen4</title>
 <link rel="stylesheet" href="../css/style.css" type="text/css" media="screen" charset="utf-8" />
+<link rel="stylesheet" href="../css/common.css" type="text/css" media="screen" charset="utf-8" />
 <link rel="stylesheet" href="../css/custom.css" type="text/css" media="screen" charset="utf-8" />
 
 <script type="text/javascript" charset="utf-8">
@@ -37,11 +38,11 @@
       <div id="search2">
   
   
-  <form class="search2" method="get" action="http://yardoc.org/search/yard"> 
+  <form class="search2" method="get" action="http://yardoc.org/search/plist4r"> 
     Search: <input name="q" type="search" placeholder="Search" id="search_box2" size="30" value="" /> 
   </form> 
   <script type="text/javascript" charset="utf-8"> 
-    $('#search_box2').autocomplete('http://yardoc.org/search/yard', {
+    $('#search_box2').autocomplete('http://yardoc.org/search/plist4r', {
       width: 340,
       formatItem: function(item) {
         var values = item[0].split(",");
@@ -50,7 +51,8 @@
     }).result(function(event, item) {
       var values = item[0].split(",")
       $('#search_box2').val(values[1]);
-      location.href = values[3];
+      <!-- location.href = values[3]; -->
+      location.href = 'http://pages.github.com';
       return false;
     });
   </script> 
@@ -80,6 +82,7 @@
     
       
     
+  
     
       <dt class="r1 last">Defined in:</dt>
       <dd class="r1 last">lib/plist4r/mixin/popen4.rb</dd>
@@ -516,7 +519,7 @@ Thanks Ara!
 </div>
     
     <div id="footer">
-  Generated on Mon Apr  5 21:01:26 2010 by 
+  Generated on Tue Apr  6 13:30:56 2010 by 
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool">yard</a>
   0.5.4  and the 
   <a href="http://github.com/dreamcat4/yard-slipstream">yard-slipstream</a> plugin
