@@ -1,0 +1,338 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+  <head>
+    <meta name="Content-Type" content="text/html; charset=utf-8" />
+<title>Documentation by YARD 0.5.4</title>
+<link rel="stylesheet" href="css/style.css" type="text/css" media="screen" charset="utf-8" />
+<link rel="stylesheet" href="css/common.css" type="text/css" media="screen" charset="utf-8" />
+<link rel="stylesheet" href="css/custom.css" type="text/css" media="screen" charset="utf-8" />
+
+<script type="text/javascript" charset="utf-8">
+  relpath = '';
+  if (relpath != '') relpath += '/';
+</script>
+<script type="text/javascript" charset="utf-8" src="js/jquery.js"></script>
+<script type="text/javascript" charset="utf-8" src="js/autocomplete.js"></script>
+<script type="text/javascript" charset="utf-8" src="js/app.js"></script>
+<script type="text/javascript" charset="utf-8" src="js/live.js"></script>
+
+  </head>
+  <body>
+    <script type="text/javascript" charset="utf-8">
+      if (window.top.frames.main) document.body.className = 'frames';
+    </script>
+    
+    <div id="header">
+      <div id="menu">
+  
+    <a href="object_index.html" title="Index">Index</a> &raquo; 
+    <span class="title">File: README</span>
+  
+  
+  <div class="noframes">
+    <span class="title"></span>
+    <a id="frames_link" class="link_disabled">Frames</a> | 
+    <a target="_top" id="noframes_link" class="link_disabled">No Frames</a>
+    <span class="title"></span>
+  </div>
+</div>
+
+      <div id="search2">
+  
+  
+  <div class="search2_center">
+    <form class="search2" onsubmit="return false;" action="">
+      <input name="q" type="search" placeholder="Search" id="search_box2" size="30" value="" />
+    </form>
+  </div>
+  <script type="text/javascript" charset="utf-8"> 
+    $('#search_box2').focus(function(){
+      var search_index = relpath + 'search_index.json';
+      jQuery.getJSON(search_index, go_data);
+
+      function go_data(adata) {
+        $('#search_box2').autocomplete(adata, {
+          width: 300,
+          matchContains: true,
+          formatItem: function(item) {
+            return item.text;
+          }
+        }).result(function(event, item) {
+          location.href = relpath + $(item.href_tag).attr("href");
+        });
+      }
+    });
+  </script> 
+</div>
+
+      <div class="clear"></div>
+    </div>
+    
+    <iframe id="search_frame"></iframe>
+    
+    <div id="content"><div id='filecontents'><h1>plist4r</h1>
+<p>
+Welcome to Plist4r, a ruby library for reading and writing plist files.
+</p>
+<p>
+Current status: `Beta`, 0.2.x series
+</p>
+<p>
+We can read / write a `:launchd` plist. So thats pretty good. The API
+interfaces (for the pluggable backends and plist_types) are not going to
+change any more. The user API seems to work. If anyone would like to review
+the Plist4r code and give feedback / suggestions. Now is the time (whilst
+were still in beta).
+</p>
+<p>
+Future `Stable` will be targeted, 0.3.x series.
+</p>
+<h2>Installation</h2>
+<pre class="code">
+  <span class='gem identifier id'>gem</span> <span class='install identifier id'>install</span> <span class='plist4r identifier id'>plist4r</span>
+</pre>
+<h2>Quick Start</h2>
+<pre class="code">
+  <span class='require identifier id'>require</span> <span class='string val'>'plist4r'</span>
+
+  <span class='Plist4r constant id'>Plist4r</span><span class='colon2 op'>::</span><span class='Config constant id'>Config</span><span class='dot token'>.</span><span class='default_dir identifier id'>default_dir</span> <span class='string val'>&quot;/Library/LaunchDaemons&quot;</span>
+  <span class='filename identifier id'>filename</span> <span class='assign token'>=</span> <span class='string val'>&quot;com.github.myservice.plist&quot;</span>
+  <span class='p identifier id'>p</span> <span class='assign token'>=</span> <span class='Plist4r constant id'>Plist4r</span><span class='dot token'>.</span><span class='open identifier id'>open</span><span class='lparen token'>(</span><span class='filename identifier id'>filename</span><span class='rparen token'>)</span>
+
+  <span class='p identifier id'>p</span><span class='dot token'>.</span><span class='plist_type identifier id'>plist_type</span>
+  <span class='comment val'># =&gt; :launchd</span>
+
+  <span class='p identifier id'>p</span><span class='dot token'>.</span><span class='file_format identifier id'>file_format</span>
+  <span class='comment val'># =&gt; :xml</span>
+
+  <span class='p identifier id'>p</span><span class='dot token'>.</span><span class='lshft op'>&lt;&lt;</span> <span class='do do kw'>do</span>
+    <span class='ProgramArguments constant id'>ProgramArguments</span> <span class='lbrack token'>[</span><span class='string val'>&quot;/usr/local/bin/myservice&quot;</span><span class='rbrack token'>]</span>
+  <span class='end end kw'>end</span>
+
+  <span class='p identifier id'>p</span><span class='dot token'>.</span><span class='edit identifier id'>edit</span> <span class='do do kw'>do</span>
+    <span class='WatchPaths constant id'>WatchPaths</span> <span class='lbrack token'>[</span><span class='string val'>&quot;/var/db/myservice&quot;</span><span class='rbrack token'>]</span>
+  <span class='end end kw'>end</span>
+
+  <span class='p identifier id'>p</span><span class='dot token'>.</span><span class='save identifier id'>save</span>
+</pre>
+<h2>Plist &#8216;Types&#8217;</h2>
+<p>
+A Plist type can be one of `%w[info launchd]`, and is the data type for the
+whole plist file. A plist data type can provide convenience methods to set
+Type-specific plist structures. For example &#8220;Sockets&#8221; in a
+launchd plist.
+</p>
+<p>
+Plist types are also useful to disallow keys which arent recognized or
+supported by that format. Flicking `:unsupported_keys` the Plist4r config
+will enable this:
+</p>
+<pre class="code">
+  <span class='colon3 op'>::</span><span class='Plist4r constant id'>Plist4r</span><span class='colon2 op'>::</span><span class='Config constant id'>Config</span><span class='lbrack token'>[</span><span class='symbol val'>:unsupported_keys</span><span class='rbrack token'>]</span> <span class='assign token'>=</span> <span class='false false kw'>false</span>
+</pre>
+<p>
+Or individually, per plist object with
+</p>
+<pre class="code">
+  <span class='plist identifier id'>plist</span><span class='dot token'>.</span><span class='unsupported_keys identifier id'>unsupported_keys</span> <span class='false false kw'>false</span>
+</pre>
+<p>
+Default is true, which allows editing of any plist keys. We think thats a
+good choice, since unsupported keys can already be present in existing
+plist files, which are loadable by Plist4r.
+</p>
+<h2>Plist4r Backends</h2>
+<p>
+There are now a number of ruby libraries which can read / write plist
+files. The aim of plist4r is to utilize the individual best features from
+all of those libraries, as a series of &#8220;backends&#8221;. And hide
+those behind a &#8220;frontend&#8221; that is easy to work with.
+</p>
+<p>
+Backends often only need to be a single ruby file, which implements the
+Plist4r API methods and calls out to other (existing) ruby code. No single
+backend has to provide the whole API. Instead, Plist4r simply iterates over
+all of the backends it knows about, and then calls the first backend that
+can responds to the API method.
+</p>
+<p>
+There are just 6 supported API methods
+</p>
+<pre class="code">
+  <span class='ApiMethods constant id'>ApiMethods</span> <span class='assign token'>=</span> <span class='dstring node'>%w[from_string to_xml to_binary to_next_step open save]</span>
+</pre>
+<p>
+And (as above) the 3 supported Plist file formats are
+</p>
+<pre class="code">
+  <span class='FileFormats constant id'>FileFormats</span> <span class='assign token'>=</span> <span class='dstring node'>%w[binary xml next_step]</span>
+</pre>
+<p>
+We believe thats allright for most uses, and decided to include `next_step`
+for completeness. `NextStep` is also known by other names such as
+`OpenStep` and (more updated version) `GNU Step`. For example the apple
+`defaults` command on Mac OS-X will still return `NextStep` formatted plist
+data.
+</p>
+<h2>More Examples</h2>
+<pre class="code">
+        <span class='module module kw'>module</span> <span class='colon3 op'>::</span><span class='Plist4r constant id'>Plist4r</span><span class='colon2 op'>::</span><span class='Backend constant id'>Backend</span><span class='colon2 op'>::</span><span class='MyPlistReaderWriter constant id'>MyPlistReaderWriter</span>
+          <span class='comment val'># implement some plist4r api calls here</span>
+        <span class='end end kw'>end</span>
+
+  <span class='comment val'># append my backend to the end of the list</span>
+        <span class='Plist4r constant id'>Plist4r</span><span class='colon2 op'>::</span><span class='Config constant id'>Config</span><span class='lbrack token'>[</span><span class='symbol val'>:backends</span><span class='rbrack token'>]</span> <span class='lshft op'>&lt;&lt;</span> <span class='symbol val'>:my_plist_reader_writer</span>
+
+        <span class='comment val'># or to the front of the list (executes first)</span>
+        <span class='Plist4r constant id'>Plist4r</span><span class='colon2 op'>::</span><span class='Config constant id'>Config</span><span class='lbrack token'>[</span><span class='symbol val'>:backends</span><span class='rbrack token'>]</span><span class='dot token'>.</span><span class='insert identifier id'>insert</span> <span class='integer val'>0</span> <span class='symbol val'>:my_plist_reader_writer</span>
+
+        <span class='comment val'># The default directory to load / save files from</span>
+        <span class='Plist4r constant id'>Plist4r</span><span class='colon2 op'>::</span><span class='Config constant id'>Config</span><span class='dot token'>.</span><span class='default_path identifier id'>default_path</span> <span class='string val'>&quot;/Library/Cars&quot;</span>
+
+        <span class='car identifier id'>car</span> <span class='assign token'>=</span> <span class='Plist4r constant id'>Plist4r</span><span class='dot token'>.</span><span class='new identifier id'>new</span><span class='lparen token'>(</span><span class='string val'>&quot;car.plist&quot;</span><span class='rparen token'>)</span>
+
+        <span class='car identifier id'>car</span><span class='dot token'>.</span><span class='load identifier id'>load</span>
+
+        <span class='car identifier id'>car</span><span class='dot token'>.</span><span class='file_format identifier id'>file_format</span> <span class='symbol val'>:binary</span>
+  <span class='comment val'># car.plist_type  :car # not implemented *yet*</span>
+
+        <span class='car identifier id'>car</span><span class='dot token'>.</span><span class='save identifier id'>save</span>
+
+        <span class='car identifier id'>car</span><span class='dot token'>.</span><span class='lshft op'>&lt;&lt;</span> <span class='do do kw'>do</span>
+          <span class='road_legal identifier id'>road_legal</span> <span class='true true kw'>true</span>
+          <span class='brake_light_color identifier id'>brake_light_color</span> <span class='string val'>&quot;red&quot;</span>
+        <span class='end end kw'>end</span>
+
+        <span class='car identifier id'>car</span><span class='dot token'>.</span><span class='save_as identifier id'>save_as</span><span class='lparen token'>(</span><span class='string val'>&quot;car2.plist&quot;</span><span class='comma token'>,</span> <span class='symbol val'>:binary</span> <span class='assign token'>=</span><span class='gt op'>&gt;</span> <span class='true true kw'>true</span><span class='rparen token'>)</span>
+
+        <span class='car identifier id'>car</span><span class='dot token'>.</span><span class='lshft op'>&lt;&lt;</span> <span class='do do kw'>do</span>
+          <span class='eyes identifier id'>eyes</span> <span class='string val'>&quot;blue&quot;</span>
+        <span class='end end kw'>end</span>
+        <span class='comment val'># =&gt; Exception, invalid plist key name &quot;Eyes&quot;</span>
+
+        <span class='car identifier id'>car</span><span class='dot token'>.</span><span class='lshft op'>&lt;&lt;</span> <span class='do do kw'>do</span>
+          <span class='tyres identifier id'>tyres</span> <span class='string val'>&quot;Pirelli&quot;</span>
+        <span class='end end kw'>end</span>
+
+        <span class='car identifier id'>car</span><span class='dot token'>.</span><span class='to_xml identifier id'>to_xml</span>
+        <span class='comment val'># =&gt; xml string</span>
+</pre>
+<h2>Remaining Work</h2>
+<p>
+Plist4r has now moved from alpha to beta - quality software. TBC&#8230;
+</p>
+<ul>
+<li>Regression Tests (rspec)
+
+</li>
+<li>Test harness for the backends
+
+</li>
+<li>Testing of the individual backends
+
+</li>
+<li>Tests for Plist Types
+
+</li>
+<li>RDoc Documentation
+
+</li>
+<li>Script for embedding / inlining Plist4r into Homebrew
+
+</li>
+<li>A Plist Type for Info.plist
+
+</li>
+<li>Command line interface (hopefully mixlib-cli)
+
+</li>
+</ul>
+<h2>Notes on Patches/Pull Requests</h2>
+<ul>
+<li>Fork the project, and create a topic branch as per <a
+href="http://wiki.opscode.com/display/opscode/Working<tt>with</tt>Git">these
+instructions</a>.
+
+</li>
+<li>Make your feature addition or bug fix.
+
+</li>
+<li>Include documentation for it.
+
+</li>
+<li>Include a regression test for it. So I dont break it in a future version
+unintentionally.
+
+</li>
+</ul>
+<h2>Contributors</h2>
+<p>
+Popen4
+</p>
+<ul>
+<li>Ara T Howard
+
+</li>
+</ul>
+<p>
+ActiveSupport::OrderedHash
+</p>
+<ul>
+<li>Copyright &#169; 2005 David Hansson,
+
+</li>
+<li>Copyright &#169; 2007 Mauricio Fernandez, Sam Stephenson
+
+</li>
+<li>Copyright &#169; 2008 Steve Purcell, Josh Peek
+
+</li>
+<li>Copyright &#169; 2009 Christoffer Sawicki
+
+</li>
+</ul>
+<p>
+Mixlib::Config
+</p>
+<ul>
+<li>Author:: Adam Jacob
+
+</li>
+<li>Author:: Nuo Yan
+
+</li>
+<li>Author:: Christopher Brown
+
+</li>
+<li>Copyright:: Copyright &#169; 2008 Opscode, Inc.
+
+</li>
+</ul>
+<p>
+Backends&#8230;
+</p>
+<p>
+Haml, Libxml4r, RubyCocoa
+</p>
+<ul>
+<li>Dreamcat4
+
+</li>
+</ul>
+<h2>Copyright</h2>
+<p>
+Copyright &#169; 2010 Dreamcat4. See LICENSE for details.
+</p>
+</div></div>
+    
+    <div id="footer">
+  Generated on Sat Apr 10 17:21:13 2010 by 
+  <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool">yard</a>
+  0.5.4  and the 
+  <a href="http://github.com/dreamcat4/yard-slipstream">yard-slipstream</a> plugin
+	(ruby-1.8.7).
+</div>
+
+  </body>
+</html>

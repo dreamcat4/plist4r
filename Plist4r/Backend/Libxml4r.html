@@ -1,0 +1,417 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+  <head>
+    <meta name="Content-Type" content="text/html; charset=utf-8" />
+<title>Module: Plist4r::Backend::Libxml4r</title>
+<link rel="stylesheet" href="../../css/style.css" type="text/css" media="screen" charset="utf-8" />
+<link rel="stylesheet" href="../../css/common.css" type="text/css" media="screen" charset="utf-8" />
+<link rel="stylesheet" href="../../css/custom.css" type="text/css" media="screen" charset="utf-8" />
+
+<script type="text/javascript" charset="utf-8">
+  relpath = '../..';
+  if (relpath != '') relpath += '/';
+</script>
+<script type="text/javascript" charset="utf-8" src="../../js/jquery.js"></script>
+<script type="text/javascript" charset="utf-8" src="../../js/autocomplete.js"></script>
+<script type="text/javascript" charset="utf-8" src="../../js/app.js"></script>
+<script type="text/javascript" charset="utf-8" src="../../js/live.js"></script>
+
+  </head>
+  <body>
+    <script type="text/javascript" charset="utf-8">
+      if (window.top.frames.main) document.body.className = 'frames';
+    </script>
+    
+    <div id="header">
+      <div id="menu">
+  
+    <a href="../../object_index.html">Index (L)</a> &raquo; 
+    <span class='title'><a href="../../Plist4r.html" title="Plist4r (module)">Plist4r</a></span> &raquo; <span class='title'><a href="../Backend.html" title="Plist4r::Backend (class)">Backend</a></span>
+     &raquo; 
+    <span class="title">Libxml4r</span>
+  
+  
+  <div class="noframes">
+    <span class="title"></span>
+    <a id="frames_link" class="link_disabled">Frames</a> | 
+    <a target="_top" id="noframes_link" class="link_disabled">No Frames</a>
+    <span class="title"></span>
+  </div>
+</div>
+
+      <div id="search2">
+  
+  
+  <div class="search2_center">
+    <form class="search2" onsubmit="return false;" action="">
+      <input name="q" type="search" placeholder="Search" id="search_box2" size="30" value="" />
+    </form>
+  </div>
+  <script type="text/javascript" charset="utf-8"> 
+    $('#search_box2').focus(function(){
+      var search_index = relpath + 'search_index.json';
+      jQuery.getJSON(search_index, go_data);
+
+      function go_data(adata) {
+        $('#search_box2').autocomplete(adata, {
+          width: 300,
+          matchContains: true,
+          formatItem: function(item) {
+            return item.text;
+          }
+        }).result(function(event, item) {
+          location.href = relpath + $(item.href_tag).attr("href");
+        });
+      }
+    });
+  </script> 
+</div>
+
+      <div class="clear"></div>
+    </div>
+    
+    <iframe id="search_frame"></iframe>
+    
+    <div id="content"><h1>Module: Plist4r::Backend::Libxml4r 
+  
+  
+</h1>
+
+<div id="info_box">
+  <dl class="box">
+    <!--  -->
+    
+      
+    
+      
+    
+  
+    
+      <dt class="r1 last">Defined in:</dt>
+      <dd class="r1 last">lib/plist4r/backend/libxml4r.rb</dd>
+    
+  </dl>
+</div>
+<div class="clear"></div>
+
+
+	<h3 class="inherited">Class Methods</h3>
+	    <ul id="methods_ribbon">
+	    
+	    
+	      <li class="r1"><a href="#from_string-class_method" title="Plist4r::Backend::Libxml4r.from_string (method)">from_string</a></li>
+	      
+	    
+	      <li class="r2"><a href="#open-class_method" title="Plist4r::Backend::Libxml4r.open (method)">open</a></li>
+	      
+	    
+	      <li class="r1"><a href="#parse_plist_xml-class_method" title="Plist4r::Backend::Libxml4r.parse_plist_xml (method)">parse_plist_xml</a></li>
+	      
+	    
+	      <li class="r2"><a href="#tree_array-class_method" title="Plist4r::Backend::Libxml4r.tree_array (method)">tree_array</a></li>
+	      
+	    
+	      <li class="r1"><a href="#tree_hash-class_method" title="Plist4r::Backend::Libxml4r.tree_hash (method)">tree_hash</a></li>
+	      
+	    
+	    </ul>
+
+
+
+
+
+  <div id="class_method_details" class="method_details_list">
+    <h2>Class Method Details</h2>
+    
+    
+      <div class="method_details first" id="from_string-class_method">
+  <p class="signature first"">
+  
+    + (<tt><a href="../../Object.html" title="Object (class)">Object</a></tt>) <strong>from_string</strong>(plist, string) 
+  
+
+  
+</p><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+72
+73
+74
+75
+76
+77
+78
+79</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/plist4r/backend/libxml4r.rb', line 72</span>
+
+<span class='def def kw'>def</span> <span class='from_string identifier id'>from_string</span> <span class='plist identifier id'>plist</span><span class='comma token'>,</span> <span class='string identifier id'>string</span>
+  <span class='plist_format identifier id'>plist_format</span> <span class='assign token'>=</span> <span class='Plist4r constant id'>Plist4r</span><span class='dot token'>.</span><span class='string_detect_format identifier id'>string_detect_format</span> <span class='string identifier id'>string</span>
+  <span class='raise identifier id'>raise</span> <span class='dstring node'>&quot;#{self} - cant convert string of format #{plist_format}&quot;</span> <span class='unless unless_mod kw'>unless</span> <span class='plist_format identifier id'>plist_format</span> <span class='eq op'>==</span> <span class='symbol val'>:xml</span>
+  <span class='hash identifier id'>hash</span> <span class='assign token'>=</span> <span class='parse_plist_xml identifier id'>parse_plist_xml</span> <span class='string identifier id'>string</span>
+  <span class='plist identifier id'>plist</span><span class='dot token'>.</span><span class='import_hash identifier id'>import_hash</span> <span class='hash identifier id'>hash</span>
+  <span class='plist identifier id'>plist</span><span class='dot token'>.</span><span class='file_format identifier id'>file_format</span> <span class='plist_format identifier id'>plist_format</span>
+  <span class='return return kw'>return</span> <span class='plist identifier id'>plist</span>
+<span class='end end kw'>end</span>
+</pre>
+    </td>
+  </tr>
+</table>
+</div>
+
+    
+      <div class="method_details " id="open-class_method">
+  <p class="signature "">
+  
+    + (<tt><a href="../../Object.html" title="Object (class)">Object</a></tt>) <strong>open</strong>(plist) 
+  
+
+  
+</p><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+81
+82
+83
+84
+85
+86
+87</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/plist4r/backend/libxml4r.rb', line 81</span>
+
+<span class='def def kw'>def</span> <span class='open identifier id'>open</span> <span class='plist identifier id'>plist</span>
+  <span class='filename identifier id'>filename</span> <span class='assign token'>=</span> <span class='plist identifier id'>plist</span><span class='dot token'>.</span><span class='filename_path identifier id'>filename_path</span>
+  <span class='file_format identifier id'>file_format</span> <span class='assign token'>=</span> <span class='Plist4r constant id'>Plist4r</span><span class='dot token'>.</span><span class='file_detect_format identifier id'>file_detect_format</span> <span class='filename identifier id'>filename</span>
+  <span class='raise identifier id'>raise</span> <span class='dstring node'>&quot;#{self} - cant load file of format #{file_format}&quot;</span> <span class='unless unless_mod kw'>unless</span> <span class='file_format identifier id'>file_format</span> <span class='eq op'>==</span> <span class='symbol val'>:xml</span>
+
+  <span class='return return kw'>return</span> <span class='from_string identifier id'>from_string</span> <span class='plist identifier id'>plist</span><span class='comma token'>,</span> <span class='File constant id'>File</span><span class='dot token'>.</span><span class='read identifier id'>read</span><span class='lparen token'>(</span><span class='filename identifier id'>filename</span><span class='rparen token'>)</span>
+<span class='end end kw'>end</span>
+</pre>
+    </td>
+  </tr>
+</table>
+</div>
+
+    
+      <div class="method_details " id="parse_plist_xml-class_method">
+  <p class="signature "">
+  
+    + (<tt><a href="../../Object.html" title="Object (class)">Object</a></tt>) <strong>parse_plist_xml</strong>(string) 
+  
+
+  
+</p><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+51
+52
+53
+54
+55
+56
+57
+58
+59
+60
+61
+62
+63
+64
+65
+66
+67
+68
+69
+70</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/plist4r/backend/libxml4r.rb', line 51</span>
+
+<span class='def def kw'>def</span> <span class='parse_plist_xml identifier id'>parse_plist_xml</span> <span class='string identifier id'>string</span>
+  <span class='require identifier id'>require</span> <span class='string val'>'rubygems'</span>
+  <span class='require identifier id'>require</span> <span class='string val'>'libxml4r'</span>
+  <span class='colon3 op'>::</span><span class='LibXML constant id'>LibXML</span><span class='colon2 op'>::</span><span class='XML constant id'>XML</span><span class='dot token'>.</span><span class='default_keep_blanks identifier id'>default_keep_blanks</span> <span class='assign token'>=</span> <span class='false false kw'>false</span>
+  <span class='doc identifier id'>doc</span> <span class='assign token'>=</span> <span class='string identifier id'>string</span><span class='dot token'>.</span><span class='to_xmldoc identifier id'>to_xmldoc</span>
+  <span class='doc identifier id'>doc</span><span class='dot token'>.</span><span class='strip! fid id'>strip!</span>
+
+  <span class='root identifier id'>root</span> <span class='assign token'>=</span> <span class='doc identifier id'>doc</span><span class='dot token'>.</span><span class='node identifier id'>node</span><span class='lbrack token'>[</span><span class='string val'>&quot;/plist/dict&quot;</span><span class='rbrack token'>]</span>
+  <span class='ordered_hash identifier id'>ordered_hash</span> <span class='assign token'>=</span> <span class='nil nil kw'>nil</span>
+  <span class='if if kw'>if</span> <span class='root identifier id'>root</span>
+    <span class='ordered_hash identifier id'>ordered_hash</span> <span class='assign token'>=</span> <span class='tree_hash identifier id'>tree_hash</span> <span class='root identifier id'>root</span>
+  <span class='else else kw'>else</span>
+    <span class='root identifier id'>root</span> <span class='assign token'>=</span> <span class='doc identifier id'>doc</span><span class='dot token'>.</span><span class='node identifier id'>node</span><span class='lbrack token'>[</span><span class='string val'>&quot;/plist/array&quot;</span><span class='rbrack token'>]</span>
+    <span class='if if kw'>if</span> <span class='root identifier id'>root</span>
+      <span class='ordered_hash identifier id'>ordered_hash</span> <span class='assign token'>=</span> <span class='colon3 op'>::</span><span class='ActiveSupport constant id'>ActiveSupport</span><span class='colon2 op'>::</span><span class='OrderedHash constant id'>OrderedHash</span><span class='dot token'>.</span><span class='new identifier id'>new</span>
+      <span class='ordered_hash identifier id'>ordered_hash</span><span class='lbrack token'>[</span><span class='string val'>&quot;Array&quot;</span><span class='rbrack token'>]</span> <span class='assign token'>=</span> <span class='tree_array identifier id'>tree_array</span> <span class='root identifier id'>root</span>
+    <span class='end end kw'>end</span>
+  <span class='end end kw'>end</span>
+  <span class='ordered_hash identifier id'>ordered_hash</span>
+<span class='end end kw'>end</span>
+</pre>
+    </td>
+  </tr>
+</table>
+</div>
+
+    
+      <div class="method_details " id="tree_array-class_method">
+  <p class="signature "">
+  
+    + (<tt><a href="../../Object.html" title="Object (class)">Object</a></tt>) <strong>tree_array</strong>(n) 
+  
+
+  
+</p><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/plist4r/backend/libxml4r.rb', line 30</span>
+
+<span class='def def kw'>def</span> <span class='tree_array identifier id'>tree_array</span> <span class='n identifier id'>n</span>
+  <span class='array identifier id'>array</span> <span class='assign token'>=</span> <span class='lbrack token'>[</span><span class='rbrack token'>]</span>
+  <span class='n identifier id'>n</span><span class='dot token'>.</span><span class='children identifier id'>children</span><span class='dot token'>.</span><span class='each identifier id'>each</span> <span class='do do kw'>do</span> <span class='bitor op'>|</span><span class='node identifier id'>node</span><span class='bitor op'>|</span>
+    <span class='case case kw'>case</span> <span class='node identifier id'>node</span><span class='dot token'>.</span><span class='name identifier id'>name</span>
+    <span class='when when kw'>when</span> <span class='string val'>&quot;true&quot;</span><span class='comma token'>,</span> <span class='string val'>&quot;false&quot;</span>
+      <span class='array identifier id'>array</span> <span class='lshft op'>&lt;&lt;</span> <span class='eval identifier id'>eval</span><span class='lparen token'>(</span><span class='node identifier id'>node</span><span class='dot token'>.</span><span class='name identifier id'>name</span><span class='rparen token'>)</span>
+    <span class='when when kw'>when</span> <span class='string val'>&quot;string&quot;</span>
+      <span class='array identifier id'>array</span> <span class='lshft op'>&lt;&lt;</span> <span class='node identifier id'>node</span><span class='dot token'>.</span><span class='inner_xml identifier id'>inner_xml</span>
+    <span class='when when kw'>when</span> <span class='string val'>&quot;integer&quot;</span>
+      <span class='array identifier id'>array</span> <span class='lshft op'>&lt;&lt;</span> <span class='node identifier id'>node</span><span class='dot token'>.</span><span class='inner_xml identifier id'>inner_xml</span><span class='dot token'>.</span><span class='to_i identifier id'>to_i</span>
+    <span class='when when kw'>when</span> <span class='string val'>&quot;array&quot;</span>
+      <span class='array identifier id'>array</span> <span class='lshft op'>&lt;&lt;</span> <span class='tree_array identifier id'>tree_array</span><span class='lparen token'>(</span><span class='node identifier id'>node</span><span class='rparen token'>)</span>
+    <span class='when when kw'>when</span> <span class='string val'>&quot;dict&quot;</span>
+      <span class='array identifier id'>array</span> <span class='lshft op'>&lt;&lt;</span> <span class='tree_hash identifier id'>tree_hash</span><span class='lparen token'>(</span><span class='node identifier id'>node</span><span class='rparen token'>)</span>
+    <span class='else else kw'>else</span>
+      <span class='raise identifier id'>raise</span> <span class='dstring node'>&quot;Unsupported / not recognized plist key: #{vnode.name}&quot;</span>
+    <span class='end end kw'>end</span>
+  <span class='end end kw'>end</span>
+  <span class='return return kw'>return</span> <span class='array identifier id'>array</span>
+<span class='end end kw'>end</span>
+</pre>
+    </td>
+  </tr>
+</table>
+</div>
+
+    
+      <div class="method_details " id="tree_hash-class_method">
+  <p class="signature "">
+  
+    + (<tt><a href="../../Object.html" title="Object (class)">Object</a></tt>) <strong>tree_hash</strong>(n) 
+  
+
+  
+</p><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/plist4r/backend/libxml4r.rb', line 6</span>
+
+<span class='def def kw'>def</span> <span class='tree_hash identifier id'>tree_hash</span> <span class='n identifier id'>n</span>
+  <span class='hash identifier id'>hash</span> <span class='assign token'>=</span> <span class='colon3 op'>::</span><span class='ActiveSupport constant id'>ActiveSupport</span><span class='colon2 op'>::</span><span class='OrderedHash constant id'>OrderedHash</span><span class='dot token'>.</span><span class='new identifier id'>new</span>
+  <span class='n_xml_keys identifier id'>n_xml_keys</span> <span class='assign token'>=</span> <span class='n identifier id'>n</span><span class='dot token'>.</span><span class='nodes identifier id'>nodes</span><span class='lbrack token'>[</span><span class='string val'>&quot;key&quot;</span><span class='rbrack token'>]</span>
+  <span class='n_xml_keys identifier id'>n_xml_keys</span><span class='dot token'>.</span><span class='each identifier id'>each</span> <span class='do do kw'>do</span> <span class='bitor op'>|</span><span class='n identifier id'>n</span><span class='bitor op'>|</span>
+    <span class='k identifier id'>k</span> <span class='assign token'>=</span> <span class='n identifier id'>n</span><span class='dot token'>.</span><span class='inner_xml identifier id'>inner_xml</span>
+    <span class='vnode identifier id'>vnode</span> <span class='assign token'>=</span> <span class='n identifier id'>n</span><span class='dot token'>.</span><span class='next identifier id'>next</span>
+    <span class='case case kw'>case</span> <span class='vnode identifier id'>vnode</span><span class='dot token'>.</span><span class='name identifier id'>name</span>
+    <span class='when when kw'>when</span> <span class='string val'>&quot;true&quot;</span><span class='comma token'>,</span> <span class='string val'>&quot;false&quot;</span>
+      <span class='hash identifier id'>hash</span><span class='lbrack token'>[</span><span class='k identifier id'>k</span><span class='rbrack token'>]</span> <span class='assign token'>=</span> <span class='eval identifier id'>eval</span><span class='lparen token'>(</span><span class='vnode identifier id'>vnode</span><span class='dot token'>.</span><span class='name identifier id'>name</span><span class='rparen token'>)</span>
+    <span class='when when kw'>when</span> <span class='string val'>&quot;string&quot;</span>
+      <span class='hash identifier id'>hash</span><span class='lbrack token'>[</span><span class='k identifier id'>k</span><span class='rbrack token'>]</span> <span class='assign token'>=</span> <span class='vnode identifier id'>vnode</span><span class='dot token'>.</span><span class='inner_xml identifier id'>inner_xml</span>
+    <span class='when when kw'>when</span> <span class='string val'>&quot;integer&quot;</span>
+      <span class='hash identifier id'>hash</span><span class='lbrack token'>[</span><span class='k identifier id'>k</span><span class='rbrack token'>]</span> <span class='assign token'>=</span> <span class='vnode identifier id'>vnode</span><span class='dot token'>.</span><span class='inner_xml identifier id'>inner_xml</span><span class='dot token'>.</span><span class='to_i identifier id'>to_i</span>
+    <span class='when when kw'>when</span> <span class='string val'>&quot;array&quot;</span>
+      <span class='hash identifier id'>hash</span><span class='lbrack token'>[</span><span class='k identifier id'>k</span><span class='rbrack token'>]</span> <span class='assign token'>=</span> <span class='tree_array identifier id'>tree_array</span><span class='lparen token'>(</span><span class='vnode identifier id'>vnode</span><span class='rparen token'>)</span>
+    <span class='when when kw'>when</span> <span class='string val'>&quot;dict&quot;</span>
+      <span class='hash identifier id'>hash</span><span class='lbrack token'>[</span><span class='k identifier id'>k</span><span class='rbrack token'>]</span> <span class='assign token'>=</span> <span class='tree_hash identifier id'>tree_hash</span><span class='lparen token'>(</span><span class='vnode identifier id'>vnode</span><span class='rparen token'>)</span>
+    <span class='else else kw'>else</span>
+      <span class='raise identifier id'>raise</span> <span class='dstring node'>&quot;Unsupported / not recognized plist key: #{vnode.name}&quot;</span>
+    <span class='end end kw'>end</span>
+  <span class='end end kw'>end</span>
+  <span class='return return kw'>return</span> <span class='hash identifier id'>hash</span>
+<span class='end end kw'>end</span>
+</pre>
+    </td>
+  </tr>
+</table>
+</div>
+
+    
+  </div>
+
+</div>
+    
+    <div id="footer">
+  Generated on Sat Apr 10 17:21:18 2010 by 
+  <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool">yard</a>
+  0.5.4  and the 
+  <a href="http://github.com/dreamcat4/yard-slipstream">yard-slipstream</a> plugin
+	(ruby-1.8.7).
+</div>
+
+  </body>
+</html>
