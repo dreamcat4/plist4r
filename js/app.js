@@ -86,8 +86,13 @@ function linkSummaries() {
 function framesInit() {
   if (window.top.frames.main) {
     document.body.className = 'frames';
-    $('#menu .noframes a').attr('href', document.location);
+    $('#noframes_link').attr('href', document.location);
+    $('#noframes_link').removeClass('link_disabled');
   }
+	else {
+    $('#frames_link').attr('href', relpath+"frames.html");
+    $('#frames_link').removeClass('link_disabled');
+	}
 }
 
 function keyboardShortcuts() {

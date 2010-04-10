@@ -32,15 +32,22 @@
     <span class="title">Plist</span>
   
   
-  <div class="noframes"><span class="title">(</span><a href="." target="_top">no frames</a><span class="title">)</span></div>
+  <div class="noframes">
+    <span class="title"></span>
+    <a id="frames_link" class="link_disabled">Frames</a> | 
+    <a target="_top" id="noframes_link" class="link_disabled">No Frames</a>
+    <span class="title"></span>
+  </div>
 </div>
 
       <div id="search2">
   
   
-  <form class="search2" method="get" action="http://yardoc.org/search/yard"> 
-    Search: <input name="q" type="search" placeholder="Search" id="search_box2" size="30" value="" /> 
-  </form> 
+  <div class="search2_center">
+    <form class="search2" onsubmit="return false;" action="">
+      <input name="q" type="search" placeholder="Search" id="search_box2" size="30" value="" />
+    </form>
+  </div>
   <script type="text/javascript" charset="utf-8"> 
     $('#search_box2').focus(function(){
       var search_index = relpath + 'search_index.json';
@@ -48,7 +55,7 @@
 
       function go_data(adata) {
         $('#search_box2').autocomplete(adata, {
-          width: 340,
+          width: 300,
           matchContains: true,
           formatItem: function(item) {
             return item.text;
@@ -59,12 +66,6 @@
       }
     });
   </script> 
-  <style> 
-    .frames form.search2 { position: absolute; right: 14px; top: -6px; padding-top: 10px; }
-    .frames #menu .noframes { float: none; }
-    .frames #menu { float: left; }
-    .frames #content h1 { margin-top: 15px; }
-  </style> 
 </div>
 
       <div class="clear"></div>
@@ -208,7 +209,7 @@
 </div>
     
     <div id="footer">
-  Generated on Sat Apr 10 08:59:20 2010 by 
+  Generated on Sat Apr 10 17:19:08 2010 by 
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool">yard</a>
   0.5.4  and the 
   <a href="http://github.com/dreamcat4/yard-slipstream">yard-slipstream</a> plugin
