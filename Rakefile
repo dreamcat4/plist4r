@@ -47,13 +47,9 @@ end
 
 task :default => :spec
 
-begin
-  require 'yard'
-  YARD::Rake::YardocTask.new
-rescue LoadError
-  task :yardoc do
-    abort "YARD is not available. In order to run yardoc, you must: sudo gem install yard"
-  end
+require 'yard'
+YARD::Rake::YardocTask.new do |t|
+  t.after = lambda { `touch doc/.nojekyll` }
 end
 
 Jeweler::GhpagesTasks.new do |ghpages|
