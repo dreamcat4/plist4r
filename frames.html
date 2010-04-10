@@ -6,6 +6,13 @@
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
 	<title>Documentation by YARD 0.5.4</title>
 	<script language="JavaScript">
+		function BustFrames()
+		{
+			if (self.parent.frames.length!=0)
+			{
+				self.parent.location.replace(document.location.href);
+			}
+		}
 		function frame_saver()
 		{
 			if (self.location.search)
@@ -20,7 +27,7 @@
 		window.onload = frame_saver;
 	</script>
 </head>
-<frameset cols="20%,*">
+<frameset cols="20%,*" border="1" bordercolor="CCC">
   <frame name="list" src="class_list.html" />
   <frame name="main" />
 </frameset>

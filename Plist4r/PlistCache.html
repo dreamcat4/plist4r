@@ -12,6 +12,7 @@
   relpath = '..';
   if (relpath != '') relpath += '/';
 </script>
+<base id="base_target" target="_top" />
 <script type="text/javascript" charset="utf-8" src="../js/jquery.js"></script>
 <script type="text/javascript" charset="utf-8" src="../js/autocomplete.js"></script>
 <script type="text/javascript" charset="utf-8" src="../js/app.js"></script>
@@ -26,8 +27,10 @@
     <div id="header">
       <div id="menu">
   
-    <a href="../object_index.html">Index (P)</a> &raquo; 
-    <span class='title'><a href="../Plist4r.html" title="Plist4r (module)">Plist4r</a></span>
+		
+			<a href="object_index.html" target="_self" title="Index (P)">Index (P)</a>
+		 &raquo; 
+    <span class='title'><a href="../Plist4r.html" target="_self" title="Plist4r (module)">Plist4r</a></span>
      &raquo; 
     <span class="title">PlistCache</span>
   
@@ -80,22 +83,6 @@
 
 <div id="info_box">
   <dl class="box">
-    <!-- 
-      <dt class="r1">Inherits:</dt>
-      <dd class="r1">
-        <span class="inheritName"><a href="../Object.html" title="Object (class)">Object</a></span>
-        
-          <ul class="fullTree">
-            <li><a href="../Object.html" title="Object (class)">Object</a></li>
-            
-              <li class="next">Plist4r::PlistCache</li>
-            
-          </ul>
-          <a href="#" class="inheritanceTree">show all</a>
-        
-        </dd>
-      
-     -->
     
       
     
@@ -103,8 +90,8 @@
     
   
     
-      <dt class="r2 last">Defined in:</dt>
-      <dd class="r2 last">lib/plist4r/plist_cache.rb</dd>
+      <dt class="r1 last">Defined in:</dt>
+      <dd class="r1 last">lib/plist4r/plist_cache.rb</dd>
     
   </dl>
 </div>
@@ -115,37 +102,37 @@
 	    <ul id="methods_ribbon">
 	    
 	    
-	      <li class="r1"><a href="#checksum-instance_method" title="Plist4r::PlistCache#checksum (method)">checksum</a></li>
+	      <li class="r1"><a href="#checksum-instance_method" target="_self" title="Plist4r::PlistCache#checksum (method)">checksum</a></li>
 	      
 	    
-	      <li class="r2"><a href="#from_string-instance_method" title="Plist4r::PlistCache#from_string (method)">from_string</a></li>
+	      <li class="r2"><a href="#from_string-instance_method" target="_self" title="Plist4r::PlistCache#from_string (method)">from_string</a></li>
 	      
 	    
-	      <li class="r1"><a href="#initialize-instance_method" title="Plist4r::PlistCache#initialize (method)">initialize</a></li>
+	      <li class="r1"><a href="#initialize-instance_method" target="_self" title="Plist4r::PlistCache#initialize (method)">initialize</a></li>
 	      
 	    
-	      <li class="r2"><a href="#last_checksum-instance_method" title="Plist4r::PlistCache#last_checksum (method)">last_checksum</a></li>
+	      <li class="r2"><a href="#last_checksum-instance_method" target="_self" title="Plist4r::PlistCache#last_checksum (method)">last_checksum</a></li>
 	      
 	    
-	      <li class="r1"><a href="#needs_update-instance_method" title="Plist4r::PlistCache#needs_update (method)">needs_update</a></li>
+	      <li class="r1"><a href="#needs_update-instance_method" target="_self" title="Plist4r::PlistCache#needs_update (method)">needs_update</a></li>
 	      
 	    
-	      <li class="r2"><a href="#open-instance_method" title="Plist4r::PlistCache#open (method)">open</a></li>
+	      <li class="r2"><a href="#open-instance_method" target="_self" title="Plist4r::PlistCache#open (method)">open</a></li>
 	      
 	    
-	      <li class="r1"><a href="#save-instance_method" title="Plist4r::PlistCache#save (method)">save</a></li>
+	      <li class="r1"><a href="#save-instance_method" target="_self" title="Plist4r::PlistCache#save (method)">save</a></li>
 	      
 	    
-	      <li class="r2"><a href="#to_binary-instance_method" title="Plist4r::PlistCache#to_binary (method)">to_binary</a></li>
+	      <li class="r2"><a href="#to_binary-instance_method" target="_self" title="Plist4r::PlistCache#to_binary (method)">to_binary</a></li>
 	      
 	    
-	      <li class="r1"><a href="#to_next_step-instance_method" title="Plist4r::PlistCache#to_next_step (method)">to_next_step</a></li>
+	      <li class="r1"><a href="#to_next_step-instance_method" target="_self" title="Plist4r::PlistCache#to_next_step (method)">to_next_step</a></li>
 	      
 	    
-	      <li class="r2"><a href="#to_xml-instance_method" title="Plist4r::PlistCache#to_xml (method)">to_xml</a></li>
+	      <li class="r2"><a href="#to_xml-instance_method" target="_self" title="Plist4r::PlistCache#to_xml (method)">to_xml</a></li>
 	      
 	    
-	      <li class="r1"><a href="#update_checksum-instance_method" title="Plist4r::PlistCache#update_checksum (method)">update_checksum</a></li>
+	      <li class="r1"><a href="#update_checksum-instance_method" target="_self" title="Plist4r::PlistCache#update_checksum (method)">update_checksum</a></li>
 	      
 	    
 	    </ul>
@@ -159,7 +146,7 @@
     <div class="method_details first" id="initialize-instance_method">
   <p class="signature first"">
   
-    - (<tt><a href="" title="Plist4r::PlistCache (class)">PlistCache</a></tt>) <strong>initialize</strong>(plist, *args, &amp;blk) 
+    - (<tt><a href="" target="_self" title="Plist4r::PlistCache (class)">PlistCache</a></tt>) <strong>initialize</strong>(plist, *args, &amp;blk) 
   
 
   
@@ -208,7 +195,7 @@ A new instance of PlistCache
       <div class="method_details first" id="checksum-instance_method">
   <p class="signature first"">
   
-    - (<tt><a href="../Object.html" title="Object (class)">Object</a></tt>) <strong>checksum</strong> 
+    - (<tt><a href="../Object.html" target="_self" title="Object (class)">Object</a></tt>) <strong>checksum</strong> 
   
 
   
@@ -238,7 +225,7 @@ A new instance of PlistCache
       <div class="method_details " id="from_string-instance_method">
   <p class="signature "">
   
-    - (<tt><a href="../Object.html" title="Object (class)">Object</a></tt>) <strong>from_string</strong> 
+    - (<tt><a href="../Object.html" target="_self" title="Object (class)">Object</a></tt>) <strong>from_string</strong> 
   
 
   
@@ -274,7 +261,7 @@ A new instance of PlistCache
       <div class="method_details " id="last_checksum-instance_method">
   <p class="signature "">
   
-    - (<tt><a href="../Object.html" title="Object (class)">Object</a></tt>) <strong>last_checksum</strong> 
+    - (<tt><a href="../Object.html" target="_self" title="Object (class)">Object</a></tt>) <strong>last_checksum</strong> 
   
 
   
@@ -304,7 +291,7 @@ A new instance of PlistCache
       <div class="method_details " id="needs_update-instance_method">
   <p class="signature "">
   
-    - (<tt><a href="../Object.html" title="Object (class)">Object</a></tt>) <strong>needs_update</strong> 
+    - (<tt><a href="../Object.html" target="_self" title="Object (class)">Object</a></tt>) <strong>needs_update</strong> 
   
 
   
@@ -334,7 +321,7 @@ A new instance of PlistCache
       <div class="method_details " id="open-instance_method">
   <p class="signature "">
   
-    - (<tt><a href="../Object.html" title="Object (class)">Object</a></tt>) <strong>open</strong> 
+    - (<tt><a href="../Object.html" target="_self" title="Object (class)">Object</a></tt>) <strong>open</strong> 
   
 
   
@@ -370,7 +357,7 @@ A new instance of PlistCache
       <div class="method_details " id="save-instance_method">
   <p class="signature "">
   
-    - (<tt><a href="../Object.html" title="Object (class)">Object</a></tt>) <strong>save</strong> 
+    - (<tt><a href="../Object.html" target="_self" title="Object (class)">Object</a></tt>) <strong>save</strong> 
   
 
   
@@ -410,7 +397,7 @@ A new instance of PlistCache
       <div class="method_details " id="to_binary-instance_method">
   <p class="signature "">
   
-    - (<tt><a href="../Object.html" title="Object (class)">Object</a></tt>) <strong>to_binary</strong> 
+    - (<tt><a href="../Object.html" target="_self" title="Object (class)">Object</a></tt>) <strong>to_binary</strong> 
   
 
   
@@ -450,7 +437,7 @@ A new instance of PlistCache
       <div class="method_details " id="to_next_step-instance_method">
   <p class="signature "">
   
-    - (<tt><a href="../Object.html" title="Object (class)">Object</a></tt>) <strong>to_next_step</strong> 
+    - (<tt><a href="../Object.html" target="_self" title="Object (class)">Object</a></tt>) <strong>to_next_step</strong> 
   
 
   
@@ -490,7 +477,7 @@ A new instance of PlistCache
       <div class="method_details " id="to_xml-instance_method">
   <p class="signature "">
   
-    - (<tt><a href="../Object.html" title="Object (class)">Object</a></tt>) <strong>to_xml</strong> 
+    - (<tt><a href="../Object.html" target="_self" title="Object (class)">Object</a></tt>) <strong>to_xml</strong> 
   
 
   
@@ -532,7 +519,7 @@ A new instance of PlistCache
       <div class="method_details " id="update_checksum-instance_method">
   <p class="signature "">
   
-    - (<tt><a href="../Object.html" title="Object (class)">Object</a></tt>) <strong>update_checksum</strong> 
+    - (<tt><a href="../Object.html" target="_self" title="Object (class)">Object</a></tt>) <strong>update_checksum</strong> 
   
 
   
@@ -564,7 +551,7 @@ A new instance of PlistCache
 </div>
     
     <div id="footer">
-  Generated on Sat Apr 10 21:51:41 2010 by 
+  Generated on Sat Apr 10 23:56:30 2010 by 
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool">yard</a>
   0.5.4  and the 
   <a href="http://github.com/dreamcat4/yard-slipstream">yard-slipstream</a> plugin
