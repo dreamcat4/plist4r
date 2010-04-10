@@ -26,7 +26,7 @@
     <div id="header">
       <div id="menu">
   
-    <a href="_index.html">Index (O)</a> &raquo; 
+    <a href="object_index.html">Index (O)</a> &raquo; 
     
     
     <span class="title">ObjectPreInitialize</span>
@@ -42,18 +42,21 @@
     Search: <input name="q" type="search" placeholder="Search" id="search_box2" size="30" value="" /> 
   </form> 
   <script type="text/javascript" charset="utf-8"> 
-    $('#search_box2').autocomplete('http://yardoc.org/search/yard', {
-      width: 340,
-      formatItem: function(item) {
-        var values = item[0].split(",");
-        return values[0] + (values[1] == '' ? "" : " <small>(" + values[1] + ")</small>");
+    $('#search_box2').focus(function(){
+      var search_index = relpath + 'search_index.json';
+      jQuery.getJSON(search_index, go_data);
+
+      function go_data(adata) {
+        $('#search_box2').autocomplete(adata, {
+          width: 340,
+          matchContains: true,
+          formatItem: function(item) {
+            return item.text;
+          }
+        }).result(function(event, item) {
+          location.href = relpath + $(item.href_tag).attr("href");
+        });
       }
-    }).result(function(event, item) {
-      var values = item[0].split(",")
-      $('#search_box2').val(values[1]);
-      <!-- location.href = values[3]; -->
-      location.href = 'http://pages.github.com';
-      return false;
     });
   </script> 
   <style> 
@@ -99,7 +102,7 @@
 </div>
     
     <div id="footer">
-  Generated on Tue Apr  6 13:32:10 2010 by 
+  Generated on Sat Apr 10 08:04:30 2010 by 
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool">yard</a>
   0.5.4  and the 
   <a href="http://github.com/dreamcat4/yard-slipstream">yard-slipstream</a> plugin

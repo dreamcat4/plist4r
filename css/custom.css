@@ -75,7 +75,7 @@ form.search2 {
 form.search2 input { margin-left: 5px; width: 250px; border: 1px solid #99f; -moz-border-radius: 3px; font-family: monospace; }
 
 #search2 { position: absolute; right: 0px; top: 0px; }
-#search2 { float: right; }
+#search2 { float: right; z-index: 1; }
 
 #menu { padding-top: 5px; }
 #content h1 { margin-top: 0; border-top: 0; }
