@@ -18,7 +18,7 @@ function createDefineLinks() {
         tHeight = $(this).parent().prev().height();
         $(this).prev().show();
         $(this).parent().prev().height($(this).parent().height());
-        $(this).text("(less)");
+        $(this).text("...less");
     },
     function() {
         $(this).prev().hide();
