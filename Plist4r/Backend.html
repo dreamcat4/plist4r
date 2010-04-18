@@ -28,7 +28,7 @@
       <div id="menu">
   
 		
-			<a href="object_index.html" target="_self" title="Index (B)">Index (B)</a>
+			<a href="../object_index.html" target="_self" title="Index (B)">Index (B)</a>
 		 &raquo;
     <span class='title'><a href="../Plist4r.html" target="_self" title="Plist4r (module)">Plist4r</a></span>
      &raquo; 
@@ -64,7 +64,11 @@
             return item.text;
           }
         }).result(function(event, item) {
-          location.href = relpath + $(item.href_tag).attr("href");
+					if (window.location.search) {
+	          window.location.href = relpath + $(item.href_tag).attr("href");
+					} else {
+	          location.href = relpath + $(item.href_tag).attr("href");						
+					}
         });
       }
     });
@@ -94,7 +98,6 @@
   		
   lib/plist4r/backend.rb<span class="defines">,<br />
     lib/plist4r/backend_base.rb</span>
-  
 
 
 		</dd>
@@ -144,13 +147,45 @@
 	    </ul>
 
 
+<h2>Overview</h2><div class="docstring">
+  <div class="discussion">
+    <p>
+This class is the Backend broker. The purpose of this object is to manage
+and handle API calls, passing them over to the appropriate Plist4r
+backends.
+</p>
 
+
+  </div>
+</div>
+<div class="tags">
+  
+</div>
   <h2>Constant Summary</h2>
   
     <dl class="constants">
       
         <dt id="ApiMethods-constant" class="">ApiMethods =
-          
+          <div class="docstring">
+  <div class="discussion">
+    <p>
+The list of known backend API methods. Any combination or subset of API
+methods can be implemented by an individual backend.
+</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+  <h3>See Also:</h3>
+  <ul class="see">
+    
+      <li><a href="Backend/Example.html" target="_self" title="Plist4r::Backend::Example (module)">Plist4r::Backend::Example</a></li>
+    
+  </ul>
+
+</div>
         </dt>
         <dd><pre class="code"><span class='dstring node'>%w[from_string to_xml to_binary to_next_step open save]</span>
 </pre></dd>
@@ -172,7 +207,9 @@
 </p><div class="docstring">
   <div class="discussion">
     <p>
-A new instance of Backend
+A new instance of Backend. A single Backend will exist for the the life of
+the Plist object. The attribute @plist is set during initialization and
+refers back to the plist instance object.
 </p>
 
 
@@ -186,22 +223,22 @@ A new instance of Backend
       <pre class="lines">
 
 
-10
-11
-12
-13
-14
-15
-16
-17
 18
 19
 20
 21
-22</pre>
+22
+23
+24
+25
+26
+27
+28
+29
+30</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/plist4r/backend.rb', line 10</span>
+      <pre class="code"><span class="info file"># File 'lib/plist4r/backend.rb', line 18</span>
 
 <span class='def def kw'>def</span> <span class='initialize identifier id'>initialize</span> <span class='plist identifier id'>plist</span><span class='comma token'>,</span> <span class='mult op'>*</span><span class='args identifier id'>args</span><span class='comma token'>,</span> <span class='bitand op'>&amp;</span><span class='blk identifier id'>blk</span>
   <span class='@plist ivar id'>@plist</span> <span class='assign token'>=</span> <span class='plist identifier id'>plist</span>
@@ -239,41 +276,90 @@ A new instance of Backend
 </p><div class="docstring">
   <div class="discussion">
     <p>
-vv We need a version of this to call our matrix test harness vv
+vv We need a version of this to call our matrix test harness vv Call a
+Plist4r API Method. Here, we usually pass a <tt><a href="Plist.html" target="_self" title="Plist4r::Plist (class)">Plist4r::Plist</a></tt> object as one
+of the parameters, which will also contain all the input data to work on.
+</p>
+<p>
+This function loops through the array of available backends, and calls the
+same method on the first backend found to implemente the specific request.
+</p>
+<p>
+If the request fails, the call is re-executed on the next available
+backend.
+</p>
+<p>
+The plist object is updated in-place.
 </p>
 
 
   </div>
 </div>
 <div class="tags">
+  <h3>Parameters:</h3>
+<ul class="param">
   
+    <li>
+      
+        <span class='type'>(<tt>Symbol</tt>)</span>
+      
+      
+        <span class='name'>method_sym</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'><p>
+The API method call to execute
+</p>
+</div>
+      
+    </li>
+  
+    <li>
+      
+        <span class='type'></span>
+      
+      
+        <span class='name'>*args</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'><p>
+Any optional arguments to pass to the backend
+</p>
+</div>
+      
+    </li>
+  
+</ul>
+<h3>Raises:</h3>
+<ul class="raise">
+  
+    <li>
+      
+        <span class='type'></span>
+      
+      
+      
+      
+        
+        <div class='inline'><p>
+if no backend is able to sucessfully execute the request.
+</p>
+</div>
+      
+    </li>
+  
+</ul>
+
 </div><table class="source_code">
   <tr>
     <td>
       <pre class="lines">
 
 
-26
-27
-28
-29
-30
-31
-32
-33
-34
-35
-36
-37
-38
-39
-40
-41
-42
-43
-44
-45
-46
 47
 48
 49
@@ -286,10 +372,31 @@ vv We need a version of this to call our matrix test harness vv
 56
 57
 58
-59</pre>
+59
+60
+61
+62
+63
+64
+65
+66
+67
+68
+69
+70
+71
+72
+73
+74
+75
+76
+77
+78
+79
+80</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/plist4r/backend.rb', line 26</span>
+      <pre class="code"><span class="info file"># File 'lib/plist4r/backend.rb', line 47</span>
 
 <span class='def def kw'>def</span> <span class='call identifier id'>call</span> <span class='method_sym identifier id'>method_sym</span><span class='comma token'>,</span> <span class='mult op'>*</span><span class='args identifier id'>args</span><span class='comma token'>,</span> <span class='bitand op'>&amp;</span><span class='blk identifier id'>blk</span>
   <span class='comment val'># puts &quot;in call&quot;</span>
@@ -337,7 +444,7 @@ vv We need a version of this to call our matrix test harness vv
 </div>
     
     <div id="footer">
-  Generated on Sun Apr 11 16:45:55 2010 by 
+  Generated on Fri Apr 16 16:22:53 2010 by 
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool">yard</a>
   0.5.4  and the 
   <a href="http://github.com/dreamcat4/yard-slipstream">yard-slipstream</a> plugin

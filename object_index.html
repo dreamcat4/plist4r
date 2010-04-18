@@ -60,7 +60,11 @@
             return item.text;
           }
         }).result(function(event, item) {
-          location.href = relpath + $(item.href_tag).attr("href");
+					if (window.location.search) {
+	          window.location.href = relpath + $(item.href_tag).attr("href");
+					} else {
+	          location.href = relpath + $(item.href_tag).attr("href");						
+					}
         });
       }
     });
@@ -103,7 +107,16 @@
             <ul>
               
                 <li>
-                  <a href="ActiveSupport.html" target="_self" title="ActiveSupport (module)">ActiveSupport</a> 
+                  <a href="Plist4r/ActiveSupport.html" target="_self" title="Plist4r::ActiveSupport (module)">ActiveSupport</a> 
+                  
+                    <small>(Plist4r)</small>
+                  
+                </li>
+              
+                <li>
+                  <a href="Plist4r/Application.html" target="_self" title="Plist4r::Application (class)">Application</a> 
+                  
+                    <small>(Plist4r)</small>
                   
                 </li>
               
@@ -138,14 +151,37 @@
             <ul>
               
                 <li>
-                  <a href="ClassAttributes.html" target="_self" title="ClassAttributes (module)">ClassAttributes</a> 
+                  <a href="Plist4r/CLI.html" target="_self" title="Plist4r::CLI (class)">CLI</a> 
+                  
+                    <small>(Plist4r)</small>
                   
                 </li>
               
                 <li>
-                  <a href="Mixlib/Config.html" target="_self" title="Mixlib::Config (module)">Config</a> 
+                  <a href="Plist4r/Mixlib/CLI.html" target="_self" title="Plist4r::Mixlib::CLI (module)">CLI</a> 
                   
-                    <small>(Mixlib)</small>
+                    <small>(Plist4r::Mixlib)</small>
+                  
+                </li>
+              
+                <li>
+                  <a href="Plist4r/Mixlib/CLI/ClassMethods.html" target="_self" title="Plist4r::Mixlib::CLI::ClassMethods (module)">ClassMethods</a> 
+                  
+                    <small>(Plist4r::Mixlib::CLI)</small>
+                  
+                </li>
+              
+                <li>
+                  <a href="Plist4r/Commands.html" target="_self" title="Plist4r::Commands (class)">Commands</a> 
+                  
+                    <small>(Plist4r)</small>
+                  
+                </li>
+              
+                <li>
+                  <a href="Plist4r/Mixlib/Config.html" target="_self" title="Plist4r::Mixlib::Config (module)">Config</a> 
+                  
+                    <small>(Plist4r::Mixlib)</small>
                   
                 </li>
               
@@ -279,7 +315,9 @@
                 </li>
               
                 <li>
-                  <a href="Mixlib.html" target="_self" title="Mixlib (module)">Mixlib</a> 
+                  <a href="Plist4r/Mixlib.html" target="_self" title="Plist4r::Mixlib (module)">Mixlib</a> 
+                  
+                    <small>(Plist4r)</small>
                   
                 </li>
               
@@ -297,26 +335,16 @@
                 </li>
               
                 <li>
-                  <a href="ObjectPreInitialize.html" target="_self" title="ObjectPreInitialize (module)">ObjectPreInitialize</a> 
-                  
-                </li>
-              
-                <li>
-                  <a href="Plist4r/OldPlist.html" target="_self" title="Plist4r::OldPlist (class)">OldPlist</a> 
+                  <a href="Plist4r/OrderedHash.html" target="_self" title="Plist4r::OrderedHash (class)">OrderedHash</a> 
                   
                     <small>(Plist4r)</small>
                   
                 </li>
               
                 <li>
-                  <a href="ActiveSupport/OrderedHash.html" target="_self" title="ActiveSupport::OrderedHash (class)">OrderedHash</a> 
+                  <a href="Plist4r/ActiveSupport/OrderedHash.html" target="_self" title="Plist4r::ActiveSupport::OrderedHash (class)">OrderedHash</a> 
                   
-                    <small>(ActiveSupport)</small>
-                  
-                </li>
-              
-                <li>
-                  <a href="OverloadNew.html" target="_self" title="OverloadNew (module)">OverloadNew</a> 
+                    <small>(Plist4r::ActiveSupport)</small>
                   
                 </li>
               
@@ -329,16 +357,16 @@
             <ul>
               
                 <li>
-                  <a href="Plist4r/PlistType/Plist.html" target="_self" title="Plist4r::PlistType::Plist (class)">Plist</a> 
+                  <a href="Plist4r/Plist.html" target="_self" title="Plist4r::Plist (class)">Plist</a> 
                   
-                    <small>(Plist4r::PlistType)</small>
+                    <small>(Plist4r)</small>
                   
                 </li>
               
                 <li>
-                  <a href="Plist4r/Plist.html" target="_self" title="Plist4r::Plist (class)">Plist</a> 
+                  <a href="Plist4r/PlistType/Plist.html" target="_self" title="Plist4r::PlistType::Plist (class)">Plist</a> 
                   
-                    <small>(Plist4r)</small>
+                    <small>(Plist4r::PlistType)</small>
                   
                 </li>
               
@@ -440,7 +468,7 @@
 </div></div>
     
     <div id="footer">
-  Generated on Sun Apr 11 16:45:54 2010 by 
+  Generated on Fri Apr 16 16:22:51 2010 by 
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool">yard</a>
   0.5.4  and the 
   <a href="http://github.com/dreamcat4/yard-slipstream">yard-slipstream</a> plugin

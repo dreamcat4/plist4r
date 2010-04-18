@@ -28,7 +28,7 @@
       <div id="menu">
   
 		
-			<a href="object_index.html" target="_self" title="Index (P)">Index (P)</a>
+			<a href="../object_index.html" target="_self" title="Index (P)">Index (P)</a>
 		 &raquo;
     <span class='title'><a href="../Plist4r.html" target="_self" title="Plist4r (module)">Plist4r</a></span>
      &raquo; 
@@ -64,7 +64,11 @@
             return item.text;
           }
         }).result(function(event, item) {
-          location.href = relpath + $(item.href_tag).attr("href");
+					if (window.location.search) {
+	          window.location.href = relpath + $(item.href_tag).attr("href");
+					} else {
+	          location.href = relpath + $(item.href_tag).attr("href");						
+					}
         });
       }
     });
@@ -92,7 +96,7 @@
     <dt class="r1 last">Defined in:</dt>
 		<dd class="r1 last">
   		
-  lib/plist4r/plist_cache.rb<span class="defines">,<br /></span>
+  lib/plist4r/plist_cache.rb
 
 
 		</dd>
@@ -554,7 +558,7 @@ A new instance of PlistCache
 </div>
     
     <div id="footer">
-  Generated on Sun Apr 11 16:46:01 2010 by 
+  Generated on Fri Apr 16 16:22:58 2010 by 
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool">yard</a>
   0.5.4  and the 
   <a href="http://github.com/dreamcat4/yard-slipstream">yard-slipstream</a> plugin

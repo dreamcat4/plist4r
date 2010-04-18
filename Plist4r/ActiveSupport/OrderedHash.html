@@ -3,20 +3,20 @@
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
   <head>
     <meta name="Content-Type" content="text/html; charset=utf-8" />
-<title>Module: ActiveSupport</title>
-<link rel="stylesheet" href="css/style.css" type="text/css" media="screen" charset="utf-8" />
-<link rel="stylesheet" href="css/common.css" type="text/css" media="screen" charset="utf-8" />
-<link rel="stylesheet" href="css/custom.css" type="text/css" media="screen" charset="utf-8" />
+<title>Class: Plist4r::ActiveSupport::OrderedHash</title>
+<link rel="stylesheet" href="../../css/style.css" type="text/css" media="screen" charset="utf-8" />
+<link rel="stylesheet" href="../../css/common.css" type="text/css" media="screen" charset="utf-8" />
+<link rel="stylesheet" href="../../css/custom.css" type="text/css" media="screen" charset="utf-8" />
 
 <script type="text/javascript" charset="utf-8">
-  relpath = '';
+  relpath = '../..';
   if (relpath != '') relpath += '/';
 </script>
 <base id="base_target" target="_top" />
-<script type="text/javascript" charset="utf-8" src="js/jquery.js"></script>
-<script type="text/javascript" charset="utf-8" src="js/autocomplete.js"></script>
-<script type="text/javascript" charset="utf-8" src="js/app.js"></script>
-<script type="text/javascript" charset="utf-8" src="js/live.js"></script>
+<script type="text/javascript" charset="utf-8" src="../../js/jquery.js"></script>
+<script type="text/javascript" charset="utf-8" src="../../js/autocomplete.js"></script>
+<script type="text/javascript" charset="utf-8" src="../../js/app.js"></script>
+<script type="text/javascript" charset="utf-8" src="../../js/live.js"></script>
 
   </head>
   <body>
@@ -28,11 +28,11 @@
       <div id="menu">
   
 		
-			<a href="object_index.html" target="_self" title="Index (A)">Index (A)</a>
+			<a href="../../object_index.html" target="_self" title="Index (O)">Index (O)</a>
 		 &raquo;
-    
-    
-    <span class="title">ActiveSupport</span>
+    <span class='title'><a href="../../Plist4r.html" target="_self" title="Plist4r (module)">Plist4r</a></span> &raquo; <span class='title'><a href="../ActiveSupport.html" target="_self" title="Plist4r::ActiveSupport (module)">ActiveSupport</a></span>
+     &raquo; 
+    <span class="title">OrderedHash</span>
   
   
   <div class="noframes">
@@ -64,7 +64,11 @@
             return item.text;
           }
         }).result(function(event, item) {
-          location.href = relpath + $(item.href_tag).attr("href");
+					if (window.location.search) {
+	          window.location.href = relpath + $(item.href_tag).attr("href");
+					} else {
+	          location.href = relpath + $(item.href_tag).attr("href");						
+					}
         });
       }
     });
@@ -76,7 +80,7 @@
     
     <iframe id="search_frame"></iframe>
     
-    <div id="content"><h1>Module: ActiveSupport 
+    <div id="content"><h1>Class: Plist4r::ActiveSupport::OrderedHash 
   
   
 </h1>
@@ -92,7 +96,7 @@
     <dt class="r1 last">Defined in:</dt>
 		<dd class="r1 last">
   		
-  lib/plist4r/mixin/ordered_hash.rb<span class="defines">,<br /></span>
+  lib/plist4r/mixin/ordered_hash.rb
 
 
 		</dd>
@@ -100,28 +104,12 @@
 </div>
 <div class="clear"></div>
 
-<p class="children">
-   
-    
-   
-    
-			<h3 class="inherited">Classes</h3>
-	    <ul id="classes_ribbon">
-	    
-	    
-	      <li class="r1"><a href="ActiveSupport/OrderedHash.html" target="_self" title="ActiveSupport::OrderedHash (class)">OrderedHash</a></li>
-	      
-	    
-	    </ul>
-    
-  
-</p>
 
 	<h3 class="inherited">Class Methods</h3>
 	    <ul id="methods_ribbon">
 	    
 	    
-	      <li class="r1"><a href="#%5B%5D-class_method" target="_self" title="ActiveSupport.[] (method)">[]</a></li>
+	      <li class="r1"><a href="#%5B%5D-class_method" target="_self" title="Plist4r::ActiveSupport::OrderedHash.[] (method)">[]</a></li>
 	      
 	    
 	    </ul>
@@ -130,70 +118,98 @@
 	    <ul id="methods_ribbon">
 	    
 	    
-	      <li class="r1"><a href="#%5B%5D%3D-instance_method" target="_self" title="ActiveSupport#[]= (method)">[]=</a></li>
+	      <li class="r1"><a href="#%5B%5D%3D-instance_method" target="_self" title="Plist4r::ActiveSupport::OrderedHash#[]= (method)">[]=</a></li>
 	      
 	    
-	      <li class="r2"><a href="#clear-instance_method" target="_self" title="ActiveSupport#clear (method)">clear</a></li>
+	      <li class="r2"><a href="#clear-instance_method" target="_self" title="Plist4r::ActiveSupport::OrderedHash#clear (method)">clear</a></li>
 	      
 	    
-	      <li class="r1"><a href="#delete-instance_method" target="_self" title="ActiveSupport#delete (method)">delete</a></li>
+	      <li class="r1"><a href="#delete-instance_method" target="_self" title="Plist4r::ActiveSupport::OrderedHash#delete (method)">delete</a></li>
 	      
 	    
-	      <li class="r2"><a href="#delete_if-instance_method" target="_self" title="ActiveSupport#delete_if (method)">delete_if</a></li>
+	      <li class="r2"><a href="#delete_if-instance_method" target="_self" title="Plist4r::ActiveSupport::OrderedHash#delete_if (method)">delete_if</a></li>
 	      
 	    
-	      <li class="r1"><a href="#each-instance_method" target="_self" title="ActiveSupport#each (method)">each</a></li>
+	      <li class="r1"><a href="#each-instance_method" target="_self" title="Plist4r::ActiveSupport::OrderedHash#each (method)">each</a></li>
 	      
 	    
-	      <li class="r2"><a href="#each_key-instance_method" target="_self" title="ActiveSupport#each_key (method)">each_key</a></li>
+	      <li class="r2"><a href="#each_key-instance_method" target="_self" title="Plist4r::ActiveSupport::OrderedHash#each_key (method)">each_key</a></li>
 	      
 	    
-	      <li class="r1"><a href="#each_value-instance_method" target="_self" title="ActiveSupport#each_value (method)">each_value</a></li>
+	      <li class="r1"><a href="#each_value-instance_method" target="_self" title="Plist4r::ActiveSupport::OrderedHash#each_value (method)">each_value</a></li>
 	      
 	    
-	      <li class="r2"><a href="#initialize-instance_method" target="_self" title="ActiveSupport#initialize (method)">initialize</a></li>
+	      <li class="r2"><a href="#initialize-instance_method" target="_self" title="Plist4r::ActiveSupport::OrderedHash#initialize (method)">initialize</a></li>
 	      
 	    
-	      <li class="r1"><a href="#initialize_copy-instance_method" target="_self" title="ActiveSupport#initialize_copy (method)">initialize_copy</a></li>
+	      <li class="r1"><a href="#initialize_copy-instance_method" target="_self" title="Plist4r::ActiveSupport::OrderedHash#initialize_copy (method)">initialize_copy</a></li>
 	      
 	    
-	      <li class="r2"><a href="#keys-instance_method" target="_self" title="ActiveSupport#keys (method)">keys</a></li>
+	      <li class="r2"><a href="#keys-instance_method" target="_self" title="Plist4r::ActiveSupport::OrderedHash#keys (method)">keys</a></li>
 	      
 	    
-	      <li class="r1"><a href="#merge-instance_method" target="_self" title="ActiveSupport#merge (method)">merge</a></li>
+	      <li class="r1"><a href="#merge-instance_method" target="_self" title="Plist4r::ActiveSupport::OrderedHash#merge (method)">merge</a></li>
 	      
 	    
-	      <li class="r2"><a href="#merge%21-instance_method" target="_self" title="ActiveSupport#merge! (method)">merge!</a></li>
+	      <li class="r2"><a href="#merge%21-instance_method" target="_self" title="Plist4r::ActiveSupport::OrderedHash#merge! (method)">merge!</a></li>
 	      
 	    
-	      <li class="r1"><a href="#reject-instance_method" target="_self" title="ActiveSupport#reject (method)">reject</a></li>
+	      <li class="r1"><a href="#reject-instance_method" target="_self" title="Plist4r::ActiveSupport::OrderedHash#reject (method)">reject</a></li>
 	      
 	    
-	      <li class="r2"><a href="#reject%21-instance_method" target="_self" title="ActiveSupport#reject! (method)">reject!</a></li>
+	      <li class="r2"><a href="#reject%21-instance_method" target="_self" title="Plist4r::ActiveSupport::OrderedHash#reject! (method)">reject!</a></li>
 	      
 	    
-	      <li class="r1"><a href="#replace-instance_method" target="_self" title="ActiveSupport#replace (method)">replace</a></li>
+	      <li class="r1"><a href="#replace-instance_method" target="_self" title="Plist4r::ActiveSupport::OrderedHash#replace (method)">replace</a></li>
 	      
 	    
-	      <li class="r2"><a href="#shift-instance_method" target="_self" title="ActiveSupport#shift (method)">shift</a></li>
+	      <li class="r2"><a href="#shift-instance_method" target="_self" title="Plist4r::ActiveSupport::OrderedHash#shift (method)">shift</a></li>
 	      
 	    
-	      <li class="r1"><a href="#to_a-instance_method" target="_self" title="ActiveSupport#to_a (method)">to_a</a></li>
+	      <li class="r1"><a href="#to_a-instance_method" target="_self" title="Plist4r::ActiveSupport::OrderedHash#to_a (method)">to_a</a></li>
 	      
 	    
-	      <li class="r2"><a href="#to_hash-instance_method" target="_self" title="ActiveSupport#to_hash (method)">to_hash</a></li>
+	      <li class="r2"><a href="#to_hash-instance_method" target="_self" title="Plist4r::ActiveSupport::OrderedHash#to_hash (method)">to_hash</a></li>
 	      
 	    
-	      <li class="r1"><a href="#values-instance_method" target="_self" title="ActiveSupport#values (method)">values</a></li>
+	      <li class="r1"><a href="#values-instance_method" target="_self" title="Plist4r::ActiveSupport::OrderedHash#values (method)">values</a></li>
 	      
 	    
 	    </ul>
 
 
-<h2>Overview</h2><div class="docstring">
+
+  <h2>Overview</h2><div class="docstring">
   <div class="discussion">
     <p>
-OrderedHash is namespaced to prevent conflicts with other implementations
+<tt><a href="" target="_self" title="Plist4r::ActiveSupport::OrderedHash (class)">ActiveSupport::OrderedHash</a></tt>
+</p>
+<p>
+Copyright &#169; 2005 David Hansson, Copyright &#169; 2007 Mauricio
+Fernandez, Sam Stephenson Copyright &#169; 2008 Steve Purcell, Josh Peek
+Copyright &#169; 2009 Christoffer Sawicki
+</p>
+<p>
+Permission is hereby granted, free of charge, to any person obtaining a
+copy of this software and associated documentation files (the
+&#8220;Software&#8221;), to deal in the Software without restriction,
+including without limitation the rights to use, copy, modify, merge,
+publish, distribute, sublicense, and/or sell copies of the Software, and to
+permit persons to whom the Software is furnished to do so, subject to the
+following conditions:
+</p>
+<p>
+The above copyright notice and this permission notice shall be included in
+all copies or substantial portions of the Software.
+</p>
+<p>
+THE SOFTWARE IS PROVIDED &#8220;AS IS&#8221;, WITHOUT WARRANTY OF ANY KIND,
+EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF
+MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN
+NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM,
+DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR
+OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE
+USE OR OTHER DEALINGS IN THE SOFTWARE.
 </p>
 
 
@@ -203,6 +219,54 @@ OrderedHash is namespaced to prevent conflicts with other implementations
   
 </div>
 
+  
+<div id="constructor_details" class="method_details_list">
+  <h2>Constructor Details</h2>
+  
+    <div class="method_details first" id="initialize-instance_method">
+  <p class="signature first"">
+  
+    - (<tt><a href="" target="_self" title="Plist4r::ActiveSupport::OrderedHash (class)">OrderedHash</a></tt>) <strong>initialize</strong>(*args, &amp;block) 
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    <p>
+A new instance of OrderedHash
+</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+33
+34
+35
+36</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/plist4r/mixin/ordered_hash.rb', line 33</span>
+
+<span class='def def kw'>def</span> <span class='initialize identifier id'>initialize</span><span class='lparen token'>(</span><span class='mult op'>*</span><span class='args identifier id'>args</span><span class='comma token'>,</span> <span class='bitand op'>&amp;</span><span class='block identifier id'>block</span><span class='rparen token'>)</span>
+  <span class='super super kw'>super</span>
+  <span class='@keys ivar id'>@keys</span> <span class='assign token'>=</span> <span class='lbrack token'>[</span><span class='rbrack token'>]</span>
+<span class='end end kw'>end</span>
+</pre>
+    </td>
+  </tr>
+</table>
+</div>
+
+  
+</div>
 
   <div id="class_method_details" class="method_details_list">
     <h2>Class Method Details</h2>
@@ -211,7 +275,7 @@ OrderedHash is namespaced to prevent conflicts with other implementations
       <div class="method_details first" id="[]-class_method">
   <p class="signature first"">
   
-    + (<tt><a href="Object.html" target="_self" title="Object (class)">Object</a></tt>) <strong>[]</strong>(*args) 
+    + (<tt><a href="../../Object.html" target="_self" title="Object (class)">Object</a></tt>) <strong>[]</strong>(*args) 
   
 
   
@@ -221,6 +285,8 @@ OrderedHash is namespaced to prevent conflicts with other implementations
       <pre class="lines">
 
 
+38
+39
 40
 41
 42
@@ -241,12 +307,10 @@ OrderedHash is namespaced to prevent conflicts with other implementations
 57
 58
 59
-60
-61
-62</pre>
+60</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/plist4r/mixin/ordered_hash.rb', line 40</span>
+      <pre class="code"><span class="info file"># File 'lib/plist4r/mixin/ordered_hash.rb', line 38</span>
 
 <span class='def def kw'>def</span> <span class='self self kw'>self</span><span class='dot token'>.</span><span class='lbrack token'>[</span><span class='rbrack token'>]</span><span class='lparen token'>(</span><span class='mult op'>*</span><span class='args identifier id'>args</span><span class='rparen token'>)</span>
   <span class='ordered_hash identifier id'>ordered_hash</span> <span class='assign token'>=</span> <span class='new identifier id'>new</span>
@@ -287,7 +351,7 @@ OrderedHash is namespaced to prevent conflicts with other implementations
       <div class="method_details first" id="[]=-instance_method">
   <p class="signature first"">
   
-    - (<tt><a href="Object.html" target="_self" title="Object (class)">Object</a></tt>) <strong>[]=</strong>(key, value) 
+    - (<tt><a href="../../Object.html" target="_self" title="Object (class)">Object</a></tt>) <strong>[]=</strong>(key, value) 
   
 
   
@@ -297,13 +361,13 @@ OrderedHash is namespaced to prevent conflicts with other implementations
       <pre class="lines">
 
 
+68
+69
 70
-71
-72
-73</pre>
+71</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/plist4r/mixin/ordered_hash.rb', line 70</span>
+      <pre class="code"><span class="info file"># File 'lib/plist4r/mixin/ordered_hash.rb', line 68</span>
 
 <span class='def def kw'>def</span> <span class='aset op'>[]=</span><span class='lparen token'>(</span><span class='key identifier id'>key</span><span class='comma token'>,</span> <span class='value identifier id'>value</span><span class='rparen token'>)</span>
   <span class='@keys ivar id'>@keys</span> <span class='lshft op'>&lt;&lt;</span> <span class='key identifier id'>key</span> <span class='if if_mod kw'>if</span> <span class='notop op'>!</span><span class='has_key? fid id'>has_key?</span><span class='lparen token'>(</span><span class='key identifier id'>key</span><span class='rparen token'>)</span>
@@ -319,7 +383,7 @@ OrderedHash is namespaced to prevent conflicts with other implementations
       <div class="method_details " id="clear-instance_method">
   <p class="signature "">
   
-    - (<tt><a href="Object.html" target="_self" title="Object (class)">Object</a></tt>) <strong>clear</strong> 
+    - (<tt><a href="../../Object.html" target="_self" title="Object (class)">Object</a></tt>) <strong>clear</strong> 
   
 
   
@@ -329,14 +393,14 @@ OrderedHash is namespaced to prevent conflicts with other implementations
       <pre class="lines">
 
 
+127
+128
 129
 130
-131
-132
-133</pre>
+131</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/plist4r/mixin/ordered_hash.rb', line 129</span>
+      <pre class="code"><span class="info file"># File 'lib/plist4r/mixin/ordered_hash.rb', line 127</span>
 
 <span class='def def kw'>def</span> <span class='clear identifier id'>clear</span>
   <span class='super super kw'>super</span>
@@ -353,7 +417,7 @@ OrderedHash is namespaced to prevent conflicts with other implementations
       <div class="method_details " id="delete-instance_method">
   <p class="signature "">
   
-    - (<tt><a href="Object.html" target="_self" title="Object (class)">Object</a></tt>) <strong>delete</strong>(key) 
+    - (<tt><a href="../../Object.html" target="_self" title="Object (class)">Object</a></tt>) <strong>delete</strong>(key) 
   
 
   
@@ -363,16 +427,16 @@ OrderedHash is namespaced to prevent conflicts with other implementations
       <pre class="lines">
 
 
+73
+74
 75
 76
 77
 78
-79
-80
-81</pre>
+79</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/plist4r/mixin/ordered_hash.rb', line 75</span>
+      <pre class="code"><span class="info file"># File 'lib/plist4r/mixin/ordered_hash.rb', line 73</span>
 
 <span class='def def kw'>def</span> <span class='delete identifier id'>delete</span><span class='lparen token'>(</span><span class='key identifier id'>key</span><span class='rparen token'>)</span>
   <span class='if if kw'>if</span> <span class='has_key? fid id'>has_key?</span> <span class='key identifier id'>key</span>
@@ -391,7 +455,7 @@ OrderedHash is namespaced to prevent conflicts with other implementations
       <div class="method_details " id="delete_if-instance_method">
   <p class="signature "">
   
-    - (<tt><a href="Object.html" target="_self" title="Object (class)">Object</a></tt>) <strong>delete_if</strong> 
+    - (<tt><a href="../../Object.html" target="_self" title="Object (class)">Object</a></tt>) <strong>delete_if</strong> 
   
 
   
@@ -401,14 +465,14 @@ OrderedHash is namespaced to prevent conflicts with other implementations
       <pre class="lines">
 
 
+81
+82
 83
 84
-85
-86
-87</pre>
+85</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/plist4r/mixin/ordered_hash.rb', line 83</span>
+      <pre class="code"><span class="info file"># File 'lib/plist4r/mixin/ordered_hash.rb', line 81</span>
 
 <span class='def def kw'>def</span> <span class='delete_if identifier id'>delete_if</span>
   <span class='super super kw'>super</span>
@@ -425,7 +489,7 @@ OrderedHash is namespaced to prevent conflicts with other implementations
       <div class="method_details " id="each-instance_method">
   <p class="signature "">
   
-    - (<tt><a href="Object.html" target="_self" title="Object (class)">Object</a></tt>) <strong>each</strong> 
+    - (<tt><a href="../../Object.html" target="_self" title="Object (class)">Object</a></tt>) <strong>each</strong> 
   
 
   
@@ -439,12 +503,12 @@ OrderedHash is namespaced to prevent conflicts with other implementations
       <pre class="lines">
 
 
-123
-124
-125</pre>
+121
+122
+123</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/plist4r/mixin/ordered_hash.rb', line 123</span>
+      <pre class="code"><span class="info file"># File 'lib/plist4r/mixin/ordered_hash.rb', line 121</span>
 
 <span class='def def kw'>def</span> <span class='each identifier id'>each</span>
   <span class='@keys ivar id'>@keys</span><span class='dot token'>.</span><span class='each identifier id'>each</span> <span class='lbrace token'>{</span><span class='bitor op'>|</span><span class='key identifier id'>key</span><span class='bitor op'>|</span> <span class='yield yield kw'>yield</span> <span class='lbrack token'>[</span><span class='key identifier id'>key</span><span class='comma token'>,</span> <span class='self self kw'>self</span><span class='lbrack token'>[</span><span class='key identifier id'>key</span><span class='rbrack token'>]</span><span class='rbrack token'>]</span><span class='rbrace token'>}</span>
@@ -459,7 +523,7 @@ OrderedHash is namespaced to prevent conflicts with other implementations
       <div class="method_details " id="each_key-instance_method">
   <p class="signature "">
   
-    - (<tt><a href="Object.html" target="_self" title="Object (class)">Object</a></tt>) <strong>each_key</strong> 
+    - (<tt><a href="../../Object.html" target="_self" title="Object (class)">Object</a></tt>) <strong>each_key</strong> 
   
 
   
@@ -469,12 +533,12 @@ OrderedHash is namespaced to prevent conflicts with other implementations
       <pre class="lines">
 
 
-115
-116
-117</pre>
+113
+114
+115</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/plist4r/mixin/ordered_hash.rb', line 115</span>
+      <pre class="code"><span class="info file"># File 'lib/plist4r/mixin/ordered_hash.rb', line 113</span>
 
 <span class='def def kw'>def</span> <span class='each_key identifier id'>each_key</span>
   <span class='@keys ivar id'>@keys</span><span class='dot token'>.</span><span class='each identifier id'>each</span> <span class='lbrace token'>{</span> <span class='bitor op'>|</span><span class='key identifier id'>key</span><span class='bitor op'>|</span> <span class='yield yield kw'>yield</span> <span class='key identifier id'>key</span> <span class='rbrace token'>}</span>
@@ -489,7 +553,7 @@ OrderedHash is namespaced to prevent conflicts with other implementations
       <div class="method_details " id="each_value-instance_method">
   <p class="signature "">
   
-    - (<tt><a href="Object.html" target="_self" title="Object (class)">Object</a></tt>) <strong>each_value</strong> 
+    - (<tt><a href="../../Object.html" target="_self" title="Object (class)">Object</a></tt>) <strong>each_value</strong> 
   
 
   
@@ -499,12 +563,12 @@ OrderedHash is namespaced to prevent conflicts with other implementations
       <pre class="lines">
 
 
-119
-120
-121</pre>
+117
+118
+119</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/plist4r/mixin/ordered_hash.rb', line 119</span>
+      <pre class="code"><span class="info file"># File 'lib/plist4r/mixin/ordered_hash.rb', line 117</span>
 
 <span class='def def kw'>def</span> <span class='each_value identifier id'>each_value</span>
   <span class='@keys ivar id'>@keys</span><span class='dot token'>.</span><span class='each identifier id'>each</span> <span class='lbrace token'>{</span> <span class='bitor op'>|</span><span class='key identifier id'>key</span><span class='bitor op'>|</span> <span class='yield yield kw'>yield</span> <span class='self self kw'>self</span><span class='lbrack token'>[</span><span class='key identifier id'>key</span><span class='rbrack token'>]</span><span class='rbrace token'>}</span>
@@ -516,53 +580,10 @@ OrderedHash is namespaced to prevent conflicts with other implementations
 </div>
 
     
-      <div class="method_details " id="initialize-instance_method">
-  <p class="signature "">
-  
-    - (<tt><a href="" target="_self" title="ActiveSupport (module)">ActiveSupport</a></tt>) <strong>initialize</strong>(*args, &amp;block) 
-  
-
-  
-</p><div class="docstring">
-  <div class="discussion">
-    <p>
-A new instance of ActiveSupport
-</p>
-
-
-  </div>
-</div>
-<div class="tags">
-  
-</div><table class="source_code">
-  <tr>
-    <td>
-      <pre class="lines">
-
-
-35
-36
-37
-38</pre>
-    </td>
-    <td>
-      <pre class="code"><span class="info file"># File 'lib/plist4r/mixin/ordered_hash.rb', line 35</span>
-
-<span class='def def kw'>def</span> <span class='initialize identifier id'>initialize</span><span class='lparen token'>(</span><span class='mult op'>*</span><span class='args identifier id'>args</span><span class='comma token'>,</span> <span class='bitand op'>&amp;</span><span class='block identifier id'>block</span><span class='rparen token'>)</span>
-  <span class='super super kw'>super</span>
-  <span class='@keys ivar id'>@keys</span> <span class='assign token'>=</span> <span class='lbrack token'>[</span><span class='rbrack token'>]</span>
-<span class='end end kw'>end</span>
-</pre>
-    </td>
-  </tr>
-</table>
-</div>
-
-    
       <div class="method_details " id="initialize_copy-instance_method">
   <p class="signature "">
   
-    - (<tt><a href="Object.html" target="_self" title="Object (class)">Object</a></tt>) <strong>initialize_copy</strong>(other) 
+    - (<tt><a href="../../Object.html" target="_self" title="Object (class)">Object</a></tt>) <strong>initialize_copy</strong>(other) 
   
 
   
@@ -572,14 +593,14 @@ A new instance of ActiveSupport
       <pre class="lines">
 
 
+62
+63
 64
 65
-66
-67
-68</pre>
+66</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/plist4r/mixin/ordered_hash.rb', line 64</span>
+      <pre class="code"><span class="info file"># File 'lib/plist4r/mixin/ordered_hash.rb', line 62</span>
 
 <span class='def def kw'>def</span> <span class='initialize_copy identifier id'>initialize_copy</span><span class='lparen token'>(</span><span class='other identifier id'>other</span><span class='rparen token'>)</span>
   <span class='super super kw'>super</span>
@@ -596,7 +617,7 @@ A new instance of ActiveSupport
       <div class="method_details " id="keys-instance_method">
   <p class="signature "">
   
-    - (<tt><a href="Object.html" target="_self" title="Object (class)">Object</a></tt>) <strong>keys</strong> 
+    - (<tt><a href="../../Object.html" target="_self" title="Object (class)">Object</a></tt>) <strong>keys</strong> 
   
 
   
@@ -606,12 +627,12 @@ A new instance of ActiveSupport
       <pre class="lines">
 
 
-99
-100
-101</pre>
+97
+98
+99</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/plist4r/mixin/ordered_hash.rb', line 99</span>
+      <pre class="code"><span class="info file"># File 'lib/plist4r/mixin/ordered_hash.rb', line 97</span>
 
 <span class='def def kw'>def</span> <span class='keys identifier id'>keys</span>
   <span class='@keys ivar id'>@keys</span><span class='dot token'>.</span><span class='dup identifier id'>dup</span>
@@ -626,7 +647,7 @@ A new instance of ActiveSupport
       <div class="method_details " id="merge-instance_method">
   <p class="signature "">
   
-    - (<tt><a href="Object.html" target="_self" title="Object (class)">Object</a></tt>) <strong>merge</strong>(other_hash) 
+    - (<tt><a href="../../Object.html" target="_self" title="Object (class)">Object</a></tt>) <strong>merge</strong>(other_hash) 
   
 
   
@@ -636,12 +657,12 @@ A new instance of ActiveSupport
       <pre class="lines">
 
 
-146
-147
-148</pre>
+144
+145
+146</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/plist4r/mixin/ordered_hash.rb', line 146</span>
+      <pre class="code"><span class="info file"># File 'lib/plist4r/mixin/ordered_hash.rb', line 144</span>
 
 <span class='def def kw'>def</span> <span class='merge identifier id'>merge</span><span class='lparen token'>(</span><span class='other_hash identifier id'>other_hash</span><span class='rparen token'>)</span>
   <span class='dup identifier id'>dup</span><span class='dot token'>.</span><span class='merge! fid id'>merge!</span><span class='lparen token'>(</span><span class='other_hash identifier id'>other_hash</span><span class='rparen token'>)</span>
@@ -656,7 +677,7 @@ A new instance of ActiveSupport
       <div class="method_details " id="merge!-instance_method">
   <p class="signature "">
   
-    - (<tt><a href="Object.html" target="_self" title="Object (class)">Object</a></tt>) <strong>merge!</strong>(other_hash) 
+    - (<tt><a href="../../Object.html" target="_self" title="Object (class)">Object</a></tt>) <strong>merge!</strong>(other_hash) 
   
 
   
@@ -666,13 +687,13 @@ A new instance of ActiveSupport
       <pre class="lines">
 
 
+139
+140
 141
-142
-143
-144</pre>
+142</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/plist4r/mixin/ordered_hash.rb', line 141</span>
+      <pre class="code"><span class="info file"># File 'lib/plist4r/mixin/ordered_hash.rb', line 139</span>
 
 <span class='def def kw'>def</span> <span class='merge! fid id'>merge!</span><span class='lparen token'>(</span><span class='other_hash identifier id'>other_hash</span><span class='rparen token'>)</span>
   <span class='other_hash identifier id'>other_hash</span><span class='dot token'>.</span><span class='each identifier id'>each</span> <span class='lbrace token'>{</span><span class='bitor op'>|</span><span class='k identifier id'>k</span><span class='comma token'>,</span><span class='v identifier id'>v</span><span class='bitor op'>|</span> <span class='self self kw'>self</span><span class='lbrack token'>[</span><span class='k identifier id'>k</span><span class='rbrack token'>]</span> <span class='assign token'>=</span> <span class='v identifier id'>v</span> <span class='rbrace token'>}</span>
@@ -688,7 +709,7 @@ A new instance of ActiveSupport
       <div class="method_details " id="reject-instance_method">
   <p class="signature "">
   
-    - (<tt><a href="Object.html" target="_self" title="Object (class)">Object</a></tt>) <strong>reject</strong>(&amp;block) 
+    - (<tt><a href="../../Object.html" target="_self" title="Object (class)">Object</a></tt>) <strong>reject</strong>(&amp;block) 
   
 
   
@@ -698,12 +719,12 @@ A new instance of ActiveSupport
       <pre class="lines">
 
 
-95
-96
-97</pre>
+93
+94
+95</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/plist4r/mixin/ordered_hash.rb', line 95</span>
+      <pre class="code"><span class="info file"># File 'lib/plist4r/mixin/ordered_hash.rb', line 93</span>
 
 <span class='def def kw'>def</span> <span class='reject identifier id'>reject</span><span class='lparen token'>(</span><span class='bitand op'>&amp;</span><span class='block identifier id'>block</span><span class='rparen token'>)</span>
   <span class='dup identifier id'>dup</span><span class='dot token'>.</span><span class='reject! fid id'>reject!</span><span class='lparen token'>(</span><span class='bitand op'>&amp;</span><span class='block identifier id'>block</span><span class='rparen token'>)</span>
@@ -718,7 +739,7 @@ A new instance of ActiveSupport
       <div class="method_details " id="reject!-instance_method">
   <p class="signature "">
   
-    - (<tt><a href="Object.html" target="_self" title="Object (class)">Object</a></tt>) <strong>reject!</strong> 
+    - (<tt><a href="../../Object.html" target="_self" title="Object (class)">Object</a></tt>) <strong>reject!</strong> 
   
 
   
@@ -728,14 +749,14 @@ A new instance of ActiveSupport
       <pre class="lines">
 
 
+87
+88
 89
 90
-91
-92
-93</pre>
+91</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/plist4r/mixin/ordered_hash.rb', line 89</span>
+      <pre class="code"><span class="info file"># File 'lib/plist4r/mixin/ordered_hash.rb', line 87</span>
 
 <span class='def def kw'>def</span> <span class='reject! fid id'>reject!</span>
   <span class='super super kw'>super</span>
@@ -752,7 +773,7 @@ A new instance of ActiveSupport
       <div class="method_details " id="replace-instance_method">
   <p class="signature "">
   
-    - (<tt><a href="Object.html" target="_self" title="Object (class)">Object</a></tt>) <strong>replace</strong>(other) 
+    - (<tt><a href="../../Object.html" target="_self" title="Object (class)">Object</a></tt>) <strong>replace</strong>(other) 
   
 
   
@@ -774,14 +795,14 @@ from the other hash -ordered or not.
       <pre class="lines">
 
 
+149
+150
 151
 152
-153
-154
-155</pre>
+153</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/plist4r/mixin/ordered_hash.rb', line 151</span>
+      <pre class="code"><span class="info file"># File 'lib/plist4r/mixin/ordered_hash.rb', line 149</span>
 
 <span class='def def kw'>def</span> <span class='replace identifier id'>replace</span><span class='lparen token'>(</span><span class='other identifier id'>other</span><span class='rparen token'>)</span>
   <span class='super super kw'>super</span>
@@ -798,7 +819,7 @@ from the other hash -ordered or not.
       <div class="method_details " id="shift-instance_method">
   <p class="signature "">
   
-    - (<tt><a href="Object.html" target="_self" title="Object (class)">Object</a></tt>) <strong>shift</strong> 
+    - (<tt><a href="../../Object.html" target="_self" title="Object (class)">Object</a></tt>) <strong>shift</strong> 
   
 
   
@@ -808,14 +829,14 @@ from the other hash -ordered or not.
       <pre class="lines">
 
 
+133
+134
 135
 136
-137
-138
-139</pre>
+137</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/plist4r/mixin/ordered_hash.rb', line 135</span>
+      <pre class="code"><span class="info file"># File 'lib/plist4r/mixin/ordered_hash.rb', line 133</span>
 
 <span class='def def kw'>def</span> <span class='shift identifier id'>shift</span>
   <span class='k identifier id'>k</span> <span class='assign token'>=</span> <span class='@keys ivar id'>@keys</span><span class='dot token'>.</span><span class='first identifier id'>first</span>
@@ -832,7 +853,7 @@ from the other hash -ordered or not.
       <div class="method_details " id="to_a-instance_method">
   <p class="signature "">
   
-    - (<tt><a href="Object.html" target="_self" title="Object (class)">Object</a></tt>) <strong>to_a</strong> 
+    - (<tt><a href="../../Object.html" target="_self" title="Object (class)">Object</a></tt>) <strong>to_a</strong> 
   
 
   
@@ -842,12 +863,12 @@ from the other hash -ordered or not.
       <pre class="lines">
 
 
-111
-112
-113</pre>
+109
+110
+111</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/plist4r/mixin/ordered_hash.rb', line 111</span>
+      <pre class="code"><span class="info file"># File 'lib/plist4r/mixin/ordered_hash.rb', line 109</span>
 
 <span class='def def kw'>def</span> <span class='to_a identifier id'>to_a</span>
   <span class='@keys ivar id'>@keys</span><span class='dot token'>.</span><span class='map identifier id'>map</span> <span class='lbrace token'>{</span> <span class='bitor op'>|</span><span class='key identifier id'>key</span><span class='bitor op'>|</span> <span class='lbrack token'>[</span> <span class='key identifier id'>key</span><span class='comma token'>,</span> <span class='self self kw'>self</span><span class='lbrack token'>[</span><span class='key identifier id'>key</span><span class='rbrack token'>]</span> <span class='rbrack token'>]</span> <span class='rbrace token'>}</span>
@@ -862,7 +883,7 @@ from the other hash -ordered or not.
       <div class="method_details " id="to_hash-instance_method">
   <p class="signature "">
   
-    - (<tt><a href="Object.html" target="_self" title="Object (class)">Object</a></tt>) <strong>to_hash</strong> 
+    - (<tt><a href="../../Object.html" target="_self" title="Object (class)">Object</a></tt>) <strong>to_hash</strong> 
   
 
   
@@ -872,12 +893,12 @@ from the other hash -ordered or not.
       <pre class="lines">
 
 
-107
-108
-109</pre>
+105
+106
+107</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/plist4r/mixin/ordered_hash.rb', line 107</span>
+      <pre class="code"><span class="info file"># File 'lib/plist4r/mixin/ordered_hash.rb', line 105</span>
 
 <span class='def def kw'>def</span> <span class='to_hash identifier id'>to_hash</span>
   <span class='self self kw'>self</span>
@@ -892,7 +913,7 @@ from the other hash -ordered or not.
       <div class="method_details " id="values-instance_method">
   <p class="signature "">
   
-    - (<tt><a href="Object.html" target="_self" title="Object (class)">Object</a></tt>) <strong>values</strong> 
+    - (<tt><a href="../../Object.html" target="_self" title="Object (class)">Object</a></tt>) <strong>values</strong> 
   
 
   
@@ -902,12 +923,12 @@ from the other hash -ordered or not.
       <pre class="lines">
 
 
-103
-104
-105</pre>
+101
+102
+103</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/plist4r/mixin/ordered_hash.rb', line 103</span>
+      <pre class="code"><span class="info file"># File 'lib/plist4r/mixin/ordered_hash.rb', line 101</span>
 
 <span class='def def kw'>def</span> <span class='values identifier id'>values</span>
   <span class='@keys ivar id'>@keys</span><span class='dot token'>.</span><span class='collect identifier id'>collect</span> <span class='lbrace token'>{</span> <span class='bitor op'>|</span><span class='key identifier id'>key</span><span class='bitor op'>|</span> <span class='self self kw'>self</span><span class='lbrack token'>[</span><span class='key identifier id'>key</span><span class='rbrack token'>]</span> <span class='rbrace token'>}</span>
@@ -924,7 +945,7 @@ from the other hash -ordered or not.
 </div>
     
     <div id="footer">
-  Generated on Sun Apr 11 16:45:56 2010 by 
+  Generated on Fri Apr 16 16:22:57 2010 by 
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool">yard</a>
   0.5.4  and the 
   <a href="http://github.com/dreamcat4/yard-slipstream">yard-slipstream</a> plugin

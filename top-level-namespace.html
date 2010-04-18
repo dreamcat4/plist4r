@@ -64,7 +64,11 @@
             return item.text;
           }
         }).result(function(event, item) {
-          location.href = relpath + $(item.href_tag).attr("href");
+					if (window.location.search) {
+	          window.location.href = relpath + $(item.href_tag).attr("href");
+					} else {
+	          location.href = relpath + $(item.href_tag).attr("href");						
+					}
         });
       }
     });
@@ -85,19 +89,15 @@
   <dl class="box">
     
       
-        <dt class="r1">Extends:</dt>
-        <dd class="r1"><a href="ClassAttributes.html" target="_self" title="ClassAttributes (module)">ClassAttributes</a>, <a href="OverloadNew.html" target="_self" title="OverloadNew (module)">OverloadNew</a></dd>
-        
-      
     
       
     
   
-    <dt class="r2 last">Defined in:</dt>
-		<dd class="r2 last">
+    <dt class="r1 last">Defined in:</dt>
+		<dd class="r1 last">
   		
 		lib/plist4r.rb<span class="defines">,<br />
-		lib/plist4r/plist.rb,<br /> lib/plist4r/config.rb,<br /> lib/plist4r/backend.rb,<br /> lib/plist4r/plist_type.rb,<br /> lib/plist4r/plist_cache.rb,<br /> lib/plist4r/backend_base.rb,<br /> lib/plist4r/mixin/popen4.rb,<br /> lib/plist4r/plist_type/info.rb,<br /> lib/plist4r/plist_type/plist.rb,<br /> lib/plist4r/plist_type/launchd.rb,<br /> lib/plist4r/mixin/data_methods.rb,<br /> lib/plist4r/mixin/ruby_stdlib.rb,<br /> lib/plist4r/mixin/mixlib_config.rb,<br /> lib/plist4r/mixin/class_attributes.rb,<br /> lib/plist4r/mixin/ordered_hash.rb</span>
+		lib/plist4r/plist.rb,<br /> lib/plist4r/config.rb,<br /> lib/plist4r/backend.rb,<br /> lib/plist4r/options.rb,<br /> lib/plist4r/commands.rb,<br /> lib/plist4r/plist_type.rb,<br /> lib/plist4r/plist_cache.rb,<br /> lib/plist4r/application.rb,<br /> lib/plist4r/mixin/popen4.rb,<br /> lib/plist4r/backend_base.rb,<br /> lib/plist4r/plist_type/info.rb,<br /> lib/plist4r/plist_type/plist.rb,<br /> lib/plist4r/mixin/mixlib_cli.rb,<br /> lib/plist4r/plist_type/launchd.rb,<br /> lib/plist4r/mixin/ordered_hash.rb,<br /> lib/plist4r/mixin/data_methods.rb,<br /> lib/plist4r/mixin/mixlib_config.rb,<br /> lib/plist4r/mixin/ruby_stdlib.rb</span>
 
 
 		</dd>
@@ -112,22 +112,7 @@
 	    <ul id="modules_ribbon">
 	    
 	    
-	      <li class="r1"><a href="ActiveSupport.html" target="_self" title="ActiveSupport (module)">ActiveSupport</a></li>
-	      
-	    
-	      <li class="r2"><a href="ClassAttributes.html" target="_self" title="ClassAttributes (module)">ClassAttributes</a></li>
-	      
-	    
-	      <li class="r1"><a href="Mixlib.html" target="_self" title="Mixlib (module)">Mixlib</a></li>
-	      
-	    
-	      <li class="r2"><a href="ObjectPreInitialize.html" target="_self" title="ObjectPreInitialize (module)">ObjectPreInitialize</a></li>
-	      
-	    
-	      <li class="r1"><a href="OverloadNew.html" target="_self" title="OverloadNew (module)">OverloadNew</a></li>
-	      
-	    
-	      <li class="r2"><a href="Plist4r.html" target="_self" title="Plist4r (module)">Plist4r</a></li>
+	      <li class="r1"><a href="Plist4r.html" target="_self" title="Plist4r (module)">Plist4r</a></li>
 	      
 	    
 	    </ul>
@@ -149,122 +134,14 @@
   
 </p>
 
-	<h3 class="inherited">Instance Methods</h3>
-	    <ul id="methods_ribbon">
-	    
-	    
-	      <li class="r1"><a href="#has_class_attributes-instance_method" target="_self" title="#has_class_attributes (method)">has_class_attributes</a></li>
-	      
-	    
-	      <li class="r2"><a href="#has_class_object_attributes-instance_method" target="_self" title="#has_class_object_attributes (method)">has_class_object_attributes</a></li>
-	      
-	    
-	    </ul>
 
 
 
-  
-  
-  
-  
-  
-  
-  
-  <h3 class="inherited">Methods included from <a href="ClassAttributes.html" target="_self" title="ClassAttributes (module)">ClassAttributes</a></h3>
-  <p class="inherited"><a href="ClassAttributes.html#cattr-instance_method" target="_self" title="ClassAttributes#cattr (method)">cattr</a>, <a href="ClassAttributes.html#co_attr-instance_method" target="_self" title="ClassAttributes#co_attr (method)">co_attr</a>, <a href="ClassAttributes.html#co_attr_i-instance_method" target="_self" title="ClassAttributes#co_attr_i (method)">co_attr_i</a>, <a href="ClassAttributes.html#iattr-instance_method" target="_self" title="ClassAttributes#iattr (method)">iattr</a>, <a href="ClassAttributes.html#inherit-instance_method" target="_self" title="ClassAttributes#inherit (method)">inherit</a>, <a href="ClassAttributes.html#inherited-instance_method" target="_self" title="ClassAttributes#inherited (method)">inherited</a>, <a href="ClassAttributes.html#oattr-instance_method" target="_self" title="ClassAttributes#oattr (method)">oattr</a>, <a href="ClassAttributes.html#oattr_i-instance_method" target="_self" title="ClassAttributes#oattr_i (method)">oattr_i</a></p>
-
-  
-  
-  
-  
-  
-  
-  
-  <h3 class="inherited">Methods included from <a href="OverloadNew.html" target="_self" title="OverloadNew (module)">OverloadNew</a></h3>
-  <p class="inherited"><a href="OverloadNew.html#new-instance_method" target="_self" title="OverloadNew#new (method)">new</a></p>
-
-
-  
-  
-  
-  
-  
-  
-  
-  
-
-  <div id="instance_method_details" class="method_details_list">
-    <h2>Instance Method Details</h2>
-    
-    
-      <div class="method_details first" id="has_class_attributes-instance_method">
-  <p class="signature first"">
-  
-    - (<tt><a href="Object.html" target="_self" title="Object (class)">Object</a></tt>) <strong>has_class_attributes</strong> 
-  
-
-  
-</p><table class="source_code">
-  <tr>
-    <td>
-      <pre class="lines">
-
-
-119
-120
-121</pre>
-    </td>
-    <td>
-      <pre class="code"><span class="info file"># File 'lib/plist4r/mixin/class_attributes.rb', line 119</span>
-
-<span class='def def kw'>def</span> <span class='has_class_attributes identifier id'>has_class_attributes</span>
-  <span class='extend identifier id'>extend</span> <span class='ClassAttributes constant id'>ClassAttributes</span>
-<span class='end end kw'>end</span>
-</pre>
-    </td>
-  </tr>
-</table>
-</div>
-
-    
-      <div class="method_details " id="has_class_object_attributes-instance_method">
-  <p class="signature "">
-  
-    - (<tt><a href="Object.html" target="_self" title="Object (class)">Object</a></tt>) <strong>has_class_object_attributes</strong> 
-  
-
-  
-</p><table class="source_code">
-  <tr>
-    <td>
-      <pre class="lines">
-
-
-123
-124
-125
-126</pre>
-    </td>
-    <td>
-      <pre class="code"><span class="info file"># File 'lib/plist4r/mixin/class_attributes.rb', line 123</span>
-
-<span class='def def kw'>def</span> <span class='has_class_object_attributes identifier id'>has_class_object_attributes</span>
-  <span class='extend identifier id'>extend</span> <span class='ClassAttributes constant id'>ClassAttributes</span>
-  <span class='extend identifier id'>extend</span> <span class='OverloadNew constant id'>OverloadNew</span>
-<span class='end end kw'>end</span>
-</pre>
-    </td>
-  </tr>
-</table>
-</div>
-
-    
-  </div>
 
 </div>
     
     <div id="footer">
-  Generated on Sun Apr 11 16:46:03 2010 by 
+  Generated on Fri Apr 16 16:23:01 2010 by 
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool">yard</a>
   0.5.4  and the 
   <a href="http://github.com/dreamcat4/yard-slipstream">yard-slipstream</a> plugin

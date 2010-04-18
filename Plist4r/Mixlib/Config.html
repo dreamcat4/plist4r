@@ -3,20 +3,20 @@
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
   <head>
     <meta name="Content-Type" content="text/html; charset=utf-8" />
-<title>Module: Mixlib::Config</title>
-<link rel="stylesheet" href="../css/style.css" type="text/css" media="screen" charset="utf-8" />
-<link rel="stylesheet" href="../css/common.css" type="text/css" media="screen" charset="utf-8" />
-<link rel="stylesheet" href="../css/custom.css" type="text/css" media="screen" charset="utf-8" />
+<title>Module: Plist4r::Mixlib::Config</title>
+<link rel="stylesheet" href="../../css/style.css" type="text/css" media="screen" charset="utf-8" />
+<link rel="stylesheet" href="../../css/common.css" type="text/css" media="screen" charset="utf-8" />
+<link rel="stylesheet" href="../../css/custom.css" type="text/css" media="screen" charset="utf-8" />
 
 <script type="text/javascript" charset="utf-8">
-  relpath = '..';
+  relpath = '../..';
   if (relpath != '') relpath += '/';
 </script>
 <base id="base_target" target="_top" />
-<script type="text/javascript" charset="utf-8" src="../js/jquery.js"></script>
-<script type="text/javascript" charset="utf-8" src="../js/autocomplete.js"></script>
-<script type="text/javascript" charset="utf-8" src="../js/app.js"></script>
-<script type="text/javascript" charset="utf-8" src="../js/live.js"></script>
+<script type="text/javascript" charset="utf-8" src="../../js/jquery.js"></script>
+<script type="text/javascript" charset="utf-8" src="../../js/autocomplete.js"></script>
+<script type="text/javascript" charset="utf-8" src="../../js/app.js"></script>
+<script type="text/javascript" charset="utf-8" src="../../js/live.js"></script>
 
   </head>
   <body>
@@ -28,9 +28,9 @@
       <div id="menu">
   
 		
-			<a href="object_index.html" target="_self" title="Index (C)">Index (C)</a>
+			<a href="../../object_index.html" target="_self" title="Index (C)">Index (C)</a>
 		 &raquo;
-    <span class='title'><a href="../Mixlib.html" target="_self" title="Mixlib (module)">Mixlib</a></span>
+    <span class='title'><a href="../../Plist4r.html" target="_self" title="Plist4r (module)">Plist4r</a></span> &raquo; <span class='title'><a href="../Mixlib.html" target="_self" title="Plist4r::Mixlib (module)">Mixlib</a></span>
      &raquo; 
     <span class="title">Config</span>
   
@@ -64,7 +64,11 @@
             return item.text;
           }
         }).result(function(event, item) {
-          location.href = relpath + $(item.href_tag).attr("href");
+					if (window.location.search) {
+	          window.location.href = relpath + $(item.href_tag).attr("href");
+					} else {
+	          location.href = relpath + $(item.href_tag).attr("href");						
+					}
         });
       }
     });
@@ -76,7 +80,7 @@
     
     <iframe id="search_frame"></iframe>
     
-    <div id="content"><h1>Module: Mixlib::Config 
+    <div id="content"><h1>Module: Plist4r::Mixlib::Config 
   
   
 </h1>
@@ -90,13 +94,13 @@
     
   
     <dt class="r1">Included in:</dt>
-    <dd class="r1"><a href="../Plist4r/Config.html" target="_self" title="Plist4r::Config (class)">Plist4r::Config</a></dd>
+    <dd class="r1"><a href="../Config.html" target="_self" title="Plist4r::Config (class)">Plist4r::Config</a></dd>
     
   
     <dt class="r2 last">Defined in:</dt>
 		<dd class="r2 last">
   		
-  lib/plist4r/mixin/mixlib_config.rb<span class="defines">,<br /></span>
+  lib/plist4r/mixin/mixlib_config.rb
 
 
 		</dd>
@@ -109,40 +113,81 @@
 	    <ul id="methods_ribbon">
 	    
 	    
-	      <li class="r1"><a href="#%5B%5D-instance_method" target="_self" title="Mixlib::Config#[] (method)">[]</a></li>
+	      <li class="r1"><a href="#%5B%5D-instance_method" target="_self" title="Plist4r::Mixlib::Config#[] (method)">[]</a></li>
 	      
 	    
-	      <li class="r2"><a href="#%5B%5D%3D-instance_method" target="_self" title="Mixlib::Config#[]= (method)">[]=</a></li>
+	      <li class="r2"><a href="#%5B%5D%3D-instance_method" target="_self" title="Plist4r::Mixlib::Config#[]= (method)">[]=</a></li>
 	      
 	    
-	      <li class="r1"><a href="#config_attr_writer-instance_method" target="_self" title="Mixlib::Config#config_attr_writer (method)">config_attr_writer</a></li>
+	      <li class="r1"><a href="#config_attr_writer-instance_method" target="_self" title="Plist4r::Mixlib::Config#config_attr_writer (method)">config_attr_writer</a></li>
 	      
 	    
-	      <li class="r2"><a href="#configure-instance_method" target="_self" title="Mixlib::Config#configure (method)">configure</a></li>
+	      <li class="r2"><a href="#configure-instance_method" target="_self" title="Plist4r::Mixlib::Config#configure (method)">configure</a></li>
 	      
 	    
-	      <li class="r1"><a href="#from_file-instance_method" target="_self" title="Mixlib::Config#from_file (method)">from_file</a></li>
+	      <li class="r1"><a href="#from_file-instance_method" target="_self" title="Plist4r::Mixlib::Config#from_file (method)">from_file</a></li>
 	      
 	    
-	      <li class="r2"><a href="#has_key%3F-instance_method" target="_self" title="Mixlib::Config#has_key? (method)">has_key?</a></li>
+	      <li class="r2"><a href="#has_key%3F-instance_method" target="_self" title="Plist4r::Mixlib::Config#has_key? (method)">has_key?</a></li>
 	      
 	    
-	      <li class="r1"><a href="#hash_dup-instance_method" target="_self" title="Mixlib::Config#hash_dup (method)">hash_dup</a></li>
+	      <li class="r1"><a href="#hash_dup-instance_method" target="_self" title="Plist4r::Mixlib::Config#hash_dup (method)">hash_dup</a></li>
 	      
 	    
-	      <li class="r2"><a href="#keys-instance_method" target="_self" title="Mixlib::Config#keys (method)">keys</a></li>
+	      <li class="r2"><a href="#keys-instance_method" target="_self" title="Plist4r::Mixlib::Config#keys (method)">keys</a></li>
 	      
 	    
-	      <li class="r1"><a href="#merge%21-instance_method" target="_self" title="Mixlib::Config#merge! (method)">merge!</a></li>
+	      <li class="r1"><a href="#merge%21-instance_method" target="_self" title="Plist4r::Mixlib::Config#merge! (method)">merge!</a></li>
 	      
 	    
-	      <li class="r2"><a href="#method_missing-instance_method" target="_self" title="Mixlib::Config#method_missing (method)">method_missing</a></li>
+	      <li class="r2"><a href="#method_missing-instance_method" target="_self" title="Plist4r::Mixlib::Config#method_missing (method)">method_missing</a></li>
 	      
 	    
 	    </ul>
 
 
+<h2>Overview</h2><div class="docstring">
+  <div class="discussion">
+    <table>
+<tr><td valign="top">Author:</td><td>Adam Jacob (<adam@opscode.com>)
 
+</td></tr>
+<tr><td valign="top">Author:</td><td>Nuo Yan (<nuo@opscode.com>)
+
+</td></tr>
+<tr><td valign="top">Author:</td><td>Christopher Brown (<cb@opscode.com>)
+
+</td></tr>
+<tr><td valign="top">Copyright:</td><td>Copyright &#169; 2008 Opscode, Inc.
+
+</td></tr>
+<tr><td valign="top">License:</td><td>Apache License, Version 2.0
+
+</td></tr>
+</table>
+<p>
+Licensed under the Apache License, Version 2.0 (the &#8220;License&#8221;);
+you may not use this file except in compliance with the License. You may
+obtain a copy of the License at
+</p>
+<p>
+<a
+href="http://www.apache.org/licenses/LICENSE-2.0">www.apache.org/licenses/LICENSE-2.0</a>
+</p>
+<p>
+Unless required by applicable law or agreed to in writing, software
+distributed under the License is distributed on an &#8220;AS IS&#8221;
+BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or
+implied. See the License for the specific language governing permissions
+and limitations under the License.
+</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+</div>
 
 <div id="method_missing_details" class="method_details_list">
   <h2>Dynamic Method Handling</h2>
@@ -154,7 +199,7 @@
     <div class="method_details first" id="method_missing-instance_method">
   <p class="signature first"">
   
-    - (<tt><a href="../Object.html" target="_self" title="Object (class)">Object</a></tt>) <strong>method_missing</strong>(method_symbol, *args) 
+    - (<tt><a href="../../Object.html" target="_self" title="Object (class)">Object</a></tt>) <strong>method_missing</strong>(method_symbol, *args) 
   
 
   
@@ -199,21 +244,21 @@ simple get operation.
       <pre class="lines">
 
 
-164
-165
-166
-167
-168
-169
 170
 171
 172
 173
 174
-175</pre>
+175
+176
+177
+178
+179
+180
+181</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/plist4r/mixin/mixlib_config.rb', line 164</span>
+      <pre class="code"><span class="info file"># File 'lib/plist4r/mixin/mixlib_config.rb', line 170</span>
 
 <span class='def def kw'>def</span> <span class='method_missing identifier id'>method_missing</span><span class='lparen token'>(</span><span class='method_symbol identifier id'>method_symbol</span><span class='comma token'>,</span> <span class='mult op'>*</span><span class='args identifier id'>args</span><span class='rparen token'>)</span>
   <span class='num_args identifier id'>num_args</span> <span class='assign token'>=</span> <span class='args identifier id'>args</span><span class='dot token'>.</span><span class='length identifier id'>length</span>
@@ -222,7 +267,7 @@ simple get operation.
     <span class='method_symbol identifier id'>method_symbol</span> <span class='assign token'>=</span> <span class='$1 nth_ref id'>$1</span><span class='dot token'>.</span><span class='to_sym identifier id'>to_sym</span> <span class='unless unless_mod kw'>unless</span> <span class='lparen token'>(</span><span class='method_symbol identifier id'>method_symbol</span><span class='dot token'>.</span><span class='to_s identifier id'>to_s</span> <span class='match op'>=~</span> <span class='regexp val'>/(.+)=$/</span><span class='rparen token'>)</span><span class='dot token'>.</span><span class='nil? fid id'>nil?</span>
     <span class='internal_set identifier id'>internal_set</span> <span class='method_symbol identifier id'>method_symbol</span><span class='comma token'>,</span> <span class='lparen token'>(</span><span class='num_args identifier id'>num_args</span> <span class='eq op'>==</span> <span class='integer val'>1</span> <span class='question op'>?</span> <span class='args identifier id'>args</span><span class='lbrack token'>[</span><span class='integer val'>0</span><span class='rbrack token'>]</span> <span class='colon op'>:</span> <span class='args identifier id'>args</span><span class='rparen token'>)</span>
   <span class='end end kw'>end</span>
-  
+
   <span class='comment val'># Returning</span>
   <span class='self self kw'>self</span><span class='dot token'>.</span><span class='configuration identifier id'>configuration</span><span class='lbrack token'>[</span><span class='method_symbol identifier id'>method_symbol</span><span class='rbrack token'>]</span>        
 
@@ -243,7 +288,7 @@ simple get operation.
       <div class="method_details first" id="[]-instance_method">
   <p class="signature first"">
   
-    - (<tt><a href="../Object.html" target="_self" title="Object (class)">Object</a></tt>) <strong>[]</strong>(config_option) 
+    - (<tt><a href="../../Object.html" target="_self" title="Object (class)">Object</a></tt>) <strong>[]</strong>(config_option) 
   
 
   
@@ -282,12 +327,12 @@ Get the value of a configuration option
       <pre class="lines">
 
 
-64
-65
-66</pre>
+70
+71
+72</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/plist4r/mixin/mixlib_config.rb', line 64</span>
+      <pre class="code"><span class="info file"># File 'lib/plist4r/mixin/mixlib_config.rb', line 70</span>
 
 <span class='def def kw'>def</span> <span class='aref op'>[]</span><span class='lparen token'>(</span><span class='config_option identifier id'>config_option</span><span class='rparen token'>)</span>
   <span class='self self kw'>self</span><span class='dot token'>.</span><span class='configuration identifier id'>configuration</span><span class='lbrack token'>[</span><span class='config_option identifier id'>config_option</span><span class='dot token'>.</span><span class='to_sym identifier id'>to_sym</span><span class='rbrack token'>]</span>
@@ -302,7 +347,7 @@ Get the value of a configuration option
       <div class="method_details " id="[]=-instance_method">
   <p class="signature "">
   
-    - (<tt><a href="../Object.html" target="_self" title="Object (class)">Object</a></tt>) <strong>[]=</strong>(config_option, value) 
+    - (<tt><a href="../../Object.html" target="_self" title="Object (class)">Object</a></tt>) <strong>[]=</strong>(config_option, value) 
   
 
   
@@ -338,12 +383,12 @@ Set the value of a configuration option
       <pre class="lines">
 
 
-76
-77
-78</pre>
+82
+83
+84</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/plist4r/mixin/mixlib_config.rb', line 76</span>
+      <pre class="code"><span class="info file"># File 'lib/plist4r/mixin/mixlib_config.rb', line 82</span>
 
 <span class='def def kw'>def</span> <span class='aset op'>[]=</span><span class='lparen token'>(</span><span class='config_option identifier id'>config_option</span><span class='comma token'>,</span> <span class='value identifier id'>value</span><span class='rparen token'>)</span>
   <span class='internal_set identifier id'>internal_set</span><span class='lparen token'>(</span><span class='config_option identifier id'>config_option</span><span class='comma token'>,</span><span class='value identifier id'>value</span><span class='rparen token'>)</span>
@@ -358,7 +403,7 @@ Set the value of a configuration option
       <div class="method_details " id="config_attr_writer-instance_method">
   <p class="signature "">
   
-    - (<tt><a href="../Object.html" target="_self" title="Object (class)">Object</a></tt>) <strong>config_attr_writer</strong>(method_symbol, &amp;blk) 
+    - (<tt><a href="../../Object.html" target="_self" title="Object (class)">Object</a></tt>) <strong>config_attr_writer</strong>(method_symbol, &amp;blk) 
   
 
   
@@ -392,15 +437,15 @@ after any other logic is run
       <pre class="lines">
 
 
-144
-145
-146
-147
-148
-149</pre>
+150
+151
+152
+153
+154
+155</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/plist4r/mixin/mixlib_config.rb', line 144</span>
+      <pre class="code"><span class="info file"># File 'lib/plist4r/mixin/mixlib_config.rb', line 150</span>
 
 <span class='def def kw'>def</span> <span class='config_attr_writer identifier id'>config_attr_writer</span><span class='lparen token'>(</span><span class='method_symbol identifier id'>method_symbol</span><span class='comma token'>,</span> <span class='bitand op'>&amp;</span><span class='blk identifier id'>blk</span><span class='rparen token'>)</span>
   <span class='method_name identifier id'>method_name</span> <span class='assign token'>=</span> <span class='dstring node'>&quot;#{method_symbol.to_s}=&quot;</span>
@@ -418,7 +463,7 @@ after any other logic is run
       <div class="method_details " id="configure-instance_method">
   <p class="signature "">
   
-    - (<tt><a href="../Object.html" target="_self" title="Object (class)">Object</a></tt>) <strong>configure</strong>(&amp;block) 
+    - (<tt><a href="../../Object.html" target="_self" title="Object (class)">Object</a></tt>) <strong>configure</strong>(&amp;block) 
   
 
   
@@ -446,12 +491,12 @@ self.configuration.
       <pre class="lines">
 
 
-50
-51
-52</pre>
+56
+57
+58</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/plist4r/mixin/mixlib_config.rb', line 50</span>
+      <pre class="code"><span class="info file"># File 'lib/plist4r/mixin/mixlib_config.rb', line 56</span>
 
 <span class='def def kw'>def</span> <span class='configure identifier id'>configure</span><span class='lparen token'>(</span><span class='bitand op'>&amp;</span><span class='block identifier id'>block</span><span class='rparen token'>)</span>
   <span class='block identifier id'>block</span><span class='dot token'>.</span><span class='call identifier id'>call</span><span class='lparen token'>(</span><span class='self self kw'>self</span><span class='dot token'>.</span><span class='configuration identifier id'>configuration</span><span class='rparen token'>)</span>
@@ -466,7 +511,7 @@ self.configuration.
       <div class="method_details " id="from_file-instance_method">
   <p class="signature "">
   
-    - (<tt><a href="../Object.html" target="_self" title="Object (class)">Object</a></tt>) <strong>from_file</strong>(filename) 
+    - (<tt><a href="../../Object.html" target="_self" title="Object (class)">Object</a></tt>) <strong>from_file</strong>(filename) 
   
 
   
@@ -497,12 +542,12 @@ Raises an IOError if the file cannot be found, or is not readable.
       <pre class="lines">
 
 
-42
-43
-44</pre>
+48
+49
+50</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/plist4r/mixin/mixlib_config.rb', line 42</span>
+      <pre class="code"><span class="info file"># File 'lib/plist4r/mixin/mixlib_config.rb', line 48</span>
 
 <span class='def def kw'>def</span> <span class='from_file identifier id'>from_file</span><span class='lparen token'>(</span><span class='filename identifier id'>filename</span><span class='rparen token'>)</span>
   <span class='self self kw'>self</span><span class='dot token'>.</span><span class='instance_eval identifier id'>instance_eval</span><span class='lparen token'>(</span><span class='IO constant id'>IO</span><span class='dot token'>.</span><span class='read identifier id'>read</span><span class='lparen token'>(</span><span class='filename identifier id'>filename</span><span class='rparen token'>)</span><span class='comma token'>,</span> <span class='filename identifier id'>filename</span><span class='comma token'>,</span> <span class='integer val'>1</span><span class='rparen token'>)</span>
@@ -566,12 +611,12 @@ Check if Mixlib::Config has a configuration option.
       <pre class="lines">
 
 
-88
-89
-90</pre>
+94
+95
+96</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/plist4r/mixin/mixlib_config.rb', line 88</span>
+      <pre class="code"><span class="info file"># File 'lib/plist4r/mixin/mixlib_config.rb', line 94</span>
 
 <span class='def def kw'>def</span> <span class='has_key? fid id'>has_key?</span><span class='lparen token'>(</span><span class='key identifier id'>key</span><span class='rparen token'>)</span>
   <span class='self self kw'>self</span><span class='dot token'>.</span><span class='configuration identifier id'>configuration</span><span class='dot token'>.</span><span class='has_key? fid id'>has_key?</span><span class='lparen token'>(</span><span class='key identifier id'>key</span><span class='dot token'>.</span><span class='to_sym identifier id'>to_sym</span><span class='rparen token'>)</span>
@@ -586,7 +631,7 @@ Check if Mixlib::Config has a configuration option.
       <div class="method_details " id="hash_dup-instance_method">
   <p class="signature "">
   
-    - (<tt><a href="../Object.html" target="_self" title="Object (class)">Object</a></tt>) <strong>hash_dup</strong> 
+    - (<tt><a href="../../Object.html" target="_self" title="Object (class)">Object</a></tt>) <strong>hash_dup</strong> 
   
 
   
@@ -611,12 +656,12 @@ result of Hash#dup
       <pre class="lines">
 
 
-115
-116
-117</pre>
+121
+122
+123</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/plist4r/mixin/mixlib_config.rb', line 115</span>
+      <pre class="code"><span class="info file"># File 'lib/plist4r/mixin/mixlib_config.rb', line 121</span>
 
 <span class='def def kw'>def</span> <span class='hash_dup identifier id'>hash_dup</span>
   <span class='self self kw'>self</span><span class='dot token'>.</span><span class='configuration identifier id'>configuration</span><span class='dot token'>.</span><span class='dup identifier id'>dup</span>
@@ -631,7 +676,7 @@ result of Hash#dup
       <div class="method_details " id="keys-instance_method">
   <p class="signature "">
   
-    - (<tt><a href="../Object.html" target="_self" title="Object (class)">Object</a></tt>) <strong>keys</strong> 
+    - (<tt><a href="../../Object.html" target="_self" title="Object (class)">Object</a></tt>) <strong>keys</strong> 
   
 
   
@@ -656,12 +701,12 @@ result of Hash#keys
       <pre class="lines">
 
 
-107
-108
-109</pre>
+113
+114
+115</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/plist4r/mixin/mixlib_config.rb', line 107</span>
+      <pre class="code"><span class="info file"># File 'lib/plist4r/mixin/mixlib_config.rb', line 113</span>
 
 <span class='def def kw'>def</span> <span class='keys identifier id'>keys</span>
   <span class='self self kw'>self</span><span class='dot token'>.</span><span class='configuration identifier id'>configuration</span><span class='dot token'>.</span><span class='keys identifier id'>keys</span>
@@ -676,7 +721,7 @@ result of Hash#keys
       <div class="method_details " id="merge!-instance_method">
   <p class="signature "">
   
-    - (<tt><a href="../Object.html" target="_self" title="Object (class)">Object</a></tt>) <strong>merge!</strong>(hash) 
+    - (<tt><a href="../../Object.html" target="_self" title="Object (class)">Object</a></tt>) <strong>merge!</strong>(hash) 
   
 
   
@@ -707,12 +752,12 @@ result of Hash#merge!
       <pre class="lines">
 
 
-99
-100
-101</pre>
+105
+106
+107</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/plist4r/mixin/mixlib_config.rb', line 99</span>
+      <pre class="code"><span class="info file"># File 'lib/plist4r/mixin/mixlib_config.rb', line 105</span>
 
 <span class='def def kw'>def</span> <span class='merge! fid id'>merge!</span><span class='lparen token'>(</span><span class='hash identifier id'>hash</span><span class='rparen token'>)</span>
   <span class='self self kw'>self</span><span class='dot token'>.</span><span class='configuration identifier id'>configuration</span><span class='dot token'>.</span><span class='merge! fid id'>merge!</span><span class='lparen token'>(</span><span class='hash identifier id'>hash</span><span class='rparen token'>)</span>
@@ -729,7 +774,7 @@ result of Hash#merge!
 </div>
     
     <div id="footer">
-  Generated on Sun Apr 11 16:46:00 2010 by 
+  Generated on Fri Apr 16 16:22:52 2010 by 
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool">yard</a>
   0.5.4  and the 
   <a href="http://github.com/dreamcat4/yard-slipstream">yard-slipstream</a> plugin

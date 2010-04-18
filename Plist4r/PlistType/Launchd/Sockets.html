@@ -28,7 +28,7 @@
       <div id="menu">
   
 		
-			<a href="object_index.html" target="_self" title="Index (S)">Index (S)</a>
+			<a href="../../../object_index.html" target="_self" title="Index (S)">Index (S)</a>
 		 &raquo;
     <span class='title'><a href="../../../Plist4r.html" target="_self" title="Plist4r (module)">Plist4r</a></span> &raquo; <span class='title'><a href="../../PlistType.html" target="_self" title="Plist4r::PlistType (class)">PlistType</a></span> &raquo; <span class='title'><a href="../Launchd.html" target="_self" title="Plist4r::PlistType::Launchd (class)">Launchd</a></span>
      &raquo; 
@@ -64,7 +64,11 @@
             return item.text;
           }
         }).result(function(event, item) {
-          location.href = relpath + $(item.href_tag).attr("href");
+					if (window.location.search) {
+	          window.location.href = relpath + $(item.href_tag).attr("href");
+					} else {
+	          location.href = relpath + $(item.href_tag).attr("href");						
+					}
         });
       }
     });
@@ -92,7 +96,7 @@
     <dt class="r1 last">Defined in:</dt>
 		<dd class="r1 last">
   		
-  lib/plist4r/plist_type/launchd.rb<span class="defines">,<br /></span>
+  lib/plist4r/plist_type/launchd.rb
 
 
 		</dd>
@@ -152,7 +156,7 @@
   
   
   <h3 class="inherited">Methods included from <a href="../../DataMethods.html" target="_self" title="Plist4r::DataMethods (module)">Plist4r::DataMethods</a></h3>
-  <p class="inherited"><a href="../../DataMethods.html#classes_for_key_type-instance_method" target="_self" title="Plist4r::DataMethods#classes_for_key_type (method)">#classes_for_key_type</a>, <a href="../../DataMethods.html#method_missing-instance_method" target="_self" title="Plist4r::DataMethods#method_missing (method)">#method_missing</a>, <a href="../../DataMethods.html#set_or_return-instance_method" target="_self" title="Plist4r::DataMethods#set_or_return (method)">#set_or_return</a>, <a href="../../DataMethods.html#valid_keys-instance_method" target="_self" title="Plist4r::DataMethods#valid_keys (method)">#valid_keys</a>, <a href="../../DataMethods.html#validate_value-instance_method" target="_self" title="Plist4r::DataMethods#validate_value (method)">#validate_value</a></p>
+  <p class="inherited"><a href="../../DataMethods.html#classes_for_key_type-instance_method" target="_self" title="Plist4r::DataMethods#classes_for_key_type (method)">#classes_for_key_type</a>, <a href="../../DataMethods.html#method_missing-instance_method" target="_self" title="Plist4r::DataMethods#method_missing (method)">#method_missing</a>, <a href="../../DataMethods.html#set-instance_method" target="_self" title="Plist4r::DataMethods#set (method)">#set</a>, <a href="../../DataMethods.html#set_or_return-instance_method" target="_self" title="Plist4r::DataMethods#set_or_return (method)">#set_or_return</a>, <a href="../../DataMethods.html#valid_keys-instance_method" target="_self" title="Plist4r::DataMethods#valid_keys (method)">#valid_keys</a>, <a href="../../DataMethods.html#validate_value-instance_method" target="_self" title="Plist4r::DataMethods#validate_value (method)">#validate_value</a>, <a href="../../DataMethods.html#value_of-instance_method" target="_self" title="Plist4r::DataMethods#value_of (method)">#value_of</a></p>
 
 
   
@@ -197,24 +201,24 @@
       <pre class="lines">
 
 
-411
-412
-413
-414
-415
-416
-417
-418
-419
-420
-421
-422
-423
-424
-425</pre>
+456
+457
+458
+459
+460
+461
+462
+463
+464
+465
+466
+467
+468
+469
+470</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/plist4r/plist_type/launchd.rb', line 411</span>
+      <pre class="code"><span class="info file"># File 'lib/plist4r/plist_type/launchd.rb', line 456</span>
 
 <span class='def def kw'>def</span> <span class='add_socket identifier id'>add_socket</span> <span class='plicity identifier id'>plicity</span><span class='comma token'>,</span> <span class='key identifier id'>key</span><span class='comma token'>,</span> <span class='index identifier id'>index</span><span class='assign token'>=</span><span class='nil nil kw'>nil</span><span class='comma token'>,</span> <span class='bitand op'>&amp;</span><span class='blk identifier id'>blk</span>
   <span class='select_all identifier id'>select_all</span>
@@ -251,14 +255,14 @@
       <pre class="lines">
 
 
-405
-406
-407
-408
-409</pre>
+450
+451
+452
+453
+454</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/plist4r/plist_type/launchd.rb', line 405</span>
+      <pre class="code"><span class="info file"># File 'lib/plist4r/plist_type/launchd.rb', line 450</span>
 
 <span class='def def kw'>def</span> <span class='add_socket_to_array identifier id'>add_socket_to_array</span> <span class='key identifier id'>key</span><span class='comma token'>,</span> <span class='index identifier id'>index</span><span class='comma token'>,</span> <span class='bitand op'>&amp;</span><span class='blk identifier id'>blk</span>
   <span class='@orig ivar id'>@orig</span><span class='lbrack token'>[</span><span class='key identifier id'>key</span><span class='rbrack token'>]</span> <span class='assign token'>=</span> <span class='lbrack token'>[</span><span class='rbrack token'>]</span> <span class='unless unless_mod kw'>unless</span> <span class='@orig ivar id'>@orig</span><span class='lbrack token'>[</span><span class='key identifier id'>key</span><span class='rbrack token'>]</span><span class='dot token'>.</span><span class='class identifier id'>class</span> <span class='eq op'>==</span> <span class='Array constant id'>Array</span>
@@ -285,12 +289,12 @@
       <pre class="lines">
 
 
-401
-402
-403</pre>
+446
+447
+448</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/plist4r/plist_type/launchd.rb', line 401</span>
+      <pre class="code"><span class="info file"># File 'lib/plist4r/plist_type/launchd.rb', line 446</span>
 
 <span class='def def kw'>def</span> <span class='add_socket_to_dictionary identifier id'>add_socket_to_dictionary</span> <span class='key identifier id'>key</span><span class='comma token'>,</span> <span class='bitand op'>&amp;</span><span class='blk identifier id'>blk</span>
   <span class='@hash ivar id'>@hash</span><span class='lbrack token'>[</span><span class='key identifier id'>key</span><span class='rbrack token'>]</span> <span class='assign token'>=</span> <span class='colon3 op'>::</span><span class='LaunchdPlistStructs constant id'>LaunchdPlistStructs</span><span class='colon2 op'>::</span><span class='Sockets constant id'>Sockets</span><span class='colon2 op'>::</span><span class='Socket constant id'>Socket</span><span class='dot token'>.</span><span class='new identifier id'>new</span><span class='lparen token'>(</span><span class='@hash ivar id'>@hash</span><span class='lbrack token'>[</span><span class='key identifier id'>key</span><span class='rbrack token'>]</span><span class='comma token'>,</span><span class='bitand op'>&amp;</span><span class='blk identifier id'>blk</span><span class='rparen token'>)</span><span class='dot token'>.</span><span class='hash identifier id'>hash</span>
@@ -307,7 +311,7 @@
 </div>
     
     <div id="footer">
-  Generated on Sun Apr 11 16:46:02 2010 by 
+  Generated on Fri Apr 16 16:22:54 2010 by 
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool">yard</a>
   0.5.4  and the 
   <a href="http://github.com/dreamcat4/yard-slipstream">yard-slipstream</a> plugin
