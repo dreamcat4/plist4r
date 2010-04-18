@@ -12,12 +12,12 @@ module Plist4r
     
     def hash hash=nil
       case hash
-      when ::ActiveSupport::OrderedHash
+      when ::Plist4r::OrderedHash
         @hash = @orig = hash
       when nil
         @hash
       else
-        raise "Must hash be an ::ActiveSupport::OrderedHash"
+        raise "Must hash be an ::Plist4r::OrderedHash"
       end
     end
 
@@ -25,6 +25,27 @@ module Plist4r
       raise "Method not implemented #{method_name.to_sym.inspect}, for class #{self.inspect}"
     end
 
+    # A Hash Array of the supported plist keys for this type. These are only those plist keys 
+    # recognized as belonging to a specific plist datatype. Used in validation, part of DataMethods.
+    # We usually overload this method in subclasses of {Plist4r::PlistType}.
+    # @example
+    #  class Plist4r::PlistType::MyPlistType < PlistType
+    #      def self.valid_keys
+    #     {
+    #        :string => %w[PlistKeyS1 PlistKeyS2 ...],
+    #        :bool => %w[PlistKeyB1 PlistKeyB2 ...],
+    #        :integer => %w[PlistKeyI1 PlistKeyI2 ...],
+    #        :method_defined => %w[CustomPlistKey1 CustomPlistKey2 ...]
+    #      }
+    #    end
+    #  end
+    #
+    #  plist.plist_type :my_plist_type
+    #  plist.plist_key_s1 "some string"
+    #  plist.plist_key_b1 true
+    #  plist.plist_key_i1 08
+    #  plist.custom_plist_key1 MyClass.new(opts)
+    # 
     def valid_keys
       self.class.valid_keys
     end
@@ -60,7 +81,7 @@ module Plist4r
       # puts "@enclosing_block = #{@enclosing_block}"
 
       @block = blk
-      @hash = ::ActiveSupport::OrderedHash.new
+      @hash = ::Plist4r::OrderedHash.new
       # puts "@hash = #{@hash}"
 
       instance_eval(&@block) if @block
@@ -84,7 +105,7 @@ module Plist4r
     end
 
     def unselect_all
-      @hash = ::ActiveSupport::OrderedHash.new
+      @hash = ::Plist4r::OrderedHash.new
     end
 
     def select_all

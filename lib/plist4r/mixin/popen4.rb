@@ -7,12 +7,32 @@ module Plist4r
   module Popen4
     class << self
       # This is taken directly from Ara T Howard's Open4 library, and then 
-      # modified to suit the needs of Chef.  Any bugs here are most likely
-      # my own, and not Ara's.
+      # modified to suit the needs of the Chef project.
+      # 
+      # http://github.com/ahoward/open4
+      # 
+      # http://www.ruby-forum.com/topic/54593
+      # 
+      # Don't use the "Block form" calling method. It screws up on the pipes IO.
+      # 
+      # Use "Simple form", always. Simple form == more robust IO handling.
       #
-      # The original appears in external/open4.rb in its unmodified form. 
-      #
-      # Thanks Ara!
+      # @example Simple form
+      #  def popen4_exec stdin_str, cmd, *args
+      #    require 'plist4r/mixin/popen4'
+      #  
+      #    pid, stdin, stdout, stderr = ::Plist4r::Popen4::popen4 [cmd, *args]
+      #  
+      #      stdin.puts stdin_str
+      #  
+      #      stdin.close
+      #      ignored, status = Process::waitpid2 pid
+      #  
+      #      stdout_result = stdout.read.strip
+      #      stderr_result = stderr.read.strip
+      #  
+      #    return [cmd, status, stdout_result, stderr_result]    
+      #  end
       def popen4(cmd, args={}, &b)
    
         # Waitlast - this is magic.  

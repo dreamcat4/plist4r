@@ -24,7 +24,6 @@ module Plist4r
     def method_missing method_symbol, *args, &blk
       # puts "method_missing: #{method_symbol.inspect}, args: #{args.inspect}"
       # puts "@hash = #{@hash.inspect}"
-      # puts "hi"
       valid_keys.each do |key_type, valid_keys_of_those_type|
         if valid_keys_of_those_type.include?(method_symbol.to_s.camelcase)
           puts "key_type = #{key_type}, method_symbol.to_s.camelcase = #{method_symbol.to_s.camelcase}, args = #{args.inspect}"
@@ -32,9 +31,8 @@ module Plist4r
           return set_or_return key_type, method_symbol.to_s.camelcase, *args, &blk
         end
       end
-      # puts "there"
       # puts @plist.inspect
-      if @plist.unsupported_keys
+      unless @plist.strict_keys
         key_type = nil
         # return eval("set_or_return key_type, method_symbol.to_s.camelcase, *args, &blk")
         return set_or_return key_type, method_symbol.to_s.camelcase, *args, &blk
@@ -66,6 +64,28 @@ module Plist4r
       end
     end
 
+    # Set a plist key to a specific value
+    # @param [String] The Plist key, as-is
+    # @param value A ruby object (Hash, String, Array, etc) to set as the value of the plist key
+    # @example
+    # plist.set "CFBundleIdentifier", "com.apple.myapp"
+    # @see #set_or_return
+    def set key, value
+      set_or_return nil, key, value
+    end
+
+    # Return the value of an existing plist key
+    # @return The key's current value, at the time this method was called 
+    # @see #set_or_return
+    def value_of key
+      set_or_return nil, key
+    end
+
+    # Set or return a plist key, value pair
+    # @param [Symbol, nil] key_type The type of class which the value of the key must belong to. Used for validity check.
+    # If key_type is set to nil, then skip value data check
+    # @return the key's value
+    # @see #validate_value
     def set_or_return key_type, key, value=nil
       # puts "#{method_name}, key_type: #{key_type.inspect}, key: #{key.inspect}, value: #{value.inspect}"
       if value

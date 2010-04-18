@@ -1,12 +1,10 @@
 = plist4r
 
-Welcome to Plist4r, a ruby library for reading and writing plist files.
+Plist4r is a friendly ruby library for reading and writing plist files.
 
-Current status: `Beta`, 0.2.x series
+==== Current status: Beta, 0.2.x series
 
-We can read / write a `:launchd` plist. So thats pretty good. The API interfaces (for the pluggable backends and plist_types) are not going to change any more. The user API seems to work. If anyone would like to review the Plist4r code and give feedback / suggestions. Now is the time (whilst were still in beta).
-
-Future `Stable` will be targeted, 0.3.x series.
+We can read / write various kinds of plist files reliably. The API interfaces (for the pluggable backends and plist_types) are mature. The user API works well. Searchable Documentation is included, complete with examples.
 
 == Installation
 
@@ -36,20 +34,6 @@ Future `Stable` will be targeted, 0.3.x series.
 
   p.save
 
-== Plist 'Types'
-
-A Plist type can be one of `%w[info launchd]`, and is the data type for the whole plist file. A plist data type can provide convenience methods to set Type-specific plist structures. For example "Sockets" in a launchd plist.
-
-Plist types are also useful to disallow keys which arent recognized or supported by that format. Flicking `:unsupported_keys` the Plist4r config will enable this:
-
-  ::Plist4r::Config[:unsupported_keys] = false
-
-Or individually, per plist object with
-
-  plist.unsupported_keys false
-  
-Default is true, which allows editing of any plist keys. We think thats a good choice, since unsupported keys can already be present in existing plist files, which are loadable by Plist4r.
-
 == Plist4r Backends
 
 There are now a number of ruby libraries which can read / write plist files. The aim of plist4r is to utilize the individual best features from all of those libraries, as a series of "backends". And hide those behind a "frontend" that is easy to work with.
@@ -65,6 +49,20 @@ And (as above) the 3 supported Plist file formats are
   FileFormats = %w[binary xml next_step]
 
 We believe thats allright for most uses, and decided to include `next_step` for completeness. `NextStep` is also known by other names such as `OpenStep` and (more updated version) `GNU Step`. For example the apple `defaults` command on Mac OS-X will still return `NextStep` formatted plist data.
+
+== Plist4r Types
+
+A Plist type can be one of `%w[plist info launchd]`, and is the data type for the whole plist file. The plist data type provides convenience methods for setting the Type-specific data structures. For example "Sockets" in a launchd plist.
+
+Plist types are also useful to disallow keys which arent recognized or supported by that format. Setting `:strict_keys true` the Plist4r::Config object will globaly enable strict keys.
+
+  ::Plist4r::Config[:unsupported_keys] = true
+
+Or individually, per plist object with
+
+  plist.strict_keys false
+  
+Default is false, which allows editing of any arbitrary plist keys. We think thats a good choice, since unsupported keys can already be present in many existing plist files.
 
 == More Examples
 
@@ -116,11 +114,8 @@ Plist4r has now moved from alpha to beta - quality software. TBC...
 * Regression Tests (rspec)
 * Test harness for the backends
 * Testing of the individual backends
-* Tests for Plist Types
-* RDoc Documentation
-* Script for embedding / inlining Plist4r into Homebrew
 * A Plist Type for Info.plist
-* Command line interface (hopefully mixlib-cli)
+* Tests for Plist Types
 
 == Notes on Patches/Pull Requests
  

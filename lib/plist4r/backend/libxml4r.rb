@@ -1,10 +1,11 @@
 
 require 'plist4r/backend_base'
 
+# Requires Libxml4r. Implements loading / parsing for the :xml file format only.
 module Plist4r::Backend::Libxml4r
   class << self
     def tree_hash n
-      hash = ::ActiveSupport::OrderedHash.new
+      hash = ::Plist4r::OrderedHash.new
       n_xml_keys = n.nodes["key"]
       n_xml_keys.each do |n|
         k = n.inner_xml
@@ -62,7 +63,7 @@ module Plist4r::Backend::Libxml4r
       else
         root = doc.node["/plist/array"]
         if root
-          ordered_hash = ::ActiveSupport::OrderedHash.new
+          ordered_hash = ::Plist4r::OrderedHash.new
           ordered_hash["Array"] = tree_array root
         end
       end

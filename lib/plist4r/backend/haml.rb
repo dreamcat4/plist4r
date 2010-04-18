@@ -1,6 +1,7 @@
 
 require 'plist4r/backend_base'
 
+# Requires Haml. Implements writing and saving for the :xml file format only.
 module Plist4r::Backend::Haml
   class << self
     def to_xml_haml

@@ -8,14 +8,36 @@ require 'plist4r/backend'
 
 module Plist4r
   class Plist
-    PlistOptionsHash = %w[filename path file_format plist_type unsupported_keys backends from_string]
+    # Recognised keys of the options hash. Passed when instantiating a new Plist Object
+    # @see #initialize
+    # @see #parse_opts
+    PlistOptionsHash = %w[filename path file_format plist_type strict_keys backends from_string]
+    # The plist file formats, written as symbols. 
+    # @see #file_format
     FileFormats      = %w[binary xml next_step]
-  
+
+    # Instantiate a new Plist4r::Plist object. We usually set our per-application defaults in {Plist4r::Config} beforehand.
+    # 
+    # @param [String] filename
+    # @param [Hash] options - for advanced usage
+    # @example Create new, empty plist
+    # Plist4r::Plist.new => #<Plist4r::Plist:0x111546c @file_format=nil, ...>
+    # @example Load from file
+    # Plist4r::Plist.new("example.plist") => #<Plist4r::Plist:0x1152d1c @file_format="xml", ...>
+    # @example Load from string
+    # plist_string = "{ \"key1\" = \"value1\"; \"key2\" = \"value2\"; }"
+    # Plist4r::Plist.new({ :from_string => plist_string })
+    #  => #<Plist4r::Plist:0x11e161c @file_format="xml", ...>
+    # @example Advanced options
+    # plist_working_dir = `pwd`.strip
+    # Plist4r::Plist.new({ :filename => "example.plist", :path => plist_working_dir, :backends => ["libxml4r","ruby_cocoa"]})
+    #  => #<Plist4r::Plist:0x111546c @file_format=nil, ...>
+    # @return [Plist4r::Plist] The new Plist object
     def initialize *args, &blk
-      @hash             = ::ActiveSupport::OrderedHash.new
+      @hash             = ::Plist4r::OrderedHash.new
       @plist_type       = plist_type :plist
 
-      @unsupported_keys = Config[:unsupported_keys]
+      @strict_keys = Config[:strict_keys]
       @backends         = Config[:backends]
 
       @from_string      = nil
@@ -37,6 +59,12 @@ module Plist4r
       @plist_cache ||= PlistCache.new self
     end
 
+    # Reinitialize plist object from string (overwrites the current contents). Usually called from {Plist#initialize}
+    # @example Load from string
+    # plist = Plist4r::Plist.new
+    #  => #<Plist4r::Plist:0x11e161c @file_format=nil, ...>
+    # plist.from_string "{ \"key1\" = \"value1\"; \"key2\" = \"value2\"; }"
+    #  => #<Plist4r::Plist:0x11e161c @file_format="next_step", ...>
     def from_string string=nil
       case string
       when String
@@ -55,6 +83,12 @@ module Plist4r
       end
     end
 
+    # Set or return the filename attribute of the plist object.
+    # @param [String] filename either a relative path or absolute
+    # @return The plist's filename
+    # @see Plist::Plist#open
+    # @see Plist::Plist#save
+    # @see Plist::Plist#save_as
     def filename filename=nil
       case filename
       when String
@@ -66,6 +100,10 @@ module Plist4r
       end
     end
 
+    # Set or return the path attribute of the plist object. Pre-pended to the plist's filename (if filename is path-relative)
+    # @param [String] path (must be an absolute pathname)
+    # @return The plist's working path
+    # @see Plist::Plist#filename_path
     def path path=nil
       case path
       when String
@@ -77,6 +115,12 @@ module Plist4r
       end
     end
 
+    # Set or return the combined filename+path.
+    # We use this method in the backends api as the full path to load / save
+    # @param [String] filename_path concactenation of both filename and path elements. Also sets the @filename and @path attributes
+    # @return the full, expanded path to the plist file
+    # @see filename
+    # @see path
     def filename_path filename_path=nil
       case path
       when String
@@ -89,6 +133,11 @@ module Plist4r
       end
     end
 
+    # The file format of the plist file we are loading / saving. Written as a symbol.
+    # One of {Plist4r::Plist.FileFormats}. Defaults to :xml
+    # @param [Symbol, String] file_format Can be :binary, :xml, :next_step
+    # @return The file format associated to this current plist object
+    # @see Plist4r::Plist.FileFormats
     def file_format file_format=nil
       case file_format
       when Symbol, String
@@ -104,6 +153,11 @@ module Plist4r
       end
     end
 
+    # Called automatically on plist load / instantiation. This method detects the "Plist Type", 
+    # using an algorithm that stats the plist data. The plist types with the highest stat (score) 
+    # is chosen to be the object's "Plist Type".
+    # @see Plist4r::PlistType
+    # @return [true] always
     def detect_plist_type
       stat_m = {}
       stat_r = {}
@@ -139,6 +193,11 @@ module Plist4r
       return true
     end
 
+    # Set or return the plist_type of the current object. We can use this to override the automatic type detection.
+    # @param [Symbol, String] plist_type. Must be a sublcass of {Plist4r::PlistType}
+    # @return The plist's known type, written as a symbol. Will be a sublcass of Plist4r::PlistType. Defaults to :plist
+    # @see Plist4r::PlistType
+    # @see Plist4r::PlistType::Plist
     def plist_type plist_type=nil
       begin
         case plist_type
@@ -160,17 +219,29 @@ module Plist4r
       end
     end
 
-    def unsupported_keys bool=nil
+    # Set or return strict_keys mode
+    # @param [true, false] bool If true, then raise an error for any unrecognized keys that dont belong to the {#plist_type}
+    # @return The strict_keys setting for this object
+    # @see Plist4r::Config
+    def strict_keys bool=nil
       case bool
       when true,false
-        @unsupported_keys = bool
+        @strict_keys = bool
       when nil
-        @unsupported_keys
+        @strict_keys
       else
         raise "Please specify true or false to enable / disable this option"
       end
     end
-  
+
+    # An array of strings, symbols or class names which correspond to the active Plist4r::Backends for this object.
+    # The priority order in which backends are executed is determined by the in sequence array order.
+    # @param [Array] backends Inherited from {Plist4r::Config}[:backends]
+    # @return The backends for this object
+    # @example Execute haml before resorting to RubyCocoa
+    # plist.backends [:haml, :ruby_cocoa]
+    # @see Plist4r::Backend
+    # @see Plist4r::Backend::Example
     def backends backends=nil
       case backends
       when Array
@@ -182,6 +253,10 @@ module Plist4r
       end
     end
   
+    # Sets up those valid (settable) plist attributes as found the options hash.
+    # Normally we dont call this method ourselves. Called from {#initialize}.
+    # @param [Hash <PlistOptionsHash>] opts The options hash, containing keys of {PlistOptionsHash}
+    # @see #initialize
     def parse_opts opts
       PlistOptionsHash.each do |opt|
         if opts[opt.to_sym]
@@ -191,16 +266,46 @@ module Plist4r
       end
     end
 
+    # Opens a plist file
+    # 
+    # @param [String] filename plist file to load. Uses the @filename attribute when nil
+    # @return [Plist4r::Plist] The loaded Plist object
+    # @example Load from file
+    # plist = Plist4r.new
+    # plist.open("example.plist") => #<Plist4r::Plist:0x1152d1c @file_format="xml", ...>
     def open filename=nil
       @filename = filename if filename
       raise "No filename specified" unless @filename
       @plist_cache.open
     end
 
+    # An alias of {#edit}
+    # @example
+    #  plist.<< do
+    #    set "PFReleaseVersion" "0.1.1"
+    #  end
+    # @see #edit
     def << *args, &blk
       edit *args, &blk
     end
 
+    # Edit a plist object. Set or return plist keys. Add or remove a selection of keys.
+    # Plist key accessor methods are snake-cased versions of the key string.
+    # @example Set some arbitrary keys and values via {DataMethods#set}
+    #  plist.edit do
+    #    set "PFInstance" "4982394823"
+    #    set "PFReleaseVersion" "0.1.1"
+    #  end
+    # @example Retrieve, and modify a plist key, value pair, with {DataMethods#set} and {DataMethods#value_of}
+    #  plist.edit do
+    #    new_ver = value_of("PFReleaseVersion") + 0.1
+    #    set "PFReleaseVersion" new_ver
+    #  end
+    # @example Modify a Launchd plist, by camel-cased accessor methods
+    #  plist.edit do
+    #    new_ver = value_of("PFReleaseVersion") + 0.1
+    #    set "PFReleaseVersion" new_ver
+    #  end
     def edit *args, &blk
       @plist_type.hash @hash
       instance_eval *args, &blk
@@ -208,42 +313,79 @@ module Plist4r
       @plist_cache.update_checksum
     end
   
+    # Pass down unknown method calls to the selected plist_type, to set or return plist keys.
+    # All plist data manipulation API is called through method_missing -> PlistType -> DataMethods.
+    # @example This will actually call {DataMethods#set}
+    # plist.set "CFBundleVersion" "0.1.0"
+    # @see Plist4r::DataMethods#method_missing
+    # @see #plist_type
     def method_missing method_sym, *args, &blk
       @plist_type.send method_sym, *args, &blk
     end
   
+    # Backend method to set or return all new plist data resulting from a backend API. Used in load operations.
+    # @param [Plist4r::OrderedHash, nil] hash sets the new root object. Replaces all previous plist data.
+    # @return If no argument given, then clears all plist data, returning the new @hash root object
+    # @see Backend::Example
     def import_hash hash=nil
       case hash
-      when ::ActiveSupport::OrderedHash
+      when ::Plist4r::OrderedHash
         @hash = hash
       when nil
-        @hash = ::ActiveSupport::OrderedHash.new
+        @hash = ::Plist4r::OrderedHash.new
       else
-        raise "Please use ::ActiveSupport::OrderedHash.new for your hashes"
+        raise "Please use ::Plist4r::OrderedHash.new for your hashes"
       end
     end
   
+    # The primary storage object for plist data
+    # 
+    # @return [::Plist4r::OrderedHash] Nested hash of ruby objects. The raw Plist data
+    # @see ::Plist4r::OrderedHash
+    # @example 
+    # plist = "{ \"key1\" = \"value1\"; \"key2\" = \"value2\"; }".to_plist
+    # plist.to_hash => {"key1"=>"value1", "key2"=>"value2"}
     def to_hash
       @hash
     end
-  
+
+    # Calls out to the plist cache
+    # 
+    # @return [String] An xml string which represents the entire plist, as would be the plist xml file
+    # @example 
+    # plist = "{ \"key1\" = \"value1\"; \"key2\" = \"value2\"; }".to_plist
+    # plist.to_xml 
+    #  => "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<!DOCTYPE plist PUBLIC \"-//Apple//DTD PLIST 1.0//EN\" \"http://www.apple.com/DTDs/PropertyList-1.0.dtd\">\n<plist version=\"1.0\">\n<dict>\n\t<key>key1</key>\n\t<string>value1</string>\n\t<key>key2</key>\n\t<string>value2</string>\n</dict>\n</plist>"
     def to_xml
       @plist_cache.to_xml
     end
   
+    # @example 
+    # plist = "{ \"key1\" = \"value1\"; \"key2\" = \"value2\"; }".to_plist
+    # plist.to_binary
+    #  => "bplist00\322\001\002\003\004Tkey2Tkey1Vvalue2Vvalue1\b\r\022\027\036\000\000\000\000\000\000\001\001\000\000\000\000\000\000\000\005\000\000\000\000\000\000\000\000\000\000\000\000\000\000\000%"
     def to_binary
       @plist_cache.to_binary
     end
 
+    # @todo Needs a backend
+    #   We are missing a backend for writing out :next_step strings and saving :next_step files to disk
     def to_next_step
       @plist_cache.to_next_step
     end
   
+    # Save plist to #filename
+    # @raise [RuntimeError] if the {#filename} attribute is nil
+    # @see #filename
+    # @see #path
     def save
       raise "No filename specified" unless @filename
       @plist_cache.save
     end
   
+    # Save the plist under a new filename
+    # @param [String] filename The new file name to save as. If a relative path, will be concactenated to plist.path
+    # @see #save
     def save_as filename
       @filename = filename
       save
@@ -252,6 +394,7 @@ module Plist4r
 end
 
 module Plist4r
+  # @private
   class OldPlist
   
     def initialize path_prefix, plist_str, &blk
@@ -268,7 +411,7 @@ module Plist4r
       @shortname = @filename.match(/^.*\.(.*)$/)[1]
 
       @block = blk
-      @hash = @orig = ::ActiveSupport::OrderedHash.new
+      @hash = @orig = ::Plist4r::OrderedHash.new
 
       instance_eval(&@block) if @block
     end

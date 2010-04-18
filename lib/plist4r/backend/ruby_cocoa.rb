@@ -1,6 +1,13 @@
 
 require 'plist4r/backend_base'
 
+# This backend only works on MacOSX. It supports everything except {Backend::Example.to_next_step}, 
+# and saving in the :next_step file format. Here we are calling the stock OSX Ruby in a seperate process. 
+# It isolates the runtime from any shared lib (.so) LoadErrors. And allows calling from other installed 
+# Ruby instances (eg REE), which dont usually have RubyCocoa enabled.
+# 
+# This Backend should work for any 10.5 (Leopard), 10.6 (Snow Leopard) Mac OSX distribution.
+# It will do nothing on non-mac platforms (eg Linux, etc).
 module Plist4r::Backend::RubyCocoa
   class << self
     def ruby_cocoa_wrapper_rb
@@ -30,7 +37,7 @@ class OSX::NSObject
     when OSX::NSArray
       self.to_a.map { |x| x.is_a?(OSX::NSObject) ? x.to_ruby : x }
     when OSX::NSDictionary
-      h = ::ActiveSupport::OrderedHash.new
+      h = ::Plist4r::OrderedHash.new
       self.each do |x, y| 
         x = x.to_ruby if x.is_a?(OSX::NSObject)
         y = y.to_ruby if y.is_a?(OSX::NSObject)
@@ -63,7 +70,7 @@ module Plist
     else
       plist_array = ::OSX::NSArray.arrayWithContentsOfFile(filename) unless plist_dict
       raise "Couldnt parse file: #{filename}" unless plist_array
-      plist_dict = ::ActiveSupport::OrderedHash.new
+      plist_dict = ::Plist4r::OrderedHash.new
       plist_dict["Array"] = plist_array.to_ruby
       puts "#{plist_dict.inspect}"
     end
@@ -159,7 +166,7 @@ EOC
       result = ruby_cocoa_exec "open(\"#{filename}\")"
       case result[1].exitstatus
       when 0
-        hash = ::ActiveSupport::OrderedHash.new
+        hash = ::Plist4r::OrderedHash.new
         eval("hash.replace("+result[2]+")")
         plist.import_hash hash
       else

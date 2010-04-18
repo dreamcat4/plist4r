@@ -24,8 +24,8 @@ puts p.inspect
 # puts "plist type is"
 # puts p2.plist_type.inspect
 
-# p2.unsupported_keys false
-# puts p2.unsupported_keys.inspect
+# p2.strict_keys false
+# puts p2.strict_keys.inspect
 # p2.<< do
 #   somekey "append"
 # end

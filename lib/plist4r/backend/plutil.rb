@@ -1,8 +1,11 @@
 
 require 'plist4r/backend_base'
 
+# This backend does not implement any official Plist4r API methods.
+# But can be used to enhance and add functionality to other backends.
+# 
+# (Mac OSX operating systems only)
 module Plist4r::Backend::Plutil
-  # maybe this could be useful as a helper, used by other backends
   class << self
     def convert_file_to_xml
       system "plutil -convert xml1 #{@filename}"
