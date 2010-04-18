@@ -5,13 +5,15 @@
 
 Gem::Specification.new do |s|
   s.name = %q{plist4r}
-  s.version = "0.2.1"
+  s.version = "0.2.2"
 
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
   s.authors = ["dreamcat4"]
-  s.date = %q{2010-04-14}
+  s.date = %q{2010-04-18}
+  s.default_executable = %q{plist4r}
   s.description = %q{In development. Plist4R is a gem which is striving for 3 things: ease of use, speed, and reliability handling of plists. To help achieve these goals, we may plug-in or re-write this gem with one or several backends. Notably, we try to distinguish this gem by providing easy-to use DSL interface for users. For common plist type(s), such as convenience methods for Launchd Plist}
   s.email = %q{dreamcat4@gmail.com}
+  s.executables = ["plist4r"]
   s.extra_rdoc_files = [
     "LICENSE",
     "README.rdoc"
@@ -25,10 +27,12 @@ Gem::Specification.new do |s|
     "README.rdoc",
     "Rakefile",
     "VERSION",
+    "bin/plist4r",
     "features/plist4r.feature",
     "features/step_definitions/plist4r_steps.rb",
     "features/support/env.rb",
     "lib/plist4r.rb",
+    "lib/plist4r/application.rb",
     "lib/plist4r/backend.rb",
     "lib/plist4r/backend/example.rb",
     "lib/plist4r/backend/haml.rb",
@@ -36,13 +40,16 @@ Gem::Specification.new do |s|
     "lib/plist4r/backend/plutil.rb",
     "lib/plist4r/backend/ruby_cocoa.rb",
     "lib/plist4r/backend_base.rb",
+    "lib/plist4r/commands.rb",
     "lib/plist4r/config.rb",
     "lib/plist4r/mixin.rb",
     "lib/plist4r/mixin/data_methods.rb",
+    "lib/plist4r/mixin/mixlib_cli.rb",
     "lib/plist4r/mixin/mixlib_config.rb",
     "lib/plist4r/mixin/ordered_hash.rb",
     "lib/plist4r/mixin/popen4.rb",
     "lib/plist4r/mixin/ruby_stdlib.rb",
+    "lib/plist4r/options.rb",
     "lib/plist4r/plist.rb",
     "lib/plist4r/plist_cache.rb",
     "lib/plist4r/plist_type.rb",
