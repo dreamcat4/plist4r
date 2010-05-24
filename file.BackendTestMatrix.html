@@ -141,9 +141,10 @@
   <h3>Dynamic table</h3>
   <pre class='code'>@table = Plist4r::Haml::TableCells.new :size => [0..3, 0..5]&#x000A;i = 0&#x000A;require 'date'&#x000A;@table.each 0..2, 0..2 do |c|&#x000A;  c.content = Date::DAYNAMES[i]&#x000A;  i +=1&#x000A;end&#x000A;&#x000A;@table.span_cells 0..3, 4..4, :content => "table_cell"&#x000A;@table.cell(0,4).css_class = "class1"&#x000A;@table.cell(0,4).css_class += " class2"</pre>
   <p>Inspect method (ascii representation)</p>
-  <pre class='code'>|---------------------|---------------------|---------------------|---------------------|&#x000A;| "Sunday"            | "Monday"            | "Tuesday"           | TableCell:0x131e7f4 |&#x000A;|---------------------|---------------------|---------------------|---------------------|&#x000A;| "Wednesday"         | "Thursday"          | "Friday"            | TableCell:0x131e4c0 |&#x000A;|---------------------|---------------------|---------------------|---------------------|&#x000A;| "Saturday"          | TableCell:0x132115c | TableCell:0x131f71c | TableCell:0x131df84 |&#x000A;|---------------------|---------------------|---------------------|---------------------|&#x000A;| TableCell:0x132214c | TableCell:0x1320e8c | TableCell:0x131f398 | TableCell:0x131dc14 |&#x000A;|---------------------|---------------------|---------------------|---------------------|&#x000A;| "table_cell"        | "table_cell"        | "table_cell"        | "table_cell"        |&#x000A;|---------------------|---------------------|---------------------|---------------------|&#x000A;| TableCell:0x1321b98 | TableCell:0x1320220 | TableCell:0x131ead8 | TableCell:0x131cef4 |&#x000A;|---------------------|---------------------|---------------------|---------------------|</pre>
+  <pre class='code'>|---------------------|---------------------|---------------------|---------------------|&#x000A;| "Sunday"            | "Monday"            | "Tuesday"           | TableCell:0x131e7f4 |&#x000A;|---------------------|---------------------|---------------------|---------------------|&#x000A;| "Wednesday"         | "Thursday"          | "Friday"            | TableCell:0x131e4c0 |&#x000A;|---------------------|---------------------|---------------------|---------------------|&#x000A;| "Saturday"          | TableCell:0x132115c | TableCell:0x131f71c | TableCell:0x131df84 |&#x000A;|---------------------|---------------------|---------------------|---------------------|&#x000A;| TableCell:0x132214c | TableCell:0x1320e8c | TableCell:0x131f398 | TableCell:0x131dc14 |&#x000A;|---------------------|---------------------|---------------------|---------------------|&#x000A;| "table_cell"        | "table_cell"        | "table_cell"        | "table_cell"        |&#x000A;|---------------------|---------------------|---------------------|---------------------|&#x000A;| TableCell:0x1321c10 | TableCell:0x1320220 | TableCell:0x131ebb4 | TableCell:0x131cf08 |&#x000A;|---------------------|---------------------|---------------------|---------------------|</pre>
   <p>Haml helper method</p>
   <pre class='code'>= @table.to_html</pre>
+  <pre class='code'>%table&#x000A;  %tbody&#x000A;    - row_range.each do |row|&#x000A;      %tr&#x000A;        - col_range.each do |col|&#x000A;          -# %td #{hash[r][c]}&#x000A;          - c = cell col, row&#x000A;          %td{:class => c.css_class, :id => c.css_id, :style => c.css_style} #{c.content}</pre>
   <p>Generated Html</p>
   <table>
     <tbody>
@@ -191,7 +192,7 @@
 </div></div>
     
     <div id="footer">
-  Generated on Mon May 24 13:04:15 2010 by 
+  Generated on Mon May 24 13:16:33 2010 by 
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool">yard</a>
   0.5.4  and the 
   <a href="http://github.com/dreamcat4/yard-slipstream">yard-slipstream</a> plugin
