@@ -145,7 +145,8 @@
   <p>Haml helper method</p>
   <pre class='code'>= @table.to_html</pre>
   <pre class='code'>%table&#x000A;  %tbody&#x000A;    - row_range.each do |row|&#x000A;      %tr&#x000A;        - col_range.each do |col|&#x000A;          -# %td #{hash[r][c]}&#x000A;          - c = cell col, row&#x000A;          %td{:class => c.css_class, :id => c.css_id, :style => c.css_style} #{c.content}</pre>
-  <p>Generated Html</p>
+  <h2>** Generated Html **</h2>
+  <p>Use "Inspect Element" or "Show source" to get a better look</p>
   <table>
     <tbody>
       <tr>
@@ -188,11 +189,10 @@
   </table>
 </div>
 <p></p>
-<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
 </div></div>
     
     <div id="footer">
-  Generated on Mon May 24 13:16:33 2010 by 
+  Generated on Mon May 24 13:44:10 2010 by 
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool">yard</a>
   0.5.4  and the 
   <a href="http://github.com/dreamcat4/yard-slipstream">yard-slipstream</a> plugin
