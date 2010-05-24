@@ -146,7 +146,7 @@
   <pre class='code'>= @table.to_html</pre>
   <pre class='code'>%table&#x000A;  %tbody&#x000A;    - row_range.each do |row|&#x000A;      %tr&#x000A;        - col_range.each do |col|&#x000A;          -# %td #{hash[r][c]}&#x000A;          - c = cell col, row&#x000A;          %td{:class => c.css_class, :id => c.css_id, :style => c.css_style} #{c.content}</pre>
   <h2>** Generated Html **</h2>
-  <p>Use "Inspect Element" or "Show source" to get a better look</p>
+  <p>"Inspect Element" or "Show source" to get a better look</p>
   <table>
     <tbody>
       <tr>
@@ -192,7 +192,7 @@
 </div></div>
     
     <div id="footer">
-  Generated on Mon May 24 13:44:10 2010 by 
+  Generated on Mon May 24 13:45:32 2010 by 
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool">yard</a>
   0.5.4  and the 
   <a href="http://github.com/dreamcat4/yard-slipstream">yard-slipstream</a> plugin
