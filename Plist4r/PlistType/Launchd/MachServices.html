@@ -67,7 +67,7 @@
 					if (window.location.search) {
 	          window.location.href = relpath + $(item.href_tag).attr("href");
 					} else {
-	          location.href = relpath + $(item.href_tag).attr("href");						
+	          location.href = relpath + $(item.href_tag).attr("href");
 					}
         });
       }
@@ -150,7 +150,10 @@
   
   
   <h3 class="inherited">Methods included from <a href="../../DataMethods.html" target="_self" title="Plist4r::DataMethods (module)">Plist4r::DataMethods</a></h3>
-  <p class="inherited"><a href="../../DataMethods.html#classes_for_key_type-instance_method" target="_self" title="Plist4r::DataMethods#classes_for_key_type (method)">#classes_for_key_type</a>, <a href="../../DataMethods.html#method_missing-instance_method" target="_self" title="Plist4r::DataMethods#method_missing (method)">#method_missing</a>, <a href="../../DataMethods.html#set-instance_method" target="_self" title="Plist4r::DataMethods#set (method)">#set</a>, <a href="../../DataMethods.html#set_or_return-instance_method" target="_self" title="Plist4r::DataMethods#set_or_return (method)">#set_or_return</a>, <a href="../../DataMethods.html#valid_keys-instance_method" target="_self" title="Plist4r::DataMethods#valid_keys (method)">#valid_keys</a>, <a href="../../DataMethods.html#validate_value-instance_method" target="_self" title="Plist4r::DataMethods#validate_value (method)">#validate_value</a>, <a href="../../DataMethods.html#value_of-instance_method" target="_self" title="Plist4r::DataMethods#value_of (method)">#value_of</a></p>
+  <p class="inherited"><a href="../../DataMethods.html#method_missing-instance_method" target="_self" title="Plist4r::DataMethods#method_missing (method)">#method_missing</a>, <a href="../../DataMethods.html#set-instance_method" target="_self" title="Plist4r::DataMethods#set (method)">#set</a>, <a href="../../DataMethods.html#set_or_return-instance_method" target="_self" title="Plist4r::DataMethods#set_or_return (method)">#set_or_return</a>, <a href="../../DataMethods.html#validate_value-instance_method" target="_self" title="Plist4r::DataMethods#validate_value (method)">#validate_value</a>, <a href="../../DataMethods.html#value_of-instance_method" target="_self" title="Plist4r::DataMethods#value_of (method)">#value_of</a></p>
+
+  <h2>Constant Summary</h2>
+  
 
 
   
@@ -161,6 +164,9 @@
   
   
   
+  <h3 class="inherited">Constants included from <a href="../../DataMethods.html" target="_self" title="Plist4r::DataMethods (module)">Plist4r::DataMethods</a></h3>
+  <p class="inherited"><a href="../../DataMethods.html#ClassesForKeyType-constant" target="_self" title="Plist4r::DataMethods::ClassesForKeyType (constant)">ClassesForKeyType</a>, <a href="../../DataMethods.html#ValidKeys-constant" target="_self" title="Plist4r::DataMethods::ValidKeys (constant)">ValidKeys</a></p>
+
 <div id="constructor_details" class="method_details_list">
   <h2>Constructor Details</h2>
   
@@ -195,9 +201,6 @@
       <pre class="lines">
 
 
-372
-373
-374
 375
 376
 377
@@ -205,10 +208,13 @@
 379
 380
 381
-382</pre>
+382
+383
+384
+385</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/plist4r/plist_type/launchd.rb', line 372</span>
+      <pre class="code"><span class="info file"># File 'lib/plist4r/plist_type/launchd.rb', line 375</span>
 
 <span class='def def kw'>def</span> <span class='add identifier id'>add</span> <span class='service identifier id'>service</span><span class='comma token'>,</span> <span class='value identifier id'>value</span><span class='assign token'>=</span><span class='nil nil kw'>nil</span><span class='comma token'>,</span> <span class='bitand op'>&amp;</span><span class='blk identifier id'>blk</span>
   <span class='if if kw'>if</span> <span class='value identifier id'>value</span>
@@ -233,7 +239,7 @@
 </div>
     
     <div id="footer">
-  Generated on Fri Apr 16 16:23:01 2010 by 
+  Generated on Mon May 24 13:04:31 2010 by 
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool">yard</a>
   0.5.4  and the 
   <a href="http://github.com/dreamcat4/yard-slipstream">yard-slipstream</a> plugin

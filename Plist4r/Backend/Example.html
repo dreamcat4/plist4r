@@ -67,7 +67,7 @@
 					if (window.location.search) {
 	          window.location.href = relpath + $(item.href_tag).attr("href");
 					} else {
-	          location.href = relpath + $(item.href_tag).attr("href");						
+	          location.href = relpath + $(item.href_tag).attr("href");
 					}
         });
       }
@@ -381,7 +381,7 @@ the next_step string
 <span class='def def kw'>def</span> <span class='open identifier id'>open</span> <span class='plist identifier id'>plist</span>
   <span class='filename identifier id'>filename</span> <span class='assign token'>=</span> <span class='plist identifier id'>plist</span><span class='dot token'>.</span><span class='filename_path identifier id'>filename_path</span>
   <span class='file_format identifier id'>file_format</span> <span class='assign token'>=</span> <span class='Plist4r constant id'>Plist4r</span><span class='dot token'>.</span><span class='file_detect_format identifier id'>file_detect_format</span> <span class='filename identifier id'>filename</span>
-  <span class='unless unless kw'>unless</span> <span class='lbrack token'>[</span><span class='symbol val'>:supported_fmt1</span><span class='comma token'>,</span><span class='symbol val'>:supported_fmt2</span><span class='rbrack token'>]</span><span class='dot token'>.</span><span class='include? fid id'>include?</span> <span class='file_format identifier id'>file_format</span>
+  <span class='unless unless kw'>unless</span> <span class='lbrack token'>[</span><span class='symbol val'>:supported_fmt1</span><span class='comma token'>,</span><span class='symbol val'>:supported_fmt2</span><span class='rbrack token'>]</span><span class='dot token'>.</span><span class='include? fid id'>include?</span> <span class='file_format identifier id'>file_format</span><span class='dot token'>.</span><span class='to_sym identifier id'>to_sym</span>
     <span class='raise identifier id'>raise</span> <span class='dstring node'>&quot;#{self} - cant load file of format #{file_format}&quot;</span>
   <span class='end end kw'>end</span>
   <span class='plist_file_as_string identifier id'>plist_file_as_string</span> <span class='assign token'>=</span> <span class='File constant id'>File</span><span class='dot token'>.</span><span class='read identifier id'>read</span><span class='lparen token'>(</span><span class='filename identifier id'>filename</span><span class='rparen token'>)</span>
@@ -491,7 +491,7 @@ the same plist object, but updated to match the file contents
 <span class='def def kw'>def</span> <span class='save identifier id'>save</span> <span class='plist identifier id'>plist</span>
   <span class='filename identifier id'>filename</span> <span class='assign token'>=</span> <span class='plist identifier id'>plist</span><span class='dot token'>.</span><span class='filename_path identifier id'>filename_path</span>
   <span class='file_format identifier id'>file_format</span> <span class='assign token'>=</span> <span class='plist identifier id'>plist</span><span class='dot token'>.</span><span class='file_format identifier id'>file_format</span> <span class='orop op'>||</span> <span class='Config constant id'>Config</span><span class='lbrack token'>[</span><span class='symbol val'>:default_format</span><span class='rbrack token'>]</span>
-  <span class='unless unless kw'>unless</span> <span class='lbrack token'>[</span><span class='symbol val'>:xml</span><span class='comma token'>,</span><span class='symbol val'>:binary</span><span class='rbrack token'>]</span><span class='dot token'>.</span><span class='include? fid id'>include?</span> <span class='file_format identifier id'>file_format</span>
+  <span class='unless unless kw'>unless</span> <span class='lbrack token'>[</span><span class='symbol val'>:xml</span><span class='comma token'>,</span><span class='symbol val'>:binary</span><span class='rbrack token'>]</span><span class='dot token'>.</span><span class='include? fid id'>include?</span> <span class='file_format identifier id'>file_format</span><span class='dot token'>.</span><span class='to_sym identifier id'>to_sym</span>
     <span class='raise identifier id'>raise</span> <span class='dstring node'>&quot;#{self} - cant save file of format #{file_format}&quot;</span>
   <span class='end end kw'>end</span>
   <span class='hash identifier id'>hash</span> <span class='assign token'>=</span> <span class='plist identifier id'>plist</span><span class='dot token'>.</span><span class='to_hash identifier id'>to_hash</span>
@@ -787,7 +787,7 @@ the xml string
 </div>
     
     <div id="footer">
-  Generated on Fri Apr 16 16:23:00 2010 by 
+  Generated on Mon May 24 13:04:37 2010 by 
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool">yard</a>
   0.5.4  and the 
   <a href="http://github.com/dreamcat4/yard-slipstream">yard-slipstream</a> plugin

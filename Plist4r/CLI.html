@@ -67,7 +67,7 @@
 					if (window.location.search) {
 	          window.location.href = relpath + $(item.href_tag).attr("href");
 					} else {
-	          location.href = relpath + $(item.href_tag).attr("href");						
+	          location.href = relpath + $(item.href_tag).attr("href");
 					}
         });
       }
@@ -261,23 +261,50 @@ The Plist4r CLI Options
       <div class="method_details first" id="parse-instance_method">
   <p class="signature first"">
   
-    - (<tt><a href="../Object.html" target="_self" title="Object (class)">Object</a></tt>) <strong>parse</strong>(argv = ARGV) 
+    - (<tt><a href="../Object.html" target="_self" title="Object (class)">Object</a></tt>) <strong>parse</strong>(argv = ARGV) { ... }
   
 
   
-</p><table class="source_code">
+</p><div class="docstring">
+  <div class="discussion">
+    
+
+  </div>
+</div>
+<div class="tags">
+  <h3>Yields:</h3>
+<ul class="yield">
+  
+    <li>
+      
+        <span class='type'></span>
+      
+      
+      
+      
+        
+        <div class='inline'><p>
+Some block to yield
+</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
   <tr>
     <td>
       <pre class="lines">
 
 
-38
 39
 40
-41</pre>
+41
+42</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/plist4r/options.rb', line 38</span>
+      <pre class="code"><span class="info file"># File 'lib/plist4r/options.rb', line 39</span>
 
 <span class='def def kw'>def</span> <span class='parse identifier id'>parse</span> <span class='argv identifier id'>argv</span><span class='assign token'>=</span><span class='ARGV constant id'>ARGV</span>
   <span class='parse_options identifier id'>parse_options</span><span class='lparen token'>(</span><span class='argv identifier id'>argv</span><span class='rparen token'>)</span>
@@ -295,7 +322,7 @@ The Plist4r CLI Options
 </div>
     
     <div id="footer">
-  Generated on Fri Apr 16 16:22:52 2010 by 
+  Generated on Mon May 24 13:04:35 2010 by 
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool">yard</a>
   0.5.4  and the 
   <a href="http://github.com/dreamcat4/yard-slipstream">yard-slipstream</a> plugin

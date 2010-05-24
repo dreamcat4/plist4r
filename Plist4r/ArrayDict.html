@@ -67,7 +67,7 @@
 					if (window.location.search) {
 	          window.location.href = relpath + $(item.href_tag).attr("href");
 					} else {
-	          location.href = relpath + $(item.href_tag).attr("href");						
+	          location.href = relpath + $(item.href_tag).attr("href");
 					}
         });
       }
@@ -171,13 +171,32 @@
   
   
   <h3 class="inherited">Methods included from <a href="DataMethods.html" target="_self" title="Plist4r::DataMethods (module)">DataMethods</a></h3>
-  <p class="inherited"><a href="DataMethods.html#classes_for_key_type-instance_method" target="_self" title="Plist4r::DataMethods#classes_for_key_type (method)">#classes_for_key_type</a>, <a href="DataMethods.html#method_missing-instance_method" target="_self" title="Plist4r::DataMethods#method_missing (method)">#method_missing</a>, <a href="DataMethods.html#set-instance_method" target="_self" title="Plist4r::DataMethods#set (method)">#set</a>, <a href="DataMethods.html#set_or_return-instance_method" target="_self" title="Plist4r::DataMethods#set_or_return (method)">#set_or_return</a>, <a href="DataMethods.html#valid_keys-instance_method" target="_self" title="Plist4r::DataMethods#valid_keys (method)">#valid_keys</a>, <a href="DataMethods.html#validate_value-instance_method" target="_self" title="Plist4r::DataMethods#validate_value (method)">#validate_value</a>, <a href="DataMethods.html#value_of-instance_method" target="_self" title="Plist4r::DataMethods#value_of (method)">#value_of</a></p>
+  <p class="inherited"><a href="DataMethods.html#method_missing-instance_method" target="_self" title="Plist4r::DataMethods#method_missing (method)">#method_missing</a>, <a href="DataMethods.html#set-instance_method" target="_self" title="Plist4r::DataMethods#set (method)">#set</a>, <a href="DataMethods.html#set_or_return-instance_method" target="_self" title="Plist4r::DataMethods#set_or_return (method)">#set_or_return</a>, <a href="DataMethods.html#validate_value-instance_method" target="_self" title="Plist4r::DataMethods#validate_value (method)">#validate_value</a>, <a href="DataMethods.html#value_of-instance_method" target="_self" title="Plist4r::DataMethods#value_of (method)">#value_of</a></p>
+<h2>Overview</h2><div class="docstring">
+  <div class="discussion">
+    <p>
+Abstract Base class. Represents some nested data structure within an open
+<tt><a href="Plist.html" target="_self" title="Plist4r::Plist (class)">Plist4r::Plist</a></tt>. Typically, a <tt><a href="PlistType.html" target="_self" title="Plist4r::PlistType (class)">Plist4r::PlistType</a></tt> will create and build
+upon nested instances of this class.
+</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+</div>
+  <h2>Constant Summary</h2>
+  
 
 
   
   
   
   
+  <h3 class="inherited">Constants included from <a href="DataMethods.html" target="_self" title="Plist4r::DataMethods (module)">DataMethods</a></h3>
+  <p class="inherited"><a href="DataMethods.html#ClassesForKeyType-constant" target="_self" title="Plist4r::DataMethods::ClassesForKeyType (constant)">ClassesForKeyType</a>, <a href="DataMethods.html#ValidKeys-constant" target="_self" title="Plist4r::DataMethods::ValidKeys (constant)">ValidKeys</a></p>
+
 <div id="constructor_details" class="method_details_list">
   <h2>Constructor Details</h2>
   
@@ -191,21 +210,62 @@
 </p><div class="docstring">
   <div class="discussion">
     <p>
-A new instance of ArrayDict
+The initializer for this object. Here we set a reference to our raw data
+structure, which typically is a nested hash within the plist root hash
+object. Or an Array type structure if index is set.
 </p>
 
 
   </div>
 </div>
 <div class="tags">
+  <h3>Parameters:</h3>
+<ul class="param">
   
+    <li>
+      
+        <span class='type'>(<tt><a href="OrderedHash.html" target="_self" title="Plist4r::OrderedHash (class)">OrderedHash</a></tt>)</span>
+      
+      
+        <span class='name'>orig</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'><p>
+The nested hash object which this structure represents.
+</p>
+</div>
+      
+    </li>
+  
+    <li>
+      
+        <span class='type'>(<tt>Fixnum</tt>)</span>
+      
+      
+        <span class='name'>index</span>
+      
+      
+        <em class="default">(defaults to: <tt>nil</tt>)</em>
+      
+      
+        &mdash;
+        <div class='inline'><p>
+The Array index (if representing an Array structure)
+</p>
+</div>
+      
+    </li>
+  
+</ul>
+
 </div><table class="source_code">
   <tr>
     <td>
       <pre class="lines">
 
 
-72
 73
 74
 75
@@ -222,10 +282,11 @@ A new instance of ArrayDict
 86
 87
 88
-89</pre>
+89
+90</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/plist4r/plist_type.rb', line 72</span>
+      <pre class="code"><span class="info file"># File 'lib/plist4r/plist_type.rb', line 73</span>
 
 <span class='def def kw'>def</span> <span class='initialize identifier id'>initialize</span> <span class='orig identifier id'>orig</span><span class='comma token'>,</span> <span class='index identifier id'>index</span><span class='assign token'>=</span><span class='nil nil kw'>nil</span><span class='comma token'>,</span> <span class='bitand op'>&amp;</span><span class='blk identifier id'>blk</span>
   <span class='@orig ivar id'>@orig</span> <span class='assign token'>=</span> <span class='orig identifier id'>orig</span>
@@ -271,22 +332,52 @@ A new instance of ArrayDict
       <div class="method_details first" id="hash-instance_method">
   <p class="signature first"">
   
-    - (<tt><a href="../Object.html" target="_self" title="Object (class)">Object</a></tt>) <strong>hash</strong> 
+    - (<tt><a href="OrderedHash.html" target="_self" title="Plist4r::OrderedHash (class)">Plist4r::OrderedHash</a></tt>) <strong>hash</strong> 
   
 
   
-</p><table class="source_code">
+</p><div class="docstring">
+  <div class="discussion">
+    <p>
+The raw data object
+</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  <h3>Returns:</h3>
+<ul class="return">
+  
+    <li>
+      
+        <span class='type'>(<tt><a href="OrderedHash.html" target="_self" title="Plist4r::OrderedHash (class)">Plist4r::OrderedHash</a></tt>)</span>
+      
+      
+      
+      
+        &mdash;
+        <div class='inline'><p>
+@hash
+</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
   <tr>
     <td>
       <pre class="lines">
 
 
-91
-92
-93</pre>
+94
+95
+96</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/plist4r/plist_type.rb', line 91</span>
+      <pre class="code"><span class="info file"># File 'lib/plist4r/plist_type.rb', line 94</span>
 
 <span class='def def kw'>def</span> <span class='hash identifier id'>hash</span>
   <span class='@hash ivar id'>@hash</span>
@@ -305,23 +396,56 @@ A new instance of ArrayDict
   
 
   
-</p><table class="source_code">
+</p><div class="docstring">
+  <div class="discussion">
+    <p>
+Select (keep) plist keys from the object. Copy them to the resultant object
+moving forward.
+</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  <h3>Parameters:</h3>
+<ul class="param">
+  
+    <li>
+      
+        <span class='type'>(<tt><a href="../Array.html" target="_self" title="Array (class)">Array</a></tt>, <tt>*args</tt>)</span>
+      
+      
+        <span class='name'>keys</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'><p>
+The list of Plist Keys to keep
+</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
   <tr>
     <td>
       <pre class="lines">
 
 
-95
-96
-97
-98
-99</pre>
+101
+102
+103
+104
+105</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/plist4r/plist_type.rb', line 95</span>
+      <pre class="code"><span class="info file"># File 'lib/plist4r/plist_type.rb', line 101</span>
 
 <span class='def def kw'>def</span> <span class='select identifier id'>select</span> <span class='mult op'>*</span><span class='keys identifier id'>keys</span>
-  <span class='keys identifier id'>keys</span><span class='dot token'>.</span><span class='each identifier id'>each</span> <span class='do do kw'>do</span> <span class='bitor op'>|</span><span class='k identifier id'>k</span><span class='bitor op'>|</span>
+  <span class='keys identifier id'>keys</span><span class='dot token'>.</span><span class='flatten identifier id'>flatten</span><span class='dot token'>.</span><span class='each identifier id'>each</span> <span class='do do kw'>do</span> <span class='bitor op'>|</span><span class='k identifier id'>k</span><span class='bitor op'>|</span>
     <span class='@hash ivar id'>@hash</span><span class='lbrack token'>[</span><span class='k identifier id'>k</span><span class='rbrack token'>]</span> <span class='assign token'>=</span> <span class='@orig ivar id'>@orig</span><span class='lbrack token'>[</span><span class='k identifier id'>k</span><span class='rbrack token'>]</span>
   <span class='end end kw'>end</span>
 <span class='end end kw'>end</span>
@@ -339,18 +463,30 @@ A new instance of ArrayDict
   
 
   
-</p><table class="source_code">
+</p><div class="docstring">
+  <div class="discussion">
+    <p>
+Select (keep) all plist keys from the object. Copy them to the resultant
+object moving forward.
+</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+</div><table class="source_code">
   <tr>
     <td>
       <pre class="lines">
 
 
-111
-112
-113</pre>
+122
+123
+124</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/plist4r/plist_type.rb', line 111</span>
+      <pre class="code"><span class="info file"># File 'lib/plist4r/plist_type.rb', line 122</span>
 
 <span class='def def kw'>def</span> <span class='select_all identifier id'>select_all</span>
   <span class='@hash ivar id'>@hash</span> <span class='assign token'>=</span> <span class='@orig ivar id'>@orig</span>
@@ -369,23 +505,55 @@ A new instance of ArrayDict
   
 
   
-</p><table class="source_code">
+</p><div class="docstring">
+  <div class="discussion">
+    <p>
+Unselect (delete) plist keys from the object.
+</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  <h3>Parameters:</h3>
+<ul class="param">
+  
+    <li>
+      
+        <span class='type'>(<tt><a href="../Array.html" target="_self" title="Array (class)">Array</a></tt>, <tt>*args</tt>)</span>
+      
+      
+        <span class='name'>keys</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'><p>
+The list of Plist Keys to delete
+</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
   <tr>
     <td>
       <pre class="lines">
 
 
-101
-102
-103
-104
-105</pre>
+109
+110
+111
+112
+113</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/plist4r/plist_type.rb', line 101</span>
+      <pre class="code"><span class="info file"># File 'lib/plist4r/plist_type.rb', line 109</span>
 
 <span class='def def kw'>def</span> <span class='unselect identifier id'>unselect</span> <span class='mult op'>*</span><span class='keys identifier id'>keys</span>
-  <span class='keys identifier id'>keys</span><span class='dot token'>.</span><span class='each identifier id'>each</span> <span class='do do kw'>do</span> <span class='bitor op'>|</span><span class='k identifier id'>k</span><span class='bitor op'>|</span>
+  <span class='keys identifier id'>keys</span><span class='dot token'>.</span><span class='flatten identifier id'>flatten</span><span class='dot token'>.</span><span class='each identifier id'>each</span> <span class='do do kw'>do</span> <span class='bitor op'>|</span><span class='k identifier id'>k</span><span class='bitor op'>|</span>
     <span class='@hash ivar id'>@hash</span><span class='dot token'>.</span><span class='delete identifier id'>delete</span> <span class='k identifier id'>k</span>
   <span class='end end kw'>end</span>
 <span class='end end kw'>end</span>
@@ -403,18 +571,29 @@ A new instance of ArrayDict
   
 
   
-</p><table class="source_code">
+</p><div class="docstring">
+  <div class="discussion">
+    <p>
+Unselect (delete) all plist keys from the object.
+</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+</div><table class="source_code">
   <tr>
     <td>
       <pre class="lines">
 
 
-107
-108
-109</pre>
+116
+117
+118</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/plist4r/plist_type.rb', line 107</span>
+      <pre class="code"><span class="info file"># File 'lib/plist4r/plist_type.rb', line 116</span>
 
 <span class='def def kw'>def</span> <span class='unselect_all identifier id'>unselect_all</span>
   <span class='@hash ivar id'>@hash</span> <span class='assign token'>=</span> <span class='colon3 op'>::</span><span class='Plist4r constant id'>Plist4r</span><span class='colon2 op'>::</span><span class='OrderedHash constant id'>OrderedHash</span><span class='dot token'>.</span><span class='new identifier id'>new</span>
@@ -431,7 +610,7 @@ A new instance of ArrayDict
 </div>
     
     <div id="footer">
-  Generated on Fri Apr 16 16:23:01 2010 by 
+  Generated on Mon May 24 13:04:31 2010 by 
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool">yard</a>
   0.5.4  and the 
   <a href="http://github.com/dreamcat4/yard-slipstream">yard-slipstream</a> plugin

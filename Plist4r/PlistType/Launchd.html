@@ -67,7 +67,7 @@
 					if (window.location.search) {
 	          window.location.href = relpath + $(item.href_tag).attr("href");
 					} else {
-	          location.href = relpath + $(item.href_tag).attr("href");						
+	          location.href = relpath + $(item.href_tag).attr("href");
 					}
         });
       }
@@ -133,15 +133,6 @@
   
 </p>
 
-	<h3 class="inherited">Class Methods</h3>
-	    <ul id="methods_ribbon">
-	    
-	    
-	      <li class="r1"><a href="#valid_keys-class_method" target="_self" title="Plist4r::PlistType::Launchd.valid_keys (method)">valid_keys</a></li>
-	      
-	    
-	    </ul>
-
 	<h3 class="inherited">Instance Methods</h3>
 	    <ul id="methods_ribbon">
 	    
@@ -182,7 +173,7 @@
   
   
   <h3 class="inherited">Methods inherited from <a href="../PlistType.html" target="_self" title="Plist4r::PlistType (class)"></a></h3>
-  <p class="inherited"><a href="../PlistType.html#hash-instance_method" target="_self" title="Plist4r::PlistType#hash (method)">#hash</a>, <a href="../PlistType.html#initialize-instance_method" target="_self" title="Plist4r::PlistType#initialize (method)">#initialize</a>, <a href="../PlistType.html#match_stat-class_method" target="_self" title="Plist4r::PlistType.match_stat (method)">match_stat</a>, <a href="../PlistType.html#to_s-instance_method" target="_self" title="Plist4r::PlistType#to_s (method)">#to_s</a>, <a href="../PlistType.html#to_sym-instance_method" target="_self" title="Plist4r::PlistType#to_sym (method)">#to_sym</a>, <a href="../PlistType.html#valid_keys-instance_method" target="_self" title="Plist4r::PlistType#valid_keys (method)">#valid_keys</a></p>
+  <p class="inherited"><a href="../PlistType.html#hash-instance_method" target="_self" title="Plist4r::PlistType#hash (method)">#hash</a>, <a href="../PlistType.html#initialize-instance_method" target="_self" title="Plist4r::PlistType#initialize (method)">#initialize</a>, <a href="../PlistType.html#match_stat-class_method" target="_self" title="Plist4r::PlistType.match_stat (method)">match_stat</a>, <a href="../PlistType.html#to_s-instance_method" target="_self" title="Plist4r::PlistType#to_s (method)">#to_s</a>, <a href="../PlistType.html#to_sym-instance_method" target="_self" title="Plist4r::PlistType#to_sym (method)">#to_sym</a></p>
 
   
   
@@ -192,7 +183,81 @@
   
   
   <h3 class="inherited">Methods included from <a href="../DataMethods.html" target="_self" title="Plist4r::DataMethods (module)">Plist4r::DataMethods</a></h3>
-  <p class="inherited"><a href="../DataMethods.html#classes_for_key_type-instance_method" target="_self" title="Plist4r::DataMethods#classes_for_key_type (method)">#classes_for_key_type</a>, <a href="../DataMethods.html#method_missing-instance_method" target="_self" title="Plist4r::DataMethods#method_missing (method)">#method_missing</a>, <a href="../DataMethods.html#set-instance_method" target="_self" title="Plist4r::DataMethods#set (method)">#set</a>, <a href="../DataMethods.html#set_or_return-instance_method" target="_self" title="Plist4r::DataMethods#set_or_return (method)">#set_or_return</a>, <a href="../DataMethods.html#valid_keys-instance_method" target="_self" title="Plist4r::DataMethods#valid_keys (method)">#valid_keys</a>, <a href="../DataMethods.html#validate_value-instance_method" target="_self" title="Plist4r::DataMethods#validate_value (method)">#validate_value</a>, <a href="../DataMethods.html#value_of-instance_method" target="_self" title="Plist4r::DataMethods#value_of (method)">#value_of</a></p>
+  <p class="inherited"><a href="../DataMethods.html#method_missing-instance_method" target="_self" title="Plist4r::DataMethods#method_missing (method)">#method_missing</a>, <a href="../DataMethods.html#set-instance_method" target="_self" title="Plist4r::DataMethods#set (method)">#set</a>, <a href="../DataMethods.html#set_or_return-instance_method" target="_self" title="Plist4r::DataMethods#set_or_return (method)">#set_or_return</a>, <a href="../DataMethods.html#validate_value-instance_method" target="_self" title="Plist4r::DataMethods#validate_value (method)">#validate_value</a>, <a href="../DataMethods.html#value_of-instance_method" target="_self" title="Plist4r::DataMethods#value_of (method)">#value_of</a></p>
+<h2>Overview</h2><div class="docstring">
+  <div class="discussion">
+    
+
+  </div>
+</div>
+<div class="tags">
+  <h3>Author:</h3>
+<ul class="author">
+  
+    <li>
+      
+      
+      
+      
+        
+        <div class='inline'><p>
+Dreamcat4 (dreamcat4@gmail.com)
+</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+</div>
+  <h2>Constant Summary</h2>
+  
+    <dl class="constants">
+      
+        <dt id="ValidKeys-constant" class="">ValidKeys =
+          <div class="docstring">
+  <div class="discussion">
+    <p>
+A Hash Array of the supported plist keys for this type. These are plist
+keys which belong to the PlistType for Launchd plists. Each CamelCased key
+name has a corresponding set_or_return method call. For example
+&#8220;UserName&#8221; => user_name(value). To see how to use these Plist
+Keys, go to <a href="../../file.PlistKeyNames.html" target="_self" title="PlistKeyNames">PlistKeyNames</a>
+</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+  <h3>See Also:</h3>
+  <ul class="see">
+    
+      <li><a href="../DataMethods.html" target="_self" title="Plist4r::DataMethods (module)">Plist4r::DataMethods</a></li>
+    
+  </ul>
+
+</div>
+        </dt>
+        <dd><pre class="code"><span class='lbrace token'>{</span>
+  <span class='symbol val'>:string</span>           <span class='assign token'>=</span><span class='gt op'>&gt;</span> <span class='dstring node'>%w[ Label UserName GroupName LimitLoadToSessionType Program RootDirectory \
+                           WorkingDirectory StandardInPath StandardOutPath StandardErrorPath ]</span><span class='comma token'>,</span>
+
+  <span class='symbol val'>:bool</span>             <span class='assign token'>=</span><span class='gt op'>&gt;</span> <span class='dstring node'>%w[ Disabled EnableGlobbing EnableTransactions OnDemand RunAtLoad InitGroups \
+                           StartOnMount Debug WaitForDebugger AbandonProcessGroup HopefullyExitsFirst \
+                           HopefullyExitsLast LowPriorityIO LaunchOnlyOnce ]</span><span class='comma token'>,</span>
+
+  <span class='symbol val'>:integer</span>          <span class='assign token'>=</span><span class='gt op'>&gt;</span> <span class='dstring node'>%w[ Umask TimeOut ExitTimeOut ThrottleInterval StartInterval Nice ]</span><span class='comma token'>,</span>
+
+  <span class='symbol val'>:array_of_strings</span> <span class='assign token'>=</span><span class='gt op'>&gt;</span> <span class='dstring node'>%w[ LimitLoadToHosts LimitLoadFromHosts ProgramArguments WatchPaths QueueDirectories ]</span><span class='comma token'>,</span>
+
+  <span class='symbol val'>:method_defined</span>   <span class='assign token'>=</span><span class='gt op'>&gt;</span> <span class='dstring node'>%w[ inetdCompatibility KeepAlive EnvironmentVariables StartCalendarInterval 
+                           SoftResourceLimits, HardResourceLimits MachServices Sockets ]</span>
+<span class='rbrace token'>}</span>
+</pre></dd>
+      
+    </dl>
+  
 
 
   
@@ -203,6 +268,9 @@
   
   
   
+  <h3 class="inherited">Constants included from <a href="../DataMethods.html" target="_self" title="Plist4r::DataMethods (module)">Plist4r::DataMethods</a></h3>
+  <p class="inherited"><a href="../DataMethods.html#ClassesForKeyType-constant" target="_self" title="Plist4r::DataMethods::ClassesForKeyType (constant)">ClassesForKeyType</a>, <a href="../DataMethods.html#ValidKeys-constant" target="_self" title="Plist4r::DataMethods::ValidKeys (constant)">ValidKeys</a></p>
+
 <div id="constructor_details" class="method_details_list">
   <h2>Constructor Details</h2>
   
@@ -219,74 +287,6 @@
   </p>
   
 </div>
-
-  <div id="class_method_details" class="method_details_list">
-    <h2>Class Method Details</h2>
-    
-    
-      <div class="method_details first" id="valid_keys-class_method">
-  <p class="signature first"">
-  
-    + (<tt><a href="../../Object.html" target="_self" title="Object (class)">Object</a></tt>) <strong>valid_keys</strong> 
-  
-
-  
-</p><div class="docstring">
-  <div class="discussion">
-    <p>
-A Hash Array of the supported plist keys for this type. These are the plist
-keys are recognized to belong to a Launchd plist. Used in validation,
-categorized by the value&#8217;s DataType.
-</p>
-
-
-  </div>
-</div>
-<div class="tags">
-  
-  <h3>See Also:</h3>
-  <ul class="see">
-    
-      <li><a href="../DataMethods.html" target="_self" title="Plist4r::DataMethods (module)">Plist4r::DataMethods</a></li>
-    
-  </ul>
-
-</div><table class="source_code">
-  <tr>
-    <td>
-      <pre class="lines">
-
-
-10
-11
-12
-13
-14
-15
-16
-17
-18</pre>
-    </td>
-    <td>
-      <pre class="code"><span class="info file"># File 'lib/plist4r/plist_type/launchd.rb', line 10</span>
-
-<span class='def def kw'>def</span> <span class='self self kw'>self</span><span class='dot token'>.</span><span class='valid_keys identifier id'>valid_keys</span>
-  <span class='lbrace token'>{</span>
-    <span class='symbol val'>:string</span> <span class='assign token'>=</span><span class='gt op'>&gt;</span> <span class='dstring node'>%w[Label UserName GroupName LimitLoadToSessionType Program RootDirectory WorkingDirectory StandardInPath StandardOutPath StandardErrorPath]</span><span class='comma token'>,</span>
-    <span class='symbol val'>:bool</span> <span class='assign token'>=</span><span class='gt op'>&gt;</span> <span class='dstring node'>%w[Disabled EnableGlobbing EnableTransactions OnDemand RunAtLoad InitGroups StartOnMount Debug WaitForDebugger AbandonProcessGroup HopefullyExitsFirst HopefullyExitsLast LowPriorityIO LaunchOnlyOnce]</span><span class='comma token'>,</span>
-    <span class='symbol val'>:integer</span> <span class='assign token'>=</span><span class='gt op'>&gt;</span> <span class='dstring node'>%w[Umask TimeOut ExitTimeOut ThrottleInterval StartInterval Nice]</span><span class='comma token'>,</span>
-    <span class='symbol val'>:array_of_strings</span> <span class='assign token'>=</span><span class='gt op'>&gt;</span> <span class='dstring node'>%w[LimitLoadToHosts LimitLoadFromHosts ProgramArguments WatchPaths QueueDirectories]</span><span class='comma token'>,</span>
-    <span class='symbol val'>:method_defined</span> <span class='assign token'>=</span><span class='gt op'>&gt;</span> <span class='dstring node'>%w[inetdCompatibility KeepAlive EnvironmentVariables StartCalendarInterval SoftResourceLimits, HardResourceLimits MachServices Sockets]</span>
-  <span class='rbrace token'>}</span>
-<span class='end end kw'>end</span>
-</pre>
-    </td>
-  </tr>
-</table>
-</div>
-
-    
-  </div>
 
   <div id="instance_method_details" class="method_details_list">
     <h2>Instance Method Details</h2>
@@ -353,14 +353,6 @@ be set before running the job.
       <pre class="lines">
 
 
-135
-136
-137
-138
-139
-140
-141
-142
 143
 144
 145
@@ -371,10 +363,18 @@ be set before running the job.
 150
 151
 152
-153</pre>
+153
+154
+155
+156
+157
+158
+159
+160
+161</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/plist4r/plist_type/launchd.rb', line 135</span>
+      <pre class="code"><span class="info file"># File 'lib/plist4r/plist_type/launchd.rb', line 143</span>
 
 <span class='def def kw'>def</span> <span class='environment_variables identifier id'>environment_variables</span> <span class='value identifier id'>value</span><span class='assign token'>=</span><span class='nil nil kw'>nil</span><span class='comma token'>,</span> <span class='bitand op'>&amp;</span><span class='blk identifier id'>blk</span>
   <span class='key identifier id'>key</span> <span class='assign token'>=</span> <span class='string val'>&quot;EnvironmentVariables&quot;</span>
@@ -494,18 +494,18 @@ Example
       <pre class="lines">
 
 
-355
-356
-357
-358
-359
 360
 361
 362
-363</pre>
+363
+364
+365
+366
+367
+368</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/plist4r/plist_type/launchd.rb', line 355</span>
+      <pre class="code"><span class="info file"># File 'lib/plist4r/plist_type/launchd.rb', line 360</span>
 
 <span class='def def kw'>def</span> <span class='hard_resource_limits identifier id'>hard_resource_limits</span> <span class='value identifier id'>value</span><span class='assign token'>=</span><span class='nil nil kw'>nil</span><span class='comma token'>,</span> <span class='bitand op'>&amp;</span><span class='blk identifier id'>blk</span>
   <span class='key identifier id'>key</span> <span class='assign token'>=</span> <span class='string val'>&quot;HardResourceLimits&quot;</span>
@@ -546,10 +546,10 @@ Set or return the plist key &#8220;inetdCompatibility&#8220;
     
       <h4><div class='inline'></div></h4>
       <pre class="example code"><span class='comment val'># set inetdCompatibility</span>
-<span class='launchd_plist identifier id'>launchd_plist</span><span class='dot token'>.</span><span class='inetdCompatibility identifier id'>inetdCompatibility</span><span class='lparen token'>(</span><span class='lbrace token'>{</span><span class='symbol val'>:wait</span> <span class='assign token'>=</span><span class='gt op'>&gt;</span> <span class='true true kw'>true</span><span class='rbrace token'>}</span><span class='rparen token'>)</span>
+<span class='launchd_plist identifier id'>launchd_plist</span><span class='dot token'>.</span><span class='inetd_compatibility identifier id'>inetd_compatibility</span><span class='lparen token'>(</span><span class='lbrace token'>{</span><span class='symbol val'>:wait</span> <span class='assign token'>=</span><span class='gt op'>&gt;</span> <span class='true true kw'>true</span><span class='rbrace token'>}</span><span class='rparen token'>)</span>
 
 <span class='comment val'># return inetdCompatibility</span>
-<span class='launchd_plist identifier id'>launchd_plist</span><span class='dot token'>.</span><span class='inetdCompatibility identifier id'>inetdCompatibility</span> <span class='assign token'>=</span><span class='gt op'>&gt;</span> <span class='hash identifier id'>hash</span> <span class='or or kw'>or</span> <span class='nil nil kw'>nil</span>
+<span class='launchd_plist identifier id'>launchd_plist</span><span class='dot token'>.</span><span class='inetd_compatibility identifier id'>inetd_compatibility</span> <span class='assign token'>=</span><span class='gt op'>&gt;</span> <span class='hash identifier id'>hash</span> <span class='or or kw'>or</span> <span class='nil nil kw'>nil</span>
 </pre>
     
   </div>
@@ -612,24 +612,24 @@ in/out/error descriptors.
       <pre class="lines">
 
 
-35
-36
-37
-38
-39
-40
-41
-42
-43
 44
 45
 46
 47
 48
-49</pre>
+49
+50
+51
+52
+53
+54
+55
+56
+57
+58</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/plist4r/plist_type/launchd.rb', line 35</span>
+      <pre class="code"><span class="info file"># File 'lib/plist4r/plist_type/launchd.rb', line 44</span>
 
 <span class='def def kw'>def</span> <span class='inetd_compatibility identifier id'>inetd_compatibility</span> <span class='value identifier id'>value</span><span class='assign token'>=</span><span class='nil nil kw'>nil</span>
   <span class='key identifier id'>key</span> <span class='assign token'>=</span> <span class='string val'>&quot;inetdCompatibility&quot;</span>
@@ -821,14 +821,6 @@ This feature should not be considered a substitute for the use of IPC.
       <pre class="lines">
 
 
-106
-107
-108
-109
-110
-111
-112
-113
 114
 115
 116
@@ -837,10 +829,18 @@ This feature should not be considered a substitute for the use of IPC.
 119
 120
 121
-122</pre>
+122
+123
+124
+125
+126
+127
+128
+129
+130</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/plist4r/plist_type/launchd.rb', line 106</span>
+      <pre class="code"><span class="info file"># File 'lib/plist4r/plist_type/launchd.rb', line 114</span>
 
 <span class='def def kw'>def</span> <span class='keep_alive identifier id'>keep_alive</span> <span class='value identifier id'>value</span><span class='assign token'>=</span><span class='nil nil kw'>nil</span><span class='comma token'>,</span> <span class='bitand op'>&amp;</span><span class='blk identifier id'>blk</span>
   <span class='key identifier id'>key</span> <span class='assign token'>=</span> <span class='string val'>&quot;KeepAlive&quot;</span>
@@ -948,18 +948,18 @@ Example
       <pre class="lines">
 
 
-424
-425
-426
 427
 428
 429
 430
 431
-432</pre>
+432
+433
+434
+435</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/plist4r/plist_type/launchd.rb', line 424</span>
+      <pre class="code"><span class="info file"># File 'lib/plist4r/plist_type/launchd.rb', line 427</span>
 
 <span class='def def kw'>def</span> <span class='mach_services identifier id'>mach_services</span> <span class='value identifier id'>value</span><span class='assign token'>=</span><span class='nil nil kw'>nil</span><span class='comma token'>,</span> <span class='bitand op'>&amp;</span><span class='blk identifier id'>blk</span>
   <span class='key identifier id'>key</span> <span class='assign token'>=</span> <span class='string val'>&quot;MachServices&quot;</span>
@@ -1224,12 +1224,6 @@ NOTE: Accessing the default sockets
       <pre class="lines">
 
 
-654
-655
-656
-657
-658
-659
 660
 661
 662
@@ -1250,10 +1244,16 @@ NOTE: Accessing the default sockets
 677
 678
 679
-680</pre>
+680
+681
+682
+683
+684
+685
+686</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/plist4r/plist_type/launchd.rb', line 654</span>
+      <pre class="code"><span class="info file"># File 'lib/plist4r/plist_type/launchd.rb', line 660</span>
 
 <span class='def def kw'>def</span> <span class='socket identifier id'>socket</span> <span class='index_or_key identifier id'>index_or_key</span><span class='assign token'>=</span><span class='nil nil kw'>nil</span><span class='comma token'>,</span> <span class='index identifier id'>index</span><span class='assign token'>=</span><span class='nil nil kw'>nil</span><span class='comma token'>,</span> <span class='bitand op'>&amp;</span><span class='blk identifier id'>blk</span>
   <span class='key identifier id'>key</span> <span class='assign token'>=</span> <span class='string val'>&quot;Sockets&quot;</span>
@@ -1381,18 +1381,18 @@ Example
       <pre class="lines">
 
 
-290
-291
-292
-293
-294
 295
 296
 297
-298</pre>
+298
+299
+300
+301
+302
+303</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/plist4r/plist_type/launchd.rb', line 290</span>
+      <pre class="code"><span class="info file"># File 'lib/plist4r/plist_type/launchd.rb', line 295</span>
 
 <span class='def def kw'>def</span> <span class='soft_resource_limits identifier id'>soft_resource_limits</span> <span class='value identifier id'>value</span><span class='assign token'>=</span><span class='nil nil kw'>nil</span><span class='comma token'>,</span> <span class='bitand op'>&amp;</span><span class='blk identifier id'>blk</span>
   <span class='key identifier id'>key</span> <span class='assign token'>=</span> <span class='string val'>&quot;SoftResourceLimits&quot;</span>
@@ -1536,12 +1536,6 @@ to the end of the array if no index specified.
       <pre class="lines">
 
 
-211
-212
-213
-214
-215
-216
 217
 218
 219
@@ -1552,10 +1546,16 @@ to the end of the array if no index specified.
 224
 225
 226
-227</pre>
+227
+228
+229
+230
+231
+232
+233</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/plist4r/plist_type/launchd.rb', line 211</span>
+      <pre class="code"><span class="info file"># File 'lib/plist4r/plist_type/launchd.rb', line 217</span>
 
 <span class='def def kw'>def</span> <span class='start_calendar_interval identifier id'>start_calendar_interval</span> <span class='index identifier id'>index</span><span class='assign token'>=</span><span class='nil nil kw'>nil</span><span class='comma token'>,</span> <span class='bitand op'>&amp;</span><span class='blk identifier id'>blk</span>
   <span class='key identifier id'>key</span> <span class='assign token'>=</span> <span class='string val'>&quot;StartCalendarInterval&quot;</span>
@@ -1586,7 +1586,7 @@ to the end of the array if no index specified.
 </div>
     
     <div id="footer">
-  Generated on Fri Apr 16 16:22:59 2010 by 
+  Generated on Mon May 24 13:04:20 2010 by 
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool">yard</a>
   0.5.4  and the 
   <a href="http://github.com/dreamcat4/yard-slipstream">yard-slipstream</a> plugin

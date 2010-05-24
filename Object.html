@@ -67,7 +67,7 @@
 					if (window.location.search) {
 	          window.location.href = relpath + $(item.href_tag).attr("href");
 					} else {
-	          location.href = relpath + $(item.href_tag).attr("href");						
+	          location.href = relpath + $(item.href_tag).attr("href");
 					}
         });
       }
@@ -110,10 +110,13 @@
 	    <ul id="methods_ribbon">
 	    
 	    
-	      <li class="r1"><a href="#meta_def-instance_method" target="_self" title="Object#meta_def (method)">meta_def</a></li>
+	      <li class="r1"><a href="#deep_clone-instance_method" target="_self" title="Object#deep_clone (method)">deep_clone</a></li>
 	      
 	    
-	      <li class="r2"><a href="#method_name-instance_method" target="_self" title="Object#method_name (method)">method_name</a></li>
+	      <li class="r2"><a href="#meta_def-instance_method" target="_self" title="Object#meta_def (method)">meta_def</a></li>
+	      
+	    
+	      <li class="r1"><a href="#method_name-instance_method" target="_self" title="Object#method_name (method)">method_name</a></li>
 	      
 	    
 	    </ul>
@@ -138,8 +141,74 @@ upset anyone else&#8217;s code
     <h2>Instance Method Details</h2>
     
     
-      <div class="method_details first" id="meta_def-instance_method">
+      <div class="method_details first" id="deep_clone-instance_method">
   <p class="signature first"">
+  
+    - (<tt><a href="" target="_self" title="Object (class)">Object</a></tt>) <strong>deep_clone</strong> 
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    <p>
+Make a deep copy of an object. Including a deep copy of all the
+object&#8217;s instance data.
+</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+  <div class="examples">
+    <h3>Examples:</h3>
+    
+      <h4><div class='inline'></div></h4>
+      <pre class="example code"><span class='copy_of_obj identifier id'>copy_of_obj</span> <span class='assign token'>=</span> <span class='obj identifier id'>obj</span><span class='dot token'>.</span><span class='deep_clone identifier id'>deep_clone</span>
+</pre>
+    
+  </div>
+<h3>Returns:</h3>
+<ul class="return">
+  
+    <li>
+      
+        <span class='type'>(<tt><a href="" target="_self" title="Object (class)">Object</a></tt>)</span>
+      
+      
+      
+      
+        &mdash;
+        <div class='inline'><p>
+A new copy of the object
+</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+24</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/plist4r/mixin/ruby_stdlib.rb', line 24</span>
+
+<span class='def def kw'>def</span> <span class='deep_clone identifier id'>deep_clone</span><span class='semicolon token'>;</span> <span class='Marshal constant id'>Marshal</span><span class='colon2 op'>::</span><span class='load identifier id'>load</span><span class='lparen token'>(</span><span class='Marshal constant id'>Marshal</span><span class='dot token'>.</span><span class='dump identifier id'>dump</span><span class='lparen token'>(</span><span class='self self kw'>self</span><span class='rparen token'>)</span><span class='rparen token'>)</span> <span class='end end kw'>end</span>
+</pre>
+    </td>
+  </tr>
+</table>
+</div>
+
+    
+      <div class="method_details " id="meta_def-instance_method">
+  <p class="signature "">
   
     - (<tt><a href="" target="_self" title="Object (class)">Object</a></tt>) <strong>meta_def</strong>(name, &amp;blk) 
   
@@ -273,7 +342,7 @@ The name of the current method
 </div>
     
     <div id="footer">
-  Generated on Fri Apr 16 16:22:54 2010 by 
+  Generated on Mon May 24 13:04:18 2010 by 
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool">yard</a>
   0.5.4  and the 
   <a href="http://github.com/dreamcat4/yard-slipstream">yard-slipstream</a> plugin

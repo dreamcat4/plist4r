@@ -1,0 +1,202 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+  <head>
+    <meta name="Content-Type" content="text/html; charset=utf-8" />
+<title>File: BackendTestMatrix</title>
+<link rel="stylesheet" href="css/style.css" type="text/css" media="screen" charset="utf-8" />
+<link rel="stylesheet" href="css/common.css" type="text/css" media="screen" charset="utf-8" />
+<link rel="stylesheet" href="css/custom.css" type="text/css" media="screen" charset="utf-8" />
+
+<script type="text/javascript" charset="utf-8">
+  relpath = '';
+  if (relpath != '') relpath += '/';
+</script>
+<base id="base_target" target="_top" />
+<script type="text/javascript" charset="utf-8" src="js/jquery.js"></script>
+<script type="text/javascript" charset="utf-8" src="js/autocomplete.js"></script>
+<script type="text/javascript" charset="utf-8" src="js/app.js"></script>
+<script type="text/javascript" charset="utf-8" src="js/live.js"></script>
+
+  </head>
+  <body>
+    <script type="text/javascript" charset="utf-8">
+      if (window.top.frames.main) document.body.className = 'frames';
+    </script>
+    
+    <div id="header">
+      <div id="menu">
+  
+    <a href="object_index.html" target="_self" title="Index">Index</a> &raquo; 
+    <span class="title">File: BackendTestMatrix</span>
+  
+  
+  <div class="noframes">
+    <span class="title"></span>
+    <a id="frames_link" class="link_disabled">Frames</a> | 
+    <a target="_top" id="noframes_link" class="link_disabled">No Frames</a>
+    <span class="title"></span>
+  </div>
+</div>
+
+      <div id="search2">
+  
+  
+  <div class="search2_center">
+    <form class="search2" onsubmit="return false;" action="">
+      <input name="q" type="search" placeholder="Search" id="search_box2" size="30" value="" />
+    </form>
+  </div>
+  <script type="text/javascript" charset="utf-8"> 
+    $('#search_box2').focus(function(){
+      var search_index = relpath + 'search_index.json';
+      jQuery.getJSON(search_index, go_data);
+
+      function go_data(adata) {
+        $('#search_box2').autocomplete(adata, {
+          width: 300,
+          matchContains: true,
+          formatItem: function(item) {
+            return item.text;
+          }
+        }).result(function(event, item) {
+					if (window.location.search) {
+	          window.location.href = relpath + $(item.href_tag).attr("href");
+					} else {
+	          location.href = relpath + $(item.href_tag).attr("href");
+					}
+        });
+      }
+    });
+  </script> 
+</div>
+
+      <div class="clear"></div>
+    </div>
+    
+    <iframe id="search_frame"></iframe>
+    
+    <div id="content"><div id='filecontents'><h1>Backend Test Matrix</h1>
+<div>
+  <p>Static table, with colspan=3</p>
+  <table>
+    <thead>
+      <tr>
+        <th>&nbsp;</th>
+        <th colspan='3'>Open</th>
+      </tr>
+      <tr>
+        <th>&nbsp;</th>
+        <th>x1</th>
+        <th>x2</th>
+        <th>x3</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <th>y1</th>
+        <td>val11</td>
+        <td>val21</td>
+        <td>val31</td>
+      </tr>
+      <tr>
+        <th>y2</th>
+        <td>val12</td>
+        <td>val22</td>
+        <td>val32</td>
+      </tr>
+    </tbody>
+  </table>
+  <hr />
+  <p>Static table, with rowspan=3</p>
+  <table>
+    <thead>
+      <tr>
+        <th>&nbsp;</th>
+        <th>&nbsp;</th>
+        <th>y1</th>
+        <th>y2</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <th rowspan='3'>Open</th>
+        <th>x1</th>
+        <td>val11</td>
+        <td>val12</td>
+      </tr>
+      <tr>
+        <th>x2</th>
+        <td>val21</td>
+        <td>val22</td>
+      </tr>
+      <tr>
+        <th>x3</th>
+        <td>val31</td>
+        <td>val32</td>
+      </tr>
+    </tbody>
+  </table>
+  <hr />
+  <h3>Dynamic table</h3>
+  <pre class='code'>@table = Plist4r::Haml::TableCells.new :size => [0..3, 0..5]&#x000A;i = 0&#x000A;require 'date'&#x000A;@table.each 0..2, 0..2 do |c|&#x000A;  c.content = Date::DAYNAMES[i]&#x000A;  i +=1&#x000A;end&#x000A;&#x000A;@table.span_cells 0..3, 4..4, :content => "table_cell"&#x000A;@table.cell(0,4).css_class = "class1"&#x000A;@table.cell(0,4).css_class += " class2"</pre>
+  <p>Inspect method (ascii representation)</p>
+  <pre class='code'>|---------------------|---------------------|---------------------|---------------------|&#x000A;| "Sunday"            | "Monday"            | "Tuesday"           | TableCell:0x131e7f4 |&#x000A;|---------------------|---------------------|---------------------|---------------------|&#x000A;| "Wednesday"         | "Thursday"          | "Friday"            | TableCell:0x131e4c0 |&#x000A;|---------------------|---------------------|---------------------|---------------------|&#x000A;| "Saturday"          | TableCell:0x132115c | TableCell:0x131f71c | TableCell:0x131df84 |&#x000A;|---------------------|---------------------|---------------------|---------------------|&#x000A;| TableCell:0x132214c | TableCell:0x1320e8c | TableCell:0x131f398 | TableCell:0x131dc14 |&#x000A;|---------------------|---------------------|---------------------|---------------------|&#x000A;| "table_cell"        | "table_cell"        | "table_cell"        | "table_cell"        |&#x000A;|---------------------|---------------------|---------------------|---------------------|&#x000A;| TableCell:0x1321b98 | TableCell:0x1320220 | TableCell:0x131ead8 | TableCell:0x131cef4 |&#x000A;|---------------------|---------------------|---------------------|---------------------|</pre>
+  <p>Haml helper method</p>
+  <pre class='code'>= @table.to_html</pre>
+  <p>Generated Html</p>
+  <table>
+    <tbody>
+      <tr>
+        <td>Sunday</td>
+        <td>Monday</td>
+        <td>Tuesday</td>
+        <td></td>
+      </tr>
+      <tr>
+        <td>Wednesday</td>
+        <td>Thursday</td>
+        <td>Friday</td>
+        <td></td>
+      </tr>
+      <tr>
+        <td>Saturday</td>
+        <td></td>
+        <td></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td class='class1 class2'>table_cell</td>
+        <td class='class1 class2'>table_cell</td>
+        <td class='class1 class2'>table_cell</td>
+        <td class='class1 class2'>table_cell</td>
+      </tr>
+      <tr>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+<p></p>
+<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+</div></div>
+    
+    <div id="footer">
+  Generated on Mon May 24 13:04:15 2010 by 
+  <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool">yard</a>
+  0.5.4  and the 
+  <a href="http://github.com/dreamcat4/yard-slipstream">yard-slipstream</a> plugin
+	(ruby-1.8.7).
+</div>
+
+  </body>
+</html>
