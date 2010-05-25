@@ -174,18 +174,7 @@
     <dl class="constants">
       
         <dt id="Attributes-constant" class="">Attributes =
-          <div class="docstring">
-  <div class="discussion">
-    <p>
-Spans = %w[colspan rowspan] Attributes = InnerCell::Attributes + Spans
-</p>
-
-
-  </div>
-</div>
-<div class="tags">
-  
-</div>
+          
         </dt>
         <dd><pre class="code"><span class='InnerCell constant id'>InnerCell</span><span class='colon2 op'>::</span><span class='Attributes constant id'>Attributes</span>
 </pre></dd>
@@ -221,6 +210,8 @@ A new instance of TableCell
       <pre class="lines">
 
 
+45
+46
 47
 48
 49
@@ -233,12 +224,10 @@ A new instance of TableCell
 56
 57
 58
-59
-60
-61</pre>
+59</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/plist4r/mixin/haml/table_cell.rb', line 47</span>
+      <pre class="code"><span class="info file"># File 'lib/plist4r/mixin/haml/table_cell.rb', line 45</span>
 
 <span class='def def kw'>def</span> <span class='initialize identifier id'>initialize</span> <span class='mult op'>*</span><span class='args identifier id'>args</span><span class='comma token'>,</span> <span class='bitand op'>&amp;</span><span class='blk identifier id'>blk</span>
 
@@ -283,14 +272,14 @@ A new instance of TableCell
       <pre class="lines">
 
 
-125
-126
-127
-128
-129</pre>
+115
+116
+117
+118
+119</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/plist4r/mixin/haml/table_cell.rb', line 125</span>
+      <pre class="code"><span class="info file"># File 'lib/plist4r/mixin/haml/table_cell.rb', line 115</span>
 
 <span class='def def kw'>def</span> <span class='method_missing identifier id'>method_missing</span> <span class='method_sym identifier id'>method_sym</span><span class='comma token'>,</span> <span class='mult op'>*</span><span class='args identifier id'>args</span><span class='comma token'>,</span> <span class='bitand op'>&amp;</span><span class='blk identifier id'>blk</span>
   <span class='if if kw'>if</span> <span class='@inner_cell ivar id'>@inner_cell</span><span class='dot token'>.</span><span class='class identifier id'>class</span><span class='colon2 op'>::</span><span class='Attributes constant id'>Attributes</span><span class='dot token'>.</span><span class='include? fid id'>include?</span> <span class='method_sym identifier id'>method_sym</span><span class='dot token'>.</span><span class='to_s identifier id'>to_s</span><span class='dot token'>.</span><span class='chomp identifier id'>chomp</span><span class='lparen token'>(</span><span class='string val'>'='</span><span class='rparen token'>)</span>
@@ -317,40 +306,23 @@ A new instance of TableCell
   
 
   
-</p><div class="docstring">
-  <div class="discussion">
-    <p>
-def haml_object_ref
-</p>
-<pre class="code">
-  <span class='inner_cell identifier id'>inner_cell</span><span class='dot token'>.</span><span class='send identifier id'>send</span> <span class='symbol val'>:class</span>
-</pre>
-<p>
-end
-</p>
-
-
-  </div>
-</div>
-<div class="tags">
-  
-</div><table class="source_code">
+</p><table class="source_code">
   <tr>
     <td>
       <pre class="lines">
 
 
-71
-72
-73
-74
-75
-76
-77
-78</pre>
+61
+62
+63
+64
+65
+66
+67
+68</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/plist4r/mixin/haml/table_cell.rb', line 71</span>
+      <pre class="code"><span class="info file"># File 'lib/plist4r/mixin/haml/table_cell.rb', line 61</span>
 
 <span class='def def kw'>def</span> <span class='attributes_hash identifier id'>attributes_hash</span>
   <span class='h identifier id'>h</span> <span class='assign token'>=</span> <span class='lbrace token'>{</span><span class='rbrace token'>}</span>
@@ -420,12 +392,12 @@ end
       <pre class="lines">
 
 
-121
-122
-123</pre>
+111
+112
+113</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/plist4r/mixin/haml/table_cell.rb', line 121</span>
+      <pre class="code"><span class="info file"># File 'lib/plist4r/mixin/haml/table_cell.rb', line 111</span>
 
 <span class='def def kw'>def</span> <span class='inner_cell identifier id'>inner_cell</span>
   <span class='@inner_cell ivar id'>@inner_cell</span>
@@ -450,17 +422,17 @@ end
       <pre class="lines">
 
 
-112
-113
-114
-115
-116
-117
-118
-119</pre>
+102
+103
+104
+105
+106
+107
+108
+109</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/plist4r/mixin/haml/table_cell.rb', line 112</span>
+      <pre class="code"><span class="info file"># File 'lib/plist4r/mixin/haml/table_cell.rb', line 102</span>
 
 <span class='def def kw'>def</span> <span class='inner_cell= identifier id'>inner_cell=</span> <span class='inner_cell identifier id'>inner_cell</span>
   <span class='case case kw'>case</span> <span class='inner_cell identifier id'>inner_cell</span>
@@ -490,12 +462,12 @@ end
       <pre class="lines">
 
 
-108
-109
-110</pre>
+98
+99
+100</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/plist4r/mixin/haml/table_cell.rb', line 108</span>
+      <pre class="code"><span class="info file"># File 'lib/plist4r/mixin/haml/table_cell.rb', line 98</span>
 
 <span class='def def kw'>def</span> <span class='inspect identifier id'>inspect</span>
   <span class='content identifier id'>content</span> <span class='integer val'>? </span><span class='content identifier id'>content</span><span class='dot token'>.</span><span class='inspect identifier id'>inspect</span> <span class='colon op'>:</span> <span class='super super kw'>super</span><span class='dot token'>.</span><span class='match identifier id'>match</span><span class='lparen token'>(</span><span class='regexp val'>/TableCell:[\w]*/</span><span class='rparen token'>)</span><span class='lbrack token'>[</span><span class='integer val'>0</span><span class='rbrack token'>]</span>
@@ -520,6 +492,16 @@ end
       <pre class="lines">
 
 
+70
+71
+72
+73
+74
+75
+76
+77
+78
+79
 80
 81
 82
@@ -528,20 +510,10 @@ end
 85
 86
 87
-88
-89
-90
-91
-92
-93
-94
-95
-96
-97
-98</pre>
+88</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/plist4r/mixin/haml/table_cell.rb', line 80</span>
+      <pre class="code"><span class="info file"># File 'lib/plist4r/mixin/haml/table_cell.rb', line 70</span>
 
 <span class='def def kw'>def</span> <span class='merge! fid id'>merge!</span> <span class='obj identifier id'>obj</span>
   <span class='case case kw'>case</span> <span class='obj identifier id'>obj</span>
@@ -722,16 +694,16 @@ end
       <pre class="lines">
 
 
-100
-101
-102
-103
-104
-105
-106</pre>
+90
+91
+92
+93
+94
+95
+96</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/plist4r/mixin/haml/table_cell.rb', line 100</span>
+      <pre class="code"><span class="info file"># File 'lib/plist4r/mixin/haml/table_cell.rb', line 90</span>
 
 <span class='def def kw'>def</span> <span class='to_hash identifier id'>to_hash</span>
   <span class='@hash ivar id'>@hash</span> <span class='opasgn op'>||=</span> <span class='lbrace token'>{</span><span class='rbrace token'>}</span>
@@ -752,7 +724,7 @@ end
 </div>
     
     <div id="footer">
-  Generated on Mon May 24 13:45:44 2010 by 
+  Generated on Tue May 25 01:51:42 2010 by 
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool">yard</a>
   0.5.4  and the 
   <a href="http://github.com/dreamcat4/yard-slipstream">yard-slipstream</a> plugin

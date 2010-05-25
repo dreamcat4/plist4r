@@ -139,51 +139,68 @@
   </table>
   <hr />
   <h3>Dynamic table</h3>
-  <pre class='code'>@table = Plist4r::Haml::TableCells.new :size => [0..3, 0..5]&#x000A;i = 0&#x000A;require 'date'&#x000A;@table.each 0..2, 0..2 do |c|&#x000A;  c.content = Date::DAYNAMES[i]&#x000A;  i +=1&#x000A;end&#x000A;&#x000A;@table.span_cells 0..3, 4..4, :content => "table_cell"&#x000A;@table.cell(0,4).css_class = "class1"&#x000A;@table.cell(0,4).css_class += " class2"</pre>
+  <pre class='code'>t = Plist4r::Haml::Table.new :size => [1..3, 1..2]&#x000A;&#x000A;t.col_range.each do |col|&#x000A;  t.row_range.each do |row|&#x000A;    t.cell(col,row).content = "val#{col}#{row}"&#x000A;  end&#x000A;end&#x000A;&#x000A;t.col_header.size [t.body.col_range,1..2]&#x000A;t.col_header.span_cells 1..3, 1, :content => "Open"&#x000A;t.col_header.col_range.each do |col|&#x000A;  t.col_header.cell(col,2).content = "x#{col}"&#x000A;end&#x000A;&#x000A;t.row_header.size [1,t.body.row_range]&#x000A;t.row_header.row_range.each do |row|&#x000A;  t.row_header.cell(1,row).content = "y#{row}"&#x000A;end&#x000A;@table = t</pre>
   <p>Inspect method (ascii representation)</p>
-  <pre class='code'>|---------------------|---------------------|---------------------|---------------------|&#x000A;| "Sunday"            | "Monday"            | "Tuesday"           | TableCell:0x131e7f4 |&#x000A;|---------------------|---------------------|---------------------|---------------------|&#x000A;| "Wednesday"         | "Thursday"          | "Friday"            | TableCell:0x131e4c0 |&#x000A;|---------------------|---------------------|---------------------|---------------------|&#x000A;| "Saturday"          | TableCell:0x132115c | TableCell:0x131f71c | TableCell:0x131df84 |&#x000A;|---------------------|---------------------|---------------------|---------------------|&#x000A;| TableCell:0x132214c | TableCell:0x1320e8c | TableCell:0x131f398 | TableCell:0x131dc14 |&#x000A;|---------------------|---------------------|---------------------|---------------------|&#x000A;| "table_cell"        | "table_cell"        | "table_cell"        | "table_cell"        |&#x000A;|---------------------|---------------------|---------------------|---------------------|&#x000A;| TableCell:0x1321c10 | TableCell:0x1320220 | TableCell:0x131ebb4 | TableCell:0x131cf08 |&#x000A;|---------------------|---------------------|---------------------|---------------------|</pre>
+  <pre class='code'>&nbsp;&#x000A;          |--------|--------|--------|&#x000A;          | "Open" | "Open" | "Open" |&#x000A;          |--------|--------|--------|&#x000A;          | "x1"   | "x2"   | "x3"   |&#x000A;          |--------|--------|--------|&#x000A;|-------||---------|---------|---------|&#x000A;| "y1"  || "val11" | "val21" | "val31" |&#x000A;|-------||---------|---------|---------|&#x000A;| "y2"  || "val12" | "val22" | "val32" |&#x000A;|-------||---------|---------|---------|&#x000A;&nbsp;</pre>
   <p>Haml helper method</p>
   <pre class='code'>= @table.to_html</pre>
-  <pre class='code'>%table&#x000A;  %tbody&#x000A;    - row_range.each do |row|&#x000A;      %tr&#x000A;        - col_range.each do |col|&#x000A;          -# %td #{hash[r][c]}&#x000A;          - c = cell col, row&#x000A;          %td{:class => c.css_class, :id => c.css_id, :style => c.css_style} #{c.content}</pre>
+  <pre class='code'>%table{:class => self.css_class, :id => self.css_id, :style => self.css_style}&#x000A;  - if @col_header&#x000A;    %thead{:class => @col_header.css_class, :id => @col_header.css_id, :style => @col_header.css_style}&#x000A;      - @col_header.cells.row_range.each do |row|&#x000A;        %tr&#x000A;          - if @row_header&#x000A;            - @row_header.col_range.each do |col|&#x000A;              %th &nbsp;&#x000A;          - @col_header.cells.col_range.each do |col|&#x000A;            - c = @col_header.cells.cell col, row&#x000A;            - unless c.spanee&#x000A;              %th{:class => c.css_class, :id => c.css_id, :style => c.css_style, :colspan => @col_header.cells.colspan(col,row), :rowspan => @col_header.cells.rowspan(col,row)} #{c.content}&#x000A;  - if @body&#x000A;    %tbody{:class => @body.css_class, :id => @body.css_id, :style => @body.css_style}&#x000A;      - @body.cells.row_range.each do |row|&#x000A;        %tr&#x000A;          - if @row_header&#x000A;            - @row_header.cells.col_range.each do |col|&#x000A;              - c = @row_header.cells.cell col, row&#x000A;              - unless c.spanee&#x000A;                %th{:class => c.css_class, :id => c.css_id, :style => c.css_style, :colspan => @row_header.cells.colspan(col,row), :rowspan => @row_header.cells.rowspan(col,row)} #{c.content}&#x000A;          - @body.cells.col_range.each do |col|&#x000A;            - c = @body.cells.cell col, row&#x000A;            - unless c.spanee&#x000A;              %td{:class => c.css_class, :id => c.css_id, :style => c.css_style, :colspan => @body.cells.colspan(col,row), :rowspan => @body.cells.rowspan(col,row)} #{c.content}</pre>
   <h2>** Generated Html **</h2>
   <p>"Inspect Element" or "Show source" to get a better look</p>
   <table>
+    <thead>
+      <tr>
+        <th>&nbsp;</th>
+        <th colspan='3'>Open</th>
+      </tr>
+      <tr>
+        <th>&nbsp;</th>
+        <th>x1</th>
+        <th>x2</th>
+        <th>x3</th>
+      </tr>
+    </thead>
     <tbody>
       <tr>
-        <td>Sunday</td>
-        <td>Monday</td>
-        <td>Tuesday</td>
-        <td></td>
+        <th>y1</th>
+        <td>val11</td>
+        <td>val21</td>
+        <td>val31</td>
       </tr>
       <tr>
-        <td>Wednesday</td>
-        <td>Thursday</td>
-        <td>Friday</td>
-        <td></td>
+        <th>y2</th>
+        <td>val12</td>
+        <td>val22</td>
+        <td>val32</td>
+      </tr>
+    </tbody>
+  </table>
+  <p>"Inspect Element" or "Show source" to get a better look</p>
+  <table>
+    <thead>
+      <tr>
+        <th>&nbsp;</th>
+        <th>&nbsp;</th>
+        <th>y1</th>
+        <th>y2</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <th rowspan='3'>Open</th>
+        <th>x1</th>
+        <td>val11</td>
+        <td>val12</td>
       </tr>
       <tr>
-        <td>Saturday</td>
-        <td></td>
-        <td></td>
-        <td></td>
+        <th>x2</th>
+        <td>val21</td>
+        <td>val22</td>
       </tr>
       <tr>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-      </tr>
-      <tr>
-        <td class='class1 class2'>table_cell</td>
-        <td class='class1 class2'>table_cell</td>
-        <td class='class1 class2'>table_cell</td>
-        <td class='class1 class2'>table_cell</td>
-      </tr>
-      <tr>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
+        <th>x3</th>
+        <td>val31</td>
+        <td>val32</td>
       </tr>
     </tbody>
   </table>
@@ -192,7 +209,7 @@
 </div></div>
     
     <div id="footer">
-  Generated on Mon May 24 13:45:32 2010 by 
+  Generated on Tue May 25 01:51:36 2010 by 
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool">yard</a>
   0.5.4  and the 
   <a href="http://github.com/dreamcat4/yard-slipstream">yard-slipstream</a> plugin
