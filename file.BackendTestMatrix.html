@@ -1,0 +1,167 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+  <head>
+    <meta name="Content-Type" content="text/html; charset=utf-8" />
+<title>File: BackendTestMatrix</title>
+<link rel="stylesheet" href="css/style.css" type="text/css" media="screen" charset="utf-8" />
+<link rel="stylesheet" href="css/common.css" type="text/css" media="screen" charset="utf-8" />
+<link rel="stylesheet" href="css/custom.css" type="text/css" media="screen" charset="utf-8" />
+
+<script type="text/javascript" charset="utf-8">
+  relpath = '';
+  if (relpath != '') relpath += '/';
+</script>
+<base id="base_target" target="_top" />
+<script type="text/javascript" charset="utf-8" src="js/jquery.js"></script>
+<script type="text/javascript" charset="utf-8" src="js/autocomplete.js"></script>
+<script type="text/javascript" charset="utf-8" src="js/app.js"></script>
+<script type="text/javascript" charset="utf-8" src="js/live.js"></script>
+
+  </head>
+  <body>
+    <script type="text/javascript" charset="utf-8">
+      if (window.top.frames.main) document.body.className = 'frames';
+    </script>
+    
+    <div id="header">
+      <div id="menu">
+  
+    <a href="object_index.html" target="_self" title="Index">Index</a> &raquo; 
+    <span class="title">File: BackendTestMatrix</span>
+  
+  
+  <div class="noframes">
+    <span class="title"></span>
+    <a id="frames_link" class="link_disabled">Frames</a> | 
+    <a target="_top" id="noframes_link" class="link_disabled">No Frames</a>
+    <span class="title"></span>
+  </div>
+</div>
+
+      <div id="search2">
+  
+  
+  <div class="search2_center">
+    <form class="search2" onsubmit="return false;" action="">
+      <input name="q" type="search" placeholder="Search" id="search_box2" size="30" value="" />
+    </form>
+  </div>
+  <script type="text/javascript" charset="utf-8"> 
+    $('#search_box2').focus(function(){
+      var search_index = relpath + 'search_index.json';
+      jQuery.getJSON(search_index, go_data);
+
+      function go_data(adata) {
+        $('#search_box2').autocomplete(adata, {
+          width: 300,
+          matchContains: true,
+          formatItem: function(item) {
+            return item.text;
+          }
+        }).result(function(event, item) {
+					if (window.location.search) {
+	          window.location.href = relpath + $(item.href_tag).attr("href");
+					} else {
+	          location.href = relpath + $(item.href_tag).attr("href");
+					}
+        });
+      }
+    });
+  </script> 
+</div>
+
+      <div class="clear"></div>
+    </div>
+    
+    <iframe id="search_frame"></iframe>
+    
+    <div id="content"><div id='filecontents'><h1>Backend Test Matrix</h1>
+<div>
+  <h3>Code to generate html table</h3>
+  <pre class='code'>t = Plist4r::Haml::Table.new :size => [1..3, 1..2]&#x000A;&#x000A;t.col_range.each do |col|&#x000A;  t.row_range.each do |row|&#x000A;    t.cell(col,row).content = "val#{col}#{row}"&#x000A;  end&#x000A;end&#x000A;&#x000A;t.col_header.size [t.body.col_range,1..2]&#x000A;t.col_header.span_cells 1..3, 1, :content => "Open"&#x000A;&#x000A;t.col_header.col_range.each do |col|&#x000A;  t.col_header.cell(col,2).content = "x#{col}"&#x000A;end&#x000A;&#x000A;t.row_header.size [1,t.body.row_range]&#x000A;t.row_header.row_range.each do |row|&#x000A;  t.row_header.cell(1,row).content = "y#{row}"&#x000A;end&#x000A;@table = t</pre>
+  <p>Haml</p>
+  <pre class='code'>%table{:class => self.css_class, :id => self.css_id, :style => self.css_style}&#x000A;  - if @col_header&#x000A;    %thead{:class => @col_header.css_class, :id => @col_header.css_id, :style => @col_header.css_style}&#x000A;      - @col_header.row_range.each do |row|&#x000A;        %tr&#x000A;          - if @row_header&#x000A;            - @row_header.col_range.each do |col|&#x000A;              %th &nbsp;&#x000A;          - @col_header.col_range.each do |col|&#x000A;            - c = @col_header.cell col, row&#x000A;            - unless c.spanee&#x000A;              %th{:class => c.css_class, :id => c.css_id, :style => c.css_style, :colspan => @col_header.colspan(col,row), :rowspan => @col_header.rowspan(col,row)} #{c.content}&#x000A;  - if @body&#x000A;    %tbody{:class => @body.css_class, :id => @body.css_id, :style => @body.css_style}&#x000A;      - @body.row_range.each do |row|&#x000A;        %tr&#x000A;          - if @row_header&#x000A;            - @row_header.col_range.each do |col|&#x000A;              - c = @row_header.cell col, row&#x000A;              - unless c.spanee&#x000A;                %th{:class => c.css_class, :id => c.css_id, :style => c.css_style, :colspan => @row_header.colspan(col,row), :rowspan => @row_header.rowspan(col,row)} #{c.content}&#x000A;          - @body.col_range.each do |col|&#x000A;            - c = @body.cell col, row&#x000A;            - unless c.spanee&#x000A;              %td{:class => c.css_class, :id => c.css_id, :style => c.css_style, :colspan => @body.colspan(col,row), :rowspan => @body.rowspan(col,row)} #{c.content}</pre>
+  <h2>** Generated Html **</h2>
+  <h3>Dynamic table</h3>
+  <p>Inspect method (ascii representation)</p>
+  <pre class='code'>&nbsp;&#x000A;          :--------:--------:--------:&#x000A;          | "Open"   "Open"   "Open" |&#x000A;          :--------:--------:--------:&#x000A;          | "x1"   | "x2"   | "x3"   |&#x000A;          :--------:--------:--------:&#x000A;:-------::---------:---------:---------:&#x000A;| "y1"  || "val11" | "val21" | "val31" |&#x000A;:-------::---------:---------:---------:&#x000A;| "y2"  || "val12" | "val22" | "val32" |&#x000A;:-------::---------:---------:---------:&#x000A;&nbsp;</pre>
+  <p>Haml helper method</p>
+  <pre class='code'>= @table</pre>
+  <table>
+    <thead>
+      <tr>
+        <th>&nbsp;</th>
+        <th colspan='3'>Open</th>
+      </tr>
+      <tr>
+        <th>&nbsp;</th>
+        <th>x1</th>
+        <th>x2</th>
+        <th>x3</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <th>y1</th>
+        <td>val11</td>
+        <td>val21</td>
+        <td>val31</td>
+      </tr>
+      <tr>
+        <th>y2</th>
+        <td>val12</td>
+        <td>val22</td>
+        <td>val32</td>
+      </tr>
+    </tbody>
+  </table>
+  <hr />
+  <h3>Dynamic table, transposed (flipped)</h3>
+  <pre class='code'>- @table.transpose</pre>
+  <p>Inspect method (ascii representation)</p>
+  <pre class='code'>&nbsp;&#x000A;                    :-------:-------:&#x000A;                    | "y1"  | "y2"  |&#x000A;                    :-------:-------:&#x000A;:--------:-------::---------:---------:&#x000A;| "Open" | "x1"  || "val11" | "val12" |&#x000A;:        :-------::---------:---------:&#x000A;| "Open" | "x2"  || "val21" | "val22" |&#x000A;:        :-------::---------:---------:&#x000A;| "Open" | "x3"  || "val31" | "val32" |&#x000A;:--------:-------::---------:---------:&#x000A;&nbsp;</pre>
+  <p>Haml helper method</p>
+  <pre class='code'>= @table</pre>
+  <table>
+    <thead>
+      <tr>
+        <th>&nbsp;</th>
+        <th>&nbsp;</th>
+        <th>y1</th>
+        <th>y2</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <th rowspan='3'>Open</th>
+        <th>x1</th>
+        <td>val11</td>
+        <td>val12</td>
+      </tr>
+      <tr>
+        <th>x2</th>
+        <td>val21</td>
+        <td>val22</td>
+      </tr>
+      <tr>
+        <th>x3</th>
+        <td>val31</td>
+        <td>val32</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+<p></p>
+</div></div>
+    
+    <div id="footer">
+  Generated on Sat May 29 12:47:27 2010 by 
+  <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool">yard</a>
+  0.5.4  and the 
+  <a href="http://github.com/dreamcat4/yard-slipstream">yard-slipstream</a> plugin
+	(ruby-1.8.7).
+</div>
+
+  </body>
+</html>
