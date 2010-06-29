@@ -1,0 +1,2353 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+  <head>
+    <meta name="Content-Type" content="text/html; charset=utf-8" />
+<title>Class: Plist4r::Plist</title>
+<link rel="stylesheet" href="../css/style.css" type="text/css" media="screen" charset="utf-8" />
+<link rel="stylesheet" href="../css/common.css" type="text/css" media="screen" charset="utf-8" />
+<link rel="stylesheet" href="../css/custom.css" type="text/css" media="screen" charset="utf-8" />
+
+<script type="text/javascript" charset="utf-8">
+  relpath = '..';
+  if (relpath != '') relpath += '/';
+</script>
+<base id="base_target" target="_top" />
+<script type="text/javascript" charset="utf-8" src="../js/jquery.js"></script>
+<script type="text/javascript" charset="utf-8" src="../js/autocomplete.js"></script>
+<script type="text/javascript" charset="utf-8" src="../js/app.js"></script>
+<script type="text/javascript" charset="utf-8" src="../js/live.js"></script>
+
+  </head>
+  <body>
+    <script type="text/javascript" charset="utf-8">
+      if (window.top.frames.main) document.body.className = 'frames';
+    </script>
+    
+    <div id="header">
+      <div id="menu">
+  
+		
+			<a href="../object_index.html" target="_self" title="Index (P)">Index (P)</a>
+		 &raquo;
+    <span class='title'><a href="../Plist4r.html" target="_self" title="Plist4r (module)">Plist4r</a></span>
+     &raquo; 
+    <span class="title">Plist</span>
+  
+  
+  <div class="noframes">
+    <span class="title"></span>
+    <a id="frames_link" class="link_disabled">Frames</a> | 
+    <a target="_top" id="noframes_link" class="link_disabled">No Frames</a>
+    <span class="title"></span>
+  </div>
+</div>
+
+      <div id="search2">
+  
+  
+  <div class="search2_center">
+    <form class="search2" onsubmit="return false;" action="">
+      <input name="q" type="search" placeholder="Search" id="search_box2" size="30" value="" />
+    </form>
+  </div>
+  <script type="text/javascript" charset="utf-8"> 
+    $('#search_box2').focus(function(){
+      var search_index = relpath + 'search_index.json';
+      jQuery.getJSON(search_index, go_data);
+
+      function go_data(adata) {
+        $('#search_box2').autocomplete(adata, {
+          width: 300,
+          matchContains: true,
+          formatItem: function(item) {
+            return item.text;
+          }
+        }).result(function(event, item) {
+					if (window.location.search) {
+	          window.location.href = relpath + $(item.href_tag).attr("href");
+					} else {
+	          location.href = relpath + $(item.href_tag).attr("href");
+					}
+        });
+      }
+    });
+  </script> 
+</div>
+
+      <div class="clear"></div>
+    </div>
+    
+    <iframe id="search_frame"></iframe>
+    
+    <div id="content"><h1>Class: Plist4r::Plist 
+  
+  
+</h1>
+
+<div id="info_box">
+  <dl class="box">
+    
+      
+    
+      
+    
+  
+    <dt class="r1 last">Defined in:</dt>
+		<dd class="r1 last">
+  		
+  lib/plist4r/plist.rb
+
+
+		</dd>
+  </dl>
+</div>
+<div class="clear"></div>
+
+
+	<h3 class="inherited">Instance Methods</h3>
+	    <ul id="methods_ribbon">
+	    
+	    
+	      <li class="r1"><a href="#%3C%3C-instance_method" target="_self" title="Plist4r::Plist#<< (method)"><<</a></li>
+	      
+	    
+	      <li class="r2"><a href="#backends-instance_method" target="_self" title="Plist4r::Plist#backends (method)">backends</a></li>
+	      
+	    
+	      <li class="r1"><a href="#detect_plist_type-instance_method" target="_self" title="Plist4r::Plist#detect_plist_type (method)">detect_plist_type</a></li>
+	      
+	    
+	      <li class="r2"><a href="#edit-instance_method" target="_self" title="Plist4r::Plist#edit (method)">edit</a></li>
+	      
+	    
+	      <li class="r1"><a href="#file_format-instance_method" target="_self" title="Plist4r::Plist#file_format (method)">file_format</a></li>
+	      
+	    
+	      <li class="r2"><a href="#filename-instance_method" target="_self" title="Plist4r::Plist#filename (method)">filename</a></li>
+	      
+	    
+	      <li class="r1"><a href="#filename_path-instance_method" target="_self" title="Plist4r::Plist#filename_path (method)">filename_path</a></li>
+	      
+	    
+	      <li class="r2"><a href="#from_string-instance_method" target="_self" title="Plist4r::Plist#from_string (method)">from_string</a></li>
+	      
+	    
+	      <li class="r1"><a href="#import_hash-instance_method" target="_self" title="Plist4r::Plist#import_hash (method)">import_hash</a></li>
+	      
+	    
+	      <li class="r2"><a href="#initialize-instance_method" target="_self" title="Plist4r::Plist#initialize (method)">initialize</a></li>
+	      
+	    
+	      <li class="r1"><a href="#method_missing-instance_method" target="_self" title="Plist4r::Plist#method_missing (method)">method_missing</a></li>
+	      
+	    
+	      <li class="r2"><a href="#open-instance_method" target="_self" title="Plist4r::Plist#open (method)">open</a></li>
+	      
+	    
+	      <li class="r1"><a href="#parse_opts-instance_method" target="_self" title="Plist4r::Plist#parse_opts (method)">parse_opts</a></li>
+	      
+	    
+	      <li class="r2"><a href="#path-instance_method" target="_self" title="Plist4r::Plist#path (method)">path</a></li>
+	      
+	    
+	      <li class="r1"><a href="#plist_type-instance_method" target="_self" title="Plist4r::Plist#plist_type (method)">plist_type</a></li>
+	      
+	    
+	      <li class="r2"><a href="#save-instance_method" target="_self" title="Plist4r::Plist#save (method)">save</a></li>
+	      
+	    
+	      <li class="r1"><a href="#save_as-instance_method" target="_self" title="Plist4r::Plist#save_as (method)">save_as</a></li>
+	      
+	    
+	      <li class="r2"><a href="#strict_keys-instance_method" target="_self" title="Plist4r::Plist#strict_keys (method)">strict_keys</a></li>
+	      
+	    
+	      <li class="r1"><a href="#to_binary-instance_method" target="_self" title="Plist4r::Plist#to_binary (method)">to_binary</a></li>
+	      
+	    
+	      <li class="r2"><a href="#to_gnustep-instance_method" target="_self" title="Plist4r::Plist#to_gnustep (method)">to_gnustep</a></li>
+	      
+	    
+	      <li class="r1"><a href="#to_hash-instance_method" target="_self" title="Plist4r::Plist#to_hash (method)">to_hash</a></li>
+	      
+	    
+	      <li class="r2"><a href="#to_xml-instance_method" target="_self" title="Plist4r::Plist#to_xml (method)">to_xml</a></li>
+	      
+	    
+	    </ul>
+
+
+
+  <h2>Constant Summary</h2>
+  
+    <dl class="constants">
+      
+        <dt id="OptionsHash-constant" class="">OptionsHash =
+          <div class="docstring">
+  <div class="discussion">
+    <p>
+Recognised keys of the options hash. Passed when instantiating a new Plist
+Object
+</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+  <h3>See Also:</h3>
+  <ul class="see">
+    
+      <li><a href="#initialize-instance_method" target="_self" title="Plist4r::Plist#initialize (method)">#initialize</a></li>
+    
+      <li><a href="#parse_opts-instance_method" target="_self" title="Plist4r::Plist#parse_opts (method)">#parse_opts</a></li>
+    
+  </ul>
+
+</div>
+        </dt>
+        <dd><pre class="code"><span class='dstring node'>%w[filename path file_format plist_type strict_keys backends from_string]</span>
+</pre></dd>
+      
+        <dt id="FileFormats-constant" class="">FileFormats =
+          <div class="docstring">
+  <div class="discussion">
+    <p>
+The plist file formats, written as symbols.
+</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+  <h3>See Also:</h3>
+  <ul class="see">
+    
+      <li><a href="#file_format-instance_method" target="_self" title="Plist4r::Plist#file_format (method)">#file_format</a></li>
+    
+  </ul>
+
+</div>
+        </dt>
+        <dd><pre class="code"><span class='dstring node'>%w[binary xml gnustep]</span>
+</pre></dd>
+      
+    </dl>
+  
+
+
+<div id="constructor_details" class="method_details_list">
+  <h2>Constructor Details</h2>
+  
+    <div class="method_details first" id="initialize-instance_method">
+  <p class="signature first"">
+  
+    - (<tt><a href="" target="_self" title="Plist4r::Plist (class)">Plist4r::Plist</a></tt>) <strong>initialize</strong>(*args) { ... }
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    <p>
+Instantiate a new Plist4r::Plist object. We usually set our per-application
+defaults in <tt><a href="Config.html" target="_self" title="Plist4r::Config (class)">Plist4r::Config</a></tt> beforehand.
+</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+  <div class="examples">
+    <h3>Examples:</h3>
+    
+      <h4><div class='inline'><p>
+Create new, empty plist
+</p>
+</div></h4>
+      <pre class="example code"><span class='Plist4r constant id'>Plist4r</span><span class='colon2 op'>::</span><span class='Plist constant id'>Plist</span><span class='dot token'>.</span><span class='new identifier id'>new</span> <span class='assign token'>=</span><span class='gt op'>&gt;</span> <span class='comment val'>#&lt;Plist4r::Plist:0x111546c @file_format=nil, ...&gt;</span>
+</pre>
+    
+      <h4><div class='inline'><p>
+Load from file
+</p>
+</div></h4>
+      <pre class="example code"><span class='Plist4r constant id'>Plist4r</span><span class='colon2 op'>::</span><span class='Plist constant id'>Plist</span><span class='dot token'>.</span><span class='new identifier id'>new</span><span class='lparen token'>(</span><span class='string val'>&quot;example.plist&quot;</span><span class='rparen token'>)</span> <span class='assign token'>=</span><span class='gt op'>&gt;</span> <span class='comment val'>#&lt;Plist4r::Plist:0x1152d1c @file_format=&quot;xml&quot;, ...&gt;</span>
+</pre>
+    
+      <h4><div class='inline'><p>
+Load from string
+</p>
+</div></h4>
+      <pre class="example code"><span class='plist_string identifier id'>plist_string</span> <span class='assign token'>=</span> <span class='string val'>&quot;{ \&quot;key1\&quot; = \&quot;value1\&quot;; \&quot;key2\&quot; = \&quot;value2\&quot;; }&quot;</span>
+<span class='Plist4r constant id'>Plist4r</span><span class='colon2 op'>::</span><span class='Plist constant id'>Plist</span><span class='dot token'>.</span><span class='new identifier id'>new</span><span class='lparen token'>(</span><span class='lbrace token'>{</span> <span class='symbol val'>:from_string</span> <span class='assign token'>=</span><span class='gt op'>&gt;</span> <span class='plist_string identifier id'>plist_string</span> <span class='rbrace token'>}</span><span class='rparen token'>)</span>
+<span class='assign token'>=</span><span class='gt op'>&gt;</span> <span class='comment val'>#&lt;Plist4r::Plist:0x11e161c @file_format=&quot;xml&quot;, ...&gt;</span>
+</pre>
+    
+      <h4><div class='inline'><p>
+Advanced options
+</p>
+</div></h4>
+      <pre class="example code"><span class='plist_working_dir identifier id'>plist_working_dir</span> <span class='assign token'>=</span> <span class='xstring val'>`pwd`</span><span class='dot token'>.</span><span class='strip identifier id'>strip</span>
+<span class='Plist4r constant id'>Plist4r</span><span class='colon2 op'>::</span><span class='Plist constant id'>Plist</span><span class='dot token'>.</span><span class='new identifier id'>new</span><span class='lparen token'>(</span><span class='lbrace token'>{</span> <span class='symbol val'>:filename</span> <span class='assign token'>=</span><span class='gt op'>&gt;</span> <span class='string val'>&quot;example.plist&quot;</span><span class='comma token'>,</span> <span class='symbol val'>:path</span> <span class='assign token'>=</span><span class='gt op'>&gt;</span> <span class='plist_working_dir identifier id'>plist_working_dir</span><span class='comma token'>,</span> <span class='symbol val'>:backends</span> <span class='assign token'>=</span><span class='gt op'>&gt;</span> <span class='lbrack token'>[</span><span class='string val'>&quot;libxml4r&quot;</span><span class='comma token'>,</span><span class='string val'>&quot;ruby_cocoa&quot;</span><span class='rbrack token'>]</span><span class='rbrace token'>}</span><span class='rparen token'>)</span>
+<span class='assign token'>=</span><span class='gt op'>&gt;</span> <span class='comment val'>#&lt;Plist4r::Plist:0x111546c @file_format=nil, ...&gt;</span>
+</pre>
+    
+  </div>
+<h3>Parameters:</h3>
+<ul class="param">
+  
+    <li>
+      
+        <span class='type'>(<tt><a href="../String.html" target="_self" title="String (class)">String</a></tt>)</span>
+      
+      
+        <span class='name'>filename</span>
+      
+      
+      
+    </li>
+  
+    <li>
+      
+        <span class='type'>(<tt>Hash</tt>)</span>
+      
+      
+        <span class='name'>options</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'><ul>
+<li>for advanced usage
+
+</li>
+</ul>
+</div>
+      
+    </li>
+  
+</ul>
+<h3>Yields:</h3>
+<ul class="yield">
+  
+    <li>
+      
+        <span class='type'></span>
+      
+      
+      
+      
+        
+        <div class='inline'><p>
+An optional block to instance_eval &amp;blk, and apply an edit on creation
+</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51
+52
+53
+54
+55
+56
+57
+58
+59
+60
+61
+62
+63</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/plist4r/plist.rb', line 37</span>
+
+<span class='def def kw'>def</span> <span class='initialize identifier id'>initialize</span> <span class='mult op'>*</span><span class='args identifier id'>args</span><span class='comma token'>,</span> <span class='bitand op'>&amp;</span><span class='blk identifier id'>blk</span>
+  <span class='@hash ivar id'>@hash</span>             <span class='assign token'>=</span> <span class='colon3 op'>::</span><span class='Plist4r constant id'>Plist4r</span><span class='colon2 op'>::</span><span class='OrderedHash constant id'>OrderedHash</span><span class='dot token'>.</span><span class='new identifier id'>new</span>
+  <span class='plist_type identifier id'>plist_type</span> <span class='symbol val'>:plist</span>
+
+  <span class='@strict_keys ivar id'>@strict_keys</span> <span class='assign token'>=</span> <span class='Config constant id'>Config</span><span class='lbrack token'>[</span><span class='symbol val'>:strict_keys</span><span class='rbrack token'>]</span>
+  <span class='@backends ivar id'>@backends</span>         <span class='assign token'>=</span> <span class='Config constant id'>Config</span><span class='lbrack token'>[</span><span class='symbol val'>:backends</span><span class='rbrack token'>]</span>
+
+  <span class='@from_string ivar id'>@from_string</span>      <span class='assign token'>=</span> <span class='nil nil kw'>nil</span>
+  <span class='@filename ivar id'>@filename</span>         <span class='assign token'>=</span> <span class='nil nil kw'>nil</span>
+  <span class='@file_format ivar id'>@file_format</span>      <span class='assign token'>=</span> <span class='nil nil kw'>nil</span>
+  <span class='@path ivar id'>@path</span>             <span class='assign token'>=</span> <span class='Config constant id'>Config</span><span class='lbrack token'>[</span><span class='symbol val'>:default_path</span><span class='rbrack token'>]</span>
+
+  <span class='case case kw'>case</span> <span class='args identifier id'>args</span><span class='dot token'>.</span><span class='first identifier id'>first</span>
+  <span class='when when kw'>when</span> <span class='Hash constant id'>Hash</span>
+    <span class='parse_opts identifier id'>parse_opts</span> <span class='args identifier id'>args</span><span class='dot token'>.</span><span class='first identifier id'>first</span>
+
+  <span class='when when kw'>when</span> <span class='String constant id'>String</span><span class='comma token'>,</span> <span class='Symbol constant id'>Symbol</span>
+    <span class='@filename ivar id'>@filename</span> <span class='assign token'>=</span> <span class='args identifier id'>args</span><span class='dot token'>.</span><span class='first identifier id'>first</span><span class='dot token'>.</span><span class='to_s identifier id'>to_s</span>
+  <span class='when when kw'>when</span> <span class='nil nil kw'>nil</span>
+  <span class='else else kw'>else</span>
+    <span class='raise identifier id'>raise</span> <span class='dstring node'>&quot;Unrecognized first argument: #{args.first.inspect}&quot;</span>
+  <span class='end end kw'>end</span>
+  
+  <span class='@plist_cache ivar id'>@plist_cache</span> <span class='opasgn op'>||=</span> <span class='PlistCache constant id'>PlistCache</span><span class='dot token'>.</span><span class='new identifier id'>new</span> <span class='self self kw'>self</span>
+
+  <span class='edit identifier id'>edit</span><span class='lparen token'>(</span><span class='bitand op'>&amp;</span><span class='blk identifier id'>blk</span><span class='rparen token'>)</span> <span class='if if_mod kw'>if</span> <span class='block_given? fid id'>block_given?</span>
+<span class='end end kw'>end</span>
+</pre>
+    </td>
+  </tr>
+</table>
+</div>
+
+  
+</div>
+<div id="method_missing_details" class="method_details_list">
+  <h2>Dynamic Method Handling</h2>
+  <p class="notice this">
+    This class handles dynamic methods through the <tt>method_missing</tt> method
+    
+  </p>
+  
+    <div class="method_details first" id="method_missing-instance_method">
+  <p class="signature first"">
+  
+    - (<tt><a href="../Object.html" target="_self" title="Object (class)">Object</a></tt>) <strong>method_missing</strong>(method_sym, *args, &amp;blk) 
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    <p>
+Pass down unknown method calls to the selected plist_type, to set or return
+plist keys. All plist data manipulation API is called through
+method_missing -> PlistType -> DataMethods.
+</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+  <div class="examples">
+    <h3>Examples:</h3>
+    
+      <h4><div class='inline'><p>
+This will actually call <tt><a href="DataMethods.html#set-instance_method" target="_self" title="Plist4r::DataMethods#set (method)">DataMethods#set</a></tt>
+</p>
+</div></h4>
+      <pre class="example code"><span class='plist identifier id'>plist</span><span class='dot token'>.</span><span class='set identifier id'>set</span> <span class='string val'>&quot;CFBundleVersion&quot;</span> <span class='string val'>&quot;0.1.0&quot;</span>
+</pre>
+    
+  </div>
+
+  <h3>See Also:</h3>
+  <ul class="see">
+    
+      <li><a href="DataMethods.html#method_missing-instance_method" target="_self" title="Plist4r::DataMethods#method_missing (method)">Plist4r::DataMethods#method_missing</a></li>
+    
+      <li><a href="#plist_type-instance_method" target="_self" title="Plist4r::Plist#plist_type (method)">#plist_type</a></li>
+    
+  </ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+334
+335
+336</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/plist4r/plist.rb', line 334</span>
+
+<span class='def def kw'>def</span> <span class='method_missing identifier id'>method_missing</span> <span class='method_sym identifier id'>method_sym</span><span class='comma token'>,</span> <span class='mult op'>*</span><span class='args identifier id'>args</span><span class='comma token'>,</span> <span class='bitand op'>&amp;</span><span class='blk identifier id'>blk</span>
+  <span class='@plist_type ivar id'>@plist_type</span><span class='dot token'>.</span><span class='send identifier id'>send</span> <span class='method_sym identifier id'>method_sym</span><span class='comma token'>,</span> <span class='mult op'>*</span><span class='args identifier id'>args</span><span class='comma token'>,</span> <span class='bitand op'>&amp;</span><span class='blk identifier id'>blk</span>
+<span class='end end kw'>end</span>
+</pre>
+    </td>
+  </tr>
+</table>
+</div>
+
+  
+</div>
+
+  <div id="instance_method_details" class="method_details_list">
+    <h2>Instance Method Details</h2>
+    
+    
+      <div class="method_details first" id="<<-instance_method">
+  <p class="signature first"">
+  
+    - (<tt><a href="../Object.html" target="_self" title="Object (class)">Object</a></tt>) <strong>&lt;&lt;</strong>(*args, &amp;blk) 
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    <p>
+An alias of <tt><a href="#edit-instance_method" target="_self" title="Plist4r::Plist#edit (method)">#edit</a></tt>
+</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+  <div class="examples">
+    <h3>Examples:</h3>
+    
+      <h4><div class='inline'></div></h4>
+      <pre class="example code"><span class='plist identifier id'>plist</span><span class='dot token'>.</span><span class='lshft op'>&lt;&lt;</span> <span class='do do kw'>do</span>
+  <span class='set identifier id'>set</span> <span class='string val'>&quot;PFReleaseVersion&quot;</span> <span class='string val'>&quot;0.1.1&quot;</span>
+<span class='end end kw'>end</span>
+</pre>
+    
+  </div>
+
+  <h3>See Also:</h3>
+  <ul class="see">
+    
+      <li><a href="#edit-instance_method" target="_self" title="Plist4r::Plist#edit (method)">#edit</a></li>
+    
+  </ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+300
+301
+302</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/plist4r/plist.rb', line 300</span>
+
+<span class='def def kw'>def</span> <span class='lshft op'>&lt;&lt;</span> <span class='mult op'>*</span><span class='args identifier id'>args</span><span class='comma token'>,</span> <span class='bitand op'>&amp;</span><span class='blk identifier id'>blk</span>
+  <span class='edit identifier id'>edit</span> <span class='mult op'>*</span><span class='args identifier id'>args</span><span class='comma token'>,</span> <span class='bitand op'>&amp;</span><span class='blk identifier id'>blk</span>
+<span class='end end kw'>end</span>
+</pre>
+    </td>
+  </tr>
+</table>
+</div>
+
+    
+      <div class="method_details " id="backends-instance_method">
+  <p class="signature "">
+  
+    - (<tt><a href="../Array.html" target="_self" title="Array (class)">Array</a> &lt;Symbol&gt;</tt>) <strong>backends</strong>(backends = nil) 
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    <p>
+An array of strings, symbols or class names which correspond to the active
+Plist4r::Backends for this object. The priority order in which backends are
+executed is determined by the in sequence array order.
+</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+  <div class="examples">
+    <h3>Examples:</h3>
+    
+      <h4><div class='inline'></div></h4>
+      <pre class="example code"><span class='plist identifier id'>plist</span><span class='dot token'>.</span><span class='backends identifier id'>backends</span> <span class='lbrack token'>[</span><span class='symbol val'>:haml</span><span class='comma token'>,</span> <span class='symbol val'>:ruby_cocoa</span><span class='rbrack token'>]</span>
+</pre>
+    
+  </div>
+<h3>Parameters:</h3>
+<ul class="param">
+  
+    <li>
+      
+        <span class='type'>(<tt><a href="../Array.html" target="_self" title="Array (class)">Array</a> &lt;Symbol,<a href="../String.html" target="_self" title="String (class)">String</a>&gt;</tt>)</span>
+      
+      
+        <span class='name'>A</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'><p>
+new list of backends to use, in Priority order
+</p>
+</div>
+      
+    </li>
+  
+</ul>
+<h3>Returns:</h3>
+<ul class="return">
+  
+    <li>
+      
+        <span class='type'>(<tt><a href="../Array.html" target="_self" title="Array (class)">Array</a> &lt;Symbol&gt;</tt>)</span>
+      
+      
+      
+      
+        &mdash;
+        <div class='inline'><p>
+The plist&#8217;s backends, each written as a symbol. Must be a sublcass of
+Plist4r::Backend Defaults to <tt><a href="Config.html" target="_self" title="Plist4r::Config (class)">Plist4r::Config</a></tt>[:backends]
+</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+  <h3>See Also:</h3>
+  <ul class="see">
+    
+      <li><a href="Backend.html" target="_self" title="Plist4r::Backend (class)">Plist4r::Backend</a></li>
+    
+      <li><a href="Backend/Example.html" target="_self" title="Plist4r::Backend::Example (module)">Plist4r::Backend::Example</a></li>
+    
+  </ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+249
+250
+251
+252
+253
+254
+255
+256
+257
+258
+259
+260
+261
+262
+263
+264
+265
+266</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/plist4r/plist.rb', line 249</span>
+
+<span class='def def kw'>def</span> <span class='backends identifier id'>backends</span> <span class='backends identifier id'>backends</span><span class='assign token'>=</span><span class='nil nil kw'>nil</span>
+  <span class='case case kw'>case</span> <span class='backends identifier id'>backends</span>
+  <span class='when when kw'>when</span> <span class='Array constant id'>Array</span>
+    <span class='@backends ivar id'>@backends</span> <span class='assign token'>=</span> <span class='backends identifier id'>backends</span><span class='dot token'>.</span><span class='collect identifier id'>collect</span> <span class='do do kw'>do</span> <span class='bitor op'>|</span><span class='b identifier id'>b</span><span class='bitor op'>|</span> 
+      <span class='case case kw'>case</span> <span class='b identifier id'>b</span>
+      <span class='when when kw'>when</span> <span class='Symbol constant id'>Symbol</span><span class='comma token'>,</span> <span class='String constant id'>String</span>
+        <span class='eval identifier id'>eval</span> <span class='dstring node'>&quot;::Plist4r::Backend::#{b.to_s.camelcase}&quot;</span>
+        <span class='b identifier id'>b</span><span class='dot token'>.</span><span class='to_sym identifier id'>to_sym</span>
+      <span class='else else kw'>else</span>
+        <span class='raise identifier id'>raise</span> <span class='dstring node'>&quot;Backend #{b.inspect} is of unsupported type: #{b.class}&quot;</span>
+      <span class='end end kw'>end</span>
+    <span class='end end kw'>end</span>
+  <span class='when when kw'>when</span> <span class='nil nil kw'>nil</span>
+    <span class='@backends ivar id'>@backends</span>
+  <span class='else else kw'>else</span>
+    <span class='raise identifier id'>raise</span> <span class='string val'>&quot;Please specify an array of valid Plist4r Backends&quot;</span>
+  <span class='end end kw'>end</span>
+<span class='end end kw'>end</span>
+</pre>
+    </td>
+  </tr>
+</table>
+</div>
+
+    
+      <div class="method_details " id="detect_plist_type-instance_method">
+  <p class="signature "">
+  
+    - (<tt>true</tt>) <strong>detect_plist_type</strong> 
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    <p>
+Called automatically on plist load / instantiation. This method detects the
+&#8220;Plist Type&#8221;, using an algorithm that stats the plist data. The
+plist types with the highest stat (score) is chosen to be the
+object&#8217;s &#8220;Plist Type&#8221;.
+</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  <h3>Returns:</h3>
+<ul class="return">
+  
+    <li>
+      
+        <span class='type'>(<tt>true</tt>)</span>
+      
+      
+      
+      
+        &mdash;
+        <div class='inline'><p>
+always
+</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+  <h3>See Also:</h3>
+  <ul class="see">
+    
+      <li><a href="PlistType.html" target="_self" title="Plist4r::PlistType (class)">Plist4r::PlistType</a></li>
+    
+  </ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+164
+165
+166
+167
+168
+169
+170
+171
+172
+173
+174
+175
+176
+177
+178
+179
+180
+181
+182
+183
+184
+185
+186
+187
+188
+189
+190
+191
+192
+193
+194
+195
+196
+197</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/plist4r/plist.rb', line 164</span>
+
+<span class='def def kw'>def</span> <span class='detect_plist_type identifier id'>detect_plist_type</span>
+  <span class='stat_m identifier id'>stat_m</span> <span class='assign token'>=</span> <span class='lbrace token'>{</span><span class='rbrace token'>}</span>
+  <span class='stat_r identifier id'>stat_r</span> <span class='assign token'>=</span> <span class='lbrace token'>{</span><span class='rbrace token'>}</span>
+  <span class='Config constant id'>Config</span><span class='lbrack token'>[</span><span class='symbol val'>:types</span><span class='rbrack token'>]</span><span class='dot token'>.</span><span class='each identifier id'>each</span> <span class='do do kw'>do</span> <span class='bitor op'>|</span><span class='t identifier id'>t</span><span class='bitor op'>|</span>
+    <span class='case case kw'>case</span> <span class='t identifier id'>t</span>
+    <span class='when when kw'>when</span> <span class='String constant id'>String</span><span class='comma token'>,</span> <span class='Symbol constant id'>Symbol</span>
+      <span class='t identifier id'>t</span> <span class='assign token'>=</span> <span class='eval identifier id'>eval</span> <span class='dstring node'>&quot;::Plist4r::PlistType::#{t.to_s.camelcase}&quot;</span>
+    <span class='when when kw'>when</span> <span class='Class constant id'>Class</span>
+      <span class='t identifier id'>t</span> <span class='assign token'>=</span> <span class='t identifier id'>t</span>
+    <span class='else else kw'>else</span>
+      <span class='raise identifier id'>raise</span> <span class='dstring node'>&quot;Unrecognized plist type: #{t.inspect}&quot;</span>
+    <span class='end end kw'>end</span>
+    <span class='t_sym identifier id'>t_sym</span> <span class='assign token'>=</span> <span class='t identifier id'>t</span><span class='dot token'>.</span><span class='to_s identifier id'>to_s</span><span class='dot token'>.</span><span class='gsub identifier id'>gsub</span><span class='lparen token'>(</span><span class='regexp val'>/.*:/</span><span class='comma token'>,</span><span class='string val'>&quot;&quot;</span><span class='rparen token'>)</span><span class='dot token'>.</span><span class='snake_case identifier id'>snake_case</span><span class='dot token'>.</span><span class='to_sym identifier id'>to_sym</span>
+    <span class='stat_t identifier id'>stat_t</span> <span class='assign token'>=</span> <span class='t identifier id'>t</span><span class='dot token'>.</span><span class='match_stat identifier id'>match_stat</span> <span class='@hash ivar id'>@hash</span><span class='dot token'>.</span><span class='keys identifier id'>keys</span>
+
+    <span class='stat_m identifier id'>stat_m</span><span class='dot token'>.</span><span class='store identifier id'>store</span> <span class='stat_t identifier id'>stat_t</span><span class='lbrack token'>[</span><span class='symbol val'>:matches</span><span class='rbrack token'>]</span><span class='comma token'>,</span> <span class='t_sym identifier id'>t_sym</span>
+    <span class='stat_r identifier id'>stat_r</span><span class='dot token'>.</span><span class='store identifier id'>store</span> <span class='stat_t identifier id'>stat_t</span><span class='lbrack token'>[</span><span class='symbol val'>:ratio</span><span class='rbrack token'>]</span><span class='comma token'>,</span> <span class='t_sym identifier id'>t_sym</span>
+  <span class='end end kw'>end</span>
+
+  <span class='most_matches identifier id'>most_matches</span> <span class='assign token'>=</span> <span class='stat_m identifier id'>stat_m</span><span class='dot token'>.</span><span class='keys identifier id'>keys</span><span class='dot token'>.</span><span class='sort identifier id'>sort</span><span class='dot token'>.</span><span class='last identifier id'>last</span>      
+  <span class='if if kw'>if</span> <span class='most_matches identifier id'>most_matches</span> <span class='eq op'>==</span> <span class='integer val'>0</span>
+    <span class='plist_type identifier id'>plist_type</span> <span class='symbol val'>:plist</span>
+  <span class='elsif elsif kw'>elsif</span> <span class='stat_m identifier id'>stat_m</span><span class='dot token'>.</span><span class='keys identifier id'>keys</span><span class='dot token'>.</span><span class='select identifier id'>select</span><span class='lbrace token'>{</span> <span class='bitor op'>|</span><span class='m identifier id'>m</span><span class='bitor op'>|</span> <span class='m identifier id'>m</span> <span class='eq op'>==</span> <span class='most_matches identifier id'>most_matches</span> <span class='rbrace token'>}</span><span class='dot token'>.</span><span class='size identifier id'>size</span> <span class='gt op'>&gt;</span> <span class='integer val'>1</span>
+    <span class='most_matches identifier id'>most_matches</span> <span class='assign token'>=</span> <span class='stat_r identifier id'>stat_r</span><span class='dot token'>.</span><span class='keys identifier id'>keys</span><span class='dot token'>.</span><span class='sort identifier id'>sort</span><span class='dot token'>.</span><span class='last identifier id'>last</span>          
+    <span class='if if kw'>if</span> <span class='stat_r identifier id'>stat_r</span><span class='dot token'>.</span><span class='keys identifier id'>keys</span><span class='dot token'>.</span><span class='select identifier id'>select</span><span class='lbrace token'>{</span> <span class='bitor op'>|</span><span class='m identifier id'>m</span><span class='bitor op'>|</span> <span class='m identifier id'>m</span> <span class='eq op'>==</span> <span class='most_matches identifier id'>most_matches</span> <span class='rbrace token'>}</span><span class='dot token'>.</span><span class='size identifier id'>size</span> <span class='gt op'>&gt;</span> <span class='integer val'>1</span>
+      <span class='plist_type identifier id'>plist_type</span> <span class='symbol val'>:plist</span>
+    <span class='else else kw'>else</span>
+      <span class='plist_type identifier id'>plist_type</span> <span class='stat_r identifier id'>stat_r</span><span class='lbrack token'>[</span><span class='most_matches identifier id'>most_matches</span><span class='rbrack token'>]</span>
+    <span class='end end kw'>end</span>
+  <span class='else else kw'>else</span>
+    <span class='plist_type identifier id'>plist_type</span> <span class='stat_m identifier id'>stat_m</span><span class='lbrack token'>[</span><span class='most_matches identifier id'>most_matches</span><span class='rbrack token'>]</span>
+  <span class='end end kw'>end</span>
+  <span class='return return kw'>return</span> <span class='true true kw'>true</span>
+<span class='end end kw'>end</span>
+</pre>
+    </td>
+  </tr>
+</table>
+</div>
+
+    
+      <div class="method_details " id="edit-instance_method">
+  <p class="signature "">
+  
+    - (<tt><a href="../Object.html" target="_self" title="Object (class)">Object</a></tt>) <strong>edit</strong>(*args, &amp;blk) 
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    <p>
+Edit a plist object. Set or return plist keys. Add or remove a selection of
+keys. Plist key accessor methods are snake-cased versions of the key
+string.
+</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+  <div class="examples">
+    <h3>Examples:</h3>
+    
+      <h4><div class='inline'><p>
+Set some arbitrary keys and values via <tt><a href="DataMethods.html#set-instance_method" target="_self" title="Plist4r::DataMethods#set (method)">DataMethods#set</a></tt>
+</p>
+</div></h4>
+      <pre class="example code"><span class='plist identifier id'>plist</span><span class='dot token'>.</span><span class='edit identifier id'>edit</span> <span class='do do kw'>do</span>
+  <span class='set identifier id'>set</span> <span class='string val'>&quot;PFInstance&quot;</span> <span class='string val'>&quot;4982394823&quot;</span>
+  <span class='set identifier id'>set</span> <span class='string val'>&quot;PFReleaseVersion&quot;</span> <span class='string val'>&quot;0.1.1&quot;</span>
+<span class='end end kw'>end</span>
+</pre>
+    
+      <h4><div class='inline'><p>
+Retrieve, and modify a plist key, value pair, with <tt><a href="DataMethods.html#set-instance_method" target="_self" title="Plist4r::DataMethods#set (method)">DataMethods#set</a></tt> and
+<tt><a href="DataMethods.html#value_of-instance_method" target="_self" title="Plist4r::DataMethods#value_of (method)">DataMethods#value_of</a></tt>
+</p>
+</div></h4>
+      <pre class="example code"><span class='plist identifier id'>plist</span><span class='dot token'>.</span><span class='edit identifier id'>edit</span> <span class='do do kw'>do</span>
+  <span class='new_ver identifier id'>new_ver</span> <span class='assign token'>=</span> <span class='value_of identifier id'>value_of</span><span class='lparen token'>(</span><span class='string val'>&quot;PFReleaseVersion&quot;</span><span class='rparen token'>)</span> <span class='plus op'>+</span> <span class='integer val'>0</span><span class='integer val'>.1</span>
+  <span class='set identifier id'>set</span> <span class='string val'>&quot;PFReleaseVersion&quot;</span> <span class='new_ver identifier id'>new_ver</span>
+<span class='end end kw'>end</span>
+</pre>
+    
+      <h4><div class='inline'><p>
+Modify a Launchd plist, by camel-cased accessor methods
+</p>
+</div></h4>
+      <pre class="example code"><span class='plist identifier id'>plist</span><span class='dot token'>.</span><span class='edit identifier id'>edit</span> <span class='do do kw'>do</span>
+  <span class='new_ver identifier id'>new_ver</span> <span class='assign token'>=</span> <span class='value_of identifier id'>value_of</span><span class='lparen token'>(</span><span class='string val'>&quot;PFReleaseVersion&quot;</span><span class='rparen token'>)</span> <span class='plus op'>+</span> <span class='integer val'>0</span><span class='integer val'>.1</span>
+  <span class='set identifier id'>set</span> <span class='string val'>&quot;PFReleaseVersion&quot;</span> <span class='new_ver identifier id'>new_ver</span>
+<span class='end end kw'>end</span>
+</pre>
+    
+  </div>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+321
+322
+323
+324
+325
+326</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/plist4r/plist.rb', line 321</span>
+
+<span class='def def kw'>def</span> <span class='edit identifier id'>edit</span> <span class='mult op'>*</span><span class='args identifier id'>args</span><span class='comma token'>,</span> <span class='bitand op'>&amp;</span><span class='blk identifier id'>blk</span>
+  <span class='@plist_type ivar id'>@plist_type</span><span class='dot token'>.</span><span class='hash identifier id'>hash</span> <span class='@hash ivar id'>@hash</span>
+  <span class='instance_eval identifier id'>instance_eval</span> <span class='mult op'>*</span><span class='args identifier id'>args</span><span class='comma token'>,</span> <span class='bitand op'>&amp;</span><span class='blk identifier id'>blk</span>
+  <span class='detect_plist_type identifier id'>detect_plist_type</span>
+  <span class='@plist_cache ivar id'>@plist_cache</span><span class='dot token'>.</span><span class='update_checksum identifier id'>update_checksum</span>
+<span class='end end kw'>end</span>
+</pre>
+    </td>
+  </tr>
+</table>
+</div>
+
+    
+      <div class="method_details " id="file_format-instance_method">
+  <p class="signature "">
+  
+    - (<tt><a href="../Object.html" target="_self" title="Object (class)">Object</a></tt>) <strong>file_format</strong>(file_format = nil) 
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    <p>
+The file format of the plist file we are loading / saving. Written as a
+symbol. One of <tt><a href="#FileFormats-constant" target="_self" title="Plist4r::Plist::FileFormats (constant)">Plist4r::Plist.FileFormats</a></tt>. Defaults to :xml
+</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  <h3>Parameters:</h3>
+<ul class="param">
+  
+    <li>
+      
+        <span class='type'>(<tt>Symbol</tt>, <tt><a href="../String.html" target="_self" title="String (class)">String</a></tt>)</span>
+      
+      
+        <span class='name'>file_format</span>
+      
+      
+        <em class="default">(defaults to: <tt>nil</tt>)</em>
+      
+      
+        &mdash;
+        <div class='inline'><p>
+Can be :binary, :xml, :gnustep
+</p>
+</div>
+      
+    </li>
+  
+</ul>
+<h3>Returns:</h3>
+<ul class="return">
+  
+    <li>
+      
+        <span class='type'></span>
+      
+      
+      
+      
+        
+        <div class='inline'><p>
+The file format associated to this current plist object
+</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+  <h3>See Also:</h3>
+  <ul class="see">
+    
+      <li><a href="#FileFormats-constant" target="_self" title="Plist4r::Plist::FileFormats (constant)">Plist4r::Plist.FileFormats</a></li>
+    
+  </ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+144
+145
+146
+147
+148
+149
+150
+151
+152
+153
+154
+155
+156
+157</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/plist4r/plist.rb', line 144</span>
+
+<span class='def def kw'>def</span> <span class='file_format identifier id'>file_format</span> <span class='file_format identifier id'>file_format</span><span class='assign token'>=</span><span class='nil nil kw'>nil</span>
+  <span class='case case kw'>case</span> <span class='file_format identifier id'>file_format</span>
+  <span class='when when kw'>when</span> <span class='Symbol constant id'>Symbol</span><span class='comma token'>,</span> <span class='String constant id'>String</span>
+    <span class='if if kw'>if</span> <span class='FileFormats constant id'>FileFormats</span><span class='dot token'>.</span><span class='include? fid id'>include?</span> <span class='file_format identifier id'>file_format</span><span class='dot token'>.</span><span class='to_s identifier id'>to_s</span><span class='dot token'>.</span><span class='snake_case identifier id'>snake_case</span>
+      <span class='@file_format ivar id'>@file_format</span> <span class='assign token'>=</span> <span class='file_format identifier id'>file_format</span><span class='dot token'>.</span><span class='to_s identifier id'>to_s</span><span class='dot token'>.</span><span class='snake_case identifier id'>snake_case</span>
+    <span class='else else kw'>else</span>
+      <span class='raise identifier id'>raise</span> <span class='dstring node'>&quot;Unrecognized plist file format: \&quot;#{file_format.inspect}\&quot;. Please specify a valid plist file format, #{FileFormats.inspect}&quot;</span>
+    <span class='end end kw'>end</span>
+  <span class='when when kw'>when</span> <span class='nil nil kw'>nil</span>
+    <span class='@file_format ivar id'>@file_format</span>
+  <span class='else else kw'>else</span>
+    <span class='raise identifier id'>raise</span> <span class='dstring node'>&quot;Please specify a valid plist file format, #{FileFormats.inspect}&quot;</span>
+  <span class='end end kw'>end</span>
+<span class='end end kw'>end</span>
+</pre>
+    </td>
+  </tr>
+</table>
+</div>
+
+    
+      <div class="method_details " id="filename-instance_method">
+  <p class="signature "">
+  
+    - (<tt><a href="../Object.html" target="_self" title="Object (class)">Object</a></tt>) <strong>filename</strong>(filename = nil) 
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    <p>
+Set or return the filename attribute of the plist object.
+</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  <h3>Parameters:</h3>
+<ul class="param">
+  
+    <li>
+      
+        <span class='type'>(<tt><a href="../String.html" target="_self" title="String (class)">String</a></tt>)</span>
+      
+      
+        <span class='name'>filename</span>
+      
+      
+        <em class="default">(defaults to: <tt>nil</tt>)</em>
+      
+      
+        &mdash;
+        <div class='inline'><p>
+either a relative path or absolute
+</p>
+</div>
+      
+    </li>
+  
+</ul>
+<h3>Returns:</h3>
+<ul class="return">
+  
+    <li>
+      
+        <span class='type'></span>
+      
+      
+      
+      
+        
+        <div class='inline'><p>
+The plist&#8217;s filename
+</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+  <h3>See Also:</h3>
+  <ul class="see">
+    
+      <li><a href="#open-instance_method" target="_self" title="Plist4r::Plist#open (method)">Plist::Plist#open</a></li>
+    
+      <li><a href="#save-instance_method" target="_self" title="Plist4r::Plist#save (method)">Plist::Plist#save</a></li>
+    
+      <li><a href="#save_as-instance_method" target="_self" title="Plist4r::Plist#save_as (method)">Plist::Plist#save_as</a></li>
+    
+  </ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+95
+96
+97
+98
+99
+100
+101
+102
+103
+104</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/plist4r/plist.rb', line 95</span>
+
+<span class='def def kw'>def</span> <span class='filename identifier id'>filename</span> <span class='filename identifier id'>filename</span><span class='assign token'>=</span><span class='nil nil kw'>nil</span>
+  <span class='case case kw'>case</span> <span class='filename identifier id'>filename</span>
+  <span class='when when kw'>when</span> <span class='String constant id'>String</span>
+    <span class='@filename ivar id'>@filename</span> <span class='assign token'>=</span> <span class='filename identifier id'>filename</span>
+  <span class='when when kw'>when</span> <span class='nil nil kw'>nil</span>
+    <span class='@filename ivar id'>@filename</span>
+  <span class='else else kw'>else</span>
+    <span class='raise identifier id'>raise</span> <span class='string val'>&quot;Please specify a filename&quot;</span>
+  <span class='end end kw'>end</span>
+<span class='end end kw'>end</span>
+</pre>
+    </td>
+  </tr>
+</table>
+</div>
+
+    
+      <div class="method_details " id="filename_path-instance_method">
+  <p class="signature "">
+  
+    - (<tt><a href="../Object.html" target="_self" title="Object (class)">Object</a></tt>) <strong>filename_path</strong>(filename_path = nil) 
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    <p>
+Set or return the combined filename+path. We use this method in the
+backends api as the full path to load / save
+</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  <h3>Parameters:</h3>
+<ul class="param">
+  
+    <li>
+      
+        <span class='type'>(<tt><a href="../String.html" target="_self" title="String (class)">String</a></tt>)</span>
+      
+      
+        <span class='name'>filename_path</span>
+      
+      
+        <em class="default">(defaults to: <tt>nil</tt>)</em>
+      
+      
+        &mdash;
+        <div class='inline'><p>
+concactenation of both filename and path elements. Also sets the @filename
+and @path attributes
+</p>
+</div>
+      
+    </li>
+  
+</ul>
+<h3>Returns:</h3>
+<ul class="return">
+  
+    <li>
+      
+        <span class='type'></span>
+      
+      
+      
+      
+        
+        <div class='inline'><p>
+the full, expanded path to the plist file
+</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+  <h3>See Also:</h3>
+  <ul class="see">
+    
+      <li>filename</li>
+    
+      <li>path</li>
+    
+  </ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+127
+128
+129
+130
+131
+132
+133
+134
+135
+136
+137</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/plist4r/plist.rb', line 127</span>
+
+<span class='def def kw'>def</span> <span class='filename_path identifier id'>filename_path</span> <span class='filename_path identifier id'>filename_path</span><span class='assign token'>=</span><span class='nil nil kw'>nil</span>
+  <span class='case case kw'>case</span> <span class='filename_path identifier id'>filename_path</span>
+  <span class='when when kw'>when</span> <span class='String constant id'>String</span>
+    <span class='@filename ivar id'>@filename</span> <span class='assign token'>=</span> <span class='File constant id'>File</span><span class='dot token'>.</span><span class='basename identifier id'>basename</span> <span class='filename_path identifier id'>filename_path</span>
+    <span class='@path ivar id'>@path</span>     <span class='assign token'>=</span> <span class='File constant id'>File</span><span class='dot token'>.</span><span class='dirname identifier id'>dirname</span>  <span class='filename_path identifier id'>filename_path</span>
+  <span class='when when kw'>when</span> <span class='nil nil kw'>nil</span>
+    <span class='File constant id'>File</span><span class='dot token'>.</span><span class='expand_path identifier id'>expand_path</span> <span class='@filename ivar id'>@filename</span><span class='comma token'>,</span> <span class='@path ivar id'>@path</span>    
+  <span class='else else kw'>else</span>
+    <span class='raise identifier id'>raise</span> <span class='string val'>&quot;Please specify directory + filename&quot;</span>
+  <span class='end end kw'>end</span>
+<span class='end end kw'>end</span>
+</pre>
+    </td>
+  </tr>
+</table>
+</div>
+
+    
+      <div class="method_details " id="from_string-instance_method">
+  <p class="signature "">
+  
+    - (<tt><a href="../Object.html" target="_self" title="Object (class)">Object</a></tt>) <strong>from_string</strong>(string = nil) 
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    <p>
+Reinitialize plist object from string (overwrites the current contents).
+Usually called from <tt><a href="#initialize-instance_method" target="_self" title="Plist4r::Plist#initialize (method)">Plist#initialize</a></tt> plist.from_string &#8220;{
+\&#8220;key1\&#8221; = \&#8220;value1\&#8221;; \&#8220;key2\&#8221; =
+\&#8220;value2\&#8221;; }&#8220;
+</p>
+<pre class="code">
+ <span class='assign token'>=</span><span class='gt op'>&gt;</span> <span class='comment val'>#&lt;Plist4r::Plist:0x11e161c @file_format=&quot;gnustep&quot;, ...&gt;</span>
+</pre>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+  <div class="examples">
+    <h3>Examples:</h3>
+    
+      <h4><div class='inline'><p>
+Load from string
+</p>
+</div></h4>
+      <pre class="example code"><span class='plist identifier id'>plist</span> <span class='assign token'>=</span> <span class='Plist4r constant id'>Plist4r</span><span class='colon2 op'>::</span><span class='Plist constant id'>Plist</span><span class='dot token'>.</span><span class='new identifier id'>new</span>
+<span class='assign token'>=</span><span class='gt op'>&gt;</span> <span class='comment val'>#&lt;Plist4r::Plist:0x11e161c @file_format=nil, ...&gt;</span>
+</pre>
+    
+  </div>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+71
+72
+73
+74
+75
+76
+77
+78
+79
+80
+81
+82
+83
+84
+85
+86
+87</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/plist4r/plist.rb', line 71</span>
+
+<span class='def def kw'>def</span> <span class='from_string identifier id'>from_string</span> <span class='string identifier id'>string</span><span class='assign token'>=</span><span class='nil nil kw'>nil</span>
+  <span class='case case kw'>case</span> <span class='string identifier id'>string</span>
+  <span class='when when kw'>when</span> <span class='String constant id'>String</span>
+    <span class='plist_format identifier id'>plist_format</span> <span class='assign token'>=</span> <span class='colon3 op'>::</span><span class='Plist4r constant id'>Plist4r</span><span class='dot token'>.</span><span class='string_detect_format identifier id'>string_detect_format</span><span class='lparen token'>(</span><span class='string identifier id'>string</span><span class='rparen token'>)</span>
+    <span class='if if kw'>if</span> <span class='plist_format identifier id'>plist_format</span>
+      <span class='@from_string ivar id'>@from_string</span> <span class='assign token'>=</span> <span class='string identifier id'>string</span>
+      <span class='@plist_cache ivar id'>@plist_cache</span> <span class='opasgn op'>||=</span> <span class='PlistCache constant id'>PlistCache</span><span class='dot token'>.</span><span class='new identifier id'>new</span> <span class='self self kw'>self</span>
+      <span class='@plist_cache ivar id'>@plist_cache</span><span class='dot token'>.</span><span class='from_string identifier id'>from_string</span>
+    <span class='else else kw'>else</span>
+      <span class='raise identifier id'>raise</span> <span class='dstring node'>&quot;Unknown plist format for string: #{string}&quot;</span>
+    <span class='end end kw'>end</span>
+  <span class='when when kw'>when</span> <span class='nil nil kw'>nil</span>
+    <span class='@from_string ivar id'>@from_string</span>
+  <span class='else else kw'>else</span>
+    <span class='raise identifier id'>raise</span> <span class='string val'>&quot;Please specify a string of plist data&quot;</span>
+  <span class='end end kw'>end</span>
+<span class='end end kw'>end</span>
+</pre>
+    </td>
+  </tr>
+</table>
+</div>
+
+    
+      <div class="method_details " id="import_hash-instance_method">
+  <p class="signature "">
+  
+    - (<tt><a href="../Object.html" target="_self" title="Object (class)">Object</a></tt>) <strong>import_hash</strong>(hash = nil) 
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    <p>
+Backend method to set or return all new plist data resulting from a backend
+API. Used in load operations.
+</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  <h3>Parameters:</h3>
+<ul class="param">
+  
+    <li>
+      
+        <span class='type'>(<tt><a href="OrderedHash.html" target="_self" title="Plist4r::OrderedHash (class)">Plist4r::OrderedHash</a></tt>, <tt>nil</tt>)</span>
+      
+      
+        <span class='name'>hash</span>
+      
+      
+        <em class="default">(defaults to: <tt>nil</tt>)</em>
+      
+      
+        &mdash;
+        <div class='inline'><p>
+sets the new root object. Replaces all previous plist data.
+</p>
+</div>
+      
+    </li>
+  
+</ul>
+<h3>Returns:</h3>
+<ul class="return">
+  
+    <li>
+      
+        <span class='type'></span>
+      
+      
+      
+      
+        
+        <div class='inline'><p>
+If no argument given, then clears all plist data, returning the new @hash
+root object
+</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+  <h3>See Also:</h3>
+  <ul class="see">
+    
+      <li><a href="Backend/Example.html" target="_self" title="Plist4r::Backend::Example (module)">Backend::Example</a></li>
+    
+  </ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+342
+343
+344
+345
+346
+347
+348
+349
+350
+351</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/plist4r/plist.rb', line 342</span>
+
+<span class='def def kw'>def</span> <span class='import_hash identifier id'>import_hash</span> <span class='hash identifier id'>hash</span><span class='assign token'>=</span><span class='nil nil kw'>nil</span>
+  <span class='case case kw'>case</span> <span class='hash identifier id'>hash</span>
+  <span class='when when kw'>when</span> <span class='colon3 op'>::</span><span class='Plist4r constant id'>Plist4r</span><span class='colon2 op'>::</span><span class='OrderedHash constant id'>OrderedHash</span>
+    <span class='@hash ivar id'>@hash</span> <span class='assign token'>=</span> <span class='hash identifier id'>hash</span>
+  <span class='when when kw'>when</span> <span class='nil nil kw'>nil</span>
+    <span class='@hash ivar id'>@hash</span> <span class='assign token'>=</span> <span class='colon3 op'>::</span><span class='Plist4r constant id'>Plist4r</span><span class='colon2 op'>::</span><span class='OrderedHash constant id'>OrderedHash</span><span class='dot token'>.</span><span class='new identifier id'>new</span>
+  <span class='else else kw'>else</span>
+    <span class='raise identifier id'>raise</span> <span class='string val'>&quot;Please use ::Plist4r::OrderedHash.new for your hashes&quot;</span>
+  <span class='end end kw'>end</span>
+<span class='end end kw'>end</span>
+</pre>
+    </td>
+  </tr>
+</table>
+</div>
+
+    
+      <div class="method_details " id="open-instance_method">
+  <p class="signature "">
+  
+    - (<tt><a href="" target="_self" title="Plist4r::Plist (class)">Plist4r::Plist</a></tt>) <strong>open</strong>(filename = nil) 
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    <p>
+Opens a plist file
+</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+  <div class="examples">
+    <h3>Examples:</h3>
+    
+      <h4><div class='inline'><p>
+Load from file
+</p>
+</div></h4>
+      <pre class="example code"><span class='plist identifier id'>plist</span> <span class='assign token'>=</span> <span class='Plist4r constant id'>Plist4r</span><span class='dot token'>.</span><span class='new identifier id'>new</span>
+<span class='plist identifier id'>plist</span><span class='dot token'>.</span><span class='open identifier id'>open</span><span class='lparen token'>(</span><span class='string val'>&quot;example.plist&quot;</span><span class='rparen token'>)</span> <span class='assign token'>=</span><span class='gt op'>&gt;</span> <span class='comment val'>#&lt;Plist4r::Plist:0x1152d1c @file_format=&quot;xml&quot;, ...&gt;</span>
+</pre>
+    
+  </div>
+<h3>Parameters:</h3>
+<ul class="param">
+  
+    <li>
+      
+        <span class='type'>(<tt><a href="../String.html" target="_self" title="String (class)">String</a></tt>)</span>
+      
+      
+        <span class='name'>filename</span>
+      
+      
+        <em class="default">(defaults to: <tt>nil</tt>)</em>
+      
+      
+        &mdash;
+        <div class='inline'><p>
+plist file to load. Uses the @filename attribute when nil
+</p>
+</div>
+      
+    </li>
+  
+</ul>
+<h3>Returns:</h3>
+<ul class="return">
+  
+    <li>
+      
+        <span class='type'>(<tt><a href="" target="_self" title="Plist4r::Plist (class)">Plist4r::Plist</a></tt>)</span>
+      
+      
+      
+      
+        &mdash;
+        <div class='inline'><p>
+The loaded Plist object
+</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+288
+289
+290
+291
+292</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/plist4r/plist.rb', line 288</span>
+
+<span class='def def kw'>def</span> <span class='open identifier id'>open</span> <span class='filename identifier id'>filename</span><span class='assign token'>=</span><span class='nil nil kw'>nil</span>
+  <span class='@filename ivar id'>@filename</span> <span class='assign token'>=</span> <span class='filename identifier id'>filename</span> <span class='if if_mod kw'>if</span> <span class='filename identifier id'>filename</span>
+  <span class='raise identifier id'>raise</span> <span class='string val'>&quot;No filename specified&quot;</span> <span class='unless unless_mod kw'>unless</span> <span class='@filename ivar id'>@filename</span>
+  <span class='@plist_cache ivar id'>@plist_cache</span><span class='dot token'>.</span><span class='open identifier id'>open</span>
+<span class='end end kw'>end</span>
+</pre>
+    </td>
+  </tr>
+</table>
+</div>
+
+    
+      <div class="method_details " id="parse_opts-instance_method">
+  <p class="signature "">
+  
+    - (<tt><a href="../Object.html" target="_self" title="Object (class)">Object</a></tt>) <strong>parse_opts</strong>(opts) 
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    <p>
+Sets up those valid (settable) plist attributes as found the options hash.
+Normally we dont call this method directly. Called from <tt><a href="#initialize-instance_method" target="_self" title="Plist4r::Plist#initialize (method)">#initialize</a></tt>.
+</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  <h3>Parameters:</h3>
+<ul class="param">
+  
+    <li>
+      
+        <span class='type'>(<tt>Hash &lt;<a href="#OptionsHash-constant" target="_self" title="Plist4r::Plist::OptionsHash (constant)">OptionsHash</a>&gt;</tt>)</span>
+      
+      
+        <span class='name'>opts</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'><p>
+The options hash, containing keys of <tt><a href="#OptionsHash-constant" target="_self" title="Plist4r::Plist::OptionsHash (constant)">OptionsHash</a></tt>
+</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+  <h3>See Also:</h3>
+  <ul class="see">
+    
+      <li><a href="#initialize-instance_method" target="_self" title="Plist4r::Plist#initialize (method)">#initialize</a></li>
+    
+  </ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+272
+273
+274
+275
+276
+277
+278
+279</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/plist4r/plist.rb', line 272</span>
+
+<span class='def def kw'>def</span> <span class='parse_opts identifier id'>parse_opts</span> <span class='opts identifier id'>opts</span>
+  <span class='OptionsHash constant id'>OptionsHash</span><span class='dot token'>.</span><span class='each identifier id'>each</span> <span class='do do kw'>do</span> <span class='bitor op'>|</span><span class='opt identifier id'>opt</span><span class='bitor op'>|</span>
+    <span class='if if kw'>if</span> <span class='opts identifier id'>opts</span><span class='lbrack token'>[</span><span class='opt identifier id'>opt</span><span class='dot token'>.</span><span class='to_sym identifier id'>to_sym</span><span class='rbrack token'>]</span>
+      <span class='value identifier id'>value</span> <span class='assign token'>=</span> <span class='opts identifier id'>opts</span><span class='lbrack token'>[</span><span class='opt identifier id'>opt</span><span class='dot token'>.</span><span class='to_sym identifier id'>to_sym</span><span class='rbrack token'>]</span>
+      <span class='eval identifier id'>eval</span> <span class='dstring node'>&quot;self.#{opt}(value)&quot;</span>
+    <span class='end end kw'>end</span>
+  <span class='end end kw'>end</span>
+<span class='end end kw'>end</span>
+</pre>
+    </td>
+  </tr>
+</table>
+</div>
+
+    
+      <div class="method_details " id="path-instance_method">
+  <p class="signature "">
+  
+    - (<tt><a href="../Object.html" target="_self" title="Object (class)">Object</a></tt>) <strong>path</strong>(path = nil) 
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    <p>
+Set or return the path attribute of the plist object. Pre-pended to the
+plist&#8217;s filename (if filename is path-relative)
+</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  <h3>Parameters:</h3>
+<ul class="param">
+  
+    <li>
+      
+        <span class='type'>(<tt><a href="../String.html" target="_self" title="String (class)">String</a></tt>)</span>
+      
+      
+        <span class='name'>path</span>
+      
+      
+        <em class="default">(defaults to: <tt>nil</tt>)</em>
+      
+      
+        &mdash;
+        <div class='inline'><p>
+(must be an absolute pathname)
+</p>
+</div>
+      
+    </li>
+  
+</ul>
+<h3>Returns:</h3>
+<ul class="return">
+  
+    <li>
+      
+        <span class='type'></span>
+      
+      
+      
+      
+        
+        <div class='inline'><p>
+The plist&#8217;s working path
+</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+  <h3>See Also:</h3>
+  <ul class="see">
+    
+      <li><a href="#filename_path-instance_method" target="_self" title="Plist4r::Plist#filename_path (method)">Plist::Plist#filename_path</a></li>
+    
+  </ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+110
+111
+112
+113
+114
+115
+116
+117
+118
+119</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/plist4r/plist.rb', line 110</span>
+
+<span class='def def kw'>def</span> <span class='path identifier id'>path</span> <span class='path identifier id'>path</span><span class='assign token'>=</span><span class='nil nil kw'>nil</span>
+  <span class='case case kw'>case</span> <span class='path identifier id'>path</span>
+  <span class='when when kw'>when</span> <span class='String constant id'>String</span>
+    <span class='@path ivar id'>@path</span> <span class='assign token'>=</span> <span class='path identifier id'>path</span>
+  <span class='when when kw'>when</span> <span class='nil nil kw'>nil</span>
+    <span class='@path ivar id'>@path</span>
+  <span class='else else kw'>else</span>
+    <span class='raise identifier id'>raise</span> <span class='string val'>&quot;Please specify a directory&quot;</span>
+  <span class='end end kw'>end</span>
+<span class='end end kw'>end</span>
+</pre>
+    </td>
+  </tr>
+</table>
+</div>
+
+    
+      <div class="method_details " id="plist_type-instance_method">
+  <p class="signature "">
+  
+    - (<tt><a href="../Object.html" target="_self" title="Object (class)">Object</a></tt>) <strong>plist_type</strong>(plist_type = nil) 
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    <p>
+Set or return the plist_type of the current object. We can use this to
+override the automatic type detection.
+</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  <h3>Parameters:</h3>
+<ul class="param">
+  
+    <li>
+      
+        <span class='type'>(<tt>Symbol</tt>, <tt><a href="../String.html" target="_self" title="String (class)">String</a></tt>)</span>
+      
+      
+        <span class='name'>plist_type.</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'><p>
+Must be a sublcass of <tt><a href="PlistType.html" target="_self" title="Plist4r::PlistType (class)">Plist4r::PlistType</a></tt>
+</p>
+</div>
+      
+    </li>
+  
+</ul>
+<h3>Returns:</h3>
+<ul class="return">
+  
+    <li>
+      
+        <span class='type'></span>
+      
+      
+      
+      
+        
+        <div class='inline'><p>
+The plist&#8217;s known type, written as a symbol. Will be a sublcass of
+Plist4r::PlistType. Defaults to :plist
+</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+  <h3>See Also:</h3>
+  <ul class="see">
+    
+      <li><a href="PlistType.html" target="_self" title="Plist4r::PlistType (class)">Plist4r::PlistType</a></li>
+    
+      <li><a href="PlistType/Plist.html" target="_self" title="Plist4r::PlistType::Plist (class)">Plist4r::PlistType::Plist</a></li>
+    
+  </ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+204
+205
+206
+207
+208
+209
+210
+211
+212
+213
+214
+215
+216
+217
+218
+219
+220
+221
+222
+223</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/plist4r/plist.rb', line 204</span>
+
+<span class='def def kw'>def</span> <span class='plist_type identifier id'>plist_type</span> <span class='plist_type identifier id'>plist_type</span><span class='assign token'>=</span><span class='nil nil kw'>nil</span>
+  <span class='begin begin kw'>begin</span>
+    <span class='case case kw'>case</span> <span class='plist_type identifier id'>plist_type</span>
+    <span class='when when kw'>when</span> <span class='Class constant id'>Class</span>
+      <span class='unless unless kw'>unless</span> <span class='plist_type identifier id'>plist_type</span><span class='dot token'>.</span><span class='is_a? fid id'>is_a?</span> <span class='colon3 op'>::</span><span class='Plist4r constant id'>Plist4r</span><span class='colon2 op'>::</span><span class='PlistType constant id'>PlistType</span>
+        <span class='raise identifier id'>raise</span> <span class='dstring node'>&quot;Unrecognized Plist type. Class #{plist_type.inspect} isnt inherited from ::Plist4r::PlistType&quot;</span>
+      <span class='end end kw'>end</span>
+    <span class='when when kw'>when</span> <span class='Symbol constant id'>Symbol</span><span class='comma token'>,</span> <span class='String constant id'>String</span>
+      <span class='plist_type identifier id'>plist_type</span> <span class='assign token'>=</span> <span class='eval identifier id'>eval</span> <span class='dstring node'>&quot;::Plist4r::PlistType::#{plist_type.to_s.camelcase}&quot;</span>
+    <span class='when when kw'>when</span> <span class='nil nil kw'>nil</span>
+      <span class='return return kw'>return</span> <span class='@plist_type ivar id'>@plist_type</span><span class='dot token'>.</span><span class='to_sym identifier id'>to_sym</span>
+    <span class='else else kw'>else</span>
+      <span class='raise identifier id'>raise</span> <span class='string val'>&quot;Please specify a valid plist class name, eg ::Plist4r::PlistType::ClassName, \&quot;class_name\&quot; or :class_name&quot;</span>
+    <span class='end end kw'>end</span>
+    <span class='@plist_type ivar id'>@plist_type</span> <span class='assign token'>=</span> <span class='plist_type identifier id'>plist_type</span><span class='dot token'>.</span><span class='new identifier id'>new</span> <span class='self self kw'>self</span>
+    <span class='return return kw'>return</span> <span class='@plist_type ivar id'>@plist_type</span><span class='dot token'>.</span><span class='to_sym identifier id'>to_sym</span>
+  <span class='rescue rescue kw'>rescue</span>
+    <span class='raise identifier id'>raise</span> <span class='string val'>&quot;Please specify a valid plist class name, eg ::Plist4r::PlistType::ClassName, \&quot;class_name\&quot; or :class_name&quot;</span>
+  <span class='end end kw'>end</span>
+<span class='end end kw'>end</span>
+</pre>
+    </td>
+  </tr>
+</table>
+</div>
+
+    
+      <div class="method_details " id="save-instance_method">
+  <p class="signature "">
+  
+    - (<tt><a href="../Object.html" target="_self" title="Object (class)">Object</a></tt>) <strong>save</strong> 
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    <p>
+Save plist to #filename
+</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  <h3>Raises:</h3>
+<ul class="raise">
+  
+    <li>
+      
+        <span class='type'>(<tt>RuntimeError</tt>)</span>
+      
+      
+      
+      
+        &mdash;
+        <div class='inline'><p>
+if the <tt><a href="#filename-instance_method" target="_self" title="Plist4r::Plist#filename (method)">#filename</a></tt> attribute is nil
+</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+  <h3>See Also:</h3>
+  <ul class="see">
+    
+      <li><a href="#filename-instance_method" target="_self" title="Plist4r::Plist#filename (method)">#filename</a></li>
+    
+      <li><a href="#path-instance_method" target="_self" title="Plist4r::Plist#path (method)">#path</a></li>
+    
+  </ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+393
+394
+395
+396</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/plist4r/plist.rb', line 393</span>
+
+<span class='def def kw'>def</span> <span class='save identifier id'>save</span>
+  <span class='raise identifier id'>raise</span> <span class='string val'>&quot;No filename specified&quot;</span> <span class='unless unless_mod kw'>unless</span> <span class='@filename ivar id'>@filename</span>
+  <span class='@plist_cache ivar id'>@plist_cache</span><span class='dot token'>.</span><span class='save identifier id'>save</span>
+<span class='end end kw'>end</span>
+</pre>
+    </td>
+  </tr>
+</table>
+</div>
+
+    
+      <div class="method_details " id="save_as-instance_method">
+  <p class="signature "">
+  
+    - (<tt><a href="../Object.html" target="_self" title="Object (class)">Object</a></tt>) <strong>save_as</strong>(filename) 
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    <p>
+Save the plist under a new filename
+</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  <h3>Parameters:</h3>
+<ul class="param">
+  
+    <li>
+      
+        <span class='type'>(<tt><a href="../String.html" target="_self" title="String (class)">String</a></tt>)</span>
+      
+      
+        <span class='name'>filename</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'><p>
+The new file name to save as. If a relative path, will be concactenated to
+plist.path
+</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+  <h3>See Also:</h3>
+  <ul class="see">
+    
+      <li><a href="#save-instance_method" target="_self" title="Plist4r::Plist#save (method)">#save</a></li>
+    
+  </ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+401
+402
+403
+404</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/plist4r/plist.rb', line 401</span>
+
+<span class='def def kw'>def</span> <span class='save_as identifier id'>save_as</span> <span class='filename identifier id'>filename</span>
+  <span class='@filename ivar id'>@filename</span> <span class='assign token'>=</span> <span class='filename identifier id'>filename</span>
+  <span class='save identifier id'>save</span>
+<span class='end end kw'>end</span>
+</pre>
+    </td>
+  </tr>
+</table>
+</div>
+
+    
+      <div class="method_details " id="strict_keys-instance_method">
+  <p class="signature "">
+  
+    - (<tt><a href="../Object.html" target="_self" title="Object (class)">Object</a></tt>) <strong>strict_keys</strong>(bool = nil) 
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    <p>
+Set or return strict_keys mode
+</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  <h3>Parameters:</h3>
+<ul class="param">
+  
+    <li>
+      
+        <span class='type'>(<tt>true</tt>, <tt>false</tt>)</span>
+      
+      
+        <span class='name'>bool</span>
+      
+      
+        <em class="default">(defaults to: <tt>nil</tt>)</em>
+      
+      
+        &mdash;
+        <div class='inline'><p>
+If true, then raise an error for any unrecognized keys that dont belong to
+the <tt><a href="#plist_type-instance_method" target="_self" title="Plist4r::Plist#plist_type (method)">#plist_type</a></tt>
+</p>
+</div>
+      
+    </li>
+  
+</ul>
+<h3>Returns:</h3>
+<ul class="return">
+  
+    <li>
+      
+        <span class='type'></span>
+      
+      
+      
+      
+        
+        <div class='inline'><p>
+The strict_keys setting for this object
+</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+  <h3>See Also:</h3>
+  <ul class="see">
+    
+      <li><a href="Config.html" target="_self" title="Plist4r::Config (class)">Plist4r::Config</a></li>
+    
+  </ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+229
+230
+231
+232
+233
+234
+235
+236
+237
+238</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/plist4r/plist.rb', line 229</span>
+
+<span class='def def kw'>def</span> <span class='strict_keys identifier id'>strict_keys</span> <span class='bool identifier id'>bool</span><span class='assign token'>=</span><span class='nil nil kw'>nil</span>
+  <span class='case case kw'>case</span> <span class='bool identifier id'>bool</span>
+  <span class='when when kw'>when</span> <span class='true true kw'>true</span><span class='comma token'>,</span><span class='false false kw'>false</span>
+    <span class='@strict_keys ivar id'>@strict_keys</span> <span class='assign token'>=</span> <span class='bool identifier id'>bool</span>
+  <span class='when when kw'>when</span> <span class='nil nil kw'>nil</span>
+    <span class='@strict_keys ivar id'>@strict_keys</span>
+  <span class='else else kw'>else</span>
+    <span class='raise identifier id'>raise</span> <span class='string val'>&quot;Please specify true or false to enable / disable this option&quot;</span>
+  <span class='end end kw'>end</span>
+<span class='end end kw'>end</span>
+</pre>
+    </td>
+  </tr>
+</table>
+</div>
+
+    
+      <div class="method_details " id="to_binary-instance_method">
+  <p class="signature "">
+  
+    - (<tt><a href="../Object.html" target="_self" title="Object (class)">Object</a></tt>) <strong>to_binary</strong> 
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    
+
+  </div>
+</div>
+<div class="tags">
+  
+  <div class="examples">
+    <h3>Examples:</h3>
+    
+      <h4><div class='inline'></div></h4>
+      <pre class="example code"><span class='plist identifier id'>plist</span> <span class='assign token'>=</span> <span class='string val'>&quot;{ \&quot;key1\&quot; = \&quot;value1\&quot;; \&quot;key2\&quot; = \&quot;value2\&quot;; }&quot;</span><span class='dot token'>.</span><span class='to_plist identifier id'>to_plist</span>
+<span class='plist identifier id'>plist</span><span class='dot token'>.</span><span class='to_binary identifier id'>to_binary</span>
+<span class='assign token'>=</span><span class='gt op'>&gt;</span> <span class='string val'>&quot;bplist00\322\001\002\003\004Tkey2Tkey1Vvalue2Vvalue1\b\r\022\027\036\000\000\000\000\000\000\001\001\000\000\000\000\000\000\000\005\000\000\000\000\000\000\000\000\000\000\000\000\000\000\000%&quot;</span>
+</pre>
+    
+  </div>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+379
+380
+381</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/plist4r/plist.rb', line 379</span>
+
+<span class='def def kw'>def</span> <span class='to_binary identifier id'>to_binary</span>
+  <span class='@plist_cache ivar id'>@plist_cache</span><span class='dot token'>.</span><span class='to_binary identifier id'>to_binary</span>
+<span class='end end kw'>end</span>
+</pre>
+    </td>
+  </tr>
+</table>
+</div>
+
+    
+      <div class="method_details " id="to_gnustep-instance_method">
+  <p class="signature "">
+  
+    - (<tt><a href="../Object.html" target="_self" title="Object (class)">Object</a></tt>) <strong>to_gnustep</strong> 
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    
+  <p class="note todo">
+    <strong>TODO:</strong> 
+    <div class='inline'><p>
+Needs a backend We are missing a backend for writing out :gnustep strings
+and saving :gnustep files to disk
+</p>
+</div>
+  </p>
+
+
+
+  </div>
+</div>
+<div class="tags">
+  
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+385
+386
+387</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/plist4r/plist.rb', line 385</span>
+
+<span class='def def kw'>def</span> <span class='to_gnustep identifier id'>to_gnustep</span>
+  <span class='@plist_cache ivar id'>@plist_cache</span><span class='dot token'>.</span><span class='to_gnustep identifier id'>to_gnustep</span>
+<span class='end end kw'>end</span>
+</pre>
+    </td>
+  </tr>
+</table>
+</div>
+
+    
+      <div class="method_details " id="to_hash-instance_method">
+  <p class="signature "">
+  
+    - (<tt><a href="OrderedHash.html" target="_self" title="Plist4r::OrderedHash (class)">::Plist4r::OrderedHash</a></tt>) <strong>to_hash</strong> 
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    <p>
+The primary storage object for plist data
+</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+  <div class="examples">
+    <h3>Examples:</h3>
+    
+      <h4><div class='inline'></div></h4>
+      <pre class="example code"><span class='plist identifier id'>plist</span> <span class='assign token'>=</span> <span class='string val'>&quot;{ \&quot;key1\&quot; = \&quot;value1\&quot;; \&quot;key2\&quot; = \&quot;value2\&quot;; }&quot;</span><span class='dot token'>.</span><span class='to_plist identifier id'>to_plist</span>
+<span class='plist identifier id'>plist</span><span class='dot token'>.</span><span class='to_hash identifier id'>to_hash</span> <span class='assign token'>=</span><span class='gt op'>&gt;</span> <span class='lbrace token'>{</span><span class='string val'>&quot;key1&quot;</span><span class='assign token'>=</span><span class='gt op'>&gt;</span><span class='string val'>&quot;value1&quot;</span><span class='comma token'>,</span> <span class='string val'>&quot;key2&quot;</span><span class='assign token'>=</span><span class='gt op'>&gt;</span><span class='string val'>&quot;value2&quot;</span><span class='rbrace token'>}</span>
+</pre>
+    
+  </div>
+<h3>Returns:</h3>
+<ul class="return">
+  
+    <li>
+      
+        <span class='type'>(<tt><a href="OrderedHash.html" target="_self" title="Plist4r::OrderedHash (class)">::Plist4r::OrderedHash</a></tt>)</span>
+      
+      
+      
+      
+        &mdash;
+        <div class='inline'><p>
+Nested hash of ruby objects. The raw Plist data
+</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+  <h3>See Also:</h3>
+  <ul class="see">
+    
+      <li><a href="OrderedHash.html" target="_self" title="Plist4r::OrderedHash (class)">::Plist4r::OrderedHash</a></li>
+    
+  </ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+360
+361
+362</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/plist4r/plist.rb', line 360</span>
+
+<span class='def def kw'>def</span> <span class='to_hash identifier id'>to_hash</span>
+  <span class='@hash ivar id'>@hash</span>
+<span class='end end kw'>end</span>
+</pre>
+    </td>
+  </tr>
+</table>
+</div>
+
+    
+      <div class="method_details " id="to_xml-instance_method">
+  <p class="signature "">
+  
+    - (<tt><a href="../String.html" target="_self" title="String (class)">String</a></tt>) <strong>to_xml</strong> 
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    <p>
+Calls out to the plist cache
+</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+  <div class="examples">
+    <h3>Examples:</h3>
+    
+      <h4><div class='inline'></div></h4>
+      <pre class="example code"><span class='plist identifier id'>plist</span> <span class='assign token'>=</span> <span class='string val'>&quot;{ \&quot;key1\&quot; = \&quot;value1\&quot;; \&quot;key2\&quot; = \&quot;value2\&quot;; }&quot;</span><span class='dot token'>.</span><span class='to_plist identifier id'>to_plist</span>
+<span class='plist identifier id'>plist</span><span class='dot token'>.</span><span class='to_xml identifier id'>to_xml</span> 
+<span class='assign token'>=</span><span class='gt op'>&gt;</span> <span class='string val'>&quot;&lt;?xml version=\&quot;1.0\&quot; encoding=\&quot;UTF-8\&quot;?&gt;\n&lt;!DOCTYPE plist PUBLIC \&quot;-//Apple//DTD PLIST 1.0//EN\&quot; \&quot;http://www.apple.com/DTDs/PropertyList-1.0.dtd\&quot;&gt;\n&lt;plist version=\&quot;1.0\&quot;&gt;\n&lt;dict&gt;\n\t&lt;key&gt;key1&lt;/key&gt;\n\t&lt;string&gt;value1&lt;/string&gt;\n\t&lt;key&gt;key2&lt;/key&gt;\n\t&lt;string&gt;value2&lt;/string&gt;\n&lt;/dict&gt;\n&lt;/plist&gt;&quot;</span>
+</pre>
+    
+  </div>
+<h3>Returns:</h3>
+<ul class="return">
+  
+    <li>
+      
+        <span class='type'>(<tt><a href="../String.html" target="_self" title="String (class)">String</a></tt>)</span>
+      
+      
+      
+      
+        &mdash;
+        <div class='inline'><p>
+An xml string which represents the entire plist, as would be the plist xml
+file
+</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+371
+372
+373</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/plist4r/plist.rb', line 371</span>
+
+<span class='def def kw'>def</span> <span class='to_xml identifier id'>to_xml</span>
+  <span class='@plist_cache ivar id'>@plist_cache</span><span class='dot token'>.</span><span class='to_xml identifier id'>to_xml</span>
+<span class='end end kw'>end</span>
+</pre>
+    </td>
+  </tr>
+</table>
+</div>
+
+    
+  </div>
+
+</div>
+    
+    <div id="footer">
+  Generated on Tue Jun 29 17:44:50 2010 by 
+  <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool">yard</a>
+  0.5.4  and the 
+  <a href="http://github.com/dreamcat4/yard-slipstream">yard-slipstream</a> plugin
+	(ruby-1.8.7).
+</div>
+
+  </body>
+</html>

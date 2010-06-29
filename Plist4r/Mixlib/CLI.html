@@ -1,0 +1,621 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+  <head>
+    <meta name="Content-Type" content="text/html; charset=utf-8" />
+<title>Module: Plist4r::Mixlib::CLI</title>
+<link rel="stylesheet" href="../../css/style.css" type="text/css" media="screen" charset="utf-8" />
+<link rel="stylesheet" href="../../css/common.css" type="text/css" media="screen" charset="utf-8" />
+<link rel="stylesheet" href="../../css/custom.css" type="text/css" media="screen" charset="utf-8" />
+
+<script type="text/javascript" charset="utf-8">
+  relpath = '../..';
+  if (relpath != '') relpath += '/';
+</script>
+<base id="base_target" target="_top" />
+<script type="text/javascript" charset="utf-8" src="../../js/jquery.js"></script>
+<script type="text/javascript" charset="utf-8" src="../../js/autocomplete.js"></script>
+<script type="text/javascript" charset="utf-8" src="../../js/app.js"></script>
+<script type="text/javascript" charset="utf-8" src="../../js/live.js"></script>
+
+  </head>
+  <body>
+    <script type="text/javascript" charset="utf-8">
+      if (window.top.frames.main) document.body.className = 'frames';
+    </script>
+    
+    <div id="header">
+      <div id="menu">
+  
+		
+			<a href="../../object_index.html" target="_self" title="Index (C)">Index (C)</a>
+		 &raquo;
+    <span class='title'><a href="../../Plist4r.html" target="_self" title="Plist4r (module)">Plist4r</a></span> &raquo; <span class='title'><a href="../Mixlib.html" target="_self" title="Plist4r::Mixlib (module)">Mixlib</a></span>
+     &raquo; 
+    <span class="title">CLI</span>
+  
+  
+  <div class="noframes">
+    <span class="title"></span>
+    <a id="frames_link" class="link_disabled">Frames</a> | 
+    <a target="_top" id="noframes_link" class="link_disabled">No Frames</a>
+    <span class="title"></span>
+  </div>
+</div>
+
+      <div id="search2">
+  
+  
+  <div class="search2_center">
+    <form class="search2" onsubmit="return false;" action="">
+      <input name="q" type="search" placeholder="Search" id="search_box2" size="30" value="" />
+    </form>
+  </div>
+  <script type="text/javascript" charset="utf-8"> 
+    $('#search_box2').focus(function(){
+      var search_index = relpath + 'search_index.json';
+      jQuery.getJSON(search_index, go_data);
+
+      function go_data(adata) {
+        $('#search_box2').autocomplete(adata, {
+          width: 300,
+          matchContains: true,
+          formatItem: function(item) {
+            return item.text;
+          }
+        }).result(function(event, item) {
+					if (window.location.search) {
+	          window.location.href = relpath + $(item.href_tag).attr("href");
+					} else {
+	          location.href = relpath + $(item.href_tag).attr("href");
+					}
+        });
+      }
+    });
+  </script> 
+</div>
+
+      <div class="clear"></div>
+    </div>
+    
+    <iframe id="search_frame"></iframe>
+    
+    <div id="content"><h1>Module: Plist4r::Mixlib::CLI 
+  
+  
+</h1>
+
+<div id="info_box">
+  <dl class="box">
+    
+      
+    
+      
+    
+  
+    <dt class="r1">Included in:</dt>
+    <dd class="r1"><a href="../CLI.html" target="_self" title="Plist4r::CLI (class)">Plist4r::CLI</a></dd>
+    
+  
+    <dt class="r2 last">Defined in:</dt>
+		<dd class="r2 last">
+  		
+  lib/plist4r/mixin/mixlib_cli.rb
+
+
+		</dd>
+  </dl>
+</div>
+<div class="clear"></div>
+
+<p class="children">
+   
+    
+			<h3 class="inherited">Modules</h3>
+	    <ul id="modules_ribbon">
+	    
+	    
+	      <li class="r1"><a href="CLI/ClassMethods.html" target="_self" title="Plist4r::Mixlib::CLI::ClassMethods (module)">ClassMethods</a></li>
+	      
+	    
+	    </ul>
+    
+   
+    
+  
+</p>
+
+	<h3 class="inherited">Instance Methods</h3>
+	    <ul id="methods_ribbon">
+	    
+	    
+	      <li class="r1"><a href="#build_option_arguments-instance_method" target="_self" title="Plist4r::Mixlib::CLI#build_option_arguments (method)">build_option_arguments</a></li>
+	      
+	    
+	      <li class="r2"><a href="#initialize-instance_method" target="_self" title="Plist4r::Mixlib::CLI#initialize (method)">initialize</a></li>
+	      
+	    
+	      <li class="r1"><a href="#parse_options-instance_method" target="_self" title="Plist4r::Mixlib::CLI#parse_options (method)">parse_options</a></li>
+	      
+	    
+	    </ul>
+
+
+<h2>Overview</h2><div class="docstring">
+  <div class="discussion">
+    <table>
+<tr><td valign="top">Author:</td><td>Adam Jacob (<adam@opscode.com>)
+
+</td></tr>
+<tr><td valign="top">Copyright:</td><td>Copyright &#169; 2008 Opscode, Inc.
+
+</td></tr>
+<tr><td valign="top">License:</td><td>Apache License, Version 2.0
+
+</td></tr>
+</table>
+<p>
+Licensed under the Apache License, Version 2.0 (the &#8220;License&#8221;);
+you may not use this file except in compliance with the License. You may
+obtain a copy of the License at
+</p>
+<pre class="code">
+    <span class='http identifier id'>http</span><span class='symbol val'>:/</span><span class='regexp val'>/www.apache.org/</span><span class='licenses identifier id'>licenses</span><span class='div op'>/</span><span class='LICENSE constant id'>LICENSE</span><span class='minus op'>-</span><span class='float val'>2.0</span>
+</pre>
+<p>
+Unless required by applicable law or agreed to in writing, software
+distributed under the License is distributed on an &#8220;AS IS&#8221;
+BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or
+implied. See the License for the specific language governing permissions
+and limitations under the License.
+</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+</div>
+
+  <h2>Instance Attributes</h2>
+  <ul class="summary">
+    
+      <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#banner-instance_method" target="_self" title="#banner (instance method)">- (Object) <strong>banner</strong> </a>
+    
+
+    
+  </span>
+  
+  
+    
+    
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'><p>
+Returns the value of attribute banner.
+</p>
+</div></span>
+  
+</li>
+
+    
+      <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#config-instance_method" target="_self" title="#config (instance method)">- (Object) <strong>config</strong> </a>
+    
+
+    
+  </span>
+  
+  
+    
+    
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'><p>
+Returns the value of attribute config.
+</p>
+</div></span>
+  
+</li>
+
+    
+      <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#opt_parser-instance_method" target="_self" title="#opt_parser (instance method)">- (Object) <strong>opt_parser</strong> </a>
+    
+
+    
+  </span>
+  
+  
+    
+    
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'><p>
+Returns the value of attribute opt_parser.
+</p>
+</div></span>
+  
+</li>
+
+    
+      <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#options-instance_method" target="_self" title="#options (instance method)">- (Object) <strong>options</strong> </a>
+    
+
+    
+  </span>
+  
+  
+    
+    
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'><p>
+Returns the value of attribute options.
+</p>
+</div></span>
+  
+</li>
+
+    
+  </ul>
+
+
+  <div id="instance_method_details" class="method_details_list">
+    <h2>Instance Method Details</h2>
+    
+    
+      <div class="method_details first" id="build_option_arguments-instance_method">
+  <p class="signature first"">
+  
+    - (<tt><a href="../../Object.html" target="_self" title="Object (class)">Object</a></tt>) <strong>build_option_arguments</strong>(opt_setting) 
+  
+
+  
+</p><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+178
+179
+180
+181
+182
+183
+184
+185
+186
+187
+188
+189
+190
+191</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/plist4r/mixin/mixlib_cli.rb', line 178</span>
+
+<span class='def def kw'>def</span> <span class='build_option_arguments identifier id'>build_option_arguments</span><span class='lparen token'>(</span><span class='opt_setting identifier id'>opt_setting</span><span class='rparen token'>)</span>      
+  <span class='arguments identifier id'>arguments</span> <span class='assign token'>=</span> <span class='Array constant id'>Array</span><span class='dot token'>.</span><span class='new identifier id'>new</span>
+
+  <span class='arguments identifier id'>arguments</span> <span class='lshft op'>&lt;&lt;</span> <span class='opt_setting identifier id'>opt_setting</span><span class='lbrack token'>[</span><span class='symbol val'>:short</span><span class='rbrack token'>]</span> <span class='if if_mod kw'>if</span> <span class='opt_setting identifier id'>opt_setting</span><span class='dot token'>.</span><span class='has_key? fid id'>has_key?</span><span class='lparen token'>(</span><span class='symbol val'>:short</span><span class='rparen token'>)</span>
+  <span class='arguments identifier id'>arguments</span> <span class='lshft op'>&lt;&lt;</span> <span class='opt_setting identifier id'>opt_setting</span><span class='lbrack token'>[</span><span class='symbol val'>:long</span><span class='rbrack token'>]</span> <span class='if if_mod kw'>if</span> <span class='opt_setting identifier id'>opt_setting</span><span class='dot token'>.</span><span class='has_key? fid id'>has_key?</span><span class='lparen token'>(</span><span class='symbol val'>:long</span><span class='rparen token'>)</span>
+
+  <span class='if if kw'>if</span> <span class='opt_setting identifier id'>opt_setting</span><span class='dot token'>.</span><span class='has_key? fid id'>has_key?</span><span class='lparen token'>(</span><span class='symbol val'>:description</span><span class='rparen token'>)</span>
+    <span class='description identifier id'>description</span> <span class='assign token'>=</span> <span class='opt_setting identifier id'>opt_setting</span><span class='lbrack token'>[</span><span class='symbol val'>:description</span><span class='rbrack token'>]</span>
+    <span class='description identifier id'>description</span> <span class='lshft op'>&lt;&lt;</span> <span class='string val'>&quot; (required)&quot;</span> <span class='if if_mod kw'>if</span> <span class='opt_setting identifier id'>opt_setting</span><span class='lbrack token'>[</span><span class='symbol val'>:required</span><span class='rbrack token'>]</span>
+    <span class='arguments identifier id'>arguments</span> <span class='lshft op'>&lt;&lt;</span> <span class='description identifier id'>description</span>
+  <span class='end end kw'>end</span>
+    
+  <span class='arguments identifier id'>arguments</span>
+<span class='end end kw'>end</span>
+</pre>
+    </td>
+  </tr>
+</table>
+</div>
+
+    
+      <div class="method_details " id="initialize-instance_method">
+  <p class="signature "">
+  
+    - (<tt><a href="" target="_self" title="Plist4r::Mixlib::CLI (module)">CLI</a></tt>) <strong>initialize</strong>(*args) 
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    <p>
+Create a new Mixlib::CLI class. If you override this, make sure you call
+super!
+</p>
+<h3>Parameters</h3>
+<table>
+<tr><td valign="top">*args<Array>:</td><td>The array of arguments passed to the initializer
+
+</td></tr>
+</table>
+<h3>Returns</h3>
+<table>
+<tr><td valign="top">object<Mixlib::Config>:</td><td>Returns an instance of whatever you wanted :)
+
+</td></tr>
+</table>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+86
+87
+88
+89
+90
+91
+92
+93
+94
+95
+96
+97
+98
+99
+100
+101
+102
+103
+104
+105
+106
+107
+108
+109
+110
+111
+112</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/plist4r/mixin/mixlib_cli.rb', line 86</span>
+
+<span class='def def kw'>def</span> <span class='initialize identifier id'>initialize</span><span class='lparen token'>(</span><span class='mult op'>*</span><span class='args identifier id'>args</span><span class='rparen token'>)</span>
+  <span class='@options ivar id'>@options</span> <span class='assign token'>=</span> <span class='Hash constant id'>Hash</span><span class='dot token'>.</span><span class='new identifier id'>new</span>
+  <span class='@config ivar id'>@config</span>  <span class='assign token'>=</span> <span class='Hash constant id'>Hash</span><span class='dot token'>.</span><span class='new identifier id'>new</span>
+
+  <span class='comment val'># Set the banner</span>
+  <span class='@banner ivar id'>@banner</span>  <span class='assign token'>=</span> <span class='self self kw'>self</span><span class='dot token'>.</span><span class='class identifier id'>class</span><span class='dot token'>.</span><span class='banner identifier id'>banner</span>
+
+  <span class='comment val'># Dupe the class options for this instance</span>
+  <span class='klass_options identifier id'>klass_options</span> <span class='assign token'>=</span> <span class='self self kw'>self</span><span class='dot token'>.</span><span class='class identifier id'>class</span><span class='dot token'>.</span><span class='options identifier id'>options</span>
+  <span class='klass_options identifier id'>klass_options</span><span class='dot token'>.</span><span class='keys identifier id'>keys</span><span class='dot token'>.</span><span class='inject identifier id'>inject</span><span class='lparen token'>(</span><span class='@options ivar id'>@options</span><span class='rparen token'>)</span> <span class='lbrace token'>{</span> <span class='bitor op'>|</span><span class='memo identifier id'>memo</span><span class='comma token'>,</span> <span class='key identifier id'>key</span><span class='bitor op'>|</span> <span class='memo identifier id'>memo</span><span class='lbrack token'>[</span><span class='key identifier id'>key</span><span class='rbrack token'>]</span> <span class='assign token'>=</span> <span class='klass_options identifier id'>klass_options</span><span class='lbrack token'>[</span><span class='key identifier id'>key</span><span class='rbrack token'>]</span><span class='dot token'>.</span><span class='dup identifier id'>dup</span><span class='semicolon token'>;</span> <span class='memo identifier id'>memo</span> <span class='rbrace token'>}</span>
+
+  <span class='comment val'># Set the default configuration values for this instance</span>
+  <span class='@options ivar id'>@options</span><span class='dot token'>.</span><span class='each identifier id'>each</span> <span class='do do kw'>do</span> <span class='bitor op'>|</span><span class='config_key identifier id'>config_key</span><span class='comma token'>,</span> <span class='config_opts identifier id'>config_opts</span><span class='bitor op'>|</span>
+    <span class='config_opts identifier id'>config_opts</span><span class='lbrack token'>[</span><span class='symbol val'>:on</span><span class='rbrack token'>]</span> <span class='opasgn op'>||=</span> <span class='symbol val'>:on</span>
+    <span class='config_opts identifier id'>config_opts</span><span class='lbrack token'>[</span><span class='symbol val'>:boolean</span><span class='rbrack token'>]</span> <span class='opasgn op'>||=</span> <span class='false false kw'>false</span>
+    <span class='config_opts identifier id'>config_opts</span><span class='lbrack token'>[</span><span class='symbol val'>:required</span><span class='rbrack token'>]</span> <span class='opasgn op'>||=</span> <span class='false false kw'>false</span>
+    <span class='config_opts identifier id'>config_opts</span><span class='lbrack token'>[</span><span class='symbol val'>:proc</span><span class='rbrack token'>]</span> <span class='opasgn op'>||=</span> <span class='nil nil kw'>nil</span>
+    <span class='config_opts identifier id'>config_opts</span><span class='lbrack token'>[</span><span class='symbol val'>:show_options</span><span class='rbrack token'>]</span> <span class='opasgn op'>||=</span> <span class='false false kw'>false</span>
+    <span class='config_opts identifier id'>config_opts</span><span class='lbrack token'>[</span><span class='symbol val'>:exit</span><span class='rbrack token'>]</span> <span class='opasgn op'>||=</span> <span class='nil nil kw'>nil</span>
+  
+    <span class='if if kw'>if</span> <span class='config_opts identifier id'>config_opts</span><span class='dot token'>.</span><span class='has_key? fid id'>has_key?</span><span class='lparen token'>(</span><span class='symbol val'>:default</span><span class='rparen token'>)</span>
+      <span class='@config ivar id'>@config</span><span class='lbrack token'>[</span><span class='config_key identifier id'>config_key</span><span class='rbrack token'>]</span> <span class='assign token'>=</span> <span class='config_opts identifier id'>config_opts</span><span class='lbrack token'>[</span><span class='symbol val'>:default</span><span class='rbrack token'>]</span>
+    <span class='end end kw'>end</span>
+  <span class='end end kw'>end</span>
+
+  <span class='super super kw'>super</span><span class='lparen token'>(</span><span class='mult op'>*</span><span class='args identifier id'>args</span><span class='rparen token'>)</span>
+<span class='end end kw'>end</span>
+</pre>
+    </td>
+  </tr>
+</table>
+</div>
+
+    
+      <div class="method_details " id="parse_options-instance_method">
+  <p class="signature "">
+  
+    - (<tt><a href="../../Object.html" target="_self" title="Object (class)">Object</a></tt>) <strong>parse_options</strong>(argv = ARGV) 
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    <p>
+Parses an array, by default ARGV, for command line options (as configured
+at the class level).
+</p>
+<h3>Parameters</h3>
+<table>
+<tr><td valign="top">argv<Array>:</td><td>The array of arguments to parse; defaults to ARGV
+
+</td></tr>
+</table>
+<h3>Returns</h3>
+<table>
+<tr><td valign="top">argv<Array>:</td><td>Returns any un-parsed elements.
+
+</td></tr>
+</table>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+121
+122
+123
+124
+125
+126
+127
+128
+129
+130
+131
+132
+133
+134
+135
+136
+137
+138
+139
+140
+141
+142
+143
+144
+145
+146
+147
+148
+149
+150
+151
+152
+153
+154
+155
+156
+157
+158
+159
+160
+161
+162
+163
+164
+165
+166
+167
+168
+169
+170
+171
+172
+173
+174
+175
+176</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/plist4r/mixin/mixlib_cli.rb', line 121</span>
+
+<span class='def def kw'>def</span> <span class='parse_options identifier id'>parse_options</span><span class='lparen token'>(</span><span class='argv identifier id'>argv</span><span class='assign token'>=</span><span class='ARGV constant id'>ARGV</span><span class='rparen token'>)</span>
+  <span class='argv identifier id'>argv</span> <span class='assign token'>=</span> <span class='argv identifier id'>argv</span><span class='dot token'>.</span><span class='dup identifier id'>dup</span>
+  <span class='@opt_parser ivar id'>@opt_parser</span> <span class='assign token'>=</span> <span class='OptionParser constant id'>OptionParser</span><span class='dot token'>.</span><span class='new identifier id'>new</span> <span class='do do kw'>do</span> <span class='bitor op'>|</span><span class='opts identifier id'>opts</span><span class='bitor op'>|</span>  
+    <span class='comment val'># Set the banner</span>
+    <span class='opts identifier id'>opts</span><span class='dot token'>.</span><span class='banner identifier id'>banner</span> <span class='assign token'>=</span> <span class='banner identifier id'>banner</span>        
+  
+    <span class='comment val'># Create new options</span>
+    <span class='options identifier id'>options</span><span class='dot token'>.</span><span class='sort identifier id'>sort</span> <span class='lbrace token'>{</span> <span class='bitor op'>|</span><span class='a identifier id'>a</span><span class='comma token'>,</span> <span class='b identifier id'>b</span><span class='bitor op'>|</span> <span class='a identifier id'>a</span><span class='lbrack token'>[</span><span class='integer val'>0</span><span class='rbrack token'>]</span><span class='dot token'>.</span><span class='to_s identifier id'>to_s</span> <span class='cmp op'>&lt;=&gt;</span> <span class='b identifier id'>b</span><span class='lbrack token'>[</span><span class='integer val'>0</span><span class='rbrack token'>]</span><span class='dot token'>.</span><span class='to_s identifier id'>to_s</span> <span class='rbrace token'>}</span><span class='dot token'>.</span><span class='each identifier id'>each</span> <span class='do do kw'>do</span> <span class='bitor op'>|</span><span class='opt_key identifier id'>opt_key</span><span class='comma token'>,</span> <span class='opt_val identifier id'>opt_val</span><span class='bitor op'>|</span>          
+      <span class='opt_args identifier id'>opt_args</span> <span class='assign token'>=</span> <span class='build_option_arguments identifier id'>build_option_arguments</span><span class='lparen token'>(</span><span class='opt_val identifier id'>opt_val</span><span class='rparen token'>)</span>
+    
+      <span class='opt_method identifier id'>opt_method</span> <span class='assign token'>=</span> <span class='case case kw'>case</span> <span class='opt_val identifier id'>opt_val</span><span class='lbrack token'>[</span><span class='symbol val'>:on</span><span class='rbrack token'>]</span>
+        <span class='when when kw'>when</span> <span class='symbol val'>:on</span>
+          <span class='symbol val'>:on</span>
+        <span class='when when kw'>when</span> <span class='symbol val'>:tail</span>
+          <span class='symbol val'>:on_tail</span>
+        <span class='when when kw'>when</span> <span class='symbol val'>:head</span>
+          <span class='symbol val'>:on_head</span>
+        <span class='else else kw'>else</span>
+          <span class='raise identifier id'>raise</span> <span class='ArgumentError constant id'>ArgumentError</span><span class='comma token'>,</span> <span class='string val'>&quot;You must pass :on, :tail, or :head to :on&quot;</span>
+        <span class='end end kw'>end</span>
+                
+      <span class='parse_block identifier id'>parse_block</span> <span class='assign token'>=</span> <span class='case case kw'>case</span> <span class='opt_val identifier id'>opt_val</span><span class='lbrack token'>[</span><span class='symbol val'>:boolean</span><span class='rbrack token'>]</span>
+        <span class='when when kw'>when</span> <span class='true true kw'>true</span>
+          <span class='Proc constant id'>Proc</span><span class='dot token'>.</span><span class='new identifier id'>new</span><span class='lparen token'>(</span><span class='rparen token'>)</span> <span class='do do kw'>do</span>
+            <span class='config identifier id'>config</span><span class='lbrack token'>[</span><span class='opt_key identifier id'>opt_key</span><span class='rbrack token'>]</span> <span class='assign token'>=</span> <span class='lparen token'>(</span><span class='opt_val identifier id'>opt_val</span><span class='lbrack token'>[</span><span class='symbol val'>:proc</span><span class='rbrack token'>]</span> <span class='andop op'>&amp;&amp;</span> <span class='opt_val identifier id'>opt_val</span><span class='lbrack token'>[</span><span class='symbol val'>:proc</span><span class='rbrack token'>]</span><span class='dot token'>.</span><span class='call identifier id'>call</span><span class='lparen token'>(</span><span class='true true kw'>true</span><span class='rparen token'>)</span><span class='rparen token'>)</span> <span class='orop op'>||</span> <span class='true true kw'>true</span>
+            <span class='puts identifier id'>puts</span> <span class='opts identifier id'>opts</span> <span class='if if_mod kw'>if</span> <span class='opt_val identifier id'>opt_val</span><span class='lbrack token'>[</span><span class='symbol val'>:show_options</span><span class='rbrack token'>]</span>
+            <span class='exit identifier id'>exit</span> <span class='opt_val identifier id'>opt_val</span><span class='lbrack token'>[</span><span class='symbol val'>:exit</span><span class='rbrack token'>]</span> <span class='if if_mod kw'>if</span> <span class='opt_val identifier id'>opt_val</span><span class='lbrack token'>[</span><span class='symbol val'>:exit</span><span class='rbrack token'>]</span>
+          <span class='end end kw'>end</span>
+        <span class='when when kw'>when</span> <span class='false false kw'>false</span>
+          <span class='Proc constant id'>Proc</span><span class='dot token'>.</span><span class='new identifier id'>new</span><span class='lparen token'>(</span><span class='rparen token'>)</span> <span class='do do kw'>do</span> <span class='bitor op'>|</span><span class='c identifier id'>c</span><span class='bitor op'>|</span>
+            <span class='config identifier id'>config</span><span class='lbrack token'>[</span><span class='opt_key identifier id'>opt_key</span><span class='rbrack token'>]</span> <span class='assign token'>=</span> <span class='lparen token'>(</span><span class='opt_val identifier id'>opt_val</span><span class='lbrack token'>[</span><span class='symbol val'>:proc</span><span class='rbrack token'>]</span> <span class='andop op'>&amp;&amp;</span> <span class='opt_val identifier id'>opt_val</span><span class='lbrack token'>[</span><span class='symbol val'>:proc</span><span class='rbrack token'>]</span><span class='dot token'>.</span><span class='call identifier id'>call</span><span class='lparen token'>(</span><span class='c identifier id'>c</span><span class='rparen token'>)</span><span class='rparen token'>)</span> <span class='orop op'>||</span> <span class='c identifier id'>c</span>
+            <span class='puts identifier id'>puts</span> <span class='opts identifier id'>opts</span> <span class='if if_mod kw'>if</span> <span class='opt_val identifier id'>opt_val</span><span class='lbrack token'>[</span><span class='symbol val'>:show_options</span><span class='rbrack token'>]</span>
+            <span class='exit identifier id'>exit</span> <span class='opt_val identifier id'>opt_val</span><span class='lbrack token'>[</span><span class='symbol val'>:exit</span><span class='rbrack token'>]</span> <span class='if if_mod kw'>if</span> <span class='opt_val identifier id'>opt_val</span><span class='lbrack token'>[</span><span class='symbol val'>:exit</span><span class='rbrack token'>]</span>
+          <span class='end end kw'>end</span>
+        <span class='end end kw'>end</span>
+              
+      <span class='full_opt identifier id'>full_opt</span> <span class='assign token'>=</span> <span class='lbrack token'>[</span> <span class='opt_method identifier id'>opt_method</span> <span class='rbrack token'>]</span>
+      <span class='opt_args identifier id'>opt_args</span><span class='dot token'>.</span><span class='inject identifier id'>inject</span><span class='lparen token'>(</span><span class='full_opt identifier id'>full_opt</span><span class='rparen token'>)</span> <span class='lbrace token'>{</span> <span class='bitor op'>|</span><span class='memo identifier id'>memo</span><span class='comma token'>,</span> <span class='arg identifier id'>arg</span><span class='bitor op'>|</span> <span class='memo identifier id'>memo</span> <span class='lshft op'>&lt;&lt;</span> <span class='arg identifier id'>arg</span><span class='semicolon token'>;</span> <span class='memo identifier id'>memo</span> <span class='rbrace token'>}</span>
+      <span class='full_opt identifier id'>full_opt</span> <span class='lshft op'>&lt;&lt;</span> <span class='parse_block identifier id'>parse_block</span>
+      <span class='opts identifier id'>opts</span><span class='dot token'>.</span><span class='send identifier id'>send</span><span class='lparen token'>(</span><span class='mult op'>*</span><span class='full_opt identifier id'>full_opt</span><span class='rparen token'>)</span>
+    <span class='end end kw'>end</span>
+  <span class='end end kw'>end</span>
+  <span class='@opt_parser ivar id'>@opt_parser</span><span class='dot token'>.</span><span class='parse! fid id'>parse!</span><span class='lparen token'>(</span><span class='argv identifier id'>argv</span><span class='rparen token'>)</span>
+
+  <span class='comment val'># Deal with any required values</span>
+  <span class='options identifier id'>options</span><span class='dot token'>.</span><span class='each identifier id'>each</span> <span class='do do kw'>do</span> <span class='bitor op'>|</span><span class='opt_key identifier id'>opt_key</span><span class='comma token'>,</span> <span class='opt_value identifier id'>opt_value</span><span class='bitor op'>|</span>
+    <span class='if if kw'>if</span> <span class='opt_value identifier id'>opt_value</span><span class='lbrack token'>[</span><span class='symbol val'>:required</span><span class='rbrack token'>]</span> <span class='andop op'>&amp;&amp;</span> <span class='notop op'>!</span> <span class='config identifier id'>config</span><span class='lbrack token'>[</span><span class='opt_key identifier id'>opt_key</span><span class='rbrack token'>]</span>
+      <span class='reqarg identifier id'>reqarg</span> <span class='assign token'>=</span> <span class='opt_value identifier id'>opt_value</span><span class='lbrack token'>[</span><span class='symbol val'>:short</span><span class='rbrack token'>]</span> <span class='orop op'>||</span> <span class='opt_value identifier id'>opt_value</span><span class='lbrack token'>[</span><span class='symbol val'>:long</span><span class='rbrack token'>]</span>
+      <span class='puts identifier id'>puts</span> <span class='dstring node'>&quot;You must supply #{reqarg}!&quot;</span>
+      <span class='puts identifier id'>puts</span> <span class='@opt_parser ivar id'>@opt_parser</span>
+      <span class='exit identifier id'>exit</span> <span class='integer val'>2</span>
+    <span class='end end kw'>end</span>
+  <span class='end end kw'>end</span>
+
+  <span class='argv identifier id'>argv</span>
+<span class='end end kw'>end</span>
+</pre>
+    </td>
+  </tr>
+</table>
+</div>
+
+    
+  </div>
+
+</div>
+    
+    <div id="footer">
+  Generated on Tue Jun 29 17:44:30 2010 by 
+  <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool">yard</a>
+  0.5.4  and the 
+  <a href="http://github.com/dreamcat4/yard-slipstream">yard-slipstream</a> plugin
+	(ruby-1.8.7).
+</div>
+
+  </body>
+</html>
