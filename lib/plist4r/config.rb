@@ -32,9 +32,14 @@ module Plist4r
       when :brew
         ["ruby_cocoa"]
       else
-        rubycocoa_framework = "/System/Library/Frameworks/RubyCocoa.framework"
-        if File.exists? rubycocoa_framework
-          ["osx_plist","c_f_property_list","haml","libxml4r","ruby_cocoa"]
+        core_foundation_framework = "/System/Library/Frameworks/CoreFoundation.framework"
+        rubycocoa_framework       = "/System/Library/Frameworks/RubyCocoa.framework"
+        if File.exists? core_foundation_framework
+          if File.exists? rubycocoa_framework
+            ["osx_plist","c_f_property_list","haml","libxml4r","ruby_cocoa"]
+          else
+            ["osx_plist","c_f_property_list","haml","libxml4r"]
+          end
         else
           ["c_f_property_list","haml","libxml4r"]
         end
