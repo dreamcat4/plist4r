@@ -2,20 +2,29 @@
 require 'plist4r/plist_type'
 
 module Plist4r
+  # @author Dreamcat4 (dreamcat4@gmail.com)
   class PlistType::Launchd < PlistType
 
-    # A Hash Array of the supported plist keys for this type. These are the plist keys are recognized to belong to a Launchd plist.
-    # Used in validation, categorized by the value's DataType.
+    # A Hash Array of the supported plist keys for this type. These are plist keys which belong to the
+    # PlistType for Launchd plists. Each CamelCased key name has a corresponding set_or_return method call.
+    # For example "UserName" => user_name(value). To see how to use these Plist Keys, go to {file:PlistKeyNames}
     # @see Plist4r::DataMethods
-    def self.valid_keys
-      {
-        :string => %w[Label UserName GroupName LimitLoadToSessionType Program RootDirectory WorkingDirectory StandardInPath StandardOutPath StandardErrorPath],
-        :bool => %w[Disabled EnableGlobbing EnableTransactions OnDemand RunAtLoad InitGroups StartOnMount Debug WaitForDebugger AbandonProcessGroup HopefullyExitsFirst HopefullyExitsLast LowPriorityIO LaunchOnlyOnce],
-        :integer => %w[Umask TimeOut ExitTimeOut ThrottleInterval StartInterval Nice],
-        :array_of_strings => %w[LimitLoadToHosts LimitLoadFromHosts ProgramArguments WatchPaths QueueDirectories],
-        :method_defined => %w[inetdCompatibility KeepAlive EnvironmentVariables StartCalendarInterval SoftResourceLimits, HardResourceLimits MachServices Sockets]
-      }
-    end
+    ValidKeys =
+    {
+      :string           => %w[ Label UserName GroupName LimitLoadToSessionType Program RootDirectory \
+                               WorkingDirectory StandardInPath StandardOutPath StandardErrorPath ],
+
+      :bool             => %w[ Disabled EnableGlobbing EnableTransactions OnDemand RunAtLoad InitGroups \
+                               StartOnMount Debug WaitForDebugger AbandonProcessGroup HopefullyExitsFirst \
+                               HopefullyExitsLast LowPriorityIO LaunchOnlyOnce ],
+
+      :integer          => %w[ Umask TimeOut ExitTimeOut ThrottleInterval StartInterval Nice ],
+
+      :array_of_strings => %w[ LimitLoadToHosts LimitLoadFromHosts ProgramArguments WatchPaths QueueDirectories ],
+
+      :method_defined   => %w[ inetdCompatibility KeepAlive EnvironmentVariables StartCalendarInterval 
+                               SoftResourceLimits, HardResourceLimits MachServices Sockets ]
+    }
 
     # Set or return the plist key "inetdCompatibility"
     # @param [Hash <true,false>] value the 
@@ -27,10 +36,10 @@ module Plist4r
     # 
     # @example
     # # set inetdCompatibility
-    # launchd_plist.inetdCompatibility({:wait => true})
+    # launchd_plist.inetd_compatibility({:wait => true})
     # 
     # # return inetdCompatibility
-    # launchd_plist.inetdCompatibility => hash or nil
+    # launchd_plist.inetd_compatibility => hash or nil
     #
     def inetd_compatibility value=nil
       key = "inetdCompatibility"
@@ -49,12 +58,11 @@ module Plist4r
     end
     
     class KeepAlive < ArrayDict
-      def valid_keys
-        {
-          :bool => %w[SuccessfulExit NetworkState],
-          :hash_of_bools => %w[PathState OtherJobEnabled]
-        }
-      end
+      ValidKeys =
+      {
+        :bool => %w[SuccessfulExit NetworkState],
+        :hash_of_bools => %w[PathState OtherJobEnabled]
+      }
     end
 
     # Set or return the plist key "KeepAlive"
@@ -153,9 +161,7 @@ module Plist4r
     end
 
     class StartCalendarInterval < ArrayDict
-      def valid_keys
-        { :integer => %w[Minute Hour Day Weekday Month] }
-      end
+      ValidKeys = { :integer => %w[ Minute Hour Day Weekday Month ] }
     end
 
     # Set or return the plist key "StartCalendarInterval"
@@ -227,9 +233,8 @@ module Plist4r
     end
 
     class ResourceLimits < ArrayDict
-      def valid_keys
-        { :integer => %w[Core CPU Data FileSize MemoryLock NumberOfFiles NumberOfProcesses ResidentSetSize Stack] }
-      end
+      ValidKeys = { :integer => %w[ Core CPU Data FileSize MemoryLock NumberOfFiles \
+                                    NumberOfProcesses ResidentSetSize Stack ] }
     end
   
     # Set or return the plist key "SoftResourceLimits"
@@ -364,9 +369,7 @@ module Plist4r
 
   	class MachServices < ArrayDict
     	class MachService < ArrayDict
-    	  def valid_keys
-          { :bool => %w[ResetAtClose HideUntilCheckIn] }
-        end
+    	  ValidKeys = { :bool => %w[ ResetAtClose HideUntilCheckIn ] }
       end
 
   	  def add service, value=nil, &blk
@@ -433,14 +436,17 @@ module Plist4r
 
     class Sockets < ArrayDict
       class Socket < ArrayDict
-        def valid_keys
-          {
-            :string => %w[SockType SockNodeName SockServiceName SockFamily SockProtocol SockPathName SecureSocketWithKey MulticastGroup],
-            :bool => %w[SockPassive],
-            :integer => %w[SockPathMode],
-            :bool_or_string_or_array_of_strings => %w[Bonjour]
-          }
-        end
+        ValidKeys =
+        {
+          :string  => %w[ SockType SockNodeName SockServiceName SockFamily SockProtocol \
+                          SockPathName SecureSocketWithKey MulticastGroup ],
+
+          :bool    => %w[ SockPassive ],
+
+          :integer => %w[ SockPathMode ],
+
+          :bool_or_string_or_array_of_strings => %w[ Bonjour ]
+        }
       end
 
       def add_socket_to_dictionary key, &blk

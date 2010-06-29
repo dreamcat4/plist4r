@@ -3,7 +3,9 @@
 require 'rubygems'
 require 'lib/plist4r'
 
+
 def output
+  require 'plist4r/backend/test/output'
   o = Plist4r::Backend::Test::Output.new
   puts o
   o.write_html_file

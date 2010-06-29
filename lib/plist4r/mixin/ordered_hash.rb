@@ -6,8 +6,11 @@ module Plist4r
       # {ActiveSupport::OrderedHash}
       #
       # Copyright (c) 2005 David Hansson, 
+      #
       # Copyright (c) 2007 Mauricio Fernandez, Sam Stephenson
+      #
       # Copyright (c) 2008 Steve Purcell, Josh Peek
+      #
       # Copyright (c) 2009 Christoffer Sawicki
       #
       # Permission is hereby granted, free of charge, to any person obtaining

@@ -15,7 +15,7 @@ module Plist4r
       # 
       # Don't use the "Block form" calling method. It screws up on the pipes IO.
       # 
-      # Use "Simple form", always. Simple form == more robust IO handling.
+      # Use "Simple form", always. Simple form = more robust IO handling.
       #
       # @example Simple form
       #  def popen4_exec stdin_str, cmd, *args
