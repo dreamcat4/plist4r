@@ -11,12 +11,69 @@ require 'plist4r/backend_base'
 # as appropriate. Then raise an exception for those situation where backend is unable to continue.
 # 
 # For example, if your backend is only able to load :xml files, then it should raise an exception
-# whenever it encounters :binary or :next_step formatted files. This is intentional.
+# whenever it encounters :binary or :gnustep formatted files. This is intentional.
 # By throwing the error, it means the API call can be picked up and passed on to the next available backend.
 # 
 # @see Plist4r::Backend
 module Plist4r::Backend::Example
   class << self
+
+    # Parse a String of plist data and store it into the supplied {Plist4r::Plist}
+    # * Please click "View Source" for the example.
+    # @param [Plist4r::Plist] plist The plist object to read the string from
+    # @return [Plist4r::Plist] the same plist object, but updated to match its from_string
+    # @see Plist4r::Plist#from_string
+    # @see Plist4r.string_detect_format
+    def from_xml plist
+      plist_string = plist.from_string
+      plist_format = Plist4r.string_detect_format plist.from_string
+      unless [:xml].include? plist_format
+        raise "#{self} - cant convert string of format #{plist_format}"
+      end
+      hash = ::Plist4r::OrderedHash.new
+      # import / convert plist data into ruby ordered hash
+      plist.import_hash hash
+      plist.file_format plist_format
+      return plist
+    end
+
+    # Parse a String of plist data and store it into the supplied {Plist4r::Plist}
+    # * Please click "View Source" for the example.
+    # @param [Plist4r::Plist] plist The plist object to read the string from
+    # @return [Plist4r::Plist] the same plist object, but updated to match its from_string
+    # @see Plist4r::Plist#from_string
+    # @see Plist4r.string_detect_format
+    def from_binary plist
+      plist_string = plist.from_string
+      plist_format = Plist4r.string_detect_format plist.from_string
+      unless [:binary].include? plist_format
+        raise "#{self} - cant convert string of format #{plist_format}"
+      end
+      hash = ::Plist4r::OrderedHash.new
+      # import / convert plist data into ruby ordered hash
+      plist.import_hash hash
+      plist.file_format plist_format
+      return plist
+    end
+
+    # Parse a String of plist data and store it into the supplied {Plist4r::Plist}
+    # * Please click "View Source" for the example.
+    # @param [Plist4r::Plist] plist The plist object to read the string from
+    # @return [Plist4r::Plist] the same plist object, but updated to match its from_string
+    # @see Plist4r::Plist#from_string
+    # @see Plist4r.string_detect_format
+    def from_gnustep plist
+      plist_string = plist.from_string
+      plist_format = Plist4r.string_detect_format plist.from_string
+      unless [:gnustep].include? plist_format
+        raise "#{self} - cant convert string of format #{plist_format}"
+      end
+      hash = ::Plist4r::OrderedHash.new
+      # import / convert plist data into ruby ordered hash
+      plist.import_hash hash
+      plist.file_format plist_format
+      return plist
+    end
     
     # Parse a String of plist data and store it into the supplied {Plist4r::Plist}
     # * Please click "View Source" for the example.
@@ -57,25 +114,25 @@ module Plist4r::Backend::Example
       return binary_string
     end
 
-    # Convert a {Plist4r::Plist} into a "next_step" formatted plist String
+    # Convert a {Plist4r::Plist} into a "gnustep" formatted plist String
     # * Please click "View Source" for the example.
     # @param [Plist4r::Plist] plist The plist object to convert
-    # @return [String] the next_step string
-    def to_next_step plist
+    # @return [String] the gnustep string
+    def to_gnustep plist
       hash = plist.to_hash
-      next_step_string = "Convert the plists's nested ruby hash into next_step format here"
-      return next_step_string
+      gnustep_string = "Convert the plists's nested ruby hash into gnustep format here"
+      return gnustep_string
     end
 
-    # Open a plist file and store the contents into the supplied {Plist4r::Plist}
+    # (Optional) Open a plist file and store the contents into the supplied {Plist4r::Plist}
     # * Please click "View Source" for the example.
     # @param [Plist4r::Plist] plist The plist object to convert
-    # @return [String] the next_step string
+    # @return [String] the gnustep string
     # @see Plist4r.file_detect_format
     def open plist
       filename = plist.filename_path
       file_format = Plist4r.file_detect_format filename
-      unless [:supported_fmt1,:supported_fmt2].include? file_format
+      unless [:supported_fmt1,:supported_fmt2].include? file_format.to_sym
         raise "#{self} - cant load file of format #{file_format}"
       end
       plist_file_as_string = File.read(filename)
@@ -86,13 +143,14 @@ module Plist4r::Backend::Example
       return plist
     end
 
-    # @param [Plist4r::Plist] plist The plist object to read the filename from
+    # (Optional) Save a plist to file
+    # @param [Plist4r::Plist] plist The plist object save. Also to read the filename from
     # @return [Plist4r::Plist] the same plist object, but updated to match the file contents
     # @see Plist4r::Plist#filename_path
     def save plist
       filename = plist.filename_path
       file_format = plist.file_format || Config[:default_format]
-      unless [:xml,:binary].include? file_format
+      unless [:xml,:binary].include? file_format.to_sym
         raise "#{self} - cant save file of format #{file_format}"
       end
       hash = plist.to_hash

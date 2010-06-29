@@ -1,7 +1,8 @@
 
 require 'plist4r/backend_base'
 
-# Requires Libxml4r. Implements loading / parsing for the :xml file format only.
+# This backend uses Libxml4r / Libxml-Ruby to *read* xml plists
+# @author Dreamcat4 (dreamcat4@gmail.com)
 module Plist4r::Backend::Libxml4r
   class << self
     def tree_hash n
@@ -17,6 +18,24 @@ module Plist4r::Backend::Libxml4r
           hash[k] = vnode.inner_xml
         when "integer"
           hash[k] = vnode.inner_xml.to_i
+        when "real"
+          hash[k] = vnode.inner_xml.to_f
+        when "date"
+          require 'date'
+          hash[k] = Time.parse vnode.inner_xml
+        when "data"
+          require 'base64'
+          data = Base64.decode64(vnode.inner_xml.gsub(/\s+/, ''))
+          obj = nil
+          begin
+            obj = Marshal.load(data)
+            hash[k] = obj
+          rescue Exception => e
+            io = StringIO.new
+            io.write data
+            io.rewind
+            hash[k] = io
+          end
         when "array"
           hash[k] = tree_array(vnode)
         when "dict"
@@ -38,6 +57,24 @@ module Plist4r::Backend::Libxml4r
           array << node.inner_xml
         when "integer"
           array << node.inner_xml.to_i
+        when "real"
+          hash[k] = vnode.inner_xml.to_f
+        when "date"
+          require 'date'
+          hash[k] = Time.parse vnode.inner_xml
+        when "data"
+          require 'base64'
+          data = Base64.decode64(vnode.inner_xml.gsub(/\s+/, ''))
+          obj = nil
+          begin
+            obj = Marshal.load(data)
+            hash[k] = obj
+          rescue Exception => e
+            io = StringIO.new
+            io.write data
+            io.rewind
+            hash[k] = io
+          end
         when "array"
           array << tree_array(node)
         when "dict"
@@ -70,21 +107,20 @@ module Plist4r::Backend::Libxml4r
       ordered_hash
     end
 
-    def from_string plist, string
-      plist_format = Plist4r.string_detect_format string
-      raise "#{self} - cant convert string of format #{plist_format}" unless plist_format == :xml
-      hash = parse_plist_xml string
+    # def from_xml plist, string
+    #   # plist_format = Plist4r.string_detect_format string
+    #   # raise "#{self} - cant convert string of format #{plist_format}" unless plist_format == :xml
+    #   hash = parse_plist_xml string
+    #   plist.import_hash hash
+    #   plist.file_format plist_format
+    #   return plist
+    # end
+
+    def from_xml plist
+      hash = parse_plist_xml plist.from_string
       plist.import_hash hash
-      plist.file_format plist_format
+      plist.file_format "xml"
       return plist
-    end
-
-    def open plist
-      filename = plist.filename_path
-      file_format = Plist4r.file_detect_format filename
-      raise "#{self} - cant load file of format #{file_format}" unless file_format == :xml
-
-      return from_string plist, File.read(filename)
     end
   end
 end

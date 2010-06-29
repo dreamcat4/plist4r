@@ -1,7 +1,8 @@
 
 require 'plist4r/backend_base'
 
-# Requires Haml. Implements writing and saving for the :xml file format only.
+# This backend uses haml to *write* xml plists
+# @author Dreamcat4 (dreamcat4@gmail.com)
 module Plist4r::Backend::Haml
   class << self
     def to_xml_haml
@@ -21,9 +22,23 @@ module Plist4r::Backend::Haml
 					- when String
 						%key #{k}
 						%string #{v}
-					- when Fixnum
+					- when Integer
 						%key #{k}
 						%integer #{v}
+					- when Float
+						%key #{k}
+						%real #{v}
+					- when Time
+						%key #{k}
+						%date #{v.utc.strftime('%Y-%m-%dT%H:%M:%SZ')}
+					- when Date
+						%key #{k}
+						%date #{v.strftime('%Y-%m-%dT%H:%M:%SZ')}
+					- when IO, StringIO
+						- data = String.new; v.rewind
+						- Base64::encode64(v.read).gsub(/\s+/, '').scan(/.{1,68}/o) { data << $& << "\n" }
+						%key #{k}
+						%data #{data}
 					- when Array
 						%key #{k}
 						%array
@@ -45,31 +60,24 @@ module Plist4r::Backend::Haml
 						%dict
 							- tab_up ; block.call(v, block) ; tab_down
 					- else
-						- raise "Invalid input. Hash: #{data.inspect} can only contain values of type true, false, String (<string>) Fixnum (<integer>) Array (<array>) or Hash (<dict>). Found value: #{v.inspect} of type: \"#{v.class}\""
-		- p.call( @hash, p)
+						- data = String.new
+						- Base64::encode64(Marshal.dump(v)).gsub(/\s+/, '').scan(/.{1,68}/o) { data << $& << "\n" }
+						%key #{k}
+						%data
+							#{data}
+
+		- p.call( @plist.to_hash, p)
 EOC
     end
 
     def to_xml plist
+      @plist = plist
       require 'haml'
-      # engine = Haml::Engine.new File.read("launchd_plist.haml")
+      require 'base64'
       engine = Haml::Engine.new to_xml_haml
       rendered_xml_output = engine.render self
-      File.open(@filename,'w') do |o|
-        o << rendered_xml_output
-      end
     end
 
-    def save plist
-      file_format = plist.file_format || Config[:default_format]
-      raise "#{self} - cant save file format #{file_format}" unless file_format == :xml
-
-      hash = plist.to_hash
-      filename = plist.filename_path
-      File.open(filename,'w') do |out|
-        out << to_xml(plist)
-      end
-    end
   end
 end
 

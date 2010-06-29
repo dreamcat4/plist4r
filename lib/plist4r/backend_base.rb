@@ -1,3 +1,5 @@
 
-module Plist4r end
-class Plist4r::Backend; end
+module Plist4r
+  class Backend
+  end
+end
