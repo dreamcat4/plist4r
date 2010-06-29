@@ -10,6 +10,8 @@ begin
     gem.email = "dreamcat4@gmail.com"
     gem.homepage = "http://github.com/dreamcat4/plist4r"
     gem.authors = ["dreamcat4"]
+    gem.add_dependency "haml"
+    gem.add_dependency "libxml4r"
     gem.add_development_dependency "rspec", ">= 1.2.9"
     gem.add_development_dependency "yard", ">= 0"
     gem.add_development_dependency "cucumber", ">= 0"
