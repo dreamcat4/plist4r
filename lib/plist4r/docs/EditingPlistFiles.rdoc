@@ -1,0 +1,75 @@
+= Editing Plist Files
+
+== Plist Types
+
+Its important to understand that there are potentially different types of Plist file. These "Plist Types" determine the methods and options available to you for setting plist keys in the plist file.
+
+If you are developing a custom application, and intend to exchange data in a custom plist file format, it may be worth writing a custom Plist Type. In which case please see the {file:DeveloperGuide} for more info.
+
+For these following examples, we will use {Plist4r::PlistType::Launchd}.
+
+== Editing
+
+When we wish to perform an edit operation on a plist object, we (almost always) are calling an accessor method on the Plist Object. We may call the method directly on the object, like this
+
+  launchd_plist.watch_paths ["/path1", "/path2", ...]
+
+However it gets a bit repetitive when there are many such plist keys to set
+
+  launchd_plist.label "com.mydomain.myapp"
+  launchd_plist.program "/path/to/myapp"
+  launchd_plist.launch_only_once true
+  # etc...
+  launchd_plist.save
+
+=== plist.edit do
+
+So instead we can invoke an convenience edit block on our plist object, which will just instance_eval(&blk) the block.
+
+  launchd_plist.edit do
+    label "com.mydomain.myapp"
+    program "/path/to/myapp"
+    launch_only_once true
+    # etc...
+    save
+  end
+
+=== plist.<< do
+
+The << operator can alternatively be used, interchangeably. Its just another way of writing plist.edit. 
+
+  launchd_plist.<< do
+    label "com.mydomain.myapp"
+    program "/path/to/myapp"
+    launch_only_once true
+  end
+  launchd_plist.save
+
+== Deleting / removing keys
+
+Sometimes we need to select or delete a whole bunch of plist keys. This kind of an edit operation is useful when we want to keep hold of a few keys, and discard the rest. Or discard a few of the plist keys and keep the rest.
+
+These methods are all documented in the {Plist4r::ArrayDict} abstract base class. All subclasses of {Plist4r::PlistType} also inherit these methods from ArrayDict. They are called through method_missing.
+
+  launchd_plist.<< do
+    select :label
+    # discards - :program, :launch_only_once
+    # keeps - :label
+  end
+  launchd_plist.to_hash
+  # => { "Label" => "com.mydomain.myapp" }
+  
+  launchd_plist.<< do
+    unselect :label
+    # keeps - :program, :launch_only_once
+    # discards - :label
+  end
+  launchd_plist.to_hash
+  # => { "Program" => "/path/to/myapp", "LaunchOnlyOnce" => true }
+  
+  launchd_plist.<< do
+    unselect_all
+    # deletes all plist keys
+  end
+  launchd_plist.to_hash
+  # => {}

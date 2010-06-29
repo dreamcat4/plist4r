@@ -1,0 +1,47 @@
+== Plist4r Backends
+
+There are now a number of ruby libraries which can read / write plist files. The aim of plist4r is to utilize the individual best features from all of those libraries, as a series of "backends". And hide those behind a "frontend" that is easy to work with.
+
+Backends often only need to be a single ruby file, which implements the Plist4r API methods and calls out to other (existing) ruby code. No single backend has to provide the whole API. Instead, Plist4r simply iterates over all of the backends it knows about, and then calls the first backend that can responds to the API method.
+
+There are just 6 supported API methods
+
+  ApiMethods = %w[from_string to_xml to_binary to_gnustep open save]
+
+And (as above) the 3 supported Plist file formats are
+
+  FileFormats = %w[binary xml gnustep]
+
+We believe thats allright for most uses, and decided to include `gnustep` for completeness. `NextStep` is also known by other names such as `OpenStep` and (more updated version) `GNU Step`. For example the apple `defaults` command on Mac OS-X will still return `NextStep` formatted plist data.
+
+== Plist4r Types
+
+A Plist type can be one of `%w[plist info launchd]`, and is the data type for the whole plist file. A PlistType can provide special convenience methods for its Type-specific data structures. For example {Plist4r::PlistType::Launchd#socket}.
+
+We re-use common support objects when writing a new PlistType
+* {Plist4r::PlistType}
+* {Plist4r::ArrayDict}
+* {Plist4r::DataMethods}
+
+== Contributing to Plist4r
+
+* Fork the project, and create a topic branch as per {these instructions}[http://wiki.opscode.com/display/opscode/Working+with+Git]
+* Make the appropriate source code changes
+* Raise a new issue in Github Issues, with a name that corresponds to the topic branch name
+
+For a change in the {Plist4r} Core library
+
+* Please include documentation for any new methods (in yardoc format)
+* Please include regression tests. This ensures your code wont get broken further down the line
+
+For a {Plist4r::Backend}
+
+* Please include your name with the @author tag as yard inline comment
+* If requires new gem dependencies, be sure to add those to the Rakefile
+
+For a {Plist4r::PlistType}
+
+* Conform to the conventions used by {Plist4r::PlistType::Launchd}
+* Utilize {Plist4r::ArrayDict} and {Plist4r::DataMethods}
+* Use yard to document any custom key functions
+

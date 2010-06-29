@@ -1,0 +1,49 @@
+= Plist Key Names
+
+To read from or write to a plist key, we must specify the key name, plus an optional value. There are several ways we can specify key names in Plist4r. The precise method syntax you choose will depend mostly upon convenience. However there are certain limitations to method names in Ruby in regards to uppercase / lowercase. And plist key names are usually capitalized (such as "WatchPaths", and "CFBundleSignature"). To get around this we "CamelCase" and "snake_case" the key accessor methods, by default. Dont forget that many Info plist keys start with 2 capital letters. So "CFBundleSignature" should be written with an extra underscore between the "c" and the "f"
+
+=== CF/NSKeyNames
+
+  info_plist.<< do
+    c_f_bundle_signature "com.mydomain.myapp"
+  end
+  info_plist.to_hash
+  # => { "CFBundleSignature" => "com.mydomain.myapp" }
+
+=== Corrected Key Names
+
+Sometimes, the associated PlistType will come with a "tweaked" method name, is the true keyname cannot be expressed in terms of snake_case. For example
+
+  launchd_plist.<< do
+    inetd_compatibility :wait => true
+  end
+  launchd_plist.to_hash
+  # => { "inetdCompatability" => { "Wait" => true } }
+  # (the CamelCased key name would otherwise start with a capital letter, "InetdCompatability")
+
+=== CamelCasing of Key Names
+
+For an unknown key name which isnt specifically supported, these are all passed through method_missing, and automatically CamelCased. This is the default behaviour. Therefore
+
+  plist.<< do
+    some_arbitrary_key ["some","arbitrary","data"]
+  end
+  plist.to_hash
+  # => { "SomeArbitraryKey" => ["some", "arbitrary", "data"] }
+
+=== set() and value_for()
+
+If our key name cannot be camel-cased into a valid method name, just call the set() method and pass in the key name explicitly
+
+  plist.<< do
+    set "some lowercase key with spaces" true
+  end
+  plist.to_hash
+  # => { "some lowercase key with spaces" => true }
+
+Similarly, the value_for() method will retrieve a keys stored value
+
+  plist.<< do
+    value_for "some lowercase key with spaces"
+    # => true
+  end

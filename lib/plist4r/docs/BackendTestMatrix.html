@@ -1,0 +1,56 @@
+<h1>Backend Test Matrix</h1>
+<div>
+  <h3>Performance Results</h3>
+  <p>A test performed 10 times each with non-flat (nested) plist structure of 1144 string keys.</p>
+  <p>Real elapsed time is based on a 2GB, 2GHz Intel Core Duo Architecture</p>
+  <p>Ruby Enterprise Edition (REE) 1.8.7 p248, Mac OS-X 10.6.3</p>
+  <table>
+    <thead>
+      <tr>
+        <th>&nbsp;</th>
+        <th>:from_xml</th>
+        <th>:to_xml</th>
+        <th>:from_binary</th>
+        <th>:to_binary</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <th>c_f_property_list</th>
+        <td>54.8 ms</td>
+        <td>19.3 ms</td>
+        <td>29.5 ms</td>
+        <td>65.3 ms</td>
+      </tr>
+      <tr>
+        <th>haml</th>
+        <td>n/a</td>
+        <td>78.2 ms</td>
+        <td>n/a</td>
+        <td>n/a</td>
+      </tr>
+      <tr>
+        <th>libxml4r</th>
+        <td>41.2 ms</td>
+        <td>n/a</td>
+        <td>n/a</td>
+        <td>n/a</td>
+      </tr>
+      <tr>
+        <th>osx_plist</th>
+        <td>4.8 ms</td>
+        <td>5.5 ms</td>
+        <td>3.1 ms</td>
+        <td>4.3 ms</td>
+      </tr>
+      <tr>
+        <th>ruby_cocoa</th>
+        <td>312.3 ms</td>
+        <td>312.5 ms</td>
+        <td>313.9 ms</td>
+        <td>386.8 ms</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+<p></p>

@@ -1,1 +1,10 @@
 --no-private
+-
+"lib/plist4r/docs/ToyCarExample.rdoc"
+"lib/plist4r/docs/EditingPlistFiles.rdoc"
+"lib/plist4r/docs/PlistKeyNames.rdoc"
+"lib/plist4r/docs/DeveloperGuide.rdoc"
+"lib/plist4r/docs/BackendResults.md"
+"lib/plist4r/docs/BackendTestMatrix.html"
+"lib/plist4r/docs/Todo.rdoc"
+"LICENSE"

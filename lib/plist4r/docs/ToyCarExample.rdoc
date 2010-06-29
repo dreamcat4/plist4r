@@ -1,0 +1,38 @@
+= Toy Car Example
+
+In this example, we use a fictional {Plist4r::PlistType} called "Cars". In real life, we would either use the generic type ({Plist4r::PlistType::Plist}). Or some application - specific PlistType (such as {Plist4r::PlistType::Launchd}).
+
+  Plist4r::Config.default_path = "/Library/Cars"
+  
+  car = Plist4r.new "car.plist"
+  
+  car.open
+  
+  car.plist_type
+  # => :car
+
+  car.file_format
+  # => :binary
+
+  car.save
+  
+  car.edit do
+    road_legal true
+    brake_light_color "red"
+  end
+  
+  car.file_format :xml
+  car.save_as "car2.xml"
+  
+  car.edit do
+    strict_keys true
+    eyes "blue"
+  end
+  # => Exception, invalid plist key name "Eyes"
+  
+  car.edit do
+    tyres "Pirelli"
+  end
+  
+  car.to_xml
+  # => xml string
