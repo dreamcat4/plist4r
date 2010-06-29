@@ -1,0 +1,736 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+  <head>
+    <meta name="Content-Type" content="text/html; charset=utf-8" />
+<title>Class: Haml4r::TableCell</title>
+<link rel="stylesheet" href="../css/style.css" type="text/css" media="screen" charset="utf-8" />
+<link rel="stylesheet" href="../css/common.css" type="text/css" media="screen" charset="utf-8" />
+<link rel="stylesheet" href="../css/custom.css" type="text/css" media="screen" charset="utf-8" />
+
+<script type="text/javascript" charset="utf-8">
+  relpath = '..';
+  if (relpath != '') relpath += '/';
+</script>
+<base id="base_target" target="_top" />
+<script type="text/javascript" charset="utf-8" src="../js/jquery.js"></script>
+<script type="text/javascript" charset="utf-8" src="../js/autocomplete.js"></script>
+<script type="text/javascript" charset="utf-8" src="../js/app.js"></script>
+<script type="text/javascript" charset="utf-8" src="../js/live.js"></script>
+
+  </head>
+  <body>
+    <script type="text/javascript" charset="utf-8">
+      if (window.top.frames.main) document.body.className = 'frames';
+    </script>
+    
+    <div id="header">
+      <div id="menu">
+  
+		
+			<a href="../object_index.html" target="_self" title="Index (T)">Index (T)</a>
+		 &raquo;
+    <span class='title'><a href="../Haml4r.html" target="_self" title="Haml4r (module)">Haml4r</a></span>
+     &raquo; 
+    <span class="title">TableCell</span>
+  
+  
+  <div class="noframes">
+    <span class="title"></span>
+    <a id="frames_link" class="link_disabled">Frames</a> | 
+    <a target="_top" id="noframes_link" class="link_disabled">No Frames</a>
+    <span class="title"></span>
+  </div>
+</div>
+
+      <div id="search2">
+  
+  
+  <div class="search2_center">
+    <form class="search2" onsubmit="return false;" action="">
+      <input name="q" type="search" placeholder="Search" id="search_box2" size="30" value="" />
+    </form>
+  </div>
+  <script type="text/javascript" charset="utf-8"> 
+    $('#search_box2').focus(function(){
+      var search_index = relpath + 'search_index.json';
+      jQuery.getJSON(search_index, go_data);
+
+      function go_data(adata) {
+        $('#search_box2').autocomplete(adata, {
+          width: 300,
+          matchContains: true,
+          formatItem: function(item) {
+            return item.text;
+          }
+        }).result(function(event, item) {
+					if (window.location.search) {
+	          window.location.href = relpath + $(item.href_tag).attr("href");
+					} else {
+	          location.href = relpath + $(item.href_tag).attr("href");
+					}
+        });
+      }
+    });
+  </script> 
+</div>
+
+      <div class="clear"></div>
+    </div>
+    
+    <iframe id="search_frame"></iframe>
+    
+    <div id="content"><h1>Class: Haml4r::TableCell 
+  
+  
+</h1>
+
+<div id="info_box">
+  <dl class="box">
+    
+      
+    
+      
+    
+  
+    <dt class="r1 last">Defined in:</dt>
+		<dd class="r1 last">
+  		
+  lib/plist4r/mixin/haml4r/table_cell.rb
+
+
+		</dd>
+  </dl>
+</div>
+<div class="clear"></div>
+
+<p class="children">
+   
+    
+   
+    
+			<h3 class="inherited">Classes</h3>
+	    <ul id="classes_ribbon">
+	    
+	    
+	      <li class="r1"><a href="TableCell/InnerCell.html" target="_self" title="Haml4r::TableCell::InnerCell (class)">InnerCell</a></li>
+	      
+	    
+	    </ul>
+    
+  
+</p>
+
+	<h3 class="inherited">Instance Methods</h3>
+	    <ul id="methods_ribbon">
+	    
+	    
+	      <li class="r1"><a href="#attributes_hash-instance_method" target="_self" title="Haml4r::TableCell#attributes_hash (method)">attributes_hash</a></li>
+	      
+	    
+	      <li class="r2"><a href="#dissolve_span%21-instance_method" target="_self" title="Haml4r::TableCell#dissolve_span! (method)">dissolve_span!</a></li>
+	      
+	    
+	      <li class="r1"><a href="#initialize-instance_method" target="_self" title="Haml4r::TableCell#initialize (method)">initialize</a></li>
+	      
+	    
+	      <li class="r2"><a href="#inner_cell-instance_method" target="_self" title="Haml4r::TableCell#inner_cell (method)">inner_cell</a></li>
+	      
+	    
+	      <li class="r1"><a href="#inner_cell%3D-instance_method" target="_self" title="Haml4r::TableCell#inner_cell= (method)">inner_cell=</a></li>
+	      
+	    
+	      <li class="r2"><a href="#inspect-instance_method" target="_self" title="Haml4r::TableCell#inspect (method)">inspect</a></li>
+	      
+	    
+	      <li class="r1"><a href="#merge%21-instance_method" target="_self" title="Haml4r::TableCell#merge! (method)">merge!</a></li>
+	      
+	    
+	      <li class="r2"><a href="#method_missing-instance_method" target="_self" title="Haml4r::TableCell#method_missing (method)">method_missing</a></li>
+	      
+	    
+	      <li class="r1"><a href="#spanee-instance_method" target="_self" title="Haml4r::TableCell#spanee (method)">spanee</a></li>
+	      
+	    
+	      <li class="r2"><a href="#spanee%3D-instance_method" target="_self" title="Haml4r::TableCell#spanee= (method)">spanee=</a></li>
+	      
+	    
+	      <li class="r1"><a href="#spaner-instance_method" target="_self" title="Haml4r::TableCell#spaner (method)">spaner</a></li>
+	      
+	    
+	      <li class="r2"><a href="#spaner%3D-instance_method" target="_self" title="Haml4r::TableCell#spaner= (method)">spaner=</a></li>
+	      
+	    
+	      <li class="r1"><a href="#to_hash-instance_method" target="_self" title="Haml4r::TableCell#to_hash (method)">to_hash</a></li>
+	      
+	    
+	    </ul>
+
+
+
+  <h2>Constant Summary</h2>
+  
+    <dl class="constants">
+      
+        <dt id="Attributes-constant" class="">Attributes =
+          
+        </dt>
+        <dd><pre class="code"><span class='InnerCell constant id'>InnerCell</span><span class='colon2 op'>::</span><span class='Attributes constant id'>Attributes</span>
+</pre></dd>
+      
+    </dl>
+  
+
+
+<div id="constructor_details" class="method_details_list">
+  <h2>Constructor Details</h2>
+  
+    <div class="method_details first" id="initialize-instance_method">
+  <p class="signature first"">
+  
+    - (<tt><a href="" target="_self" title="Haml4r::TableCell (class)">TableCell</a></tt>) <strong>initialize</strong>(*args, &amp;blk) 
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    <p>
+A new instance of TableCell
+</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+46
+47
+48
+49
+50
+51
+52
+53
+54
+55
+56
+57
+58
+59
+60</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/plist4r/mixin/haml4r/table_cell.rb', line 46</span>
+
+<span class='def def kw'>def</span> <span class='initialize identifier id'>initialize</span> <span class='mult op'>*</span><span class='args identifier id'>args</span><span class='comma token'>,</span> <span class='bitand op'>&amp;</span><span class='blk identifier id'>blk</span>
+
+  <span class='@inner_cell ivar id'>@inner_cell</span> <span class='assign token'>=</span> <span class='InnerCell constant id'>InnerCell</span><span class='dot token'>.</span><span class='new identifier id'>new</span>
+  <span class='@table_section ivar id'>@table_section</span> <span class='assign token'>=</span> <span class='nil nil kw'>nil</span>
+
+  <span class='case case kw'>case</span> <span class='args identifier id'>args</span><span class='lbrack token'>[</span><span class='integer val'>0</span><span class='rbrack token'>]</span>
+  <span class='when when kw'>when</span> <span class='nil nil kw'>nil</span>
+
+  <span class='when when kw'>when</span> <span class='Hash constant id'>Hash</span><span class='comma token'>,</span> <span class='Haml4r constant id'>Haml4r</span><span class='colon2 op'>::</span><span class='TableCell constant id'>TableCell</span>
+    <span class='merge! fid id'>merge!</span> <span class='args identifier id'>args</span><span class='lbrack token'>[</span><span class='integer val'>0</span><span class='rbrack token'>]</span>
+
+  <span class='else else kw'>else</span>
+    <span class='raise identifier id'>raise</span> <span class='string val'>&quot;unsupported type&quot;</span>
+  <span class='end end kw'>end</span>
+<span class='end end kw'>end</span>
+</pre>
+    </td>
+  </tr>
+</table>
+</div>
+
+  
+</div>
+<div id="method_missing_details" class="method_details_list">
+  <h2>Dynamic Method Handling</h2>
+  <p class="notice this">
+    This class handles dynamic methods through the <tt>method_missing</tt> method
+    
+  </p>
+  
+    <div class="method_details first" id="method_missing-instance_method">
+  <p class="signature first"">
+  
+    - (<tt><a href="../Object.html" target="_self" title="Object (class)">Object</a></tt>) <strong>method_missing</strong>(method_sym, *args, &amp;blk) 
+  
+
+  
+</p><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+117
+118
+119
+120
+121</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/plist4r/mixin/haml4r/table_cell.rb', line 117</span>
+
+<span class='def def kw'>def</span> <span class='method_missing identifier id'>method_missing</span> <span class='method_sym identifier id'>method_sym</span><span class='comma token'>,</span> <span class='mult op'>*</span><span class='args identifier id'>args</span><span class='comma token'>,</span> <span class='bitand op'>&amp;</span><span class='blk identifier id'>blk</span>
+  <span class='if if kw'>if</span> <span class='@inner_cell ivar id'>@inner_cell</span><span class='dot token'>.</span><span class='class identifier id'>class</span><span class='colon2 op'>::</span><span class='Attributes constant id'>Attributes</span><span class='dot token'>.</span><span class='include? fid id'>include?</span> <span class='method_sym identifier id'>method_sym</span><span class='dot token'>.</span><span class='to_s identifier id'>to_s</span><span class='dot token'>.</span><span class='chomp identifier id'>chomp</span><span class='lparen token'>(</span><span class='string val'>'='</span><span class='rparen token'>)</span>
+    <span class='@inner_cell ivar id'>@inner_cell</span><span class='dot token'>.</span><span class='send identifier id'>send</span> <span class='method_sym identifier id'>method_sym</span><span class='comma token'>,</span> <span class='mult op'>*</span><span class='args identifier id'>args</span><span class='comma token'>,</span> <span class='bitand op'>&amp;</span><span class='blk identifier id'>blk</span>
+  <span class='end end kw'>end</span>
+<span class='end end kw'>end</span>
+</pre>
+    </td>
+  </tr>
+</table>
+</div>
+
+  
+</div>
+
+  <div id="instance_method_details" class="method_details_list">
+    <h2>Instance Method Details</h2>
+    
+    
+      <div class="method_details first" id="attributes_hash-instance_method">
+  <p class="signature first"">
+  
+    - (<tt><a href="../Object.html" target="_self" title="Object (class)">Object</a></tt>) <strong>attributes_hash</strong> 
+  
+
+  
+</p><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+62
+63
+64
+65
+66
+67
+68
+69</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/plist4r/mixin/haml4r/table_cell.rb', line 62</span>
+
+<span class='def def kw'>def</span> <span class='attributes_hash identifier id'>attributes_hash</span>
+  <span class='h identifier id'>h</span> <span class='assign token'>=</span> <span class='lbrace token'>{</span><span class='rbrace token'>}</span>
+  <span class='CssAttributes constant id'>CssAttributes</span><span class='dot token'>.</span><span class='Attributes constant id'>Attributes</span><span class='dot token'>.</span><span class='each identifier id'>each</span> <span class='do do kw'>do</span> <span class='bitor op'>|</span><span class='a identifier id'>a</span><span class='bitor op'>|</span>
+    <span class='v identifier id'>v</span> <span class='assign token'>=</span> <span class='self self kw'>self</span><span class='dot token'>.</span><span class='send identifier id'>send</span> <span class='a identifier id'>a</span>
+    <span class='h identifier id'>h</span><span class='lbrack token'>[</span><span class='a identifier id'>a</span><span class='rbrack token'>]</span> <span class='assign token'>=</span> <span class='v identifier id'>v</span> <span class='if if_mod kw'>if</span> <span class='v identifier id'>v</span>
+  <span class='end end kw'>end</span>
+  <span class='h identifier id'>h</span>
+<span class='end end kw'>end</span>
+</pre>
+    </td>
+  </tr>
+</table>
+</div>
+
+    
+      <div class="method_details " id="dissolve_span!-instance_method">
+  <p class="signature "">
+  
+    - (<tt><a href="../Object.html" target="_self" title="Object (class)">Object</a></tt>) <strong>dissolve_span!</strong> 
+  
+
+  
+</p><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+149
+150
+151
+152
+153
+154
+155
+156</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/plist4r/mixin/haml4r/table_cell.rb', line 149</span>
+
+<span class='def def kw'>def</span> <span class='dissolve_span! fid id'>dissolve_span!</span>
+  <span class='if if kw'>if</span> <span class='spanee identifier id'>spanee</span>
+    <span class='@inner_cell ivar id'>@inner_cell</span> <span class='assign token'>=</span> <span class='@inner_cell ivar id'>@inner_cell</span><span class='dot token'>.</span><span class='deep_clone identifier id'>deep_clone</span>
+    <span class='@spanee ivar id'>@spanee</span> <span class='assign token'>=</span> <span class='false false kw'>false</span>
+  <span class='else else kw'>else</span>
+    <span class='@spaner ivar id'>@spaner</span> <span class='assign token'>=</span> <span class='false false kw'>false</span>
+  <span class='end end kw'>end</span>
+<span class='end end kw'>end</span>
+</pre>
+    </td>
+  </tr>
+</table>
+</div>
+
+    
+      <div class="method_details " id="inner_cell-instance_method">
+  <p class="signature "">
+  
+    - (<tt><a href="../Object.html" target="_self" title="Object (class)">Object</a></tt>) <strong>inner_cell</strong> 
+  
+
+  
+</p><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+113
+114
+115</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/plist4r/mixin/haml4r/table_cell.rb', line 113</span>
+
+<span class='def def kw'>def</span> <span class='inner_cell identifier id'>inner_cell</span>
+  <span class='@inner_cell ivar id'>@inner_cell</span>
+<span class='end end kw'>end</span>
+</pre>
+    </td>
+  </tr>
+</table>
+</div>
+
+    
+      <div class="method_details " id="inner_cell=-instance_method">
+  <p class="signature "">
+  
+    - (<tt><a href="../Object.html" target="_self" title="Object (class)">Object</a></tt>) <strong>inner_cell=</strong>(inner_cell) 
+  
+
+  
+</p><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+104
+105
+106
+107
+108
+109
+110
+111</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/plist4r/mixin/haml4r/table_cell.rb', line 104</span>
+
+<span class='def def kw'>def</span> <span class='inner_cell= identifier id'>inner_cell=</span> <span class='inner_cell identifier id'>inner_cell</span>
+  <span class='case case kw'>case</span> <span class='inner_cell identifier id'>inner_cell</span>
+  <span class='when when kw'>when</span> <span class='InnerCell constant id'>InnerCell</span>
+    <span class='@inner_cell ivar id'>@inner_cell</span> <span class='assign token'>=</span> <span class='inner_cell identifier id'>inner_cell</span>
+  <span class='else else kw'>else</span>
+    <span class='raise identifier id'>raise</span> <span class='string val'>&quot;unsupported type&quot;</span>
+  <span class='end end kw'>end</span>
+<span class='end end kw'>end</span>
+</pre>
+    </td>
+  </tr>
+</table>
+</div>
+
+    
+      <div class="method_details " id="inspect-instance_method">
+  <p class="signature "">
+  
+    - (<tt><a href="../Object.html" target="_self" title="Object (class)">Object</a></tt>) <strong>inspect</strong> 
+  
+
+  
+</p><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+99
+100
+101
+102</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/plist4r/mixin/haml4r/table_cell.rb', line 99</span>
+
+<span class='def def kw'>def</span> <span class='inspect identifier id'>inspect</span>
+  <span class='content identifier id'>content</span> <span class='integer val'>? </span><span class='content identifier id'>content</span><span class='dot token'>.</span><span class='inspect identifier id'>inspect</span> <span class='colon op'>:</span> <span class='super super kw'>super</span><span class='dot token'>.</span><span class='match identifier id'>match</span><span class='lparen token'>(</span><span class='regexp val'>/TableCell:[\w]*/</span><span class='rparen token'>)</span><span class='lbrack token'>[</span><span class='integer val'>0</span><span class='rbrack token'>]</span>
+  <span class='comment val'># spanee ? &quot;spanee&quot; : ( content ? content.inspect : super.match(/TableCell:[\w]*/)[0] )</span>
+<span class='end end kw'>end</span>
+</pre>
+    </td>
+  </tr>
+</table>
+</div>
+
+    
+      <div class="method_details " id="merge!-instance_method">
+  <p class="signature "">
+  
+    - (<tt><a href="../Object.html" target="_self" title="Object (class)">Object</a></tt>) <strong>merge!</strong>(obj) 
+  
+
+  
+</p><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+71
+72
+73
+74
+75
+76
+77
+78
+79
+80
+81
+82
+83
+84
+85
+86
+87
+88
+89</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/plist4r/mixin/haml4r/table_cell.rb', line 71</span>
+
+<span class='def def kw'>def</span> <span class='merge! fid id'>merge!</span> <span class='obj identifier id'>obj</span>
+  <span class='case case kw'>case</span> <span class='obj identifier id'>obj</span>
+  <span class='when when kw'>when</span> <span class='Hash constant id'>Hash</span>
+    <span class='Attributes constant id'>Attributes</span><span class='dot token'>.</span><span class='each identifier id'>each</span> <span class='do do kw'>do</span> <span class='bitor op'>|</span><span class='a identifier id'>a</span><span class='bitor op'>|</span>
+      <span class='hash identifier id'>hash</span> <span class='assign token'>=</span> <span class='obj identifier id'>obj</span>
+      <span class='if if kw'>if</span> <span class='hash identifier id'>hash</span><span class='lbrack token'>[</span><span class='a identifier id'>a</span><span class='dot token'>.</span><span class='to_sym identifier id'>to_sym</span><span class='rbrack token'>]</span>
+        <span class='value identifier id'>value</span> <span class='assign token'>=</span> <span class='hash identifier id'>hash</span><span class='lbrack token'>[</span><span class='a identifier id'>a</span><span class='dot token'>.</span><span class='to_sym identifier id'>to_sym</span><span class='rbrack token'>]</span><span class='dot token'>.</span><span class='deep_clone identifier id'>deep_clone</span>
+        <span class='self self kw'>self</span><span class='dot token'>.</span><span class='send identifier id'>send</span><span class='lparen token'>(</span> <span class='lparen token'>(</span><span class='a identifier id'>a</span><span class='plus op'>+</span><span class='string val'>'='</span><span class='rparen token'>)</span><span class='dot token'>.</span><span class='to_sym identifier id'>to_sym</span><span class='comma token'>,</span> <span class='value identifier id'>value</span><span class='rparen token'>)</span>
+      <span class='end end kw'>end</span>
+    <span class='end end kw'>end</span>
+  <span class='when when kw'>when</span> <span class='Haml4r constant id'>Haml4r</span><span class='colon2 op'>::</span><span class='TableCell constant id'>TableCell</span>
+    <span class='Attributes constant id'>Attributes</span><span class='dot token'>.</span><span class='each identifier id'>each</span> <span class='do do kw'>do</span> <span class='bitor op'>|</span><span class='a identifier id'>a</span><span class='bitor op'>|</span>
+      <span class='value identifier id'>value</span> <span class='assign token'>=</span> <span class='args identifier id'>args</span><span class='lbrack token'>[</span><span class='integer val'>0</span><span class='rbrack token'>]</span><span class='dot token'>.</span><span class='send identifier id'>send</span><span class='lparen token'>(</span><span class='a identifier id'>a</span><span class='dot token'>.</span><span class='to_sym identifier id'>to_sym</span><span class='rparen token'>)</span><span class='dot token'>.</span><span class='deep_clone identifier id'>deep_clone</span>
+      <span class='self self kw'>self</span><span class='dot token'>.</span><span class='send identifier id'>send</span><span class='lparen token'>(</span> <span class='lparen token'>(</span><span class='a identifier id'>a</span><span class='plus op'>+</span><span class='string val'>'='</span><span class='rparen token'>)</span><span class='dot token'>.</span><span class='to_sym identifier id'>to_sym</span><span class='comma token'>,</span> <span class='value identifier id'>value</span><span class='rparen token'>)</span>
+    <span class='end end kw'>end</span>
+  <span class='else else kw'>else</span>
+    <span class='raise identifier id'>raise</span> <span class='string val'>&quot;unsupported type&quot;</span>
+  <span class='end end kw'>end</span>
+<span class='end end kw'>end</span>
+</pre>
+    </td>
+  </tr>
+</table>
+</div>
+
+    
+      <div class="method_details " id="spanee-instance_method">
+  <p class="signature "">
+  
+    - (<tt><a href="../Object.html" target="_self" title="Object (class)">Object</a></tt>) <strong>spanee</strong> 
+  
+
+  
+</p><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+123
+124
+125</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/plist4r/mixin/haml4r/table_cell.rb', line 123</span>
+
+<span class='def def kw'>def</span> <span class='spanee identifier id'>spanee</span>
+  <span class='@spanee ivar id'>@spanee</span> <span class='opasgn op'>||=</span> <span class='false false kw'>false</span>
+<span class='end end kw'>end</span>
+</pre>
+    </td>
+  </tr>
+</table>
+</div>
+
+    
+      <div class="method_details " id="spanee=-instance_method">
+  <p class="signature "">
+  
+    - (<tt><a href="../Object.html" target="_self" title="Object (class)">Object</a></tt>) <strong>spanee=</strong>(spanee) 
+  
+
+  
+</p><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+127
+128
+129
+130
+131
+132
+133
+134</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/plist4r/mixin/haml4r/table_cell.rb', line 127</span>
+
+<span class='def def kw'>def</span> <span class='spanee= identifier id'>spanee=</span> <span class='spanee identifier id'>spanee</span>
+  <span class='case case kw'>case</span> <span class='spanee identifier id'>spanee</span>
+  <span class='when when kw'>when</span> <span class='true true kw'>true</span><span class='comma token'>,</span> <span class='false false kw'>false</span>
+    <span class='@spanee ivar id'>@spanee</span> <span class='assign token'>=</span> <span class='spanee identifier id'>spanee</span>
+  <span class='else else kw'>else</span>
+    <span class='raise identifier id'>raise</span> <span class='string val'>&quot;unsupported type&quot;</span>
+  <span class='end end kw'>end</span>
+<span class='end end kw'>end</span>
+</pre>
+    </td>
+  </tr>
+</table>
+</div>
+
+    
+      <div class="method_details " id="spaner-instance_method">
+  <p class="signature "">
+  
+    - (<tt><a href="../Object.html" target="_self" title="Object (class)">Object</a></tt>) <strong>spaner</strong> 
+  
+
+  
+</p><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+136
+137
+138</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/plist4r/mixin/haml4r/table_cell.rb', line 136</span>
+
+<span class='def def kw'>def</span> <span class='spaner identifier id'>spaner</span>
+  <span class='@spaner ivar id'>@spaner</span> <span class='opasgn op'>||=</span> <span class='false false kw'>false</span>
+<span class='end end kw'>end</span>
+</pre>
+    </td>
+  </tr>
+</table>
+</div>
+
+    
+      <div class="method_details " id="spaner=-instance_method">
+  <p class="signature "">
+  
+    - (<tt><a href="../Object.html" target="_self" title="Object (class)">Object</a></tt>) <strong>spaner=</strong>(spaner) 
+  
+
+  
+</p><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+140
+141
+142
+143
+144
+145
+146
+147</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/plist4r/mixin/haml4r/table_cell.rb', line 140</span>
+
+<span class='def def kw'>def</span> <span class='spaner= identifier id'>spaner=</span> <span class='spaner identifier id'>spaner</span>
+  <span class='case case kw'>case</span> <span class='spaner identifier id'>spaner</span>
+  <span class='when when kw'>when</span> <span class='true true kw'>true</span><span class='comma token'>,</span> <span class='false false kw'>false</span>
+    <span class='@spaner ivar id'>@spaner</span> <span class='assign token'>=</span> <span class='spaner identifier id'>spaner</span>
+  <span class='else else kw'>else</span>
+    <span class='raise identifier id'>raise</span> <span class='string val'>&quot;unsupported type&quot;</span>
+  <span class='end end kw'>end</span>
+<span class='end end kw'>end</span>
+</pre>
+    </td>
+  </tr>
+</table>
+</div>
+
+    
+      <div class="method_details " id="to_hash-instance_method">
+  <p class="signature "">
+  
+    - (<tt><a href="../Object.html" target="_self" title="Object (class)">Object</a></tt>) <strong>to_hash</strong> 
+  
+
+  
+</p><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+91
+92
+93
+94
+95
+96
+97</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/plist4r/mixin/haml4r/table_cell.rb', line 91</span>
+
+<span class='def def kw'>def</span> <span class='to_hash identifier id'>to_hash</span>
+  <span class='@hash ivar id'>@hash</span> <span class='opasgn op'>||=</span> <span class='lbrace token'>{</span><span class='rbrace token'>}</span>
+  <span class='Attributes constant id'>Attributes</span><span class='dot token'>.</span><span class='each identifier id'>each</span> <span class='do do kw'>do</span> <span class='bitor op'>|</span><span class='a identifier id'>a</span><span class='bitor op'>|</span>
+    <span class='@hash ivar id'>@hash</span><span class='lbrack token'>[</span><span class='a identifier id'>a</span><span class='dot token'>.</span><span class='to_sym identifier id'>to_sym</span><span class='rbrack token'>]</span> <span class='assign token'>=</span> <span class='eval identifier id'>eval</span> <span class='dstring node'>&quot;#{a}&quot;</span>
+  <span class='end end kw'>end</span>
+  <span class='@hash ivar id'>@hash</span>
+<span class='end end kw'>end</span>
+</pre>
+    </td>
+  </tr>
+</table>
+</div>
+
+    
+  </div>
+
+</div>
+    
+    <div id="footer">
+  Generated on Tue Jun 29 17:44:33 2010 by 
+  <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool">yard</a>
+  0.5.4  and the 
+  <a href="http://github.com/dreamcat4/yard-slipstream">yard-slipstream</a> plugin
+	(ruby-1.8.7).
+</div>
+
+  </body>
+</html>
