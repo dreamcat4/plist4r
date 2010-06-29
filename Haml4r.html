@@ -3,20 +3,20 @@
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
   <head>
     <meta name="Content-Type" content="text/html; charset=utf-8" />
-<title>Module: Plist4r::BackendTest</title>
-<link rel="stylesheet" href="../css/style.css" type="text/css" media="screen" charset="utf-8" />
-<link rel="stylesheet" href="../css/common.css" type="text/css" media="screen" charset="utf-8" />
-<link rel="stylesheet" href="../css/custom.css" type="text/css" media="screen" charset="utf-8" />
+<title>Module: Haml4r</title>
+<link rel="stylesheet" href="css/style.css" type="text/css" media="screen" charset="utf-8" />
+<link rel="stylesheet" href="css/common.css" type="text/css" media="screen" charset="utf-8" />
+<link rel="stylesheet" href="css/custom.css" type="text/css" media="screen" charset="utf-8" />
 
 <script type="text/javascript" charset="utf-8">
-  relpath = '..';
+  relpath = '';
   if (relpath != '') relpath += '/';
 </script>
 <base id="base_target" target="_top" />
-<script type="text/javascript" charset="utf-8" src="../js/jquery.js"></script>
-<script type="text/javascript" charset="utf-8" src="../js/autocomplete.js"></script>
-<script type="text/javascript" charset="utf-8" src="../js/app.js"></script>
-<script type="text/javascript" charset="utf-8" src="../js/live.js"></script>
+<script type="text/javascript" charset="utf-8" src="js/jquery.js"></script>
+<script type="text/javascript" charset="utf-8" src="js/autocomplete.js"></script>
+<script type="text/javascript" charset="utf-8" src="js/app.js"></script>
+<script type="text/javascript" charset="utf-8" src="js/live.js"></script>
 
   </head>
   <body>
@@ -28,11 +28,11 @@
       <div id="menu">
   
 		
-			<a href="../object_index.html" target="_self" title="Index (B)">Index (B)</a>
+			<a href="object_index.html" target="_self" title="Index (H)">Index (H)</a>
 		 &raquo;
-    <span class='title'><a href="../Plist4r.html" target="_self" title="Plist4r (module)">Plist4r</a></span>
-     &raquo; 
-    <span class="title">BackendTest</span>
+    
+    
+    <span class="title">Haml4r</span>
   
   
   <div class="noframes">
@@ -80,7 +80,7 @@
     
     <iframe id="search_frame"></iframe>
     
-    <div id="content"><h1>Module: Plist4r::BackendTest 
+    <div id="content"><h1>Module: Haml4r 
   
   
 </h1>
@@ -96,8 +96,8 @@
     <dt class="r1 last">Defined in:</dt>
 		<dd class="r1 last">
   		
-  lib/plist4r/backend_test/data.rb<span class="defines">,<br />
-    lib/plist4r/backend_test/result.rb,<br /> lib/plist4r/backend_test/output.rb,<br /> lib/plist4r/backend_test/harness.rb</span>
+  lib/plist4r/mixin/haml4r/table.rb<span class="defines">,<br />
+    lib/plist4r/mixin/haml4r/table_cell.rb,<br /> lib/plist4r/mixin/haml4r/table_cells.rb,<br /> lib/plist4r/mixin/haml4r/table_section.rb,<br /> lib/plist4r/mixin/haml4r/css_attributes.rb,<br /> lib/plist4r/mixin/haml4r/haml_table_example.rb</span>
 
 
 		</dd>
@@ -108,22 +108,34 @@
 <p class="children">
    
     
+			<h3 class="inherited">Modules</h3>
+	    <ul id="modules_ribbon">
+	    
+	    
+	      <li class="r1"><a href="Haml4r/HamlObject.html" target="_self" title="Haml4r::HamlObject (module)">HamlObject</a></li>
+	      
+	    
+	    </ul>
+    
    
     
 			<h3 class="inherited">Classes</h3>
 	    <ul id="classes_ribbon">
 	    
 	    
-	      <li class="r1"><a href="BackendTest/Data.html" target="_self" title="Plist4r::BackendTest::Data (class)">Data</a></li>
+	      <li class="r1"><a href="Haml4r/Table.html" target="_self" title="Haml4r::Table (class)">Table</a></li>
 	      
 	    
-	      <li class="r2"><a href="BackendTest/Harness.html" target="_self" title="Plist4r::BackendTest::Harness (class)">Harness</a></li>
+	      <li class="r2"><a href="Haml4r/TableCell.html" target="_self" title="Haml4r::TableCell (class)">TableCell</a></li>
 	      
 	    
-	      <li class="r1"><a href="BackendTest/Output.html" target="_self" title="Plist4r::BackendTest::Output (class)">Output</a></li>
+	      <li class="r1"><a href="Haml4r/TableCells.html" target="_self" title="Haml4r::TableCells (class)">TableCells</a></li>
 	      
 	    
-	      <li class="r2"><a href="BackendTest/Result.html" target="_self" title="Plist4r::BackendTest::Result (class)">Result</a></li>
+	      <li class="r2"><a href="Haml4r/TableExample.html" target="_self" title="Haml4r::TableExample (class)">TableExample</a></li>
+	      
+	    
+	      <li class="r1"><a href="Haml4r/TableSection.html" target="_self" title="Haml4r::TableSection (class)">TableSection</a></li>
 	      
 	    
 	    </ul>
@@ -133,12 +145,25 @@
 
 
 
+  <h2>Constant Summary</h2>
+  
+    <dl class="constants">
+      
+        <dt id="CssAttributes-constant" class="">CssAttributes =
+          
+        </dt>
+        <dd><pre class="code"><span class='dstring node'>%w[ css_class css_id css_style ]</span>
+</pre></dd>
+      
+    </dl>
+  
+
 
 
 </div>
     
     <div id="footer">
-  Generated on Sat May 29 12:47:35 2010 by 
+  Generated on Tue Jun 29 16:36:36 2010 by 
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool">yard</a>
   0.5.4  and the 
   <a href="http://github.com/dreamcat4/yard-slipstream">yard-slipstream</a> plugin

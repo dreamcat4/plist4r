@@ -109,22 +109,31 @@
 	    <ul id="methods_ribbon">
 	    
 	    
+	      <li class="r1"><a href="#from_binary-class_method" target="_self" title="Plist4r::Backend::Example.from_binary (method)">from_binary</a></li>
+	      
+	    
+	      <li class="r2"><a href="#from_gnustep-class_method" target="_self" title="Plist4r::Backend::Example.from_gnustep (method)">from_gnustep</a></li>
+	      
+	    
 	      <li class="r1"><a href="#from_string-class_method" target="_self" title="Plist4r::Backend::Example.from_string (method)">from_string</a></li>
 	      
 	    
-	      <li class="r2"><a href="#open-class_method" target="_self" title="Plist4r::Backend::Example.open (method)">open</a></li>
+	      <li class="r2"><a href="#from_xml-class_method" target="_self" title="Plist4r::Backend::Example.from_xml (method)">from_xml</a></li>
 	      
 	    
-	      <li class="r1"><a href="#save-class_method" target="_self" title="Plist4r::Backend::Example.save (method)">save</a></li>
+	      <li class="r1"><a href="#open-class_method" target="_self" title="Plist4r::Backend::Example.open (method)">open</a></li>
 	      
 	    
-	      <li class="r2"><a href="#to_binary-class_method" target="_self" title="Plist4r::Backend::Example.to_binary (method)">to_binary</a></li>
+	      <li class="r2"><a href="#save-class_method" target="_self" title="Plist4r::Backend::Example.save (method)">save</a></li>
 	      
 	    
-	      <li class="r1"><a href="#to_next_step-class_method" target="_self" title="Plist4r::Backend::Example.to_next_step (method)">to_next_step</a></li>
+	      <li class="r1"><a href="#to_binary-class_method" target="_self" title="Plist4r::Backend::Example.to_binary (method)">to_binary</a></li>
 	      
 	    
-	      <li class="r2"><a href="#to_xml-class_method" target="_self" title="Plist4r::Backend::Example.to_xml (method)">to_xml</a></li>
+	      <li class="r2"><a href="#to_gnustep-class_method" target="_self" title="Plist4r::Backend::Example.to_gnustep (method)">to_gnustep</a></li>
+	      
+	    
+	      <li class="r1"><a href="#to_xml-class_method" target="_self" title="Plist4r::Backend::Example.to_xml (method)">to_xml</a></li>
 	      
 	    
 	    </ul>
@@ -147,7 +156,7 @@ unable to continue.
 </p>
 <p>
 For example, if your backend is only able to load :xml files, then it
-should raise an exception whenever it encounters :binary or :next_step
+should raise an exception whenever it encounters :binary or :gnustep
 formatted files. This is intentional. By throwing the error, it means the
 API call can be picked up and passed on to the next available backend.
 </p>
@@ -171,10 +180,352 @@ API call can be picked up and passed on to the next available backend.
     <h2>Class Method Details</h2>
     
     
-      <div class="method_details first" id="from_string-class_method">
+      <div class="method_details first" id="from_binary-class_method">
   <p class="signature first"">
   
+    + (<tt><a href="../Plist.html" target="_self" title="Plist4r::Plist (class)">Plist4r::Plist</a></tt>) <strong>from_binary</strong>(plist) 
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    <p>
+Parse a String of plist data and store it into the supplied
+<tt><a href="../Plist.html" target="_self" title="Plist4r::Plist (class)">Plist4r::Plist</a></tt>
+</p>
+<ul>
+<li>Please click &#8220;View Source&#8221; for the example.
+
+</li>
+</ul>
+
+
+  </div>
+</div>
+<div class="tags">
+  <h3>Parameters:</h3>
+<ul class="param">
+  
+    <li>
+      
+        <span class='type'>(<tt><a href="../Plist.html" target="_self" title="Plist4r::Plist (class)">Plist4r::Plist</a></tt>)</span>
+      
+      
+        <span class='name'>plist</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'><p>
+The plist object to read the string from
+</p>
+</div>
+      
+    </li>
+  
+</ul>
+<h3>Returns:</h3>
+<ul class="return">
+  
+    <li>
+      
+        <span class='type'>(<tt><a href="../Plist.html" target="_self" title="Plist4r::Plist (class)">Plist4r::Plist</a></tt>)</span>
+      
+      
+      
+      
+        &mdash;
+        <div class='inline'><p>
+the same plist object, but updated to match its from_string
+</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+  <h3>See Also:</h3>
+  <ul class="see">
+    
+      <li><a href="../Plist.html#from_string-instance_method" target="_self" title="Plist4r::Plist#from_string (method)">Plist4r::Plist#from_string</a></li>
+    
+      <li><a href="../../Plist4r.html#string_detect_format-class_method" target="_self" title="Plist4r.string_detect_format (method)">Plist4r.string_detect_format</a></li>
+    
+  </ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+46
+47
+48
+49
+50
+51
+52
+53
+54
+55
+56
+57</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/plist4r/backend/example.rb', line 46</span>
+
+<span class='def def kw'>def</span> <span class='from_binary identifier id'>from_binary</span> <span class='plist identifier id'>plist</span>
+  <span class='plist_string identifier id'>plist_string</span> <span class='assign token'>=</span> <span class='plist identifier id'>plist</span><span class='dot token'>.</span><span class='from_string identifier id'>from_string</span>
+  <span class='plist_format identifier id'>plist_format</span> <span class='assign token'>=</span> <span class='Plist4r constant id'>Plist4r</span><span class='dot token'>.</span><span class='string_detect_format identifier id'>string_detect_format</span> <span class='plist identifier id'>plist</span><span class='dot token'>.</span><span class='from_string identifier id'>from_string</span>
+  <span class='unless unless kw'>unless</span> <span class='lbrack token'>[</span><span class='symbol val'>:binary</span><span class='rbrack token'>]</span><span class='dot token'>.</span><span class='include? fid id'>include?</span> <span class='plist_format identifier id'>plist_format</span>
+    <span class='raise identifier id'>raise</span> <span class='dstring node'>&quot;#{self} - cant convert string of format #{plist_format}&quot;</span>
+  <span class='end end kw'>end</span>
+  <span class='hash identifier id'>hash</span> <span class='assign token'>=</span> <span class='colon3 op'>::</span><span class='Plist4r constant id'>Plist4r</span><span class='colon2 op'>::</span><span class='OrderedHash constant id'>OrderedHash</span><span class='dot token'>.</span><span class='new identifier id'>new</span>
+  <span class='comment val'># import / convert plist data into ruby ordered hash</span>
+  <span class='plist identifier id'>plist</span><span class='dot token'>.</span><span class='import_hash identifier id'>import_hash</span> <span class='hash identifier id'>hash</span>
+  <span class='plist identifier id'>plist</span><span class='dot token'>.</span><span class='file_format identifier id'>file_format</span> <span class='plist_format identifier id'>plist_format</span>
+  <span class='return return kw'>return</span> <span class='plist identifier id'>plist</span>
+<span class='end end kw'>end</span>
+</pre>
+    </td>
+  </tr>
+</table>
+</div>
+
+    
+      <div class="method_details " id="from_gnustep-class_method">
+  <p class="signature "">
+  
+    + (<tt><a href="../Plist.html" target="_self" title="Plist4r::Plist (class)">Plist4r::Plist</a></tt>) <strong>from_gnustep</strong>(plist) 
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    <p>
+Parse a String of plist data and store it into the supplied
+<tt><a href="../Plist.html" target="_self" title="Plist4r::Plist (class)">Plist4r::Plist</a></tt>
+</p>
+<ul>
+<li>Please click &#8220;View Source&#8221; for the example.
+
+</li>
+</ul>
+
+
+  </div>
+</div>
+<div class="tags">
+  <h3>Parameters:</h3>
+<ul class="param">
+  
+    <li>
+      
+        <span class='type'>(<tt><a href="../Plist.html" target="_self" title="Plist4r::Plist (class)">Plist4r::Plist</a></tt>)</span>
+      
+      
+        <span class='name'>plist</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'><p>
+The plist object to read the string from
+</p>
+</div>
+      
+    </li>
+  
+</ul>
+<h3>Returns:</h3>
+<ul class="return">
+  
+    <li>
+      
+        <span class='type'>(<tt><a href="../Plist.html" target="_self" title="Plist4r::Plist (class)">Plist4r::Plist</a></tt>)</span>
+      
+      
+      
+      
+        &mdash;
+        <div class='inline'><p>
+the same plist object, but updated to match its from_string
+</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+  <h3>See Also:</h3>
+  <ul class="see">
+    
+      <li><a href="../Plist.html#from_string-instance_method" target="_self" title="Plist4r::Plist#from_string (method)">Plist4r::Plist#from_string</a></li>
+    
+      <li><a href="../../Plist4r.html#string_detect_format-class_method" target="_self" title="Plist4r.string_detect_format (method)">Plist4r.string_detect_format</a></li>
+    
+  </ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+65
+66
+67
+68
+69
+70
+71
+72
+73
+74
+75
+76</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/plist4r/backend/example.rb', line 65</span>
+
+<span class='def def kw'>def</span> <span class='from_gnustep identifier id'>from_gnustep</span> <span class='plist identifier id'>plist</span>
+  <span class='plist_string identifier id'>plist_string</span> <span class='assign token'>=</span> <span class='plist identifier id'>plist</span><span class='dot token'>.</span><span class='from_string identifier id'>from_string</span>
+  <span class='plist_format identifier id'>plist_format</span> <span class='assign token'>=</span> <span class='Plist4r constant id'>Plist4r</span><span class='dot token'>.</span><span class='string_detect_format identifier id'>string_detect_format</span> <span class='plist identifier id'>plist</span><span class='dot token'>.</span><span class='from_string identifier id'>from_string</span>
+  <span class='unless unless kw'>unless</span> <span class='lbrack token'>[</span><span class='symbol val'>:gnustep</span><span class='rbrack token'>]</span><span class='dot token'>.</span><span class='include? fid id'>include?</span> <span class='plist_format identifier id'>plist_format</span>
+    <span class='raise identifier id'>raise</span> <span class='dstring node'>&quot;#{self} - cant convert string of format #{plist_format}&quot;</span>
+  <span class='end end kw'>end</span>
+  <span class='hash identifier id'>hash</span> <span class='assign token'>=</span> <span class='colon3 op'>::</span><span class='Plist4r constant id'>Plist4r</span><span class='colon2 op'>::</span><span class='OrderedHash constant id'>OrderedHash</span><span class='dot token'>.</span><span class='new identifier id'>new</span>
+  <span class='comment val'># import / convert plist data into ruby ordered hash</span>
+  <span class='plist identifier id'>plist</span><span class='dot token'>.</span><span class='import_hash identifier id'>import_hash</span> <span class='hash identifier id'>hash</span>
+  <span class='plist identifier id'>plist</span><span class='dot token'>.</span><span class='file_format identifier id'>file_format</span> <span class='plist_format identifier id'>plist_format</span>
+  <span class='return return kw'>return</span> <span class='plist identifier id'>plist</span>
+<span class='end end kw'>end</span>
+</pre>
+    </td>
+  </tr>
+</table>
+</div>
+
+    
+      <div class="method_details " id="from_string-class_method">
+  <p class="signature "">
+  
     + (<tt><a href="../Plist.html" target="_self" title="Plist4r::Plist (class)">Plist4r::Plist</a></tt>) <strong>from_string</strong>(plist) 
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    <p>
+Parse a String of plist data and store it into the supplied
+<tt><a href="../Plist.html" target="_self" title="Plist4r::Plist (class)">Plist4r::Plist</a></tt>
+</p>
+<ul>
+<li>Please click &#8220;View Source&#8221; for the example.
+
+</li>
+</ul>
+
+
+  </div>
+</div>
+<div class="tags">
+  <h3>Parameters:</h3>
+<ul class="param">
+  
+    <li>
+      
+        <span class='type'>(<tt><a href="../Plist.html" target="_self" title="Plist4r::Plist (class)">Plist4r::Plist</a></tt>)</span>
+      
+      
+        <span class='name'>plist</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'><p>
+The plist object to read the string from
+</p>
+</div>
+      
+    </li>
+  
+</ul>
+<h3>Returns:</h3>
+<ul class="return">
+  
+    <li>
+      
+        <span class='type'>(<tt><a href="../Plist.html" target="_self" title="Plist4r::Plist (class)">Plist4r::Plist</a></tt>)</span>
+      
+      
+      
+      
+        &mdash;
+        <div class='inline'><p>
+the same plist object, but updated to match its from_string
+</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+  <h3>See Also:</h3>
+  <ul class="see">
+    
+      <li><a href="../Plist.html#from_string-instance_method" target="_self" title="Plist4r::Plist#from_string (method)">Plist4r::Plist#from_string</a></li>
+    
+      <li><a href="../../Plist4r.html#string_detect_format-class_method" target="_self" title="Plist4r.string_detect_format (method)">Plist4r.string_detect_format</a></li>
+    
+  </ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+84
+85
+86
+87
+88
+89
+90
+91
+92
+93
+94
+95</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/plist4r/backend/example.rb', line 84</span>
+
+<span class='def def kw'>def</span> <span class='from_string identifier id'>from_string</span> <span class='plist identifier id'>plist</span>
+  <span class='plist_string identifier id'>plist_string</span> <span class='assign token'>=</span> <span class='plist identifier id'>plist</span><span class='dot token'>.</span><span class='from_string identifier id'>from_string</span>
+  <span class='plist_format identifier id'>plist_format</span> <span class='assign token'>=</span> <span class='Plist4r constant id'>Plist4r</span><span class='dot token'>.</span><span class='string_detect_format identifier id'>string_detect_format</span> <span class='plist identifier id'>plist</span><span class='dot token'>.</span><span class='from_string identifier id'>from_string</span>
+  <span class='unless unless kw'>unless</span> <span class='lbrack token'>[</span><span class='symbol val'>:supported_fmt1</span><span class='comma token'>,</span><span class='symbol val'>:supported_fmt2</span><span class='rbrack token'>]</span><span class='dot token'>.</span><span class='include? fid id'>include?</span> <span class='plist_format identifier id'>plist_format</span>
+    <span class='raise identifier id'>raise</span> <span class='dstring node'>&quot;#{self} - cant convert string of format #{plist_format}&quot;</span>
+  <span class='end end kw'>end</span>
+  <span class='hash identifier id'>hash</span> <span class='assign token'>=</span> <span class='colon3 op'>::</span><span class='Plist4r constant id'>Plist4r</span><span class='colon2 op'>::</span><span class='OrderedHash constant id'>OrderedHash</span><span class='dot token'>.</span><span class='new identifier id'>new</span>
+  <span class='comment val'># import / convert plist data into ruby ordered hash</span>
+  <span class='plist identifier id'>plist</span><span class='dot token'>.</span><span class='import_hash identifier id'>import_hash</span> <span class='hash identifier id'>hash</span>
+  <span class='plist identifier id'>plist</span><span class='dot token'>.</span><span class='file_format identifier id'>file_format</span> <span class='plist_format identifier id'>plist_format</span>
+  <span class='return return kw'>return</span> <span class='plist identifier id'>plist</span>
+<span class='end end kw'>end</span>
+</pre>
+    </td>
+  </tr>
+</table>
+</div>
+
+    
+      <div class="method_details " id="from_xml-class_method">
+  <p class="signature "">
+  
+    + (<tt><a href="../Plist.html" target="_self" title="Plist4r::Plist (class)">Plist4r::Plist</a></tt>) <strong>from_xml</strong>(plist) 
   
 
   
@@ -266,10 +617,10 @@ the same plist object, but updated to match its from_string
     <td>
       <pre class="code"><span class="info file"># File 'lib/plist4r/backend/example.rb', line 27</span>
 
-<span class='def def kw'>def</span> <span class='from_string identifier id'>from_string</span> <span class='plist identifier id'>plist</span>
+<span class='def def kw'>def</span> <span class='from_xml identifier id'>from_xml</span> <span class='plist identifier id'>plist</span>
   <span class='plist_string identifier id'>plist_string</span> <span class='assign token'>=</span> <span class='plist identifier id'>plist</span><span class='dot token'>.</span><span class='from_string identifier id'>from_string</span>
   <span class='plist_format identifier id'>plist_format</span> <span class='assign token'>=</span> <span class='Plist4r constant id'>Plist4r</span><span class='dot token'>.</span><span class='string_detect_format identifier id'>string_detect_format</span> <span class='plist identifier id'>plist</span><span class='dot token'>.</span><span class='from_string identifier id'>from_string</span>
-  <span class='unless unless kw'>unless</span> <span class='lbrack token'>[</span><span class='symbol val'>:supported_fmt1</span><span class='comma token'>,</span><span class='symbol val'>:supported_fmt2</span><span class='rbrack token'>]</span><span class='dot token'>.</span><span class='include? fid id'>include?</span> <span class='plist_format identifier id'>plist_format</span>
+  <span class='unless unless kw'>unless</span> <span class='lbrack token'>[</span><span class='symbol val'>:xml</span><span class='rbrack token'>]</span><span class='dot token'>.</span><span class='include? fid id'>include?</span> <span class='plist_format identifier id'>plist_format</span>
     <span class='raise identifier id'>raise</span> <span class='dstring node'>&quot;#{self} - cant convert string of format #{plist_format}&quot;</span>
   <span class='end end kw'>end</span>
   <span class='hash identifier id'>hash</span> <span class='assign token'>=</span> <span class='colon3 op'>::</span><span class='Plist4r constant id'>Plist4r</span><span class='colon2 op'>::</span><span class='OrderedHash constant id'>OrderedHash</span><span class='dot token'>.</span><span class='new identifier id'>new</span>
@@ -295,7 +646,8 @@ the same plist object, but updated to match its from_string
 </p><div class="docstring">
   <div class="discussion">
     <p>
-Open a plist file and store the contents into the supplied <tt><a href="../Plist.html" target="_self" title="Plist4r::Plist (class)">Plist4r::Plist</a></tt>
+(Optional) Open a plist file and store the contents into the supplied
+<tt><a href="../Plist.html" target="_self" title="Plist4r::Plist (class)">Plist4r::Plist</a></tt>
 </p>
 <ul>
 <li>Please click &#8220;View Source&#8221; for the example.
@@ -340,7 +692,7 @@ The plist object to convert
       
         &mdash;
         <div class='inline'><p>
-the next_step string
+the gnustep string
 </p>
 </div>
       
@@ -361,22 +713,22 @@ the next_step string
       <pre class="lines">
 
 
-75
-76
-77
-78
-79
-80
-81
-82
-83
-84
-85
-86
-87</pre>
+132
+133
+134
+135
+136
+137
+138
+139
+140
+141
+142
+143
+144</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/plist4r/backend/example.rb', line 75</span>
+      <pre class="code"><span class="info file"># File 'lib/plist4r/backend/example.rb', line 132</span>
 
 <span class='def def kw'>def</span> <span class='open identifier id'>open</span> <span class='plist identifier id'>plist</span>
   <span class='filename identifier id'>filename</span> <span class='assign token'>=</span> <span class='plist identifier id'>plist</span><span class='dot token'>.</span><span class='filename_path identifier id'>filename_path</span>
@@ -408,7 +760,7 @@ the next_step string
 </p><div class="docstring">
   <div class="discussion">
     <p>
-The same plist object, but updated to match the file contents
+(Optional) Save a plist to file
 </p>
 
 
@@ -429,7 +781,7 @@ The same plist object, but updated to match the file contents
       
         &mdash;
         <div class='inline'><p>
-The plist object to read the filename from
+The plist object save. Also to read the filename from
 </p>
 </div>
       
@@ -469,24 +821,24 @@ the same plist object, but updated to match the file contents
       <pre class="lines">
 
 
-92
-93
-94
-95
-96
-97
-98
-99
-100
-101
-102
-103
-104
-105
-106</pre>
+150
+151
+152
+153
+154
+155
+156
+157
+158
+159
+160
+161
+162
+163
+164</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/plist4r/backend/example.rb', line 92</span>
+      <pre class="code"><span class="info file"># File 'lib/plist4r/backend/example.rb', line 150</span>
 
 <span class='def def kw'>def</span> <span class='save identifier id'>save</span> <span class='plist identifier id'>plist</span>
   <span class='filename identifier id'>filename</span> <span class='assign token'>=</span> <span class='plist identifier id'>plist</span><span class='dot token'>.</span><span class='filename_path identifier id'>filename_path</span>
@@ -580,14 +932,14 @@ the binary string
       <pre class="lines">
 
 
-54
-55
-56
-57
-58</pre>
+111
+112
+113
+114
+115</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/plist4r/backend/example.rb', line 54</span>
+      <pre class="code"><span class="info file"># File 'lib/plist4r/backend/example.rb', line 111</span>
 
 <span class='def def kw'>def</span> <span class='to_binary identifier id'>to_binary</span> <span class='plist identifier id'>plist</span>
   <span class='hash identifier id'>hash</span> <span class='assign token'>=</span> <span class='plist identifier id'>plist</span><span class='dot token'>.</span><span class='to_hash identifier id'>to_hash</span>
@@ -601,17 +953,17 @@ the binary string
 </div>
 
     
-      <div class="method_details " id="to_next_step-class_method">
+      <div class="method_details " id="to_gnustep-class_method">
   <p class="signature "">
   
-    + (<tt><a href="../../String.html" target="_self" title="String (class)">String</a></tt>) <strong>to_next_step</strong>(plist) 
+    + (<tt><a href="../../String.html" target="_self" title="String (class)">String</a></tt>) <strong>to_gnustep</strong>(plist) 
   
 
   
 </p><div class="docstring">
   <div class="discussion">
     <p>
-Convert a <tt><a href="../Plist.html" target="_self" title="Plist4r::Plist (class)">Plist4r::Plist</a></tt> into a &#8220;next_step&#8221; formatted plist
+Convert a <tt><a href="../Plist.html" target="_self" title="Plist4r::Plist (class)">Plist4r::Plist</a></tt> into a &#8220;gnustep&#8221; formatted plist
 String
 </p>
 <ul>
@@ -657,7 +1009,7 @@ The plist object to convert
       
         &mdash;
         <div class='inline'><p>
-the next_step string
+the gnustep string
 </p>
 </div>
       
@@ -671,19 +1023,19 @@ the next_step string
       <pre class="lines">
 
 
-64
-65
-66
-67
-68</pre>
+121
+122
+123
+124
+125</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/plist4r/backend/example.rb', line 64</span>
+      <pre class="code"><span class="info file"># File 'lib/plist4r/backend/example.rb', line 121</span>
 
-<span class='def def kw'>def</span> <span class='to_next_step identifier id'>to_next_step</span> <span class='plist identifier id'>plist</span>
+<span class='def def kw'>def</span> <span class='to_gnustep identifier id'>to_gnustep</span> <span class='plist identifier id'>plist</span>
   <span class='hash identifier id'>hash</span> <span class='assign token'>=</span> <span class='plist identifier id'>plist</span><span class='dot token'>.</span><span class='to_hash identifier id'>to_hash</span>
-  <span class='next_step_string identifier id'>next_step_string</span> <span class='assign token'>=</span> <span class='string val'>&quot;Convert the plists's nested ruby hash into next_step format here&quot;</span>
-  <span class='return return kw'>return</span> <span class='next_step_string identifier id'>next_step_string</span>
+  <span class='gnustep_string identifier id'>gnustep_string</span> <span class='assign token'>=</span> <span class='string val'>&quot;Convert the plists's nested ruby hash into gnustep format here&quot;</span>
+  <span class='return return kw'>return</span> <span class='gnustep_string identifier id'>gnustep_string</span>
 <span class='end end kw'>end</span>
 </pre>
     </td>
@@ -761,14 +1113,14 @@ the xml string
       <pre class="lines">
 
 
-44
-45
-46
-47
-48</pre>
+101
+102
+103
+104
+105</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/plist4r/backend/example.rb', line 44</span>
+      <pre class="code"><span class="info file"># File 'lib/plist4r/backend/example.rb', line 101</span>
 
 <span class='def def kw'>def</span> <span class='to_xml identifier id'>to_xml</span> <span class='plist identifier id'>plist</span>
   <span class='hash identifier id'>hash</span> <span class='assign token'>=</span> <span class='plist identifier id'>plist</span><span class='dot token'>.</span><span class='to_hash identifier id'>to_hash</span>
@@ -787,7 +1139,7 @@ the xml string
 </div>
     
     <div id="footer">
-  Generated on Sat May 29 12:47:36 2010 by 
+  Generated on Tue Jun 29 16:36:24 2010 by 
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool">yard</a>
   0.5.4  and the 
   <a href="http://github.com/dreamcat4/yard-slipstream">yard-slipstream</a> plugin

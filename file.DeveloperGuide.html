@@ -94,16 +94,16 @@ can responds to the API method.
 There are just 6 supported API methods
 </p>
 <pre class="code">
-  <span class='ApiMethods constant id'>ApiMethods</span> <span class='assign token'>=</span> <span class='dstring node'>%w[from_string to_xml to_binary to_next_step open save]</span>
+  <span class='ApiMethods constant id'>ApiMethods</span> <span class='assign token'>=</span> <span class='dstring node'>%w[from_string to_xml to_binary to_gnustep open save]</span>
 </pre>
 <p>
 And (as above) the 3 supported Plist file formats are
 </p>
 <pre class="code">
-  <span class='FileFormats constant id'>FileFormats</span> <span class='assign token'>=</span> <span class='dstring node'>%w[binary xml next_step]</span>
+  <span class='FileFormats constant id'>FileFormats</span> <span class='assign token'>=</span> <span class='dstring node'>%w[binary xml gnustep]</span>
 </pre>
 <p>
-We believe thats allright for most uses, and decided to include `next_step`
+We believe thats allright for most uses, and decided to include `gnustep`
 for completeness. `NextStep` is also known by other names such as
 `OpenStep` and (more updated version) `GNU Step`. For example the apple
 `defaults` command on Mac OS-X will still return `NextStep` formatted plist
@@ -185,7 +185,7 @@ For a <tt><a href="Plist4r/PlistType.html" target="_self" title="Plist4r::PlistT
 </div></div>
     
     <div id="footer">
-  Generated on Sat May 29 12:47:27 2010 by 
+  Generated on Tue Jun 29 16:36:10 2010 by 
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool">yard</a>
   0.5.4  and the 
   <a href="http://github.com/dreamcat4/yard-slipstream">yard-slipstream</a> plugin

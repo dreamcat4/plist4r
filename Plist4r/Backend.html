@@ -97,7 +97,7 @@
 		<dd class="r1 last">
   		
   lib/plist4r/backend.rb<span class="defines">,<br />
-    lib/plist4r/backend_base.rb</span>
+    lib/plist4r/backend_base.rb,<br /> lib/plist4r/backend/test/data.rb,<br /> lib/plist4r/backend/test/output.rb,<br /> lib/plist4r/backend/test/harness.rb,<br /> lib/plist4r/backend/c_f_property_list/rbCFTypes.rb,<br /> lib/plist4r/backend/c_f_property_list/rbCFPlistError.rb,<br /> lib/plist4r/backend/c_f_property_list/rbCFPropertyList.rb,<br /> lib/plist4r/backend/c_f_property_list/rbXMLCFPropertyList.rb,<br /> lib/plist4r/backend/c_f_property_list/rbBinaryCFPropertyList.rb</span>
 
 
 		</dd>
@@ -110,7 +110,7 @@
   <ul id="classes_ribbon">
   
   
-    <li class="r1"><a href="BackendTest/Harness.html" target="_self" title="Plist4r::BackendTest::Harness (class)">BackendTest::Harness</a></li>
+    <li class="r1"><a href="Backend/Test/Harness.html" target="_self" title="Plist4r::Backend::Test::Harness (class)">Backend::Test::Harness</a></li>
     
   
   </ul>
@@ -122,19 +122,25 @@
 	    <ul id="modules_ribbon">
 	    
 	    
-	      <li class="r1"><a href="Backend/Example.html" target="_self" title="Plist4r::Backend::Example (module)">Example</a></li>
+	      <li class="r1"><a href="Backend/CFPropertyList.html" target="_self" title="Plist4r::Backend::CFPropertyList (module)">CFPropertyList</a></li>
 	      
 	    
-	      <li class="r2"><a href="Backend/Haml.html" target="_self" title="Plist4r::Backend::Haml (module)">Haml</a></li>
+	      <li class="r2"><a href="Backend/Example.html" target="_self" title="Plist4r::Backend::Example (module)">Example</a></li>
 	      
 	    
-	      <li class="r1"><a href="Backend/Libxml4r.html" target="_self" title="Plist4r::Backend::Libxml4r (module)">Libxml4r</a></li>
+	      <li class="r1"><a href="Backend/Haml.html" target="_self" title="Plist4r::Backend::Haml (module)">Haml</a></li>
 	      
 	    
-	      <li class="r2"><a href="Backend/Plutil.html" target="_self" title="Plist4r::Backend::Plutil (module)">Plutil</a></li>
+	      <li class="r2"><a href="Backend/Libxml4r.html" target="_self" title="Plist4r::Backend::Libxml4r (module)">Libxml4r</a></li>
 	      
 	    
-	      <li class="r1"><a href="Backend/RubyCocoa.html" target="_self" title="Plist4r::Backend::RubyCocoa (module)">RubyCocoa</a></li>
+	      <li class="r1"><a href="Backend/OsxPlist.html" target="_self" title="Plist4r::Backend::OsxPlist (module)">OsxPlist</a></li>
+	      
+	    
+	      <li class="r2"><a href="Backend/RubyCocoa.html" target="_self" title="Plist4r::Backend::RubyCocoa (module)">RubyCocoa</a></li>
+	      
+	    
+	      <li class="r1"><a href="Backend/Test.html" target="_self" title="Plist4r::Backend::Test (module)">Test</a></li>
 	      
 	    
 	    </ul>
@@ -151,7 +157,10 @@
 	      <li class="r1"><a href="#call-instance_method" target="_self" title="Plist4r::Backend#call (method)">call</a></li>
 	      
 	    
-	      <li class="r2"><a href="#initialize-instance_method" target="_self" title="Plist4r::Backend#initialize (method)">initialize</a></li>
+	      <li class="r2"><a href="#generic_call-instance_method" target="_self" title="Plist4r::Backend#generic_call (method)">generic_call</a></li>
+	      
+	    
+	      <li class="r1"><a href="#initialize-instance_method" target="_self" title="Plist4r::Backend#initialize (method)">initialize</a></li>
 	      
 	    
 	    </ul>
@@ -197,7 +206,7 @@ methods can be implemented by an individual backend.
 
 </div>
         </dt>
-        <dd><pre class="code"><span class='dstring node'>%w[from_string to_xml to_binary to_next_step open save]</span>
+        <dd><pre class="code"><span class='dstring node'>%w[from_string to_xml to_binary to_gnustep open save]</span>
 </pre></dd>
       
     </dl>
@@ -350,38 +359,6 @@ if no backend is able to sucessfully execute the request.
       <pre class="lines">
 
 
-35
-36
-37
-38
-39
-40
-41
-42
-43
-44
-45
-46
-47
-48
-49
-50
-51
-52
-53
-54
-55
-56
-57
-58
-59
-60
-61
-62
-63
-64
-65
-66
 67
 68
 69
@@ -390,42 +367,116 @@ if no backend is able to sucessfully execute the request.
 72
 73
 74
-75</pre>
+75
+76
+77
+78
+79
+80
+81
+82
+83
+84
+85
+86
+87
+88
+89
+90
+91
+92
+93
+94
+95
+96
+97
+98
+99
+100
+101
+102
+103
+104
+105
+106
+107
+108
+109
+110
+111
+112
+113
+114
+115
+116
+117
+118
+119
+120
+121
+122
+123
+124
+125
+126
+127
+128</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/plist4r/backend.rb', line 35</span>
+      <pre class="code"><span class="info file"># File 'lib/plist4r/backend.rb', line 67</span>
 
 <span class='def def kw'>def</span> <span class='call identifier id'>call</span> <span class='method_sym identifier id'>method_sym</span><span class='comma token'>,</span> <span class='mult op'>*</span><span class='args identifier id'>args</span><span class='comma token'>,</span> <span class='bitand op'>&amp;</span><span class='blk identifier id'>blk</span>
   <span class='comment val'># puts &quot;in call&quot;</span>
   <span class='comment val'># puts &quot;#{method_sym.inspect} #{args.inspect}&quot;</span>
   <span class='raise identifier id'>raise</span> <span class='dstring node'>&quot;Unsupported api call #{method_sym.inspect}&quot;</span> <span class='unless unless_mod kw'>unless</span> <span class='ApiMethods constant id'>ApiMethods</span><span class='dot token'>.</span><span class='include? fid id'>include?</span> <span class='method_sym identifier id'>method_sym</span><span class='dot token'>.</span><span class='to_s identifier id'>to_s</span>
   <span class='exceptions identifier id'>exceptions</span> <span class='assign token'>=</span> <span class='lbrack token'>[</span><span class='rbrack token'>]</span>
+  <span class='generic_call_exception identifier id'>generic_call_exception</span> <span class='assign token'>=</span> <span class='nil nil kw'>nil</span>
 
   <span class='@plist ivar id'>@plist</span><span class='dot token'>.</span><span class='backends identifier id'>backends</span><span class='dot token'>.</span><span class='each identifier id'>each</span> <span class='do do kw'>do</span> <span class='bitor op'>|</span><span class='b_sym identifier id'>b_sym</span><span class='bitor op'>|</span>
     <span class='backend identifier id'>backend</span> <span class='assign token'>=</span> <span class='eval identifier id'>eval</span> <span class='dstring node'>&quot;::Plist4r::Backend::#{b_sym.to_s.camelcase}&quot;</span>
-    
-    <span class='if if kw'>if</span> <span class='backend identifier id'>backend</span><span class='dot token'>.</span><span class='respond_to? fid id'>respond_to?</span> <span class='method_sym identifier id'>method_sym</span>
-      <span class='comment val'># We can Wrap this call in a Timeout block</span>
-      <span class='begin begin kw'>begin</span>
-        <span class='comment val'># puts @plist.inspect</span>
-        <span class='result identifier id'>result</span> <span class='assign token'>=</span> <span class='backend identifier id'>backend</span><span class='dot token'>.</span><span class='send identifier id'>send</span><span class='lparen token'>(</span><span class='method_sym identifier id'>method_sym</span><span class='comma token'>,</span> <span class='@plist ivar id'>@plist</span><span class='comma token'>,</span> <span class='mult op'>*</span><span class='args identifier id'>args</span><span class='comma token'>,</span> <span class='bitand op'>&amp;</span><span class='blk identifier id'>blk</span><span class='rparen token'>)</span>
-        <span class='comment val'># puts &quot;result = #{result.inspect}&quot;</span>
-        <span class='return return kw'>return</span> <span class='result identifier id'>result</span>
-        <span class='comment val'># return backend.send(method_sym, @plist, *args, &amp;blk)</span>
-      <span class='rescue rescue kw'>rescue</span> <span class='LoadError constant id'>LoadError</span>
-        <span class='exceptions identifier id'>exceptions</span> <span class='lshft op'>&lt;&lt;</span> <span class='$! gvar id'>$!</span>
-      <span class='rescue rescue kw'>rescue</span> <span class='RuntimeError constant id'>RuntimeError</span>
-        <span class='exceptions identifier id'>exceptions</span> <span class='lshft op'>&lt;&lt;</span> <span class='$! gvar id'>$!</span>
-      <span class='rescue rescue kw'>rescue</span>
-        <span class='exceptions identifier id'>exceptions</span> <span class='lshft op'>&lt;&lt;</span> <span class='$! gvar id'>$!</span>
+
+
+    <span class='comment val'># We can Wrap this call in a Timeout block</span>
+    <span class='begin begin kw'>begin</span>
+      <span class='if if kw'>if</span> <span class='backend identifier id'>backend</span><span class='dot token'>.</span><span class='respond_to? fid id'>respond_to?</span> <span class='method_sym identifier id'>method_sym</span>
+          <span class='comment val'># puts @plist.inspect</span>
+          <span class='result identifier id'>result</span> <span class='assign token'>=</span> <span class='backend identifier id'>backend</span><span class='dot token'>.</span><span class='send identifier id'>send</span><span class='lparen token'>(</span><span class='method_sym identifier id'>method_sym</span><span class='comma token'>,</span> <span class='@plist ivar id'>@plist</span><span class='comma token'>,</span> <span class='mult op'>*</span><span class='args identifier id'>args</span><span class='comma token'>,</span> <span class='bitand op'>&amp;</span><span class='blk identifier id'>blk</span><span class='rparen token'>)</span>
+          <span class='comment val'># puts &quot;result = #{result.inspect}&quot;</span>
+          <span class='return return kw'>return</span> <span class='result identifier id'>result</span>
+          <span class='comment val'># return backend.send(method_sym, @plist, *args, &amp;blk)</span>
+
+      <span class='elsif elsif kw'>elsif</span> <span class='lbrack token'>[</span><span class='symbol val'>:open</span><span class='comma token'>,</span> <span class='symbol val'>:save</span><span class='comma token'>,</span> <span class='symbol val'>:from_string</span><span class='rbrack token'>]</span><span class='dot token'>.</span><span class='include? fid id'>include?</span> <span class='method_sym identifier id'>method_sym</span>
+        <span class='result identifier id'>result</span> <span class='assign token'>=</span> <span class='generic_call identifier id'>generic_call</span> <span class='backend identifier id'>backend</span><span class='comma token'>,</span> <span class='method_sym identifier id'>method_sym</span><span class='comma token'>,</span> <span class='mult op'>*</span><span class='args identifier id'>args</span><span class='comma token'>,</span> <span class='bitand op'>&amp;</span><span class='blk identifier id'>blk</span>
+        <span class='if if kw'>if</span> <span class='result identifier id'>result</span><span class='dot token'>.</span><span class='is_a? fid id'>is_a?</span> <span class='Exception constant id'>Exception</span>
+          <span class='generic_call_exception identifier id'>generic_call_exception</span> <span class='assign token'>=</span> <span class='result identifier id'>result</span>
+        <span class='else else kw'>else</span>
+          <span class='return return kw'>return</span> <span class='result identifier id'>result</span>
+        <span class='end end kw'>end</span>
+        <span class='return return kw'>return</span> <span class='result identifier id'>result</span> <span class='unless unless_mod kw'>unless</span> <span class='result identifier id'>result</span><span class='dot token'>.</span><span class='is_a? fid id'>is_a?</span> <span class='Exception constant id'>Exception</span>
       <span class='end end kw'>end</span>
+
+    <span class='rescue rescue kw'>rescue</span> <span class='LoadError constant id'>LoadError</span>
+      <span class='exceptions identifier id'>exceptions</span> <span class='lshft op'>&lt;&lt;</span> <span class='$! gvar id'>$!</span>
+    <span class='rescue rescue kw'>rescue</span> <span class='RuntimeError constant id'>RuntimeError</span>
+      <span class='exceptions identifier id'>exceptions</span> <span class='lshft op'>&lt;&lt;</span> <span class='$! gvar id'>$!</span>
+    <span class='rescue rescue kw'>rescue</span> <span class='SyntaxError constant id'>SyntaxError</span>
+      <span class='exceptions identifier id'>exceptions</span> <span class='lshft op'>&lt;&lt;</span> <span class='$! gvar id'>$!</span>
+    <span class='rescue rescue kw'>rescue</span> <span class='Exception constant id'>Exception</span>
+      <span class='exceptions identifier id'>exceptions</span> <span class='lshft op'>&lt;&lt;</span> <span class='$! gvar id'>$!</span>
+    <span class='rescue rescue kw'>rescue</span>
+      <span class='exceptions identifier id'>exceptions</span> <span class='lshft op'>&lt;&lt;</span> <span class='$! gvar id'>$!</span>
     <span class='end end kw'>end</span>
+
     <span class='if if kw'>if</span> <span class='Config constant id'>Config</span><span class='lbrack token'>[</span><span class='symbol val'>:raise_any_failure</span><span class='rbrack token'>]</span> <span class='andop op'>&amp;&amp;</span> <span class='exceptions identifier id'>exceptions</span><span class='dot token'>.</span><span class='first identifier id'>first</span>
       <span class='raise identifier id'>raise</span> <span class='exceptions identifier id'>exceptions</span><span class='dot token'>.</span><span class='first identifier id'>first</span>
     <span class='end end kw'>end</span>
   <span class='end end kw'>end</span>
   <span class='if if kw'>if</span> <span class='exceptions identifier id'>exceptions</span><span class='dot token'>.</span><span class='empty? fid id'>empty?</span>
-    <span class='raise identifier id'>raise</span> <span class='dstring node'>&quot;Plist4r: No backend found to handle method #{method_sym.inspect}. Could not execute method #{method_sym.inspect} on plist #{@plist.inspect}&quot;</span>
+    <span class='if if kw'>if</span> <span class='generic_call_exception identifier id'>generic_call_exception</span>
+      <span class='raise identifier id'>raise</span> <span class='generic_call_exception identifier id'>generic_call_exception</span>
+    <span class='else else kw'>else</span>
+      <span class='raise identifier id'>raise</span> <span class='dstring node'>&quot;Plist4r: No backend found to handle method #{method_sym.inspect}. Could not execute method #{method_sym.inspect} on plist #{@plist.inspect}&quot;</span>
+    <span class='end end kw'>end</span>
   <span class='else else kw'>else</span>
     <span class='comment val'># $stderr.puts &quot;Failure(s) while executing method #{method_sym.inspect} on plist #{@plist}.&quot;</span>
     <span class='exceptions identifier id'>exceptions</span><span class='dot token'>.</span><span class='each identifier id'>each</span> <span class='do do kw'>do</span> <span class='bitor op'>|</span><span class='e identifier id'>e</span><span class='bitor op'>|</span>
@@ -443,12 +494,98 @@ if no backend is able to sucessfully execute the request.
 </div>
 
     
+      <div class="method_details " id="generic_call-instance_method">
+  <p class="signature "">
+  
+    - (<tt><a href="../Object.html" target="_self" title="Object (class)">Object</a></tt>) <strong>generic_call</strong>(backend, method_sym, *args, &amp;blk) 
+  
+
+  
+</p><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/plist4r/backend.rb', line 21</span>
+
+<span class='def def kw'>def</span> <span class='generic_call identifier id'>generic_call</span> <span class='backend identifier id'>backend</span><span class='comma token'>,</span> <span class='method_sym identifier id'>method_sym</span><span class='comma token'>,</span> <span class='mult op'>*</span><span class='args identifier id'>args</span><span class='comma token'>,</span> <span class='bitand op'>&amp;</span><span class='blk identifier id'>blk</span>
+  <span class='case case kw'>case</span> <span class='method_sym identifier id'>method_sym</span>
+
+  <span class='when when kw'>when</span> <span class='symbol val'>:save</span>
+    <span class='fmt identifier id'>fmt</span> <span class='assign token'>=</span> <span class='@plist ivar id'>@plist</span><span class='dot token'>.</span><span class='file_format identifier id'>file_format</span> <span class='orop op'>||</span> <span class='Config constant id'>Config</span><span class='lbrack token'>[</span><span class='symbol val'>:default_format</span><span class='rbrack token'>]</span>
+    <span class='unless unless kw'>unless</span> <span class='backend identifier id'>backend</span><span class='dot token'>.</span><span class='respond_to? fid id'>respond_to?</span> <span class='dstring node'>&quot;to_#{fmt}&quot;</span>
+      <span class='return return kw'>return</span> <span class='Exception constant id'>Exception</span><span class='dot token'>.</span><span class='new identifier id'>new</span> <span class='dstring node'>&quot;Plist4r: No backend found to handle method :to_#{fmt}. Could not execute method :save on plist #{@plist.inspect}&quot;</span>
+    <span class='end end kw'>end</span>
+    <span class='File constant id'>File</span><span class='dot token'>.</span><span class='open identifier id'>open</span><span class='lparen token'>(</span><span class='@plist ivar id'>@plist</span><span class='dot token'>.</span><span class='filename_path identifier id'>filename_path</span><span class='comma token'>,</span><span class='string val'>'w'</span><span class='rparen token'>)</span> <span class='do do kw'>do</span> <span class='bitor op'>|</span><span class='out identifier id'>out</span><span class='bitor op'>|</span>
+      <span class='out identifier id'>out</span> <span class='lshft op'>&lt;&lt;</span> <span class='backend identifier id'>backend</span><span class='dot token'>.</span><span class='send identifier id'>send</span><span class='lparen token'>(</span><span class='dstring node'>&quot;to_#{fmt}&quot;</span><span class='dot token'>.</span><span class='to_sym identifier id'>to_sym</span><span class='comma token'>,</span> <span class='@plist ivar id'>@plist</span><span class='rparen token'>)</span>
+    <span class='end end kw'>end</span>
+    <span class='@plist ivar id'>@plist</span>
+
+  <span class='when when kw'>when</span> <span class='symbol val'>:open</span>
+    <span class='@plist ivar id'>@plist</span><span class='dot token'>.</span><span class='instance_eval identifier id'>instance_eval</span> <span class='string val'>&quot;@from_string = File.read(filename_path)&quot;</span>
+    <span class='fmt identifier id'>fmt</span> <span class='assign token'>=</span> <span class='Plist4r constant id'>Plist4r</span><span class='dot token'>.</span><span class='string_detect_format identifier id'>string_detect_format</span> <span class='@plist ivar id'>@plist</span><span class='dot token'>.</span><span class='from_string identifier id'>from_string</span>
+    <span class='unless unless kw'>unless</span> <span class='backend identifier id'>backend</span><span class='dot token'>.</span><span class='respond_to? fid id'>respond_to?</span> <span class='dstring node'>&quot;from_#{fmt}&quot;</span>
+      <span class='return return kw'>return</span> <span class='Exception constant id'>Exception</span><span class='dot token'>.</span><span class='new identifier id'>new</span> <span class='dstring node'>&quot;Plist4r: No backend found to handle method :from_#{fmt}. Could not execute method :open on plist #{@plist.inspect}&quot;</span>
+    <span class='end end kw'>end</span>
+    <span class='backend identifier id'>backend</span><span class='dot token'>.</span><span class='send identifier id'>send</span><span class='lparen token'>(</span><span class='dstring node'>&quot;from_#{fmt}&quot;</span><span class='dot token'>.</span><span class='to_sym identifier id'>to_sym</span><span class='comma token'>,</span> <span class='@plist ivar id'>@plist</span><span class='rparen token'>)</span>
+    <span class='@plist ivar id'>@plist</span>
+
+  <span class='when when kw'>when</span> <span class='symbol val'>:from_string</span>
+    <span class='fmt identifier id'>fmt</span> <span class='assign token'>=</span> <span class='Plist4r constant id'>Plist4r</span><span class='dot token'>.</span><span class='string_detect_format identifier id'>string_detect_format</span> <span class='@plist ivar id'>@plist</span><span class='dot token'>.</span><span class='from_string identifier id'>from_string</span>
+    <span class='unless unless kw'>unless</span> <span class='backend identifier id'>backend</span><span class='dot token'>.</span><span class='respond_to? fid id'>respond_to?</span> <span class='dstring node'>&quot;from_#{fmt}&quot;</span>
+      <span class='return return kw'>return</span> <span class='Exception constant id'>Exception</span><span class='dot token'>.</span><span class='new identifier id'>new</span> <span class='dstring node'>&quot;Plist4r: No backend found to handle method :from_#{fmt}. Could not execute method :from_string on plist #{@plist.inspect}&quot;</span>
+    <span class='end end kw'>end</span>
+    <span class='backend identifier id'>backend</span><span class='dot token'>.</span><span class='send identifier id'>send</span><span class='lparen token'>(</span><span class='dstring node'>&quot;from_#{fmt}&quot;</span><span class='dot token'>.</span><span class='to_sym identifier id'>to_sym</span><span class='comma token'>,</span> <span class='@plist ivar id'>@plist</span><span class='rparen token'>)</span>
+    <span class='@plist ivar id'>@plist</span>
+  <span class='end end kw'>end</span>
+<span class='end end kw'>end</span>
+</pre>
+    </td>
+  </tr>
+</table>
+</div>
+
+    
   </div>
 
 </div>
     
     <div id="footer">
-  Generated on Sat May 29 12:47:42 2010 by 
+  Generated on Tue Jun 29 16:36:23 2010 by 
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool">yard</a>
   0.5.4  and the 
   <a href="http://github.com/dreamcat4/yard-slipstream">yard-slipstream</a> plugin

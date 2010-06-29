@@ -166,10 +166,10 @@
 	      <li class="r1"><a href="#to_binary-instance_method" target="_self" title="Plist4r::Plist#to_binary (method)">to_binary</a></li>
 	      
 	    
-	      <li class="r2"><a href="#to_hash-instance_method" target="_self" title="Plist4r::Plist#to_hash (method)">to_hash</a></li>
+	      <li class="r2"><a href="#to_gnustep-instance_method" target="_self" title="Plist4r::Plist#to_gnustep (method)">to_gnustep</a></li>
 	      
 	    
-	      <li class="r1"><a href="#to_next_step-instance_method" target="_self" title="Plist4r::Plist#to_next_step (method)">to_next_step</a></li>
+	      <li class="r1"><a href="#to_hash-instance_method" target="_self" title="Plist4r::Plist#to_hash (method)">to_hash</a></li>
 	      
 	    
 	      <li class="r2"><a href="#to_xml-instance_method" target="_self" title="Plist4r::Plist#to_xml (method)">to_xml</a></li>
@@ -231,7 +231,7 @@ The plist file formats, written as symbols.
 
 </div>
         </dt>
-        <dd><pre class="code"><span class='dstring node'>%w[binary xml next_step]</span>
+        <dd><pre class="code"><span class='dstring node'>%w[binary xml gnustep]</span>
 </pre></dd>
       
     </dl>
@@ -941,7 +941,7 @@ symbol. One of <tt><a href="#FileFormats-constant" target="_self" title="Plist4r
       
         &mdash;
         <div class='inline'><p>
-Can be :binary, :xml, :next_step
+Can be :binary, :xml, :gnustep
 </p>
 </div>
       
@@ -1254,7 +1254,7 @@ Usually called from <tt><a href="#initialize-instance_method" target="_self" tit
 \&#8220;value2\&#8221;; }&#8220;
 </p>
 <pre class="code">
- <span class='assign token'>=</span><span class='gt op'>&gt;</span> <span class='comment val'>#&lt;Plist4r::Plist:0x11e161c @file_format=&quot;next_step&quot;, ...&gt;</span>
+ <span class='assign token'>=</span><span class='gt op'>&gt;</span> <span class='comment val'>#&lt;Plist4r::Plist:0x11e161c @file_format=&quot;gnustep&quot;, ...&gt;</span>
 </pre>
 
 
@@ -2140,6 +2140,54 @@ The strict_keys setting for this object
 </div>
 
     
+      <div class="method_details " id="to_gnustep-instance_method">
+  <p class="signature "">
+  
+    - (<tt><a href="../Object.html" target="_self" title="Object (class)">Object</a></tt>) <strong>to_gnustep</strong> 
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    
+  <p class="note todo">
+    <strong>TODO:</strong> 
+    <div class='inline'><p>
+Needs a backend We are missing a backend for writing out :gnustep strings
+and saving :gnustep files to disk
+</p>
+</div>
+  </p>
+
+
+
+  </div>
+</div>
+<div class="tags">
+  
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+385
+386
+387</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/plist4r/plist.rb', line 385</span>
+
+<span class='def def kw'>def</span> <span class='to_gnustep identifier id'>to_gnustep</span>
+  <span class='@plist_cache ivar id'>@plist_cache</span><span class='dot token'>.</span><span class='to_gnustep identifier id'>to_gnustep</span>
+<span class='end end kw'>end</span>
+</pre>
+    </td>
+  </tr>
+</table>
+</div>
+
+    
       <div class="method_details " id="to_hash-instance_method">
   <p class="signature "">
   
@@ -2209,54 +2257,6 @@ Nested hash of ruby objects. The raw Plist data
 
 <span class='def def kw'>def</span> <span class='to_hash identifier id'>to_hash</span>
   <span class='@hash ivar id'>@hash</span>
-<span class='end end kw'>end</span>
-</pre>
-    </td>
-  </tr>
-</table>
-</div>
-
-    
-      <div class="method_details " id="to_next_step-instance_method">
-  <p class="signature "">
-  
-    - (<tt><a href="../Object.html" target="_self" title="Object (class)">Object</a></tt>) <strong>to_next_step</strong> 
-  
-
-  
-</p><div class="docstring">
-  <div class="discussion">
-    
-  <p class="note todo">
-    <strong>TODO:</strong> 
-    <div class='inline'><p>
-Needs a backend We are missing a backend for writing out :next_step strings
-and saving :next_step files to disk
-</p>
-</div>
-  </p>
-
-
-
-  </div>
-</div>
-<div class="tags">
-  
-</div><table class="source_code">
-  <tr>
-    <td>
-      <pre class="lines">
-
-
-385
-386
-387</pre>
-    </td>
-    <td>
-      <pre class="code"><span class="info file"># File 'lib/plist4r/plist.rb', line 385</span>
-
-<span class='def def kw'>def</span> <span class='to_next_step identifier id'>to_next_step</span>
-  <span class='@plist_cache ivar id'>@plist_cache</span><span class='dot token'>.</span><span class='to_next_step identifier id'>to_next_step</span>
 <span class='end end kw'>end</span>
 </pre>
     </td>
@@ -2342,7 +2342,7 @@ file
 </div>
     
     <div id="footer">
-  Generated on Sat May 29 12:47:29 2010 by 
+  Generated on Tue Jun 29 16:36:30 2010 by 
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool">yard</a>
   0.5.4  and the 
   <a href="http://github.com/dreamcat4/yard-slipstream">yard-slipstream</a> plugin
