@@ -18,6 +18,17 @@ def start_irb
 end
 
 
+# convert DateTime to Time
+# require 'time'
+# require 'date'
+# 
+# t = Time.now
+# d = DateTime.now
+# 
+# dd = DateTime.parse(t.to_s)
+# tt = Time.parse(d.to_s)
+
+
 
 def general_test
   Plist4r.new
