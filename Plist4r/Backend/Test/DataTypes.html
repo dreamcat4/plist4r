@@ -1,0 +1,855 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+  <head>
+    <meta name="Content-Type" content="text/html; charset=utf-8" />
+<title>Class: Plist4r::Backend::Test::DataTypes</title>
+<link rel="stylesheet" href="../../../css/style.css" type="text/css" media="screen" charset="utf-8" />
+<link rel="stylesheet" href="../../../css/common.css" type="text/css" media="screen" charset="utf-8" />
+<link rel="stylesheet" href="../../../css/custom.css" type="text/css" media="screen" charset="utf-8" />
+
+<script type="text/javascript" charset="utf-8">
+  relpath = '../../..';
+  if (relpath != '') relpath += '/';
+</script>
+<base id="base_target" target="_top" />
+<script type="text/javascript" charset="utf-8" src="../../../js/jquery.js"></script>
+<script type="text/javascript" charset="utf-8" src="../../../js/autocomplete.js"></script>
+<script type="text/javascript" charset="utf-8" src="../../../js/app.js"></script>
+<script type="text/javascript" charset="utf-8" src="../../../js/live.js"></script>
+
+  </head>
+  <body>
+    <script type="text/javascript" charset="utf-8">
+      if (window.top.frames.main) document.body.className = 'frames';
+    </script>
+    
+    <div id="header">
+      <div id="menu">
+  
+		
+			<a href="../../../object_index.html" target="_self" title="Index (D)">Index (D)</a>
+		 &raquo;
+    <span class='title'><a href="../../../Plist4r.html" target="_self" title="Plist4r (module)">Plist4r</a></span> &raquo; <span class='title'><a href="../../Backend.html" target="_self" title="Plist4r::Backend (class)">Backend</a></span> &raquo; <span class='title'><a href="../Test.html" target="_self" title="Plist4r::Backend::Test (module)">Test</a></span>
+     &raquo; 
+    <span class="title">DataTypes</span>
+  
+  
+  <div class="noframes">
+    <span class="title"></span>
+    <a id="frames_link" class="link_disabled">Frames</a> | 
+    <a target="_top" id="noframes_link" class="link_disabled">No Frames</a>
+    <span class="title"></span>
+  </div>
+</div>
+
+      <div id="search2">
+  
+  
+  <div class="search2_center">
+    <form class="search2" onsubmit="return false;" action="">
+      <input name="q" type="search" placeholder="Search" id="search_box2" size="30" value="" />
+    </form>
+  </div>
+  <script type="text/javascript" charset="utf-8"> 
+    $('#search_box2').focus(function(){
+      var search_index = relpath + 'search_index.json';
+      jQuery.getJSON(search_index, go_data);
+
+      function go_data(adata) {
+        $('#search_box2').autocomplete(adata, {
+          width: 300,
+          matchContains: true,
+          formatItem: function(item) {
+            return item.text;
+          }
+        }).result(function(event, item) {
+					if (window.location.search) {
+	          window.location.href = relpath + $(item.href_tag).attr("href");
+					} else {
+	          location.href = relpath + $(item.href_tag).attr("href");
+					}
+        });
+      }
+    });
+  </script> 
+</div>
+
+      <div class="clear"></div>
+    </div>
+    
+    <iframe id="search_frame"></iframe>
+    
+    <div id="content"><h1>Class: Plist4r::Backend::Test::DataTypes 
+  
+  
+</h1>
+
+<div id="info_box">
+  <dl class="box">
+    
+      
+    
+      
+    
+  
+    <dt class="r1 last">Defined in:</dt>
+		<dd class="r1 last">
+  		
+  lib/plist4r/backend/test/data.rb
+
+
+		</dd>
+  </dl>
+</div>
+<div class="clear"></div>
+
+
+	<h3 class="inherited">Instance Methods</h3>
+	    <ul id="methods_ribbon">
+	    
+	    
+	      <li class="r1"><a href="#gen_array-instance_method" target="_self" title="Plist4r::Backend::Test::DataTypes#gen_array (method)">gen_array</a></li>
+	      
+	    
+	      <li class="r2"><a href="#gen_bool-instance_method" target="_self" title="Plist4r::Backend::Test::DataTypes#gen_bool (method)">gen_bool</a></li>
+	      
+	    
+	      <li class="r1"><a href="#gen_data-instance_method" target="_self" title="Plist4r::Backend::Test::DataTypes#gen_data (method)">gen_data</a></li>
+	      
+	    
+	      <li class="r2"><a href="#gen_float-instance_method" target="_self" title="Plist4r::Backend::Test::DataTypes#gen_float (method)">gen_float</a></li>
+	      
+	    
+	      <li class="r1"><a href="#gen_hash-instance_method" target="_self" title="Plist4r::Backend::Test::DataTypes#gen_hash (method)">gen_hash</a></li>
+	      
+	    
+	      <li class="r2"><a href="#gen_integer-instance_method" target="_self" title="Plist4r::Backend::Test::DataTypes#gen_integer (method)">gen_integer</a></li>
+	      
+	    
+	      <li class="r1"><a href="#gen_mixed-instance_method" target="_self" title="Plist4r::Backend::Test::DataTypes#gen_mixed (method)">gen_mixed</a></li>
+	      
+	    
+	      <li class="r2"><a href="#gen_plist_1024-instance_method" target="_self" title="Plist4r::Backend::Test::DataTypes#gen_plist_1024 (method)">gen_plist_1024</a></li>
+	      
+	    
+	      <li class="r1"><a href="#gen_string-instance_method" target="_self" title="Plist4r::Backend::Test::DataTypes#gen_string (method)">gen_string</a></li>
+	      
+	    
+	      <li class="r2"><a href="#gen_time-instance_method" target="_self" title="Plist4r::Backend::Test::DataTypes#gen_time (method)">gen_time</a></li>
+	      
+	    
+	      <li class="r1"><a href="#initialize-instance_method" target="_self" title="Plist4r::Backend::Test::DataTypes#initialize (method)">initialize</a></li>
+	      
+	    
+	      <li class="r2"><a href="#method_missing-instance_method" target="_self" title="Plist4r::Backend::Test::DataTypes#method_missing (method)">method_missing</a></li>
+	      
+	    
+	      <li class="r1"><a href="#plist_1024-instance_method" target="_self" title="Plist4r::Backend::Test::DataTypes#plist_1024 (method)">plist_1024</a></li>
+	      
+	    
+	      <li class="r2"><a href="#plists-instance_method" target="_self" title="Plist4r::Backend::Test::DataTypes#plists (method)">plists</a></li>
+	      
+	    
+	    </ul>
+
+
+
+  <h2>Constant Summary</h2>
+  
+    <dl class="constants">
+      
+        <dt id="PlistDataTypes-constant" class="">PlistDataTypes =
+          <div class="docstring">
+  <div class="discussion">
+    <p>
+PlistDataTypes = [:bool, :integer, :float, :string, :time, :date_time,
+:data, :array, :hash] PlistDataTypes = [:bool, :integer, :float, :string,
+:time, :date_time, :array, :hash] PlistDataTypes = [:bool, :integer,
+:float, :string, :time, :array, :hash, :hash_array_string_integer_bool]
+</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+</div>
+        </dt>
+        <dd><pre class="code"><span class='lbrack token'>[</span><span class='symbol val'>:bool</span><span class='comma token'>,</span> <span class='symbol val'>:integer</span><span class='comma token'>,</span> <span class='symbol val'>:float</span><span class='comma token'>,</span> <span class='symbol val'>:string</span><span class='comma token'>,</span> <span class='symbol val'>:time</span><span class='comma token'>,</span> <span class='symbol val'>:array</span><span class='comma token'>,</span> <span class='symbol val'>:hash</span><span class='rbrack token'>]</span>
+</pre></dd>
+      
+    </dl>
+  
+
+
+<div id="constructor_details" class="method_details_list">
+  <h2>Constructor Details</h2>
+  
+    <div class="method_details first" id="initialize-instance_method">
+  <p class="signature first"">
+  
+    - (<tt><a href="" target="_self" title="Plist4r::Backend::Test::DataTypes (class)">DataTypes</a></tt>) <strong>initialize</strong>(*args, &amp;blk) 
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    <p>
+PlistDataTypes = [:bool, :integer, :float, :string, :time, :array, :hash,
+:gen_mixed] PlistDataTypes = [:bool, :integer, :float, :string, :time,
+:data, :array, :hash]
+</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/plist4r/backend/test/data.rb', line 15</span>
+
+<span class='def def kw'>def</span> <span class='initialize identifier id'>initialize</span> <span class='mult op'>*</span><span class='args identifier id'>args</span><span class='comma token'>,</span> <span class='bitand op'>&amp;</span><span class='blk identifier id'>blk</span>
+  
+  <span class='@plists ivar id'>@plists</span> <span class='assign token'>=</span> <span class='Plist4r constant id'>Plist4r</span><span class='colon2 op'>::</span><span class='OrderedHash constant id'>OrderedHash</span><span class='dot token'>.</span><span class='new identifier id'>new</span>
+  <span class='PlistDataTypes constant id'>PlistDataTypes</span><span class='dot token'>.</span><span class='each identifier id'>each</span> <span class='do do kw'>do</span> <span class='bitor op'>|</span><span class='pdt identifier id'>pdt</span><span class='bitor op'>|</span>
+    <span class='@plist ivar id'>@plist</span> <span class='assign token'>=</span> <span class='Plist4r constant id'>Plist4r</span><span class='dot token'>.</span><span class='new identifier id'>new</span>
+    <span class='self self kw'>self</span><span class='dot token'>.</span><span class='send identifier id'>send</span> <span class='dstring node'>&quot;gen_#{pdt}&quot;</span>
+    <span class='@plists ivar id'>@plists</span><span class='lbrack token'>[</span><span class='pdt identifier id'>pdt</span><span class='rbrack token'>]</span> <span class='assign token'>=</span> <span class='@plist ivar id'>@plist</span>
+  <span class='end end kw'>end</span>
+  <span class='comment val'># puts @plists.keys.inspect</span>
+  
+  <span class='@plist_1024 ivar id'>@plist_1024</span> <span class='assign token'>=</span> <span class='gen_plist_1024 identifier id'>gen_plist_1024</span>
+<span class='end end kw'>end</span>
+</pre>
+    </td>
+  </tr>
+</table>
+</div>
+
+  
+</div>
+<div id="method_missing_details" class="method_details_list">
+  <h2>Dynamic Method Handling</h2>
+  <p class="notice this">
+    This class handles dynamic methods through the <tt>method_missing</tt> method
+    
+  </p>
+  
+    <div class="method_details first" id="method_missing-instance_method">
+  <p class="signature first"">
+  
+    - (<tt><a href="../../../Object.html" target="_self" title="Object (class)">Object</a></tt>) <strong>method_missing</strong>(meth, *args, &amp;blk) 
+  
+
+  
+</p><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+28
+29
+30</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/plist4r/backend/test/data.rb', line 28</span>
+
+<span class='def def kw'>def</span> <span class='method_missing identifier id'>method_missing</span> <span class='meth identifier id'>meth</span><span class='comma token'>,</span> <span class='mult op'>*</span><span class='args identifier id'>args</span><span class='comma token'>,</span> <span class='bitand op'>&amp;</span><span class='blk identifier id'>blk</span>
+  <span class='@plists ivar id'>@plists</span><span class='lbrack token'>[</span><span class='meth identifier id'>meth</span><span class='rbrack token'>]</span> <span class='if if_mod kw'>if</span> <span class='PlistDataTypes constant id'>PlistDataTypes</span><span class='dot token'>.</span><span class='include? fid id'>include?</span><span class='lparen token'>(</span><span class='meth identifier id'>meth</span><span class='rparen token'>)</span>
+<span class='end end kw'>end</span>
+</pre>
+    </td>
+  </tr>
+</table>
+</div>
+
+  
+</div>
+
+  <div id="instance_method_details" class="method_details_list">
+    <h2>Instance Method Details</h2>
+    
+    
+      <div class="method_details first" id="gen_array-instance_method">
+  <p class="signature first"">
+  
+    - (<tt><a href="../../../Object.html" target="_self" title="Object (class)">Object</a></tt>) <strong>gen_array</strong> 
+  
+
+  
+</p><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+86
+87
+88
+89
+90
+91
+92
+93
+94</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/plist4r/backend/test/data.rb', line 86</span>
+
+<span class='def def kw'>def</span> <span class='gen_array identifier id'>gen_array</span>
+  <span class='lparen token'>(</span><span class='integer val'>0</span><span class='dot2 op'>..</span><span class='integer val'>25</span><span class='rparen token'>)</span><span class='dot token'>.</span><span class='each identifier id'>each</span> <span class='do do kw'>do</span> <span class='bitor op'>|</span><span class='i identifier id'>i</span><span class='bitor op'>|</span>
+    <span class='a identifier id'>a</span> <span class='assign token'>=</span> <span class='lbrack token'>[</span><span class='rbrack token'>]</span>
+    <span class='lparen token'>(</span><span class='integer val'>0</span><span class='dot2 op'>..</span><span class='i identifier id'>i</span><span class='rparen token'>)</span><span class='dot token'>.</span><span class='each identifier id'>each</span> <span class='do do kw'>do</span> <span class='bitor op'>|</span><span class='j identifier id'>j</span><span class='bitor op'>|</span>
+      <span class='a identifier id'>a</span> <span class='lshft op'>&lt;&lt;</span> <span class='dstring node'>&quot;String#{(65+j).chr}&quot;</span>
+    <span class='end end kw'>end</span>
+    <span class='@plist ivar id'>@plist</span><span class='dot token'>.</span><span class='set identifier id'>set</span> <span class='dstring node'>&quot;ArrayKey#{(65+i).chr}&quot;</span><span class='comma token'>,</span> <span class='a identifier id'>a</span>
+  <span class='end end kw'>end</span>
+<span class='end end kw'>end</span>
+</pre>
+    </td>
+  </tr>
+</table>
+</div>
+
+    
+      <div class="method_details " id="gen_bool-instance_method">
+  <p class="signature "">
+  
+    - (<tt><a href="../../../Object.html" target="_self" title="Object (class)">Object</a></tt>) <strong>gen_bool</strong> 
+  
+
+  
+</p><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+40
+41
+42
+43
+44</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/plist4r/backend/test/data.rb', line 40</span>
+
+<span class='def def kw'>def</span> <span class='gen_bool identifier id'>gen_bool</span>
+  <span class='lbrack token'>[</span><span class='true true kw'>true</span><span class='comma token'>,</span><span class='false false kw'>false</span><span class='rbrack token'>]</span><span class='dot token'>.</span><span class='each identifier id'>each</span> <span class='do do kw'>do</span> <span class='bitor op'>|</span><span class='bool identifier id'>bool</span><span class='bitor op'>|</span>
+    <span class='@plist ivar id'>@plist</span><span class='dot token'>.</span><span class='set identifier id'>set</span> <span class='dstring node'>&quot;BoolKey#{bool.to_s.capitalize}&quot;</span><span class='comma token'>,</span> <span class='bool identifier id'>bool</span>
+  <span class='end end kw'>end</span>
+<span class='end end kw'>end</span>
+</pre>
+    </td>
+  </tr>
+</table>
+</div>
+
+    
+      <div class="method_details " id="gen_data-instance_method">
+  <p class="signature "">
+  
+    - (<tt><a href="../../../Object.html" target="_self" title="Object (class)">Object</a></tt>) <strong>gen_data</strong> 
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    <p>
+def gen_date_time
+</p>
+<pre class="code">
+  <span class='require identifier id'>require</span> <span class='string val'>'date'</span>
+  <span class='lparen token'>(</span><span class='integer val'>0</span><span class='dot2 op'>..</span><span class='integer val'>25</span><span class='rparen token'>)</span><span class='dot token'>.</span><span class='each identifier id'>each</span> <span class='do do kw'>do</span> <span class='bitor op'>|</span><span class='i identifier id'>i</span><span class='bitor op'>|</span>
+    <span class='@plist ivar id'>@plist</span><span class='dot token'>.</span><span class='set identifier id'>set</span> <span class='dstring node'>&quot;DateKey#{(65+i).chr}&quot;</span><span class='comma token'>,</span> <span class='DateTime constant id'>DateTime</span><span class='dot token'>.</span><span class='parse identifier id'>parse</span><span class='lparen token'>(</span><span class='dstring node'>&quot;2010-04-#{sprintf(&quot;%.2i&quot;,i+1)}T19:50:01Z&quot;</span><span class='rparen token'>)</span>
+  <span class='end end kw'>end</span>
+</pre>
+<p>
+end
+</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+78
+79
+80
+81
+82
+83
+84</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/plist4r/backend/test/data.rb', line 78</span>
+
+<span class='def def kw'>def</span> <span class='gen_data identifier id'>gen_data</span>
+  <span class='comment val'># Should be IO.new ... </span>
+  <span class='Struct constant id'>Struct</span><span class='dot token'>.</span><span class='new identifier id'>new</span><span class='lparen token'>(</span><span class='string val'>&quot;Customer&quot;</span><span class='comma token'>,</span> <span class='symbol val'>:name</span><span class='comma token'>,</span> <span class='symbol val'>:id</span><span class='rparen token'>)</span>
+  <span class='lparen token'>(</span><span class='integer val'>0</span><span class='dot2 op'>..</span><span class='integer val'>25</span><span class='rparen token'>)</span><span class='dot token'>.</span><span class='each identifier id'>each</span> <span class='do do kw'>do</span> <span class='bitor op'>|</span><span class='i identifier id'>i</span><span class='bitor op'>|</span>
+    <span class='@plist ivar id'>@plist</span><span class='dot token'>.</span><span class='set identifier id'>set</span> <span class='dstring node'>&quot;DataKey#{(65+i).chr}&quot;</span><span class='comma token'>,</span> <span class='Struct constant id'>Struct</span><span class='colon2 op'>::</span><span class='Customer constant id'>Customer</span><span class='dot token'>.</span><span class='new identifier id'>new</span><span class='lparen token'>(</span><span class='string val'>&quot;Dave&quot;</span><span class='comma token'>,</span> <span class='dstring node'>&quot;#{(65+i).chr}&quot;</span><span class='rparen token'>)</span>
+  <span class='end end kw'>end</span>
+<span class='end end kw'>end</span>
+</pre>
+    </td>
+  </tr>
+</table>
+</div>
+
+    
+      <div class="method_details " id="gen_float-instance_method">
+  <p class="signature "">
+  
+    - (<tt><a href="../../../Object.html" target="_self" title="Object (class)">Object</a></tt>) <strong>gen_float</strong> 
+  
+
+  
+</p><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+52
+53
+54
+55
+56</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/plist4r/backend/test/data.rb', line 52</span>
+
+<span class='def def kw'>def</span> <span class='gen_float identifier id'>gen_float</span>
+  <span class='lparen token'>(</span><span class='integer val'>0</span><span class='dot2 op'>..</span><span class='integer val'>100</span><span class='rparen token'>)</span><span class='dot token'>.</span><span class='each identifier id'>each</span> <span class='do do kw'>do</span> <span class='bitor op'>|</span><span class='i identifier id'>i</span><span class='bitor op'>|</span>
+    <span class='@plist ivar id'>@plist</span><span class='dot token'>.</span><span class='set identifier id'>set</span> <span class='dstring node'>&quot;RealKey#{i}&quot;</span><span class='comma token'>,</span> <span class='i identifier id'>i</span><span class='dot token'>.</span><span class='to_f identifier id'>to_f</span> <span class='div op'>/</span> <span class='integer val'>100</span>
+  <span class='end end kw'>end</span>
+<span class='end end kw'>end</span>
+</pre>
+    </td>
+  </tr>
+</table>
+</div>
+
+    
+      <div class="method_details " id="gen_hash-instance_method">
+  <p class="signature "">
+  
+    - (<tt><a href="../../../Object.html" target="_self" title="Object (class)">Object</a></tt>) <strong>gen_hash</strong> 
+  
+
+  
+</p><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+96
+97
+98
+99
+100
+101
+102
+103
+104</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/plist4r/backend/test/data.rb', line 96</span>
+
+<span class='def def kw'>def</span> <span class='gen_hash identifier id'>gen_hash</span>
+  <span class='lparen token'>(</span><span class='integer val'>0</span><span class='dot2 op'>..</span><span class='integer val'>25</span><span class='rparen token'>)</span><span class='dot token'>.</span><span class='each identifier id'>each</span> <span class='do do kw'>do</span> <span class='bitor op'>|</span><span class='i identifier id'>i</span><span class='bitor op'>|</span>
+    <span class='h identifier id'>h</span> <span class='assign token'>=</span> <span class='Plist4r constant id'>Plist4r</span><span class='colon2 op'>::</span><span class='OrderedHash constant id'>OrderedHash</span><span class='dot token'>.</span><span class='new identifier id'>new</span>
+    <span class='lparen token'>(</span><span class='integer val'>0</span><span class='dot2 op'>..</span><span class='i identifier id'>i</span><span class='rparen token'>)</span><span class='dot token'>.</span><span class='each identifier id'>each</span> <span class='do do kw'>do</span> <span class='bitor op'>|</span><span class='j identifier id'>j</span><span class='bitor op'>|</span>
+      <span class='h identifier id'>h</span><span class='lbrack token'>[</span><span class='dstring node'>&quot;String#{(65+j).chr}&quot;</span><span class='rbrack token'>]</span> <span class='assign token'>=</span> <span class='dstring node'>&quot;#{(97+j).chr}&quot;</span><span class='mult op'>*</span><span class='lparen token'>(</span><span class='j identifier id'>j</span><span class='plus op'>+</span><span class='integer val'>1</span><span class='rparen token'>)</span>
+    <span class='end end kw'>end</span>
+    <span class='@plist ivar id'>@plist</span><span class='dot token'>.</span><span class='set identifier id'>set</span> <span class='dstring node'>&quot;HashKey#{(65+i).chr}&quot;</span><span class='comma token'>,</span> <span class='h identifier id'>h</span>
+  <span class='end end kw'>end</span>
+<span class='end end kw'>end</span>
+</pre>
+    </td>
+  </tr>
+</table>
+</div>
+
+    
+      <div class="method_details " id="gen_integer-instance_method">
+  <p class="signature "">
+  
+    - (<tt><a href="../../../Object.html" target="_self" title="Object (class)">Object</a></tt>) <strong>gen_integer</strong> 
+  
+
+  
+</p><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+46
+47
+48
+49
+50</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/plist4r/backend/test/data.rb', line 46</span>
+
+<span class='def def kw'>def</span> <span class='gen_integer identifier id'>gen_integer</span>
+  <span class='lparen token'>(</span><span class='integer val'>0</span><span class='dot2 op'>..</span><span class='integer val'>9</span><span class='rparen token'>)</span><span class='dot token'>.</span><span class='each identifier id'>each</span> <span class='do do kw'>do</span> <span class='bitor op'>|</span><span class='i identifier id'>i</span><span class='bitor op'>|</span>
+    <span class='@plist ivar id'>@plist</span><span class='dot token'>.</span><span class='set identifier id'>set</span> <span class='dstring node'>&quot;IntegerKey#{(65+i).chr}&quot;</span><span class='comma token'>,</span> <span class='i identifier id'>i</span>
+  <span class='end end kw'>end</span>
+<span class='end end kw'>end</span>
+</pre>
+    </td>
+  </tr>
+</table>
+</div>
+
+    
+      <div class="method_details " id="gen_mixed-instance_method">
+  <p class="signature "">
+  
+    - (<tt><a href="../../../Object.html" target="_self" title="Object (class)">Object</a></tt>) <strong>gen_mixed</strong> 
+  
+
+  
+</p><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+106
+107
+108
+109
+110
+111
+112
+113
+114
+115
+116
+117
+118
+119
+120
+121
+122
+123
+124
+125
+126
+127
+128
+129
+130
+131
+132
+133
+134
+135
+136</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/plist4r/backend/test/data.rb', line 106</span>
+
+<span class='def def kw'>def</span> <span class='gen_mixed identifier id'>gen_mixed</span>
+  <span class='@plist ivar id'>@plist</span><span class='dot token'>.</span><span class='edit identifier id'>edit</span> <span class='do do kw'>do</span>
+    <span class='lbrack token'>[</span><span class='true true kw'>true</span><span class='comma token'>,</span><span class='false false kw'>false</span><span class='rbrack token'>]</span><span class='dot token'>.</span><span class='each identifier id'>each</span> <span class='do do kw'>do</span> <span class='bitor op'>|</span><span class='bool identifier id'>bool</span><span class='bitor op'>|</span>
+      <span class='set identifier id'>set</span> <span class='dstring node'>&quot;BoolKey#{bool.to_s.capitalize}&quot;</span><span class='comma token'>,</span> <span class='bool identifier id'>bool</span>
+    <span class='end end kw'>end</span>
+
+    <span class='lparen token'>(</span><span class='integer val'>0</span><span class='dot2 op'>..</span><span class='integer val'>9</span><span class='rparen token'>)</span><span class='dot token'>.</span><span class='each identifier id'>each</span> <span class='do do kw'>do</span> <span class='bitor op'>|</span><span class='i identifier id'>i</span><span class='bitor op'>|</span>
+      <span class='set identifier id'>set</span> <span class='dstring node'>&quot;IntegerKey#{(65+i).chr}&quot;</span><span class='comma token'>,</span> <span class='i identifier id'>i</span>
+    <span class='end end kw'>end</span>
+
+    <span class='lparen token'>(</span><span class='integer val'>0</span><span class='dot2 op'>..</span><span class='integer val'>25</span><span class='rparen token'>)</span><span class='dot token'>.</span><span class='each identifier id'>each</span> <span class='do do kw'>do</span> <span class='bitor op'>|</span><span class='i identifier id'>i</span><span class='bitor op'>|</span>
+      <span class='set identifier id'>set</span> <span class='dstring node'>&quot;StringKey#{(65+i).chr}&quot;</span><span class='comma token'>,</span> <span class='dstring node'>&quot;#{(97+i).chr}&quot;</span><span class='mult op'>*</span><span class='lparen token'>(</span><span class='i identifier id'>i</span><span class='plus op'>+</span><span class='integer val'>1</span><span class='rparen token'>)</span>
+    <span class='end end kw'>end</span>
+
+    <span class='lparen token'>(</span><span class='integer val'>0</span><span class='dot2 op'>..</span><span class='integer val'>25</span><span class='rparen token'>)</span><span class='dot token'>.</span><span class='each identifier id'>each</span> <span class='do do kw'>do</span> <span class='bitor op'>|</span><span class='i identifier id'>i</span><span class='bitor op'>|</span>
+      <span class='a identifier id'>a</span> <span class='assign token'>=</span> <span class='lbrack token'>[</span><span class='rbrack token'>]</span>
+      <span class='lparen token'>(</span><span class='integer val'>0</span><span class='dot2 op'>..</span><span class='i identifier id'>i</span><span class='rparen token'>)</span><span class='dot token'>.</span><span class='each identifier id'>each</span> <span class='do do kw'>do</span> <span class='bitor op'>|</span><span class='j identifier id'>j</span><span class='bitor op'>|</span>
+        <span class='a identifier id'>a</span> <span class='lshft op'>&lt;&lt;</span> <span class='dstring node'>&quot;String#{(65+j).chr}&quot;</span>
+      <span class='end end kw'>end</span>
+      <span class='set identifier id'>set</span> <span class='dstring node'>&quot;ArrayKey#{(65+i).chr}&quot;</span><span class='comma token'>,</span> <span class='a identifier id'>a</span>
+    <span class='end end kw'>end</span>
+
+    <span class='lparen token'>(</span><span class='integer val'>0</span><span class='dot2 op'>..</span><span class='integer val'>25</span><span class='rparen token'>)</span><span class='dot token'>.</span><span class='each identifier id'>each</span> <span class='do do kw'>do</span> <span class='bitor op'>|</span><span class='i identifier id'>i</span><span class='bitor op'>|</span>
+      <span class='h identifier id'>h</span> <span class='assign token'>=</span> <span class='Plist4r constant id'>Plist4r</span><span class='colon2 op'>::</span><span class='OrderedHash constant id'>OrderedHash</span><span class='dot token'>.</span><span class='new identifier id'>new</span>
+      <span class='lparen token'>(</span><span class='integer val'>0</span><span class='dot2 op'>..</span><span class='i identifier id'>i</span><span class='rparen token'>)</span><span class='dot token'>.</span><span class='each identifier id'>each</span> <span class='do do kw'>do</span> <span class='bitor op'>|</span><span class='j identifier id'>j</span><span class='bitor op'>|</span>
+        <span class='h identifier id'>h</span><span class='lbrack token'>[</span><span class='dstring node'>&quot;String#{(65+j).chr}&quot;</span><span class='rbrack token'>]</span> <span class='assign token'>=</span> <span class='dstring node'>&quot;#{(97+j).chr}&quot;</span><span class='mult op'>*</span><span class='lparen token'>(</span><span class='j identifier id'>j</span><span class='plus op'>+</span><span class='integer val'>1</span><span class='rparen token'>)</span>
+      <span class='end end kw'>end</span>
+      <span class='set identifier id'>set</span> <span class='dstring node'>&quot;HashKey#{(65+i).chr}&quot;</span><span class='comma token'>,</span> <span class='h identifier id'>h</span>
+    <span class='end end kw'>end</span>
+  <span class='end end kw'>end</span>
+<span class='end end kw'>end</span>
+</pre>
+    </td>
+  </tr>
+</table>
+</div>
+
+    
+      <div class="method_details " id="gen_plist_1024-instance_method">
+  <p class="signature "">
+  
+    - (<tt><a href="../../../Object.html" target="_self" title="Object (class)">Object</a></tt>) <strong>gen_plist_1024</strong> 
+  
+
+  
+</p><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+138
+139
+140
+141
+142
+143
+144
+145
+146
+147
+148
+149
+150
+151
+152
+153
+154
+155
+156
+157
+158
+159
+160
+161
+162
+163
+164
+165
+166
+167
+168
+169</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/plist4r/backend/test/data.rb', line 138</span>
+
+<span class='def def kw'>def</span> <span class='gen_plist_1024 identifier id'>gen_plist_1024</span>
+  <span class='@plist_1024 ivar id'>@plist_1024</span> <span class='opasgn op'>||=</span> <span class='Plist4r constant id'>Plist4r</span><span class='dot token'>.</span><span class='new identifier id'>new</span> <span class='do do kw'>do</span>
+    <span class='coarse_multiplier identifier id'>coarse_multiplier</span> <span class='assign token'>=</span> <span class='integer val'>18</span>
+    <span class='lparen token'>(</span><span class='integer val'>0</span><span class='dot2 op'>..</span><span class='coarse_multiplier identifier id'>coarse_multiplier</span><span class='rparen token'>)</span><span class='dot token'>.</span><span class='each identifier id'>each</span> <span class='do do kw'>do</span> <span class='bitor op'>|</span><span class='i identifier id'>i</span><span class='bitor op'>|</span>
+
+      <span class='a identifier id'>a</span> <span class='assign token'>=</span> <span class='lbrack token'>[</span><span class='rbrack token'>]</span>
+      <span class='lparen token'>(</span><span class='integer val'>0</span><span class='dot2 op'>..</span><span class='integer val'>25</span><span class='rparen token'>)</span><span class='dot token'>.</span><span class='each identifier id'>each</span> <span class='do do kw'>do</span> <span class='bitor op'>|</span><span class='j identifier id'>j</span><span class='bitor op'>|</span>
+        <span class='a identifier id'>a</span> <span class='lshft op'>&lt;&lt;</span> <span class='dstring node'>&quot;String#{(65+j).chr}&quot;</span>
+      <span class='end end kw'>end</span>
+      <span class='set identifier id'>set</span> <span class='dstring node'>&quot;ArrayKey#{i}&quot;</span><span class='comma token'>,</span> <span class='a identifier id'>a</span>
+
+      <span class='h identifier id'>h</span> <span class='assign token'>=</span> <span class='Plist4r constant id'>Plist4r</span><span class='colon2 op'>::</span><span class='OrderedHash constant id'>OrderedHash</span><span class='dot token'>.</span><span class='new identifier id'>new</span>
+      <span class='lparen token'>(</span><span class='integer val'>0</span><span class='dot2 op'>..</span><span class='integer val'>25</span><span class='rparen token'>)</span><span class='dot token'>.</span><span class='each identifier id'>each</span> <span class='do do kw'>do</span> <span class='bitor op'>|</span><span class='j identifier id'>j</span><span class='bitor op'>|</span>
+        <span class='h identifier id'>h</span><span class='lbrack token'>[</span><span class='dstring node'>&quot;String#{(65+j).chr}&quot;</span><span class='rbrack token'>]</span> <span class='assign token'>=</span> <span class='dstring node'>&quot;#{(97+j).chr}&quot;</span><span class='mult op'>*</span><span class='lparen token'>(</span><span class='j identifier id'>j</span><span class='plus op'>+</span><span class='integer val'>1</span><span class='rparen token'>)</span>
+      <span class='end end kw'>end</span>
+      <span class='set identifier id'>set</span> <span class='dstring node'>&quot;HashKey#{i}&quot;</span><span class='comma token'>,</span> <span class='h identifier id'>h</span>
+    <span class='end end kw'>end</span>
+    
+    <span class='a identifier id'>a</span> <span class='assign token'>=</span> <span class='lbrack token'>[</span><span class='rbrack token'>]</span>
+    <span class='lparen token'>(</span><span class='integer val'>0</span><span class='dot2 op'>..</span><span class='integer val'>11</span><span class='rparen token'>)</span><span class='dot token'>.</span><span class='each identifier id'>each</span> <span class='do do kw'>do</span> <span class='bitor op'>|</span><span class='j identifier id'>j</span><span class='bitor op'>|</span>
+      <span class='a identifier id'>a</span> <span class='lshft op'>&lt;&lt;</span> <span class='dstring node'>&quot;String#{(65+j).chr}&quot;</span>
+    <span class='end end kw'>end</span>
+    <span class='set identifier id'>set</span> <span class='string val'>&quot;ArrayKeyPad1&quot;</span><span class='comma token'>,</span> <span class='a identifier id'>a</span>
+    
+    <span class='a identifier id'>a</span> <span class='assign token'>=</span> <span class='lbrack token'>[</span><span class='rbrack token'>]</span>
+    <span class='lparen token'>(</span><span class='integer val'>0</span><span class='dot2 op'>..</span><span class='integer val'>23</span><span class='rparen token'>)</span><span class='dot token'>.</span><span class='each identifier id'>each</span> <span class='do do kw'>do</span> <span class='bitor op'>|</span><span class='j identifier id'>j</span><span class='bitor op'>|</span>
+      <span class='a identifier id'>a</span> <span class='lshft op'>&lt;&lt;</span> <span class='dstring node'>&quot;String#{(65+j).chr}&quot;</span>
+    <span class='end end kw'>end</span>
+    <span class='set identifier id'>set</span> <span class='string val'>&quot;ArrayKeyPad2&quot;</span><span class='comma token'>,</span> <span class='a identifier id'>a</span>
+  <span class='end end kw'>end</span>
+  <span class='@plist_1024 ivar id'>@plist_1024</span>
+<span class='end end kw'>end</span>
+</pre>
+    </td>
+  </tr>
+</table>
+</div>
+
+    
+      <div class="method_details " id="gen_string-instance_method">
+  <p class="signature "">
+  
+    - (<tt><a href="../../../Object.html" target="_self" title="Object (class)">Object</a></tt>) <strong>gen_string</strong> 
+  
+
+  
+</p><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+58
+59
+60
+61
+62</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/plist4r/backend/test/data.rb', line 58</span>
+
+<span class='def def kw'>def</span> <span class='gen_string identifier id'>gen_string</span>
+  <span class='lparen token'>(</span><span class='integer val'>0</span><span class='dot2 op'>..</span><span class='integer val'>25</span><span class='rparen token'>)</span><span class='dot token'>.</span><span class='each identifier id'>each</span> <span class='do do kw'>do</span> <span class='bitor op'>|</span><span class='i identifier id'>i</span><span class='bitor op'>|</span>
+    <span class='@plist ivar id'>@plist</span><span class='dot token'>.</span><span class='set identifier id'>set</span> <span class='dstring node'>&quot;StringKey#{(65+i).chr}&quot;</span><span class='comma token'>,</span> <span class='dstring node'>&quot;#{(97+i).chr}&quot;</span><span class='mult op'>*</span><span class='lparen token'>(</span><span class='i identifier id'>i</span><span class='plus op'>+</span><span class='integer val'>1</span><span class='rparen token'>)</span>
+  <span class='end end kw'>end</span>
+<span class='end end kw'>end</span>
+</pre>
+    </td>
+  </tr>
+</table>
+</div>
+
+    
+      <div class="method_details " id="gen_time-instance_method">
+  <p class="signature "">
+  
+    - (<tt><a href="../../../Object.html" target="_self" title="Object (class)">Object</a></tt>) <strong>gen_time</strong> 
+  
+
+  
+</p><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+64
+65
+66
+67
+68
+69</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/plist4r/backend/test/data.rb', line 64</span>
+
+<span class='def def kw'>def</span> <span class='gen_time identifier id'>gen_time</span>
+  <span class='require identifier id'>require</span> <span class='string val'>'date'</span>
+  <span class='lparen token'>(</span><span class='integer val'>0</span><span class='dot2 op'>..</span><span class='integer val'>25</span><span class='rparen token'>)</span><span class='dot token'>.</span><span class='each identifier id'>each</span> <span class='do do kw'>do</span> <span class='bitor op'>|</span><span class='i identifier id'>i</span><span class='bitor op'>|</span>
+    <span class='@plist ivar id'>@plist</span><span class='dot token'>.</span><span class='set identifier id'>set</span> <span class='dstring node'>&quot;DateKey#{(65+i).chr}&quot;</span><span class='comma token'>,</span> <span class='Time constant id'>Time</span><span class='dot token'>.</span><span class='parse identifier id'>parse</span><span class='lparen token'>(</span><span class='dstring node'>&quot;2010-04-#{sprintf(&quot;%.2i&quot;,i+1)}T19:50:01Z&quot;</span><span class='rparen token'>)</span>
+  <span class='end end kw'>end</span>
+<span class='end end kw'>end</span>
+</pre>
+    </td>
+  </tr>
+</table>
+</div>
+
+    
+      <div class="method_details " id="plist_1024-instance_method">
+  <p class="signature "">
+  
+    - (<tt><a href="../../../Object.html" target="_self" title="Object (class)">Object</a></tt>) <strong>plist_1024</strong> 
+  
+
+  
+</p><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+36
+37
+38</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/plist4r/backend/test/data.rb', line 36</span>
+
+<span class='def def kw'>def</span> <span class='plist_1024 identifier id'>plist_1024</span>
+  <span class='@plist_1024 ivar id'>@plist_1024</span>
+<span class='end end kw'>end</span>
+</pre>
+    </td>
+  </tr>
+</table>
+</div>
+
+    
+      <div class="method_details " id="plists-instance_method">
+  <p class="signature "">
+  
+    - (<tt><a href="../../../Object.html" target="_self" title="Object (class)">Object</a></tt>) <strong>plists</strong> 
+  
+
+  
+</p><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+32
+33
+34</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/plist4r/backend/test/data.rb', line 32</span>
+
+<span class='def def kw'>def</span> <span class='plists identifier id'>plists</span>
+  <span class='@plists ivar id'>@plists</span>
+<span class='end end kw'>end</span>
+</pre>
+    </td>
+  </tr>
+</table>
+</div>
+
+    
+  </div>
+
+</div>
+    
+    <div id="footer">
+  Generated on Tue Jun 29 16:36:16 2010 by 
+  <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool">yard</a>
+  0.5.4  and the 
+  <a href="http://github.com/dreamcat4/yard-slipstream">yard-slipstream</a> plugin
+	(ruby-1.8.7).
+</div>
+
+  </body>
+</html>

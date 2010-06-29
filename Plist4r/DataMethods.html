@@ -1,0 +1,764 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+  <head>
+    <meta name="Content-Type" content="text/html; charset=utf-8" />
+<title>Module: Plist4r::DataMethods</title>
+<link rel="stylesheet" href="../css/style.css" type="text/css" media="screen" charset="utf-8" />
+<link rel="stylesheet" href="../css/common.css" type="text/css" media="screen" charset="utf-8" />
+<link rel="stylesheet" href="../css/custom.css" type="text/css" media="screen" charset="utf-8" />
+
+<script type="text/javascript" charset="utf-8">
+  relpath = '..';
+  if (relpath != '') relpath += '/';
+</script>
+<base id="base_target" target="_top" />
+<script type="text/javascript" charset="utf-8" src="../js/jquery.js"></script>
+<script type="text/javascript" charset="utf-8" src="../js/autocomplete.js"></script>
+<script type="text/javascript" charset="utf-8" src="../js/app.js"></script>
+<script type="text/javascript" charset="utf-8" src="../js/live.js"></script>
+
+  </head>
+  <body>
+    <script type="text/javascript" charset="utf-8">
+      if (window.top.frames.main) document.body.className = 'frames';
+    </script>
+    
+    <div id="header">
+      <div id="menu">
+  
+		
+			<a href="../object_index.html" target="_self" title="Index (D)">Index (D)</a>
+		 &raquo;
+    <span class='title'><a href="../Plist4r.html" target="_self" title="Plist4r (module)">Plist4r</a></span>
+     &raquo; 
+    <span class="title">DataMethods</span>
+  
+  
+  <div class="noframes">
+    <span class="title"></span>
+    <a id="frames_link" class="link_disabled">Frames</a> | 
+    <a target="_top" id="noframes_link" class="link_disabled">No Frames</a>
+    <span class="title"></span>
+  </div>
+</div>
+
+      <div id="search2">
+  
+  
+  <div class="search2_center">
+    <form class="search2" onsubmit="return false;" action="">
+      <input name="q" type="search" placeholder="Search" id="search_box2" size="30" value="" />
+    </form>
+  </div>
+  <script type="text/javascript" charset="utf-8"> 
+    $('#search_box2').focus(function(){
+      var search_index = relpath + 'search_index.json';
+      jQuery.getJSON(search_index, go_data);
+
+      function go_data(adata) {
+        $('#search_box2').autocomplete(adata, {
+          width: 300,
+          matchContains: true,
+          formatItem: function(item) {
+            return item.text;
+          }
+        }).result(function(event, item) {
+					if (window.location.search) {
+	          window.location.href = relpath + $(item.href_tag).attr("href");
+					} else {
+	          location.href = relpath + $(item.href_tag).attr("href");
+					}
+        });
+      }
+    });
+  </script> 
+</div>
+
+      <div class="clear"></div>
+    </div>
+    
+    <iframe id="search_frame"></iframe>
+    
+    <div id="content"><h1>Module: Plist4r::DataMethods 
+  
+  
+</h1>
+
+<div id="info_box">
+  <dl class="box">
+    
+      
+    
+      
+    
+  
+    <dt class="r1">Included in:</dt>
+    <dd class="r1"><a href="ArrayDict.html" target="_self" title="Plist4r::ArrayDict (class)">ArrayDict</a>, <a href="PlistType.html" target="_self" title="Plist4r::PlistType (class)">PlistType</a></dd>
+    
+  
+    <dt class="r2 last">Defined in:</dt>
+		<dd class="r2 last">
+  		
+  lib/plist4r/mixin/data_methods.rb
+
+
+		</dd>
+  </dl>
+</div>
+<div class="clear"></div>
+
+
+	<h3 class="inherited">Instance Methods</h3>
+	    <ul id="methods_ribbon">
+	    
+	    
+	      <li class="r1"><a href="#method_missing-instance_method" target="_self" title="Plist4r::DataMethods#method_missing (method)">method_missing</a></li>
+	      
+	    
+	      <li class="r2"><a href="#set-instance_method" target="_self" title="Plist4r::DataMethods#set (method)">set</a></li>
+	      
+	    
+	      <li class="r1"><a href="#set_or_return-instance_method" target="_self" title="Plist4r::DataMethods#set_or_return (method)">set_or_return</a></li>
+	      
+	    
+	      <li class="r2"><a href="#validate_value-instance_method" target="_self" title="Plist4r::DataMethods#validate_value (method)">validate_value</a></li>
+	      
+	    
+	      <li class="r1"><a href="#value_of-instance_method" target="_self" title="Plist4r::DataMethods#value_of (method)">value_of</a></li>
+	      
+	    
+	    </ul>
+
+
+
+  <h2>Constant Summary</h2>
+  
+    <dl class="constants">
+      
+        <dt id="ClassesForKeyType-constant" class="">ClassesForKeyType =
+          <div class="docstring">
+  <div class="discussion">
+    <p>
+Return those Class constants which the value of a Plist Key must conform
+to. This is class-based data validation.
+</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+</div>
+        </dt>
+        <dd><pre class="code"><span class='lbrace token'>{</span>
+  <span class='symbol val'>:string</span> <span class='assign token'>=</span><span class='gt op'>&gt;</span> <span class='lbrack token'>[</span><span class='String constant id'>String</span><span class='rbrack token'>]</span><span class='comma token'>,</span> 
+  <span class='symbol val'>:bool</span> <span class='assign token'>=</span><span class='gt op'>&gt;</span> <span class='lbrack token'>[</span><span class='TrueClass constant id'>TrueClass</span><span class='comma token'>,</span><span class='FalseClass constant id'>FalseClass</span><span class='rbrack token'>]</span><span class='comma token'>,</span>
+  <span class='symbol val'>:integer</span> <span class='assign token'>=</span><span class='gt op'>&gt;</span> <span class='lbrack token'>[</span><span class='Fixnum constant id'>Fixnum</span><span class='rbrack token'>]</span><span class='comma token'>,</span> 
+  <span class='symbol val'>:array_of_strings</span> <span class='assign token'>=</span><span class='gt op'>&gt;</span> <span class='lbrack token'>[</span><span class='Array constant id'>Array</span><span class='rbrack token'>]</span><span class='comma token'>,</span>
+  <span class='symbol val'>:hash_of_bools</span> <span class='assign token'>=</span><span class='gt op'>&gt;</span> <span class='lbrack token'>[</span><span class='Hash constant id'>Hash</span><span class='rbrack token'>]</span><span class='comma token'>,</span>
+  <span class='symbol val'>:hash</span> <span class='assign token'>=</span><span class='gt op'>&gt;</span> <span class='lbrack token'>[</span><span class='Hash constant id'>Hash</span><span class='rbrack token'>]</span><span class='comma token'>,</span>
+  <span class='symbol val'>:bool_or_string_or_array_of_strings</span> <span class='assign token'>=</span><span class='gt op'>&gt;</span> <span class='lbrack token'>[</span><span class='TrueClass constant id'>TrueClass</span><span class='comma token'>,</span><span class='FalseClass constant id'>FalseClass</span><span class='comma token'>,</span><span class='String constant id'>String</span><span class='comma token'>,</span><span class='Array constant id'>Array</span><span class='rbrack token'>]</span>
+<span class='rbrace token'>}</span>
+</pre></dd>
+      
+        <dt id="ValidKeys-constant" class="">ValidKeys =
+          <div class="docstring">
+  <div class="discussion">
+    <p>
+A Hash Array of the supported plist keys for this type. These are only
+those plist keys recognized as belonging to a specific plist datatype. Used
+in validation, part of DataMethods. We usually overload this method in
+subclasses. To see how to use these Plist Keys, go to <a href="../file.PlistKeyNames.html" target="_self" title="PlistKeyNames">PlistKeyNames</a>
+</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+  <div class="examples">
+    <h3>Examples:</h3>
+    
+      <h4><div class='inline'></div></h4>
+      <pre class="example code"><span class='class class kw'>class</span> <span class='Plist4r constant id'>Plist4r</span><span class='colon2 op'>::</span><span class='PlistType constant id'>PlistType</span><span class='colon2 op'>::</span><span class='MyPlistType constant id'>MyPlistType</span> <span class='lt op'>&lt;</span> <span class='PlistType constant id'>PlistType</span>
+  <span class='ValidKeys constant id'>ValidKeys</span> <span class='assign token'>=</span>
+  <span class='lbrace token'>{</span>
+     <span class='symbol val'>:string</span> <span class='assign token'>=</span><span class='gt op'>&gt;</span> <span class='dstring node'>%w[PlistKeyS1 PlistKeyS2 ...]</span><span class='comma token'>,</span>
+     <span class='symbol val'>:bool</span> <span class='assign token'>=</span><span class='gt op'>&gt;</span> <span class='dstring node'>%w[PlistKeyB1 PlistKeyB2 ...]</span><span class='comma token'>,</span>
+     <span class='symbol val'>:integer</span> <span class='assign token'>=</span><span class='gt op'>&gt;</span> <span class='dstring node'>%w[PlistKeyI1 PlistKeyI2 ...]</span><span class='comma token'>,</span>
+     <span class='symbol val'>:method_defined</span> <span class='assign token'>=</span><span class='gt op'>&gt;</span> <span class='dstring node'>%w[CustomPlistKey1 CustomPlistKey2 ...]</span>
+  <span class='rbrace token'>}</span>
+<span class='end end kw'>end</span>
+
+<span class='plist identifier id'>plist</span><span class='dot token'>.</span><span class='plist_type identifier id'>plist_type</span> <span class='symbol val'>:my_plist_type</span>
+<span class='plist identifier id'>plist</span><span class='dot token'>.</span><span class='plist_key_s1 identifier id'>plist_key_s1</span> <span class='string val'>&quot;some string&quot;</span>
+<span class='plist identifier id'>plist</span><span class='dot token'>.</span><span class='plist_key_b1 identifier id'>plist_key_b1</span> <span class='true true kw'>true</span>
+<span class='plist identifier id'>plist</span><span class='dot token'>.</span><span class='plist_key_i1 identifier id'>plist_key_i1</span> <span class='integer val'>0</span><span class='integer val'>8</span>
+<span class='plist identifier id'>plist</span><span class='dot token'>.</span><span class='custom_plist_key1 identifier id'>custom_plist_key1</span> <span class='MyClass constant id'>MyClass</span><span class='dot token'>.</span><span class='new identifier id'>new</span><span class='lparen token'>(</span><span class='opts identifier id'>opts</span><span class='rparen token'>)</span>
+</pre>
+    
+  </div>
+
+  <h3>See Also:</h3>
+  <ul class="see">
+    
+      <li><a href="#ClassesForKeyType-constant" target="_self" title="Plist4r::DataMethods::ClassesForKeyType (constant)">ClassesForKeyType</a></li>
+    
+  </ul>
+
+</div>
+        </dt>
+        <dd><pre class="code"><span class='lbrace token'>{</span><span class='rbrace token'>}</span>
+</pre></dd>
+      
+    </dl>
+  
+
+
+<div id="method_missing_details" class="method_details_list">
+  <h2>Dynamic Method Handling</h2>
+  <p class="notice this">
+    This class handles dynamic methods through the <tt>method_missing</tt> method
+    
+  </p>
+  
+    <div class="method_details first" id="method_missing-instance_method">
+  <p class="signature first"">
+  
+    - (<tt><a href="../Object.html" target="_self" title="Object (class)">Object</a></tt>) <strong>method_missing</strong>(method_symbol, *args, &amp;blk) 
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    <p>
+Call <tt><a href="#set_or_return-instance_method" target="_self" title="Plist4r::DataMethods#set_or_return (method)">#set_or_return</a></tt> with the appropriate arguments. If
+<tt><a href="Plist.html#strict_keys-instance_method" target="_self" title="Plist4r::Plist#strict_keys (method)">Plist4r::Plist#strict_keys</a></tt> is enabled, then raise an error on any
+unrecognised Plist Keys.
+</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+45
+46
+47
+48
+49
+50
+51
+52
+53
+54
+55
+56
+57
+58
+59
+60
+61
+62
+63
+64</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/plist4r/mixin/data_methods.rb', line 45</span>
+
+<span class='def def kw'>def</span> <span class='method_missing identifier id'>method_missing</span> <span class='method_symbol identifier id'>method_symbol</span><span class='comma token'>,</span> <span class='mult op'>*</span><span class='args identifier id'>args</span><span class='comma token'>,</span> <span class='bitand op'>&amp;</span><span class='blk identifier id'>blk</span>
+  <span class='comment val'># puts &quot;method_missing: #{method_symbol.inspect}, args: #{args.inspect}&quot;</span>
+  <span class='comment val'># puts &quot;@hash = #{@hash.inspect}&quot;</span>
+  <span class='ValidKeys constant id'>ValidKeys</span><span class='dot token'>.</span><span class='each identifier id'>each</span> <span class='do do kw'>do</span> <span class='bitor op'>|</span><span class='key_type identifier id'>key_type</span><span class='comma token'>,</span> <span class='valid_keys_of_those_type identifier id'>valid_keys_of_those_type</span><span class='bitor op'>|</span>
+    <span class='if if kw'>if</span> <span class='valid_keys_of_those_type identifier id'>valid_keys_of_those_type</span><span class='dot token'>.</span><span class='include? fid id'>include?</span><span class='lparen token'>(</span><span class='method_symbol identifier id'>method_symbol</span><span class='dot token'>.</span><span class='to_s identifier id'>to_s</span><span class='dot token'>.</span><span class='camelcase identifier id'>camelcase</span><span class='rparen token'>)</span>
+      <span class='puts identifier id'>puts</span> <span class='dstring node'>&quot;key_type = #{key_type}, method_symbol.to_s.camelcase = #{method_symbol.to_s.camelcase}, args = #{args.inspect}&quot;</span>
+      <span class='comment val'># return eval(&quot;set_or_return key_type, method_symbol.to_s.camelcase, *args, &amp;blk&quot;)</span>
+      <span class='return return kw'>return</span> <span class='set_or_return identifier id'>set_or_return</span> <span class='key_type identifier id'>key_type</span><span class='comma token'>,</span> <span class='method_symbol identifier id'>method_symbol</span><span class='dot token'>.</span><span class='to_s identifier id'>to_s</span><span class='dot token'>.</span><span class='camelcase identifier id'>camelcase</span><span class='comma token'>,</span> <span class='mult op'>*</span><span class='args identifier id'>args</span><span class='comma token'>,</span> <span class='bitand op'>&amp;</span><span class='blk identifier id'>blk</span>
+    <span class='end end kw'>end</span>
+  <span class='end end kw'>end</span>
+  <span class='comment val'># puts @plist.inspect</span>
+  <span class='unless unless kw'>unless</span> <span class='@plist ivar id'>@plist</span><span class='dot token'>.</span><span class='strict_keys identifier id'>strict_keys</span>
+    <span class='key_type identifier id'>key_type</span> <span class='assign token'>=</span> <span class='nil nil kw'>nil</span>
+    <span class='comment val'># return eval(&quot;set_or_return key_type, method_symbol.to_s.camelcase, *args, &amp;blk&quot;)</span>
+    <span class='return return kw'>return</span> <span class='set_or_return identifier id'>set_or_return</span> <span class='key_type identifier id'>key_type</span><span class='comma token'>,</span> <span class='method_symbol identifier id'>method_symbol</span><span class='dot token'>.</span><span class='to_s identifier id'>to_s</span><span class='dot token'>.</span><span class='camelcase identifier id'>camelcase</span><span class='comma token'>,</span> <span class='mult op'>*</span><span class='args identifier id'>args</span><span class='comma token'>,</span> <span class='bitand op'>&amp;</span><span class='blk identifier id'>blk</span>
+  <span class='else else kw'>else</span>
+    <span class='raise identifier id'>raise</span> <span class='dstring node'>&quot;Unrecognized key for class: #{self.class.inspect}. Tried to set_or_return #{method_symbol.inspect}, with: #{args.inspect}&quot;</span>
+  <span class='end end kw'>end</span>
+  <span class='comment val'># puts &quot;bob&quot;</span>
+<span class='end end kw'>end</span>
+</pre>
+    </td>
+  </tr>
+</table>
+</div>
+
+  
+</div>
+
+  <div id="instance_method_details" class="method_details_list">
+    <h2>Instance Method Details</h2>
+    
+    
+      <div class="method_details first" id="set-instance_method">
+  <p class="signature first"">
+  
+    - (<tt><a href="../Object.html" target="_self" title="Object (class)">Object</a></tt>) <strong>set</strong>(key, value) 
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    <p>
+Set a plist key to a specific value
+</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+  <div class="examples">
+    <h3>Examples:</h3>
+    
+      <h4><div class='inline'></div></h4>
+      <pre class="example code"><span class='plist identifier id'>plist</span><span class='dot token'>.</span><span class='set identifier id'>set</span> <span class='string val'>&quot;CFBundleIdentifier&quot;</span><span class='comma token'>,</span> <span class='string val'>&quot;com.apple.myapp&quot;</span>
+</pre>
+    
+  </div>
+<h3>Parameters:</h3>
+<ul class="param">
+  
+    <li>
+      
+        <span class='type'>(<tt><a href="../String.html" target="_self" title="String (class)">String</a></tt>)</span>
+      
+      
+        <span class='name'>The</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'><p>
+Plist key, as-is
+</p>
+</div>
+      
+    </li>
+  
+    <li>
+      
+        <span class='type'>(<tt>Hash</tt>, <tt><a href="../String.html" target="_self" title="String (class)">String</a></tt>, <tt><a href="../Array.html" target="_self" title="Array (class)">Array</a></tt>, <tt>etc</tt>)</span>
+      
+      
+        <span class='name'>valueArubyobject</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'><p>
+to set as the value of the plist key
+</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+  <h3>See Also:</h3>
+  <ul class="see">
+    
+      <li><a href="#set_or_return-instance_method" target="_self" title="Plist4r::DataMethods#set_or_return (method)">#set_or_return</a></li>
+    
+  </ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+104
+105
+106</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/plist4r/mixin/data_methods.rb', line 104</span>
+
+<span class='def def kw'>def</span> <span class='set identifier id'>set</span> <span class='key identifier id'>key</span><span class='comma token'>,</span> <span class='value identifier id'>value</span>
+  <span class='set_or_return identifier id'>set_or_return</span> <span class='nil nil kw'>nil</span><span class='comma token'>,</span> <span class='key identifier id'>key</span><span class='comma token'>,</span> <span class='value identifier id'>value</span>
+<span class='end end kw'>end</span>
+</pre>
+    </td>
+  </tr>
+</table>
+</div>
+
+    
+      <div class="method_details " id="set_or_return-instance_method">
+  <p class="signature "">
+  
+    - (<tt><a href="../Object.html" target="_self" title="Object (class)">Object</a></tt>) <strong>set_or_return</strong>(key_type, key, value = nil) 
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    <p>
+Set or return a plist key, value pair
+</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+  <div class="examples">
+    <h3>Examples:</h3>
+    
+      <h4><div class='inline'></div></h4>
+      <pre class="example code"><span class='plist identifier id'>plist</span><span class='dot token'>.</span><span class='set_or_return identifier id'>set_or_return</span> <span class='symbol val'>:string</span><span class='comma token'>,</span> <span class='string val'>&quot;CFBundleIdentifier&quot;</span><span class='comma token'>,</span> <span class='string val'>&quot;com.apple.myapp&quot;</span>
+
+<span class='plist identifier id'>plist</span><span class='dot token'>.</span><span class='set_or_return identifier id'>set_or_return</span> <span class='nil nil kw'>nil</span><span class='comma token'>,</span> <span class='string val'>&quot;SomeUnknownKey&quot;</span><span class='comma token'>,</span> <span class='lbrack token'>[</span><span class='lbrack token'>[</span><span class='integer val'>0</span><span class='rbrack token'>]</span><span class='comma token'>,</span><span class='integer val'>1</span><span class='comma token'>,</span><span class='integer val'>2</span><span class='comma token'>,</span><span class='lbrace token'>{</span> <span class='integer val'>3</span> <span class='assign token'>=</span><span class='gt op'>&gt;</span> <span class='true true kw'>true</span><span class='rbrace token'>}</span><span class='rbrack token'>]</span>
+<span class='comment val'># Skips validation</span>
+</pre>
+    
+  </div>
+<h3>Parameters:</h3>
+<ul class="param">
+  
+    <li>
+      
+        <span class='type'>(<tt>Symbol</tt>, <tt>nil</tt>)</span>
+      
+      
+        <span class='name'>key_type</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'><p>
+The type of class which the value of the key must belong to. Used for
+validity check. If key_type is set to nil, then skip value data check
+</p>
+</div>
+      
+    </li>
+  
+</ul>
+<h3>Returns:</h3>
+<ul class="return">
+  
+    <li>
+      
+        <span class='type'></span>
+      
+      
+      
+      
+        
+        <div class='inline'><p>
+the key&#8217;s value
+</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+  <h3>See Also:</h3>
+  <ul class="see">
+    
+      <li><a href="#validate_value-instance_method" target="_self" title="Plist4r::DataMethods#validate_value (method)">#validate_value</a></li>
+    
+  </ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+128
+129
+130
+131
+132
+133
+134
+135
+136
+137</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/plist4r/mixin/data_methods.rb', line 128</span>
+
+<span class='def def kw'>def</span> <span class='set_or_return identifier id'>set_or_return</span> <span class='key_type identifier id'>key_type</span><span class='comma token'>,</span> <span class='key identifier id'>key</span><span class='comma token'>,</span> <span class='value identifier id'>value</span><span class='assign token'>=</span><span class='nil nil kw'>nil</span>
+  <span class='comment val'># puts &quot;#{method_name}, key_type: #{key_type.inspect}, key: #{key.inspect}, value: #{value.inspect}&quot;</span>
+  <span class='case case kw'>case</span> <span class='value identifier id'>value</span>
+  <span class='when when kw'>when</span> <span class='nil nil kw'>nil</span>
+    <span class='@orig ivar id'>@orig</span><span class='lbrack token'>[</span><span class='key identifier id'>key</span><span class='rbrack token'>]</span>
+  <span class='else else kw'>else</span>
+    <span class='validate_value identifier id'>validate_value</span> <span class='key_type identifier id'>key_type</span><span class='comma token'>,</span> <span class='key identifier id'>key</span><span class='comma token'>,</span> <span class='value identifier id'>value</span> <span class='unless unless_mod kw'>unless</span> <span class='key_type identifier id'>key_type</span> <span class='eq op'>==</span> <span class='nil nil kw'>nil</span>
+    <span class='@hash ivar id'>@hash</span><span class='lbrack token'>[</span><span class='key identifier id'>key</span><span class='rbrack token'>]</span> <span class='assign token'>=</span> <span class='value identifier id'>value</span>
+  <span class='end end kw'>end</span>
+<span class='end end kw'>end</span>
+</pre>
+    </td>
+  </tr>
+</table>
+</div>
+
+    
+      <div class="method_details " id="validate_value-instance_method">
+  <p class="signature "">
+  
+    - (<tt><a href="../Object.html" target="_self" title="Object (class)">Object</a></tt>) <strong>validate_value</strong>(key_type, key, value) 
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    <p>
+This method is called when setting a value to a plist key. (or some value
+within a nested plist sub-structure).
+</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+  <div class="examples">
+    <h3>Examples:</h3>
+    
+      <h4><div class='inline'></div></h4>
+      <pre class="example code"><span class='plist identifier id'>plist</span><span class='dot token'>.</span><span class='validate_value identifier id'>validate_value</span> <span class='symbol val'>:string</span><span class='comma token'>,</span> <span class='string val'>&quot;CFBundleIdentifier&quot;</span><span class='comma token'>,</span> <span class='string val'>&quot;com.apple.myapp&quot;</span>
+<span class='comment val'># =&gt; Okay, no error raised</span>
+<span class='plist identifier id'>plist</span><span class='dot token'>.</span><span class='validate_value identifier id'>validate_value</span> <span class='symbol val'>:string</span><span class='comma token'>,</span> <span class='string val'>&quot;CFBundleIdentifier&quot;</span><span class='comma token'>,</span> <span class='lbrack token'>[</span><span class='string val'>&quot;com.apple.myapp&quot;</span><span class='rbrack token'>]</span>
+<span class='comment val'># =&gt; Raises Class mismatch. Value is of type Array, should be String</span>
+</pre>
+    
+  </div>
+<h3>Parameters:</h3>
+<ul class="param">
+  
+    <li>
+      
+        <span class='type'>(<tt>Symbol</tt>)</span>
+      
+      
+        <span class='name'>key_type</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'><p>
+This Symbol is resolved to a class constant, by looking it up in
+<tt><a href="#ClassesForKeyType-constant" target="_self" title="Plist4r::DataMethods::ClassesForKeyType (constant)">ClassesForKeyType</a></tt>
+</p>
+</div>
+      
+    </li>
+  
+    <li>
+      
+        <span class='type'></span>
+      
+      
+        <span class='name'>value</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'><p>
+The value to validate. We just check that the value conforms to key_type.
+</p>
+</div>
+      
+    </li>
+  
+</ul>
+<h3>Raises:</h3>
+<ul class="raise">
+  
+    <li>
+      
+        <span class='type'></span>
+      
+      
+      
+      
+        
+        <div class='inline'><p>
+Class mistmatch
+</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+  <h3>See Also:</h3>
+  <ul class="see">
+    
+      <li><a href="#ClassesForKeyType-constant" target="_self" title="Plist4r::DataMethods::ClassesForKeyType (constant)">ClassesForKeyType</a></li>
+    
+  </ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+76
+77
+78
+79
+80
+81
+82
+83
+84
+85
+86
+87
+88
+89
+90
+91
+92
+93
+94
+95
+96</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/plist4r/mixin/data_methods.rb', line 76</span>
+
+<span class='def def kw'>def</span> <span class='validate_value identifier id'>validate_value</span> <span class='key_type identifier id'>key_type</span><span class='comma token'>,</span> <span class='key identifier id'>key</span><span class='comma token'>,</span> <span class='value identifier id'>value</span>
+  <span class='unless unless kw'>unless</span> <span class='ClassesForKeyType constant id'>ClassesForKeyType</span><span class='lbrack token'>[</span><span class='key_type identifier id'>key_type</span><span class='rbrack token'>]</span><span class='dot token'>.</span><span class='include? fid id'>include?</span> <span class='value identifier id'>value</span><span class='dot token'>.</span><span class='class identifier id'>class</span>
+    <span class='raise identifier id'>raise</span> <span class='dstring node'>&quot;Key: #{key}, value: #{value.inspect} is of type #{value.class}. Should be: #{ClassesForKeyType[key_type].join &quot;, &quot;}&quot;</span>
+  <span class='end end kw'>end</span>
+  <span class='case case kw'>case</span> <span class='key_type identifier id'>key_type</span>
+  <span class='when when kw'>when</span> <span class='symbol val'>:array_of_strings</span><span class='comma token'>,</span> <span class='symbol val'>:bool_or_string_or_array_of_strings</span>
+    <span class='if if kw'>if</span> <span class='value identifier id'>value</span><span class='dot token'>.</span><span class='class identifier id'>class</span> <span class='eq op'>==</span> <span class='Array constant id'>Array</span>
+      <span class='value identifier id'>value</span><span class='dot token'>.</span><span class='each_index identifier id'>each_index</span> <span class='do do kw'>do</span> <span class='bitor op'>|</span><span class='i identifier id'>i</span><span class='bitor op'>|</span>
+        <span class='unless unless kw'>unless</span> <span class='value identifier id'>value</span><span class='lbrack token'>[</span><span class='i identifier id'>i</span><span class='rbrack token'>]</span><span class='dot token'>.</span><span class='class identifier id'>class</span> <span class='eq op'>==</span> <span class='String constant id'>String</span>
+          <span class='raise identifier id'>raise</span> <span class='dstring node'>&quot;Element: #{key}[#{i}], value: #{value[i].inspect} is of type #{value[i].class}. Should be: #{ClassesForKeyType[:string].join &quot;, &quot;}&quot;</span>
+        <span class='end end kw'>end</span>
+      <span class='end end kw'>end</span>
+    <span class='end end kw'>end</span>
+  <span class='when when kw'>when</span> <span class='symbol val'>:hash_of_bools</span>
+    <span class='value identifier id'>value</span><span class='dot token'>.</span><span class='each identifier id'>each</span> <span class='do do kw'>do</span> <span class='bitor op'>|</span><span class='k identifier id'>k</span><span class='comma token'>,</span><span class='v identifier id'>v</span><span class='bitor op'>|</span>
+      <span class='unless unless kw'>unless</span> <span class='lbrack token'>[</span><span class='TrueClass constant id'>TrueClass</span><span class='comma token'>,</span><span class='FalseClass constant id'>FalseClass</span><span class='rbrack token'>]</span><span class='dot token'>.</span><span class='include? fid id'>include?</span> <span class='v identifier id'>v</span><span class='dot token'>.</span><span class='class identifier id'>class</span>
+        <span class='raise identifier id'>raise</span> <span class='dstring node'>&quot;Key: #{key}[#{k}], value: #{v.inspect} is of type #{v.class}. Should be: #{ClassesForKeyType[:bool].join &quot;, &quot;}&quot;</span>
+      <span class='end end kw'>end</span>
+    <span class='end end kw'>end</span>
+  <span class='end end kw'>end</span>
+<span class='end end kw'>end</span>
+</pre>
+    </td>
+  </tr>
+</table>
+</div>
+
+    
+      <div class="method_details " id="value_of-instance_method">
+  <p class="signature "">
+  
+    - (<tt><a href="../Object.html" target="_self" title="Object (class)">Object</a></tt>) <strong>value_of</strong>(key) 
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    <p>
+Return the value of an existing plist key
+</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+  <div class="examples">
+    <h3>Examples:</h3>
+    
+      <h4><div class='inline'></div></h4>
+      <pre class="example code"><span class='plist identifier id'>plist</span><span class='dot token'>.</span><span class='value_of identifier id'>value_of</span> <span class='string val'>&quot;CFBundleIdentifier&quot;</span>
+<span class='comment val'># =&gt; &quot;com.apple.myapp&quot;</span>
+</pre>
+    
+  </div>
+<h3>Returns:</h3>
+<ul class="return">
+  
+    <li>
+      
+        <span class='type'></span>
+      
+      
+      
+      
+        
+        <div class='inline'><p>
+The key&#8217;s current value, at the time this method was called
+</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+  <h3>See Also:</h3>
+  <ul class="see">
+    
+      <li><a href="#set_or_return-instance_method" target="_self" title="Plist4r::DataMethods#set_or_return (method)">#set_or_return</a></li>
+    
+  </ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+114
+115
+116</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/plist4r/mixin/data_methods.rb', line 114</span>
+
+<span class='def def kw'>def</span> <span class='value_of identifier id'>value_of</span> <span class='key identifier id'>key</span>
+  <span class='set_or_return identifier id'>set_or_return</span> <span class='nil nil kw'>nil</span><span class='comma token'>,</span> <span class='key identifier id'>key</span>
+<span class='end end kw'>end</span>
+</pre>
+    </td>
+  </tr>
+</table>
+</div>
+
+    
+  </div>
+
+</div>
+    
+    <div id="footer">
+  Generated on Tue Jun 29 16:36:26 2010 by 
+  <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool">yard</a>
+  0.5.4  and the 
+  <a href="http://github.com/dreamcat4/yard-slipstream">yard-slipstream</a> plugin
+	(ruby-1.8.7).
+</div>
+
+  </body>
+</html>

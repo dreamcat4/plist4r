@@ -1,0 +1,1597 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+  <head>
+    <meta name="Content-Type" content="text/html; charset=utf-8" />
+<title>Class: Plist4r::PlistType::Launchd</title>
+<link rel="stylesheet" href="../../css/style.css" type="text/css" media="screen" charset="utf-8" />
+<link rel="stylesheet" href="../../css/common.css" type="text/css" media="screen" charset="utf-8" />
+<link rel="stylesheet" href="../../css/custom.css" type="text/css" media="screen" charset="utf-8" />
+
+<script type="text/javascript" charset="utf-8">
+  relpath = '../..';
+  if (relpath != '') relpath += '/';
+</script>
+<base id="base_target" target="_top" />
+<script type="text/javascript" charset="utf-8" src="../../js/jquery.js"></script>
+<script type="text/javascript" charset="utf-8" src="../../js/autocomplete.js"></script>
+<script type="text/javascript" charset="utf-8" src="../../js/app.js"></script>
+<script type="text/javascript" charset="utf-8" src="../../js/live.js"></script>
+
+  </head>
+  <body>
+    <script type="text/javascript" charset="utf-8">
+      if (window.top.frames.main) document.body.className = 'frames';
+    </script>
+    
+    <div id="header">
+      <div id="menu">
+  
+		
+			<a href="../../object_index.html" target="_self" title="Index (L)">Index (L)</a>
+		 &raquo;
+    <span class='title'><a href="../../Plist4r.html" target="_self" title="Plist4r (module)">Plist4r</a></span> &raquo; <span class='title'><a href="../PlistType.html" target="_self" title="Plist4r::PlistType (class)">PlistType</a></span>
+     &raquo; 
+    <span class="title">Launchd</span>
+  
+  
+  <div class="noframes">
+    <span class="title"></span>
+    <a id="frames_link" class="link_disabled">Frames</a> | 
+    <a target="_top" id="noframes_link" class="link_disabled">No Frames</a>
+    <span class="title"></span>
+  </div>
+</div>
+
+      <div id="search2">
+  
+  
+  <div class="search2_center">
+    <form class="search2" onsubmit="return false;" action="">
+      <input name="q" type="search" placeholder="Search" id="search_box2" size="30" value="" />
+    </form>
+  </div>
+  <script type="text/javascript" charset="utf-8"> 
+    $('#search_box2').focus(function(){
+      var search_index = relpath + 'search_index.json';
+      jQuery.getJSON(search_index, go_data);
+
+      function go_data(adata) {
+        $('#search_box2').autocomplete(adata, {
+          width: 300,
+          matchContains: true,
+          formatItem: function(item) {
+            return item.text;
+          }
+        }).result(function(event, item) {
+					if (window.location.search) {
+	          window.location.href = relpath + $(item.href_tag).attr("href");
+					} else {
+	          location.href = relpath + $(item.href_tag).attr("href");
+					}
+        });
+      }
+    });
+  </script> 
+</div>
+
+      <div class="clear"></div>
+    </div>
+    
+    <iframe id="search_frame"></iframe>
+    
+    <div id="content"><h1>Class: Plist4r::PlistType::Launchd 
+  
+  
+</h1>
+
+<div id="info_box">
+  <dl class="box">
+    
+      
+    
+      
+    
+  
+    <dt class="r1 last">Defined in:</dt>
+		<dd class="r1 last">
+  		
+  lib/plist4r/plist_type/launchd.rb
+
+
+		</dd>
+  </dl>
+</div>
+<div class="clear"></div>
+
+<p class="children">
+   
+    
+   
+    
+			<h3 class="inherited">Classes</h3>
+	    <ul id="classes_ribbon">
+	    
+	    
+	      <li class="r1"><a href="Launchd/KeepAlive.html" target="_self" title="Plist4r::PlistType::Launchd::KeepAlive (class)">KeepAlive</a></li>
+	      
+	    
+	      <li class="r2"><a href="Launchd/MachServices.html" target="_self" title="Plist4r::PlistType::Launchd::MachServices (class)">MachServices</a></li>
+	      
+	    
+	      <li class="r1"><a href="Launchd/ResourceLimits.html" target="_self" title="Plist4r::PlistType::Launchd::ResourceLimits (class)">ResourceLimits</a></li>
+	      
+	    
+	      <li class="r2"><a href="Launchd/Sockets.html" target="_self" title="Plist4r::PlistType::Launchd::Sockets (class)">Sockets</a></li>
+	      
+	    
+	      <li class="r1"><a href="Launchd/StartCalendarInterval.html" target="_self" title="Plist4r::PlistType::Launchd::StartCalendarInterval (class)">StartCalendarInterval</a></li>
+	      
+	    
+	    </ul>
+    
+  
+</p>
+
+	<h3 class="inherited">Instance Methods</h3>
+	    <ul id="methods_ribbon">
+	    
+	    
+	      <li class="r1"><a href="#environment_variables-instance_method" target="_self" title="Plist4r::PlistType::Launchd#environment_variables (method)">environment_variables</a></li>
+	      
+	    
+	      <li class="r2"><a href="#hard_resource_limits-instance_method" target="_self" title="Plist4r::PlistType::Launchd#hard_resource_limits (method)">hard_resource_limits</a></li>
+	      
+	    
+	      <li class="r1"><a href="#inetd_compatibility-instance_method" target="_self" title="Plist4r::PlistType::Launchd#inetd_compatibility (method)">inetd_compatibility</a></li>
+	      
+	    
+	      <li class="r2"><a href="#keep_alive-instance_method" target="_self" title="Plist4r::PlistType::Launchd#keep_alive (method)">keep_alive</a></li>
+	      
+	    
+	      <li class="r1"><a href="#mach_services-instance_method" target="_self" title="Plist4r::PlistType::Launchd#mach_services (method)">mach_services</a></li>
+	      
+	    
+	      <li class="r2"><a href="#socket-instance_method" target="_self" title="Plist4r::PlistType::Launchd#socket (method)">socket</a></li>
+	      
+	    
+	      <li class="r1"><a href="#soft_resource_limits-instance_method" target="_self" title="Plist4r::PlistType::Launchd#soft_resource_limits (method)">soft_resource_limits</a></li>
+	      
+	    
+	      <li class="r2"><a href="#start_calendar_interval-instance_method" target="_self" title="Plist4r::PlistType::Launchd#start_calendar_interval (method)">start_calendar_interval</a></li>
+	      
+	    
+	    </ul>
+
+
+
+  
+  
+  
+  
+  
+  
+  
+  <h3 class="inherited">Methods inherited from <a href="../PlistType.html" target="_self" title="Plist4r::PlistType (class)"></a></h3>
+  <p class="inherited"><a href="../PlistType.html#hash-instance_method" target="_self" title="Plist4r::PlistType#hash (method)">#hash</a>, <a href="../PlistType.html#initialize-instance_method" target="_self" title="Plist4r::PlistType#initialize (method)">#initialize</a>, <a href="../PlistType.html#match_stat-class_method" target="_self" title="Plist4r::PlistType.match_stat (method)">match_stat</a>, <a href="../PlistType.html#to_s-instance_method" target="_self" title="Plist4r::PlistType#to_s (method)">#to_s</a>, <a href="../PlistType.html#to_sym-instance_method" target="_self" title="Plist4r::PlistType#to_sym (method)">#to_sym</a></p>
+
+  
+  
+  
+  
+  
+  
+  
+  <h3 class="inherited">Methods included from <a href="../DataMethods.html" target="_self" title="Plist4r::DataMethods (module)">Plist4r::DataMethods</a></h3>
+  <p class="inherited"><a href="../DataMethods.html#method_missing-instance_method" target="_self" title="Plist4r::DataMethods#method_missing (method)">#method_missing</a>, <a href="../DataMethods.html#set-instance_method" target="_self" title="Plist4r::DataMethods#set (method)">#set</a>, <a href="../DataMethods.html#set_or_return-instance_method" target="_self" title="Plist4r::DataMethods#set_or_return (method)">#set_or_return</a>, <a href="../DataMethods.html#validate_value-instance_method" target="_self" title="Plist4r::DataMethods#validate_value (method)">#validate_value</a>, <a href="../DataMethods.html#value_of-instance_method" target="_self" title="Plist4r::DataMethods#value_of (method)">#value_of</a></p>
+<h2>Overview</h2><div class="docstring">
+  <div class="discussion">
+    
+
+  </div>
+</div>
+<div class="tags">
+  <h3>Author:</h3>
+<ul class="author">
+  
+    <li>
+      
+      
+      
+      
+        
+        <div class='inline'><p>
+Dreamcat4 (dreamcat4@gmail.com)
+</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+</div>
+  <h2>Constant Summary</h2>
+  
+    <dl class="constants">
+      
+        <dt id="ValidKeys-constant" class="">ValidKeys =
+          <div class="docstring">
+  <div class="discussion">
+    <p>
+A Hash Array of the supported plist keys for this type. These are plist
+keys which belong to the PlistType for Launchd plists. Each CamelCased key
+name has a corresponding set_or_return method call. For example
+&#8220;UserName&#8221; => user_name(value). To see how to use these Plist
+Keys, go to <a href="../../file.PlistKeyNames.html" target="_self" title="PlistKeyNames">PlistKeyNames</a>
+</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+  <h3>See Also:</h3>
+  <ul class="see">
+    
+      <li><a href="../DataMethods.html" target="_self" title="Plist4r::DataMethods (module)">Plist4r::DataMethods</a></li>
+    
+  </ul>
+
+</div>
+        </dt>
+        <dd><pre class="code"><span class='lbrace token'>{</span>
+  <span class='symbol val'>:string</span>           <span class='assign token'>=</span><span class='gt op'>&gt;</span> <span class='dstring node'>%w[ Label UserName GroupName LimitLoadToSessionType Program RootDirectory \
+                           WorkingDirectory StandardInPath StandardOutPath StandardErrorPath ]</span><span class='comma token'>,</span>
+
+  <span class='symbol val'>:bool</span>             <span class='assign token'>=</span><span class='gt op'>&gt;</span> <span class='dstring node'>%w[ Disabled EnableGlobbing EnableTransactions OnDemand RunAtLoad InitGroups \
+                           StartOnMount Debug WaitForDebugger AbandonProcessGroup HopefullyExitsFirst \
+                           HopefullyExitsLast LowPriorityIO LaunchOnlyOnce ]</span><span class='comma token'>,</span>
+
+  <span class='symbol val'>:integer</span>          <span class='assign token'>=</span><span class='gt op'>&gt;</span> <span class='dstring node'>%w[ Umask TimeOut ExitTimeOut ThrottleInterval StartInterval Nice ]</span><span class='comma token'>,</span>
+
+  <span class='symbol val'>:array_of_strings</span> <span class='assign token'>=</span><span class='gt op'>&gt;</span> <span class='dstring node'>%w[ LimitLoadToHosts LimitLoadFromHosts ProgramArguments WatchPaths QueueDirectories ]</span><span class='comma token'>,</span>
+
+  <span class='symbol val'>:method_defined</span>   <span class='assign token'>=</span><span class='gt op'>&gt;</span> <span class='dstring node'>%w[ inetdCompatibility KeepAlive EnvironmentVariables StartCalendarInterval 
+                           SoftResourceLimits, HardResourceLimits MachServices Sockets ]</span>
+<span class='rbrace token'>}</span>
+</pre></dd>
+      
+    </dl>
+  
+
+
+  
+  
+  
+  
+  
+  
+  
+  
+  <h3 class="inherited">Constants included from <a href="../DataMethods.html" target="_self" title="Plist4r::DataMethods (module)">Plist4r::DataMethods</a></h3>
+  <p class="inherited"><a href="../DataMethods.html#ClassesForKeyType-constant" target="_self" title="Plist4r::DataMethods::ClassesForKeyType (constant)">ClassesForKeyType</a>, <a href="../DataMethods.html#ValidKeys-constant" target="_self" title="Plist4r::DataMethods::ValidKeys (constant)">ValidKeys</a></p>
+
+<div id="constructor_details" class="method_details_list">
+  <h2>Constructor Details</h2>
+  
+    <p class="notice">This class inherits a constructor from <a href="../PlistType.html#initialize-instance_method" target="_self" title="Plist4r::PlistType#initialize (method)">Plist4r::PlistType</a></p>
+  
+</div>
+<div id="method_missing_details" class="method_details_list">
+  <h2>Dynamic Method Handling</h2>
+  <p class="notice super">
+    This class handles dynamic methods through the <tt>method_missing</tt> method
+    
+      in the class <a href="../DataMethods.html#method_missing-instance_method" target="_self" title="Plist4r::DataMethods#method_missing (method)">Plist4r::DataMethods</a>
+    
+  </p>
+  
+</div>
+
+  <div id="instance_method_details" class="method_details_list">
+    <h2>Instance Method Details</h2>
+    
+    
+      <div class="method_details first" id="environment_variables-instance_method">
+  <p class="signature first"">
+  
+    - (<tt><a href="../../Object.html" target="_self" title="Object (class)">Object</a></tt>) <strong>environment_variables</strong>(value = nil, &amp;blk) 
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    <p>
+Set or return the plist key &#8220;EnvironmentVariables&#8220;
+</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+  <div class="examples">
+    <h3>Examples:</h3>
+    
+      <h4><div class='inline'></div></h4>
+      <pre class="example code"><span class='comment val'># Set environment variables</span>
+<span class='launchd_plist identifier id'>launchd_plist</span><span class='dot token'>.</span><span class='environment_variables identifier id'>environment_variables</span><span class='lparen token'>(</span><span class='lbrace token'>{</span> <span class='string val'>&quot;VAR1&quot;</span> <span class='assign token'>=</span><span class='gt op'>&gt;</span> <span class='string val'>&quot;VAL1&quot;</span><span class='comma token'>,</span> <span class='string val'>&quot;VAR2&quot;</span> <span class='assign token'>=</span><span class='gt op'>&gt;</span> <span class='string val'>&quot;VAL2&quot;</span> <span class='rbrace token'>}</span><span class='rparen token'>)</span>
+
+<span class='comment val'># Return environment variables</span>
+<span class='launchd_plist identifier id'>launchd_plist</span><span class='dot token'>.</span><span class='environment_variables identifier id'>environment_variables</span> <span class='assign token'>=</span><span class='gt op'>&gt;</span> <span class='lbrace token'>{</span> <span class='string val'>&quot;VAR1&quot;</span> <span class='assign token'>=</span><span class='gt op'>&gt;</span> <span class='string val'>&quot;VAL1&quot;</span><span class='comma token'>,</span> <span class='string val'>&quot;VAR2&quot;</span> <span class='assign token'>=</span><span class='gt op'>&gt;</span> <span class='string val'>&quot;VAL2&quot;</span> <span class='rbrace token'>}</span>
+</pre>
+    
+  </div>
+<h3>Parameters:</h3>
+<ul class="param">
+  
+    <li>
+      
+        <span class='type'>(<tt>Hash &lt;<a href="../../String.html" target="_self" title="String (class)">String</a>&gt;</tt>)</span>
+      
+      
+        <span class='name'>value</span>
+      
+      
+        <em class="default">(defaults to: <tt>nil</tt>)</em>
+      
+      
+        &mdash;
+        <div class='inline'><p>
+This optional key is used to specify additional environmental variables to
+be set before running the job.
+</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+143
+144
+145
+146
+147
+148
+149
+150
+151
+152
+153
+154
+155
+156
+157
+158
+159
+160
+161</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/plist4r/plist_type/launchd.rb', line 143</span>
+
+<span class='def def kw'>def</span> <span class='environment_variables identifier id'>environment_variables</span> <span class='value identifier id'>value</span><span class='assign token'>=</span><span class='nil nil kw'>nil</span><span class='comma token'>,</span> <span class='bitand op'>&amp;</span><span class='blk identifier id'>blk</span>
+  <span class='key identifier id'>key</span> <span class='assign token'>=</span> <span class='string val'>&quot;EnvironmentVariables&quot;</span>
+  <span class='case case kw'>case</span> <span class='value identifier id'>value</span>
+  <span class='when when kw'>when</span> <span class='Hash constant id'>Hash</span>
+    <span class='value identifier id'>value</span><span class='dot token'>.</span><span class='each identifier id'>each</span> <span class='do do kw'>do</span> <span class='bitor op'>|</span><span class='k identifier id'>k</span><span class='comma token'>,</span><span class='v identifier id'>v</span><span class='bitor op'>|</span>
+      <span class='unless unless kw'>unless</span> <span class='k identifier id'>k</span><span class='dot token'>.</span><span class='class identifier id'>class</span> <span class='eq op'>==</span> <span class='String constant id'>String</span>
+        <span class='raise identifier id'>raise</span> <span class='dstring node'>&quot;Invalid key: #{method_name}[#{k.inspect}]. Should be of type String&quot;</span>
+      <span class='end end kw'>end</span>
+      <span class='unless unless kw'>unless</span> <span class='v identifier id'>v</span><span class='dot token'>.</span><span class='class identifier id'>class</span> <span class='eq op'>==</span> <span class='String constant id'>String</span>
+        <span class='raise identifier id'>raise</span> <span class='dstring node'>&quot;Invalid value: #{method_name}[#{k.inspect}] = #{v.inspect}. Should be of type String&quot;</span>
+      <span class='end end kw'>end</span>
+    <span class='end end kw'>end</span>
+    <span class='@hash ivar id'>@hash</span><span class='lbrack token'>[</span><span class='key identifier id'>key</span><span class='rbrack token'>]</span> <span class='assign token'>=</span> <span class='value identifier id'>value</span>
+  <span class='when when kw'>when</span> <span class='nil nil kw'>nil</span>
+    <span class='@hash ivar id'>@hash</span><span class='lbrack token'>[</span><span class='key identifier id'>key</span><span class='rbrack token'>]</span>
+  <span class='else else kw'>else</span>
+    <span class='raise identifier id'>raise</span> <span class='dstring node'>&quot;Invalid value: #{method_name} #{value.inspect}. Should be: #{method_name} { hash_of_strings }&quot;</span>
+  <span class='end end kw'>end</span>
+<span class='end end kw'>end</span>
+</pre>
+    </td>
+  </tr>
+</table>
+</div>
+
+    
+      <div class="method_details " id="hard_resource_limits-instance_method">
+  <p class="signature "">
+  
+    - (<tt><a href="../../Object.html" target="_self" title="Object (class)">Object</a></tt>) <strong>hard_resource_limits</strong>(value = nil, &amp;blk) 
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    <p>
+Set or return the plist key &#8220;HardResourceLimits&#8220;
+</p>
+<p>
+Resource limits to be imposed on the job. These adjust variables set with
+setrlimit(2). The following keys apply:
+</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+  <div class="examples">
+    <h3>Examples:</h3>
+    
+      <h4><div class='inline'><p>
+Reference
+</p>
+</div></h4>
+      <pre class="example code"><span class='hard_resource_limits identifier id'>hard_resource_limits</span> <span class='do do kw'>do</span>
+  <span class='core identifier id'>core</span> <span class='lt op'>&lt;</span><span class='integer identifier id'>integer</span><span class='gt op'>&gt;</span>
+  <span class='comment val'># The largest size (in bytes) core file that may be created.</span>
+
+  <span class='cpu identifier id'>cpu</span> <span class='lt op'>&lt;</span><span class='integer identifier id'>integer</span><span class='gt op'>&gt;</span>
+  <span class='comment val'># The maximum amount of cpu time (in seconds) to be used by each process.</span>
+
+  <span class='data identifier id'>data</span> <span class='lt op'>&lt;</span><span class='integer identifier id'>integer</span><span class='gt op'>&gt;</span>
+  <span class='comment val'># The maximum size (in bytes) of the data segment for a process; this defines how far a </span>
+  <span class='comment val'># program may extend its break with the sbrk(2) system call.</span>
+
+  <span class='file_size identifier id'>file_size</span> <span class='lt op'>&lt;</span><span class='integer identifier id'>integer</span><span class='gt op'>&gt;</span>
+  <span class='comment val'># The largest size (in bytes) file that may be created.</span>
+
+  <span class='memory_lock identifier id'>memory_lock</span> <span class='lt op'>&lt;</span><span class='integer identifier id'>integer</span><span class='gt op'>&gt;</span>
+  <span class='comment val'># The maximum size (in bytes) which a process may lock into memory using the mlock(2) function.</span>
+
+  <span class='number_of_files identifier id'>number_of_files</span> <span class='lt op'>&lt;</span><span class='integer identifier id'>integer</span><span class='gt op'>&gt;</span>
+  <span class='comment val'># The maximum number of open files for this process.  Setting this value in a system wide </span>
+  <span class='comment val'># daemon will set the sysctl(3) kern.maxfiles (SoftResourceLimits) or kern.maxfilesperproc</span>
+  <span class='comment val'># (HardResourceLimits) value in addition to the setrlimit(2) values.</span>
+
+  <span class='number_of_processes identifier id'>number_of_processes</span> <span class='lt op'>&lt;</span><span class='integer identifier id'>integer</span><span class='gt op'>&gt;</span>
+  <span class='comment val'># The maximum number of simultaneous processes for this user id.  Setting this value in a </span>
+  <span class='comment val'># system wide daemon will set the sysctl(3) kern.maxproc (SoftResource-Limits) or </span>
+  <span class='comment val'># kern.maxprocperuid (HardResourceLimits) value in addition to the setrlimit(2) values.</span>
+
+  <span class='resident_set_size identifier id'>resident_set_size</span> <span class='lt op'>&lt;</span><span class='integer identifier id'>integer</span><span class='gt op'>&gt;</span>
+  <span class='comment val'># The maximum size (in bytes) to which a process's resident set size may grow.  This imposes </span>
+  <span class='comment val'># a limit on the amount of physical memory to be given to a process; if memory is tight, the </span>
+  <span class='comment val'># system will prefer to take memory from processes that are exceeding their declared resident </span>
+  <span class='comment val'># set size.</span>
+
+  <span class='stack identifier id'>stack</span> <span class='lt op'>&lt;</span><span class='integer identifier id'>integer</span><span class='gt op'>&gt;</span>
+  <span class='comment val'># The maximum size (in bytes) of the stack segment for a process; this defines how far a </span>
+  <span class='comment val'># program's stack segment may be extended.  Stack extension is performed automatically </span>
+  <span class='comment val'># by the system.</span>
+<span class='end end kw'>end</span>
+</pre>
+    
+      <h4><div class='inline'><p>
+Example
+</p>
+</div></h4>
+      <pre class="example code">
+<span class='comment val'># Set hard resource limits</span>
+<span class='hard_resource_limits identifier id'>hard_resource_limits</span> <span class='do do kw'>do</span>
+  <span class='NumberOfProcesses constant id'>NumberOfProcesses</span> <span class='integer val'>4</span>
+  <span class='NumberOfFiles constant id'>NumberOfFiles</span> <span class='integer val'>512</span>
+<span class='end end kw'>end</span>
+
+<span class='comment val'># Return hard resource limits</span>
+<span class='hard_resource_limits identifier id'>hard_resource_limits</span> <span class='assign token'>=</span><span class='gt op'>&gt;</span> <span class='lbrace token'>{</span> <span class='string val'>&quot;NumberOfProcesses&quot;</span> <span class='assign token'>=</span><span class='gt op'>&gt;</span> <span class='integer val'>4</span><span class='comma token'>,</span> <span class='string val'>&quot;NumberOfFiles&quot;</span> <span class='assign token'>=</span><span class='gt op'>&gt;</span> <span class='integer val'>512</span> <span class='rbrace token'>}</span>
+</pre>
+    
+  </div>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+360
+361
+362
+363
+364
+365
+366
+367
+368</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/plist4r/plist_type/launchd.rb', line 360</span>
+
+<span class='def def kw'>def</span> <span class='hard_resource_limits identifier id'>hard_resource_limits</span> <span class='value identifier id'>value</span><span class='assign token'>=</span><span class='nil nil kw'>nil</span><span class='comma token'>,</span> <span class='bitand op'>&amp;</span><span class='blk identifier id'>blk</span>
+  <span class='key identifier id'>key</span> <span class='assign token'>=</span> <span class='string val'>&quot;HardResourceLimits&quot;</span>
+  <span class='if if kw'>if</span> <span class='blk identifier id'>blk</span>
+    <span class='@hash ivar id'>@hash</span><span class='lbrack token'>[</span><span class='key identifier id'>key</span><span class='rbrack token'>]</span> <span class='opasgn op'>||=</span> <span class='colon3 op'>::</span><span class='Plist4r constant id'>Plist4r</span><span class='colon2 op'>::</span><span class='OrderedHash constant id'>OrderedHash</span><span class='dot token'>.</span><span class='new identifier id'>new</span>
+    <span class='@hash ivar id'>@hash</span><span class='lbrack token'>[</span><span class='key identifier id'>key</span><span class='rbrack token'>]</span> <span class='assign token'>=</span> <span class='colon3 op'>::</span><span class='LaunchdPlistStructs constant id'>LaunchdPlistStructs</span><span class='colon2 op'>::</span><span class='ResourceLimits constant id'>ResourceLimits</span><span class='dot token'>.</span><span class='new identifier id'>new</span><span class='lparen token'>(</span><span class='@hash ivar id'>@hash</span><span class='lbrack token'>[</span><span class='key identifier id'>key</span><span class='rbrack token'>]</span><span class='comma token'>,</span><span class='bitand op'>&amp;</span><span class='blk identifier id'>blk</span><span class='rparen token'>)</span><span class='dot token'>.</span><span class='hash identifier id'>hash</span>
+  <span class='else else kw'>else</span>
+    <span class='@hash ivar id'>@hash</span><span class='lbrack token'>[</span><span class='key identifier id'>key</span><span class='rbrack token'>]</span>
+  <span class='end end kw'>end</span>
+<span class='end end kw'>end</span>
+</pre>
+    </td>
+  </tr>
+</table>
+</div>
+
+    
+      <div class="method_details " id="inetd_compatibility-instance_method">
+  <p class="signature "">
+  
+    - (<tt><a href="../../Object.html" target="_self" title="Object (class)">Object</a></tt>) <strong>inetd_compatibility</strong>(value = nil) 
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    <p>
+Set or return the plist key &#8220;inetdCompatibility&#8220;
+</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+  <div class="examples">
+    <h3>Examples:</h3>
+    
+      <h4><div class='inline'></div></h4>
+      <pre class="example code"><span class='comment val'># set inetdCompatibility</span>
+<span class='launchd_plist identifier id'>launchd_plist</span><span class='dot token'>.</span><span class='inetd_compatibility identifier id'>inetd_compatibility</span><span class='lparen token'>(</span><span class='lbrace token'>{</span><span class='symbol val'>:wait</span> <span class='assign token'>=</span><span class='gt op'>&gt;</span> <span class='true true kw'>true</span><span class='rbrace token'>}</span><span class='rparen token'>)</span>
+
+<span class='comment val'># return inetdCompatibility</span>
+<span class='launchd_plist identifier id'>launchd_plist</span><span class='dot token'>.</span><span class='inetd_compatibility identifier id'>inetd_compatibility</span> <span class='assign token'>=</span><span class='gt op'>&gt;</span> <span class='hash identifier id'>hash</span> <span class='or or kw'>or</span> <span class='nil nil kw'>nil</span>
+</pre>
+    
+  </div>
+<h3>Parameters:</h3>
+<ul class="param">
+  
+    <li>
+      
+        <span class='type'>(<tt>Hash &lt;true,false&gt;</tt>)</span>
+      
+      
+        <span class='name'>value</span>
+      
+      
+        <em class="default">(defaults to: <tt>nil</tt>)</em>
+      
+      
+        &mdash;
+        <div class='inline'><p>
+the The presence of this key specifies that the daemon expects to be run as
+if it were launched from inetd.
+</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+  
+    
+    
+    <h3>Options Hash (<tt>value</tt>):</h3>
+    <ul class="option">
+      
+        <li>
+          <span class="type">(<tt>true</tt>, <tt>false</tt>)</span>
+          <span class="name">:wait</span>
+          <span class="default">
+            
+              &mdash; default:
+              <tt>nil</tt>
+            
+          </span>
+          &mdash;<div class='inline'><p>
+This flag corresponds to the &#8220;wait&#8221; or &#8220;nowait&#8221;
+option of inetd. If true, then the listening socket is passed via the
+standard in/out/error file descriptors. If false, then accept(2) is called
+on behalf of the job, and the result is passed via the standard
+in/out/error descriptors.
+</p>
+</div>
+        </tr>
+      
+    </ul>
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+44
+45
+46
+47
+48
+49
+50
+51
+52
+53
+54
+55
+56
+57
+58</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/plist4r/plist_type/launchd.rb', line 44</span>
+
+<span class='def def kw'>def</span> <span class='inetd_compatibility identifier id'>inetd_compatibility</span> <span class='value identifier id'>value</span><span class='assign token'>=</span><span class='nil nil kw'>nil</span>
+  <span class='key identifier id'>key</span> <span class='assign token'>=</span> <span class='string val'>&quot;inetdCompatibility&quot;</span>
+  <span class='case case kw'>case</span> <span class='value identifier id'>value</span>
+  <span class='when when kw'>when</span> <span class='Hash constant id'>Hash</span>
+    <span class='if if kw'>if</span> <span class='value identifier id'>value</span><span class='lbrack token'>[</span><span class='symbol val'>:wait</span><span class='rbrack token'>]</span>
+      <span class='@hash ivar id'>@hash</span><span class='lbrack token'>[</span><span class='key identifier id'>key</span><span class='rbrack token'>]</span> <span class='assign token'>=</span> <span class='value identifier id'>value</span><span class='lbrack token'>[</span><span class='symbol val'>:wait</span><span class='rbrack token'>]</span>
+    <span class='else else kw'>else</span>
+      <span class='raise identifier id'>raise</span> <span class='dstring node'>&quot;Invalid value: #{method_name} #{value.inspect}. Should be: #{method_name} :wait =&gt; true|false&quot;</span>
+    <span class='end end kw'>end</span>
+  <span class='when when kw'>when</span> <span class='nil nil kw'>nil</span>
+    <span class='@hash ivar id'>@hash</span><span class='lbrack token'>[</span><span class='key identifier id'>key</span><span class='rbrack token'>]</span>
+  <span class='else else kw'>else</span>
+    <span class='raise identifier id'>raise</span> <span class='dstring node'>&quot;Invalid value: #{method_name} #{value.inspect}. Should be: #{method_name} :wait =&gt; true|false&quot;</span>
+  <span class='end end kw'>end</span>
+<span class='end end kw'>end</span>
+</pre>
+    </td>
+  </tr>
+</table>
+</div>
+
+    
+      <div class="method_details " id="keep_alive-instance_method">
+  <p class="signature "">
+  
+    - (<tt><a href="../../Object.html" target="_self" title="Object (class)">Object</a></tt>) <strong>keep_alive</strong>(value = nil, &amp;blk) 
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    <p>
+Set or return the plist key &#8220;KeepAlive&#8220;
+</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+  <div class="examples">
+    <h3>Examples:</h3>
+    
+      <h4><div class='inline'></div></h4>
+      <pre class="example code"><span class='comment val'># set KeepAlive (boolean)</span>
+
+<span class='launchd_plist identifier id'>launchd_plist</span><span class='dot token'>.</span><span class='keep_alive identifier id'>keep_alive</span><span class='lparen token'>(</span><span class='true true kw'>true</span><span class='rparen token'>)</span>
+<span class='launchd_plist identifier id'>launchd_plist</span><span class='dot token'>.</span><span class='keep_alive identifier id'>keep_alive</span><span class='lparen token'>(</span><span class='false false kw'>false</span><span class='rparen token'>)</span>
+
+<span class='comment val'># return KeepAlive</span>
+<span class='launchd_plist identifier id'>launchd_plist</span><span class='dot token'>.</span><span class='keep_alive identifier id'>keep_alive</span> <span class='assign token'>=</span><span class='gt op'>&gt;</span> <span class='true true kw'>true</span><span class='comma token'>,</span> <span class='false false kw'>false</span><span class='comma token'>,</span> <span class='Hash constant id'>Hash</span><span class='comma token'>,</span> <span class='or or kw'>or</span> <span class='nil nil kw'>nil</span>
+</pre>
+    
+      <h4><div class='inline'></div></h4>
+      <pre class="example code"><span class='comment val'># set KeepAlive (hash of values)</span>
+
+<span class='launchd_plist identifier id'>launchd_plist</span><span class='dot token'>.</span><span class='keep_alive identifier id'>keep_alive</span> <span class='do do kw'>do</span>
+  <span class='successful_exit identifier id'>successful_exit</span> <span class='true true kw'>true</span>
+  <span class='network_state identifier id'>network_state</span> <span class='false false kw'>false</span>
+  <span class='path_state identifier id'>path_state</span> <span class='lbrace token'>{</span> <span class='string val'>&quot;/path1&quot;</span> <span class='assign token'>=</span><span class='gt op'>&gt;</span> <span class='true true kw'>true</span><span class='comma token'>,</span> <span class='string val'>&quot;/path2&quot;</span> <span class='assign token'>=</span><span class='gt op'>&gt;</span> <span class='false false kw'>false</span> <span class='rbrace token'>}</span>
+  <span class='other_job_enabled identifier id'>other_job_enabled</span> <span class='lbrace token'>{</span> <span class='string val'>&quot;notifyd&quot;</span> <span class='assign token'>=</span><span class='gt op'>&gt;</span> <span class='true true kw'>true</span><span class='comma token'>,</span> <span class='string val'>&quot;syslogd&quot;</span> <span class='assign token'>=</span><span class='gt op'>&gt;</span> <span class='true true kw'>true</span> <span class='rbrace token'>}</span>
+<span class='end end kw'>end</span>
+</pre>
+    
+  </div>
+<h3>Parameters:</h3>
+<ul class="param">
+  
+    <li>
+      
+        <span class='type'>(<tt>true</tt>, <tt>false</tt>, <tt>Hash</tt>)</span>
+      
+      
+        <span class='name'>value</span>
+      
+      
+        <em class="default">(defaults to: <tt>nil</tt>)</em>
+      
+      
+        &mdash;
+        <div class='inline'><p>
+This optional key is used to control whether your job is to be kept
+continuously running or to let demand and conditions control the
+invocation. The default is false and therefore only demand will start the
+job. The value may be set to true to unconditionally keep the job alive.
+Alternatively, a dictionary of conditions may be specified to selectively
+control whether launchd keeps a job alive or not. If multiple keys are
+provided, launchd ORs them, thus providing maximum flexibil- ity to the job
+to refine the logic and stall if necessary. If launchd finds no reason to
+restart the job, it falls back on demand based invocation. Jobs that exit
+quickly and frequently when configured to be kept alive will be throttled
+to converve system resources.
+</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+  
+    
+    
+    <h3>Options Hash (<tt>value</tt>):</h3>
+    <ul class="option">
+      
+        <li>
+          <span class="type">(<tt>true</tt>, <tt>false</tt>)</span>
+          <span class="name">:successful_exit</span>
+          <span class="default">
+            
+              &mdash; default:
+              <tt>nil</tt>
+            
+          </span>
+          &mdash;<div class='inline'><p>
+If true, the job will be restarted as long as the program exits and with an
+exit status of zero. If false, the job will be restarted in the inverse
+condi- tion. This key implies that &#8220;RunAtLoad&#8221; is set to true,
+since the job needs to run at least once before we can get an exit status.
+</p>
+</div>
+        </tr>
+      
+        <li>
+          <span class="type">(<tt>true</tt>, <tt>false</tt>)</span>
+          <span class="name">:network_state</span>
+          <span class="default">
+            
+              &mdash; default:
+              <tt>nil</tt>
+            
+          </span>
+          &mdash;<div class='inline'><p>
+If true, the job will be kept alive as long as the network is up, where up
+is defined as at least one non-loopback interface being up and having IPv4
+or IPv6 addresses assigned to them. If false, the job will be kept alive in
+the inverse condition.
+</p>
+</div>
+        </tr>
+      
+        <li>
+          <span class="type">(<tt>Hash &lt;true,false&gt;</tt>)</span>
+          <span class="name">:path_state</span>
+          <span class="default">
+            
+              &mdash; default:
+              <tt>nil</tt>
+            
+          </span>
+          &mdash;<div class='inline'><p>
+path_state <hash of booleans> Each key in this dictionary is a file-system
+path. If the value of the key is true, then the job will be kept alive as
+long as the path exists. If false, the job will be kept alive in the
+inverse condition. The intent of this feature is that two or more jobs may
+create semaphores in the file-system namespace.
+</p>
+</div>
+        </tr>
+      
+        <li>
+          <span class="type">(<tt>Hash &lt;true,false&gt;</tt>)</span>
+          <span class="name">:other_job_enabled</span>
+          <span class="default">
+            
+              &mdash; default:
+              <tt>nil</tt>
+            
+          </span>
+          &mdash;<div class='inline'><p>
+other_job_enabled <hash of booleans> Each key in this dictionary is the
+label of another job. If the value of the key is true, then this job is
+kept alive as long as that other job is enabled. Otherwise, if the value is
+false, then this job is kept alive as long as the other job is disabled.
+This feature should not be considered a substitute for the use of IPC.
+</p>
+</div>
+        </tr>
+      
+    </ul>
+  
+    
+    
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+114
+115
+116
+117
+118
+119
+120
+121
+122
+123
+124
+125
+126
+127
+128
+129
+130</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/plist4r/plist_type/launchd.rb', line 114</span>
+
+<span class='def def kw'>def</span> <span class='keep_alive identifier id'>keep_alive</span> <span class='value identifier id'>value</span><span class='assign token'>=</span><span class='nil nil kw'>nil</span><span class='comma token'>,</span> <span class='bitand op'>&amp;</span><span class='blk identifier id'>blk</span>
+  <span class='key identifier id'>key</span> <span class='assign token'>=</span> <span class='string val'>&quot;KeepAlive&quot;</span>
+
+  <span class='case case kw'>case</span> <span class='value identifier id'>value</span>
+  <span class='when when kw'>when</span> <span class='TrueCass constant id'>TrueCass</span><span class='comma token'>,</span> <span class='FalseClass constant id'>FalseClass</span>
+    <span class='@hash ivar id'>@hash</span><span class='lbrack token'>[</span><span class='key identifier id'>key</span><span class='rbrack token'>]</span> <span class='assign token'>=</span> <span class='value identifier id'>value</span>
+  <span class='when when kw'>when</span> <span class='nil nil kw'>nil</span>
+    <span class='if if kw'>if</span> <span class='blk identifier id'>blk</span>
+      <span class='@hash ivar id'>@hash</span><span class='lbrack token'>[</span><span class='key identifier id'>key</span><span class='rbrack token'>]</span> <span class='opasgn op'>||=</span> <span class='colon3 op'>::</span><span class='Plist4r constant id'>Plist4r</span><span class='colon2 op'>::</span><span class='OrderedHash constant id'>OrderedHash</span><span class='dot token'>.</span><span class='new identifier id'>new</span>
+      <span class='@hash ivar id'>@hash</span><span class='lbrack token'>[</span><span class='key identifier id'>key</span><span class='rbrack token'>]</span> <span class='assign token'>=</span> <span class='colon3 op'>::</span><span class='LaunchdPlistStructs constant id'>LaunchdPlistStructs</span><span class='colon2 op'>::</span><span class='KeepAlive constant id'>KeepAlive</span><span class='dot token'>.</span><span class='new identifier id'>new</span><span class='lparen token'>(</span><span class='@hash ivar id'>@hash</span><span class='lbrack token'>[</span><span class='key identifier id'>key</span><span class='rbrack token'>]</span><span class='comma token'>,</span><span class='bitand op'>&amp;</span><span class='blk identifier id'>blk</span><span class='rparen token'>)</span><span class='dot token'>.</span><span class='hash identifier id'>hash</span>
+    <span class='else else kw'>else</span>
+      <span class='@hash ivar id'>@hash</span><span class='lbrack token'>[</span><span class='key identifier id'>key</span><span class='rbrack token'>]</span>
+    <span class='end end kw'>end</span>
+  <span class='else else kw'>else</span>
+    <span class='raise identifier id'>raise</span> <span class='dstring node'>&quot;Invalid value: #{method_name} #{value.inspect}. Should be: #{method_name} true|false, or #{method_name} { block }&quot;</span>
+  <span class='end end kw'>end</span>
+<span class='end end kw'>end</span>
+</pre>
+    </td>
+  </tr>
+</table>
+</div>
+
+    
+      <div class="method_details " id="mach_services-instance_method">
+  <p class="signature "">
+  
+    - (<tt><a href="../../Object.html" target="_self" title="Object (class)">Object</a></tt>) <strong>mach_services</strong>(value = nil, &amp;blk) 
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    <p>
+Set or return the plist key &#8220;MachServices&#8220;
+</p>
+<p>
+Structure: &#8220;A dictionary of booleans&#8221; or a &#8220;dictionary of
+dictionaries&#8220;
+</p>
+<p>
+This optional key is used to specify Mach services to be registered with
+the Mach bootstrap sub-system. Each key in this dictionary should be the
+name of service to be advertised. The value of the key must be a boolean
+and set to true. Alternatively, a dictionary can be used instead of a
+simple true value.
+</p>
+<p>
+Finally, for the job itself, the values will be replaced with Mach ports at
+the time of check-in with launchd.
+</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+  <div class="examples">
+    <h3>Examples:</h3>
+    
+      <h4><div class='inline'><p>
+Reference
+</p>
+</div></h4>
+      <pre class="example code"><span class='mach_services identifier id'>mach_services</span> <span class='do do kw'>do</span>
+  <span class='reset_at_close identifier id'>reset_at_close</span> <span class='lt op'>&lt;</span><span class='boolean identifier id'>boolean</span><span class='gt op'>&gt;</span>
+  <span class='comment val'># If this boolean is false, the port is recycled, thus leaving clients to remain oblivious </span>
+  <span class='comment val'># to the demand nature of job. If the value is set to true, clients receive port death </span>
+  <span class='comment val'># notifications when the job lets go of the receive right. The port will be recreated </span>
+  <span class='comment val'># atomically with respect to bootstrap_look_up() calls, so that clients can trust that </span>
+  <span class='comment val'># after receiving a port death notification, the new port will have already been recreated. </span>
+  <span class='comment val'># Setting the value to true should be done with care. Not all clients may be able to handle </span>
+  <span class='comment val'># this behavior. The default value is false.</span>
+
+  <span class='hide_until_check_in identifier id'>hide_until_check_in</span> <span class='lt op'>&lt;</span><span class='boolean identifier id'>boolean</span><span class='gt op'>&gt;</span>
+  <span class='comment val'># Reserve the name in the namespace, but cause bootstrap_look_up() to fail until the job </span>
+  <span class='comment val'># has checked in with launchd.</span>
+<span class='end end kw'>end</span>
+</pre>
+    
+      <h4><div class='inline'><p>
+Example
+</p>
+</div></h4>
+      <pre class="example code">
+<span class='comment val'># Set mach services</span>
+<span class='mach_services identifier id'>mach_services</span> <span class='do do kw'>do</span>
+  <span class='add identifier id'>add</span> <span class='string val'>&quot;com.apple.afpfs_checkafp&quot;</span><span class='comma token'>,</span> <span class='true true kw'>true</span>
+<span class='end end kw'>end</span>
+
+<span class='mach_services identifier id'>mach_services</span> <span class='do do kw'>do</span>
+  <span class='add identifier id'>add</span> <span class='string val'>&quot;com.apple.AppleFileServer&quot;</span> <span class='do do kw'>do</span>
+    <span class='hide_until_check_in identifier id'>hide_until_check_in</span> <span class='true true kw'>true</span>
+    <span class='reset_at_close identifier id'>reset_at_close</span> <span class='false false kw'>false</span>
+  <span class='end end kw'>end</span>
+<span class='end end kw'>end</span>
+</pre>
+    
+  </div>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+427
+428
+429
+430
+431
+432
+433
+434
+435</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/plist4r/plist_type/launchd.rb', line 427</span>
+
+<span class='def def kw'>def</span> <span class='mach_services identifier id'>mach_services</span> <span class='value identifier id'>value</span><span class='assign token'>=</span><span class='nil nil kw'>nil</span><span class='comma token'>,</span> <span class='bitand op'>&amp;</span><span class='blk identifier id'>blk</span>
+  <span class='key identifier id'>key</span> <span class='assign token'>=</span> <span class='string val'>&quot;MachServices&quot;</span>
+  <span class='if if kw'>if</span> <span class='blk identifier id'>blk</span>
+    <span class='@hash ivar id'>@hash</span><span class='lbrack token'>[</span><span class='key identifier id'>key</span><span class='rbrack token'>]</span> <span class='opasgn op'>||=</span> <span class='colon3 op'>::</span><span class='Plist4r constant id'>Plist4r</span><span class='colon2 op'>::</span><span class='OrderedHash constant id'>OrderedHash</span><span class='dot token'>.</span><span class='new identifier id'>new</span>
+    <span class='@hash ivar id'>@hash</span><span class='lbrack token'>[</span><span class='key identifier id'>key</span><span class='rbrack token'>]</span> <span class='assign token'>=</span> <span class='colon3 op'>::</span><span class='LaunchdPlistStructs constant id'>LaunchdPlistStructs</span><span class='colon2 op'>::</span><span class='MachServices constant id'>MachServices</span><span class='dot token'>.</span><span class='new identifier id'>new</span><span class='lparen token'>(</span><span class='@hash ivar id'>@hash</span><span class='lbrack token'>[</span><span class='key identifier id'>key</span><span class='rbrack token'>]</span><span class='comma token'>,</span><span class='bitand op'>&amp;</span><span class='blk identifier id'>blk</span><span class='rparen token'>)</span><span class='dot token'>.</span><span class='hash identifier id'>hash</span>
+  <span class='else else kw'>else</span>
+    <span class='@hash ivar id'>@hash</span><span class='lbrack token'>[</span><span class='key identifier id'>key</span><span class='rbrack token'>]</span>
+  <span class='end end kw'>end</span>
+<span class='end end kw'>end</span>
+</pre>
+    </td>
+  </tr>
+</table>
+</div>
+
+    
+      <div class="method_details " id="socket-instance_method">
+  <p class="signature "">
+  
+    - (<tt><a href="../../Object.html" target="_self" title="Object (class)">Object</a></tt>) <strong>socket</strong>(index_or_key = nil, index = nil, &amp;blk) 
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    <p>
+Set or return the plist key &#8220;Sockets&#8220;
+</p>
+<p>
+Structure: &#8220;dictionary of dictionaries&#8230; OR dictionary of array
+of dictionaries&#8230;&#8220;
+</p>
+<p>
+Please see <a
+href="http://developer.apple.com/mac/library/documentation/MacOSX/Conceptual/BPSystemStartup/Articles/LaunchOnDemandDaemons.html">developer.apple.com/mac/library/documentation/MacOSX/Conceptual/BPSystemStartup/Articles/LaunchOnDemandDaemons.html</a>
+for more information about how to properly use the Sockets feature.
+</p>
+<p>
+NOTE:
+</p>
+<p>
+Sockets will work only if a special Sockets callback method is implemented
+within the daemon which launchd is attempting to start. (this is not
+commonly the case for most OSS eg apache, mysql, etc). If writing /
+modifying a deamon is not an option, it may be more worthwhile to consider
+if the Launchd WatchPaths feature is applicable instead of Sockets.
+</p>
+<p>
+Heres 2 example deamons which implement the necessary sockets callbacks.
+</p>
+<p>
+Examples:
+</p>
+<p>
+<a
+href="http://developer.apple.com/mac/library/samplecode/BetterAuthorizationSample/Introduction/Intro.html">developer.apple.com/mac/library/samplecode/BetterAuthorizationSample/Introduction/Intro.html</a>
+</p>
+<p>
+<a
+href="http://bitbucket.org/mikemccracken/py-launchd/wiki/Home">bitbucket.org/mikemccracken/py-launchd/wiki/Home</a>
+</p>
+<p>
+The remainder of this section simply describes how to declare Sockets
+definitions within a launchd plist file. It does not explain how to
+implement the sockets feature in a deamon. (For that, please see the above
+links)
+</p>
+<p>
+This optional key is used to specify launch on demand sockets that can be
+used to let launchd know when to run the job. The job must check-in to get
+a copy of the file descriptors using APIs outlined in launch(3). The keys
+of the top level Sockets dictionary can be anything. They are meant for the
+application developer to use to differentiate which descriptors correspond
+to which application level protocols (e.g. http vs. ftp vs. DNS&#8230;). At
+check-in time, the value of each Sockets dictionary key will be an array of
+descriptors. Daemon/Agent writers should consider all descriptors of a
+given key to be to be effectively equivalent, even though each file
+descriptor likely represents a different networking protocol which conforms
+to the criteria specified in the job configuration file. The parameters
+below are used as inputs to call getaddrinfo(3).
+</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+  <div class="examples">
+    <h3>Examples:</h3>
+    
+      <h4><div class='inline'><p>
+Reference
+</p>
+</div></h4>
+      <pre class="example code"><span class='socket identifier id'>socket</span> <span class='string val'>&quot;socket_key&quot;</span> <span class='do do kw'>do</span>
+  <span class='sock_type identifier id'>sock_type</span> <span class='lt op'>&lt;</span><span class='string identifier id'>string</span><span class='gt op'>&gt;</span>
+  <span class='comment val'># This optional key tells launchctl what type of socket to create. The default is &quot;stream&quot; </span>
+  <span class='comment val'># and other valid values for this key are &quot;dgram&quot; and &quot;seqpacket&quot; respectively.</span>
+
+  <span class='sock_passive identifier id'>sock_passive</span> <span class='lt op'>&lt;</span><span class='boolean identifier id'>boolean</span><span class='gt op'>&gt;</span>
+  <span class='comment val'># This optional key specifies whether listen(2) or connect(2) should be called on the </span>
+  <span class='comment val'># created file descriptor. The default is true (&quot;to listen&quot;).</span>
+
+  <span class='sock_node_name identifier id'>sock_node_name</span> <span class='lt op'>&lt;</span><span class='string identifier id'>string</span><span class='gt op'>&gt;</span>
+  <span class='comment val'># This optional key specifies the node to connect(2) or bind(2) to.</span>
+
+  <span class='sock_service_name identifier id'>sock_service_name</span> <span class='lt op'>&lt;</span><span class='string identifier id'>string</span><span class='gt op'>&gt;</span>
+  <span class='comment val'># This optional key specifies the service on the node to connect(2) or bind(2) to.</span>
+
+  <span class='sock_family identifier id'>sock_family</span> <span class='lt op'>&lt;</span><span class='string identifier id'>string</span><span class='gt op'>&gt;</span>
+  <span class='comment val'># This optional key can be used to specifically request that &quot;IPv4&quot; or &quot;IPv6&quot; socket(s) be </span>
+  <span class='comment val'># created.</span>
+
+  <span class='sock_protocol identifier id'>sock_protocol</span> <span class='lt op'>&lt;</span><span class='string identifier id'>string</span><span class='gt op'>&gt;</span>
+  <span class='comment val'># This optional key specifies the protocol to be passed to socket(2).  The only value </span>
+  <span class='comment val'># understood by this key at the moment is &quot;TCP&quot;.</span>
+
+  <span class='sock_path_name identifier id'>sock_path_name</span> <span class='lt op'>&lt;</span><span class='string identifier id'>string</span><span class='gt op'>&gt;</span>
+  <span class='comment val'># This optional key implies SockFamily is set to &quot;Unix&quot;. It specifies the path to </span>
+  <span class='comment val'># connect(2) or bind(2) to.</span>
+
+  <span class='secure_socket_with_key identifier id'>secure_socket_with_key</span> <span class='lt op'>&lt;</span><span class='string identifier id'>string</span><span class='gt op'>&gt;</span>
+  <span class='comment val'># This optional key is a variant of SockPathName. Instead of binding to a known path, </span>
+  <span class='comment val'># a securely generated socket is created and the path is assigned to the environment </span>
+  <span class='comment val'># variable that is inherited by all jobs spawned by launchd.</span>
+
+  <span class='sock_path_mode identifier id'>sock_path_mode</span> <span class='lt op'>&lt;</span><span class='integer identifier id'>integer</span><span class='gt op'>&gt;</span>
+  <span class='comment val'># This optional key specifies the mode of the socket. Known bug: Property lists don't </span>
+  <span class='comment val'># support octal, so please convert the value to decimal.</span>
+
+  <span class='bonjour identifier id'>bonjour</span> <span class='lt op'>&lt;</span><span class='boolean identifier id'>boolean</span> <span class='or or kw'>or</span> <span class='string identifier id'>string</span> <span class='or or kw'>or</span> <span class='array identifier id'>array</span> <span class='of identifier id'>of</span> <span class='strings identifier id'>strings</span><span class='gt op'>&gt;</span>
+  <span class='comment val'># This optional key can be used to request that the service be registered with the </span>
+  <span class='comment val'># mDNSResponder(8).  If the value is boolean, the service name is inferred from</span>
+  <span class='comment val'># the SockServiceName.</span>
+
+  <span class='multicast_group identifier id'>multicast_group</span> <span class='lt op'>&lt;</span><span class='string identifier id'>string</span><span class='gt op'>&gt;</span>
+  <span class='comment val'># This optional key can be used to request that the datagram socket join a multicast </span>
+  <span class='comment val'># group.  If the value is a hostname, then getaddrinfo(3) will be used to join the </span>
+  <span class='comment val'># correct multicast address for a given socket family.  If an explicit IPv4 or IPv6 </span>
+  <span class='comment val'># address is given, it is required that the SockFamily family also be set, otherwise </span>
+  <span class='comment val'># the results are undefined.</span>
+<span class='end end kw'>end</span>
+</pre>
+    
+      <h4><div class='inline'><p>
+Example
+</p>
+</div></h4>
+      <pre class="example code">
+<span class='comment val'># Method construct</span>
+<span class='socket identifier id'>socket</span><span class='lparen token'>(</span><span class='socket_key identifier id'>socket_key</span><span class='assign token'>=</span><span class='string val'>&quot;Listeners&quot;</span><span class='rparen token'>)</span> <span class='lbrace token'>{</span> <span class='block_of_keys identifier id'>block_of_keys</span> <span class='rbrace token'>}</span>
+<span class='socket identifier id'>socket</span><span class='lparen token'>(</span><span class='socket_key identifier id'>socket_key</span><span class='assign token'>=</span><span class='string val'>&quot;Listeners&quot;</span><span class='comma token'>,</span> <span class='socket_index identifier id'>socket_index</span><span class='rparen token'>)</span> <span class='lbrace token'>{</span> <span class='block_of_keys identifier id'>block_of_keys</span> <span class='rbrace token'>}</span>
+<span class='socket identifier id'>socket</span> <span class='minus op'>-</span><span class='gt op'>&gt;</span> <span class='hash identifier id'>hash</span> <span class='or or kw'>or</span> <span class='nil nil kw'>nil</span>
+
+<span class='comment val'># Write this socket to index [0]. Creates an *array* of sockets</span>
+<span class='comment val'># This array is held within the default sockets key name, &quot;Listeners&quot;</span>
+<span class='launchd_plist identifier id'>launchd_plist</span><span class='dot token'>.</span><span class='socket identifier id'>socket</span> <span class='integer val'>0</span> <span class='do do kw'>do</span>
+  <span class='sock_service_name identifier id'>sock_service_name</span> <span class='string val'>&quot;netbios-ssn&quot;</span>
+<span class='end end kw'>end</span>
+
+<span class='comment val'># Add a new socket called &quot;netbios&quot;. Creates a *dictionary* of sockets</span>
+<span class='launchd_plist identifier id'>launchd_plist</span><span class='dot token'>.</span><span class='socket identifier id'>socket</span> <span class='string val'>&quot;netbios&quot;</span> <span class='do do kw'>do</span>
+  <span class='sock_service_name identifier id'>sock_service_name</span> <span class='string val'>&quot;netbios&quot;</span>
+  <span class='bonjour identifier id'>bonjour</span> <span class='lbrack token'>[</span><span class='string val'>'smb'</span><span class='rbrack token'>]</span>
+<span class='end end kw'>end</span>
+
+<span class='comment val'># Inspect all the sockets structure afterward (recommended)</span>
+<span class='puts identifier id'>puts</span> <span class='launchd_plist identifier id'>launchd_plist</span><span class='dot token'>.</span><span class='socket identifier id'>socket</span><span class='dot token'>.</span><span class='inspect identifier id'>inspect</span>
+</pre>
+    
+      <h4><div class='inline'><p>
+Correct Usage, and Erroneous usage
+</p>
+</div></h4>
+      <pre class="example code">
+<span class='comment val'># scenario 1:</span>
+ <span class='socket identifier id'>socket</span> <span class='do do kw'>do</span>
+   <span class='sock_service_name identifier id'>sock_service_name</span> <span class='string val'>&quot;netbios-ssn&quot;</span>
+ <span class='end end kw'>end</span>
+<span class='comment val'># =&gt; Result: Ok. The default &quot;Listeners&quot; toplevel key is generated implicitly.</span>
+
+<span class='comment val'># scenario 2:</span>
+ <span class='socket identifier id'>socket</span> <span class='do do kw'>do</span>
+   <span class='sock_service_name identifier id'>sock_service_name</span> <span class='string val'>&quot;netbios-ssn&quot;</span>
+ <span class='end end kw'>end</span>
+ <span class='socket identifier id'>socket</span> <span class='do do kw'>do</span>
+   <span class='sock_service_name identifier id'>sock_service_name</span> <span class='string val'>&quot;netbios&quot;</span>
+   <span class='bonjour identifier id'>bonjour</span> <span class='lbrack token'>[</span><span class='string val'>'smb'</span><span class='rbrack token'>]</span>
+ <span class='end end kw'>end</span>
+<span class='comment val'># =&gt; Result: Exception error is raise the second time because the &quot;Listeners&quot; key already </span>
+<span class='comment val'># exists. We can forcefully overwrite this existing sockets key with `socket &quot;Listeners&quot; do`.</span>
+
+<span class='comment val'># scenario 3:</span>
+ <span class='socket identifier id'>socket</span> <span class='string val'>&quot;netbios-ssn&quot;</span> <span class='do do kw'>do</span>
+   <span class='sock_service_name identifier id'>sock_service_name</span> <span class='string val'>&quot;netbios-ssn&quot;</span>
+ <span class='end end kw'>end</span>
+ <span class='socket identifier id'>socket</span> <span class='string val'>&quot;netbios&quot;</span> <span class='do do kw'>do</span>
+   <span class='sock_service_name identifier id'>sock_service_name</span> <span class='string val'>&quot;netbios&quot;</span>
+   <span class='bonjour identifier id'>bonjour</span> <span class='lbrack token'>[</span><span class='string val'>'smb'</span><span class='rbrack token'>]</span>
+ <span class='end end kw'>end</span>
+<span class='assign token'>=</span><span class='gt op'>&gt;</span> <span class='Result constant id'>Result</span><span class='colon op'>:</span> <span class='Ok constant id'>Ok</span><span class='dot token'>.</span> <span class='Each constant id'>Each</span> <span class='Sockets constant id'>Sockets</span> <span class='entry identifier id'>entry</span> <span class='has identifier id'>has</span> <span class='a identifier id'>a</span> <span class='unique identifier id'>unique</span> <span class='key identifier id'>key</span><span class='dot token'>.</span>
+
+<span class='comment val'># scenario 4:</span>
+ <span class='socket identifier id'>socket</span> <span class='integer val'>0</span> <span class='do do kw'>do</span>
+   <span class='sock_service_name identifier id'>sock_service_name</span> <span class='string val'>&quot;netbios-ssn&quot;</span>
+ <span class='end end kw'>end</span>
+ <span class='socket identifier id'>socket</span> <span class='integer val'>1</span> <span class='do do kw'>do</span>
+   <span class='sock_service_name identifier id'>sock_service_name</span> <span class='string val'>&quot;netbios&quot;</span>
+   <span class='bonjour identifier id'>bonjour</span> <span class='lbrack token'>[</span><span class='string val'>'smb'</span><span class='rbrack token'>]</span>
+ <span class='end end kw'>end</span>
+<span class='comment val'># =&gt; Result: Ok. Each Sockets entry has a unique array index. The array of all these sockets </span>
+<span class='comment val'># is held within the default &quot;Listeners&quot; key (implicit array or sockets).</span>
+
+<span class='comment val'># scenario 5:</span>
+ <span class='socket identifier id'>socket</span> <span class='do do kw'>do</span>
+   <span class='sock_service_name identifier id'>sock_service_name</span> <span class='string val'>&quot;netbios-ssn&quot;</span>
+ <span class='end end kw'>end</span>
+ <span class='socket identifier id'>socket</span><span class='lbrack token'>[</span><span class='integer val'>0</span><span class='rbrack token'>]</span> <span class='do do kw'>do</span>
+   <span class='sock_service_name identifier id'>sock_service_name</span> <span class='string val'>&quot;netbios&quot;</span>
+   <span class='bonjour identifier id'>bonjour</span> <span class='lbrack token'>[</span><span class='string val'>'smb'</span><span class='rbrack token'>]</span>
+ <span class='end end kw'>end</span>
+<span class='comment val'># =&gt; Result: Exception error. because we cant mix and match types with the implicit </span>
+<span class='comment val'># &quot;Listeners&quot; key. If in doubt then avoid using the arrays.</span>
+</pre>
+    
+      <h4><div class='inline'><p>
+NOTE: Accessing the default sockets
+</p>
+</div></h4>
+      <pre class="example code">
+<span class='comment val'># Sockets is a complex structure. When manupilating an existing Sockets entry, (the second</span>
+<span class='comment val'># time around), we must fully specify the key to modify. This is usually achieved simply </span>
+<span class='comment val'># specifying the implicit &quot;Listeners&quot; key name.</span>
+
+<span class='comment val'># For example, if we created a socket with</span>
+<span class='socket identifier id'>socket</span> <span class='do do kw'>do</span>
+  <span class='comment val'># ...</span>
+<span class='end end kw'>end</span>
+
+<span class='comment val'># is accessed as </span>
+<span class='socket identifier id'>socket</span> <span class='string val'>&quot;Listeners&quot;</span> <span class='do do kw'>do</span>
+  <span class='comment val'># ...</span>
+<span class='end end kw'>end</span>
+
+<span class='comment val'># or if an array of sockets</span>
+<span class='socket identifier id'>socket</span> <span class='integer val'>0</span> <span class='do do kw'>do</span>
+  <span class='comment val'># ...</span>
+<span class='end end kw'>end</span>
+
+<span class='comment val'># in reality becomes</span>
+<span class='socket identifier id'>socket</span> <span class='string val'>&quot;Listeners&quot;</span> <span class='integer val'>0</span> <span class='do do kw'>do</span>
+  <span class='comment val'># ...</span>
+<span class='end end kw'>end</span>
+</pre>
+    
+  </div>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+660
+661
+662
+663
+664
+665
+666
+667
+668
+669
+670
+671
+672
+673
+674
+675
+676
+677
+678
+679
+680
+681
+682
+683
+684
+685
+686</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/plist4r/plist_type/launchd.rb', line 660</span>
+
+<span class='def def kw'>def</span> <span class='socket identifier id'>socket</span> <span class='index_or_key identifier id'>index_or_key</span><span class='assign token'>=</span><span class='nil nil kw'>nil</span><span class='comma token'>,</span> <span class='index identifier id'>index</span><span class='assign token'>=</span><span class='nil nil kw'>nil</span><span class='comma token'>,</span> <span class='bitand op'>&amp;</span><span class='blk identifier id'>blk</span>
+  <span class='key identifier id'>key</span> <span class='assign token'>=</span> <span class='string val'>&quot;Sockets&quot;</span>
+  <span class='if if kw'>if</span> <span class='blk identifier id'>blk</span>
+    <span class='@hash ivar id'>@hash</span><span class='lbrack token'>[</span><span class='key identifier id'>key</span><span class='rbrack token'>]</span> <span class='opasgn op'>||=</span> <span class='colon3 op'>::</span><span class='Plist4r constant id'>Plist4r</span><span class='colon2 op'>::</span><span class='OrderedHash constant id'>OrderedHash</span><span class='dot token'>.</span><span class='new identifier id'>new</span>
+    <span class='sockets identifier id'>sockets</span> <span class='assign token'>=</span> <span class='colon3 op'>::</span><span class='LaunchdPlistStructs constant id'>LaunchdPlistStructs</span><span class='colon2 op'>::</span><span class='Sockets constant id'>Sockets</span><span class='dot token'>.</span><span class='new identifier id'>new</span><span class='lparen token'>(</span><span class='@hash ivar id'>@hash</span><span class='lbrack token'>[</span><span class='key identifier id'>key</span><span class='rbrack token'>]</span><span class='rparen token'>)</span><span class='dot token'>.</span><span class='hash identifier id'>hash</span>
+  
+    <span class='case case kw'>case</span> <span class='index_or_key identifier id'>index_or_key</span>
+    <span class='when when kw'>when</span> <span class='nil nil kw'>nil</span>
+      <span class='sockets identifier id'>sockets</span><span class='dot token'>.</span><span class='add_socket identifier id'>add_socket</span> <span class='symbol val'>:implicit</span><span class='comma token'>,</span> <span class='string val'>&quot;Listeners&quot;</span><span class='comma token'>,</span> <span class='bitand op'>&amp;</span><span class='blk identifier id'>blk</span>
+    <span class='when when kw'>when</span> <span class='String constant id'>String</span>
+      <span class='socket_key identifier id'>socket_key</span> <span class='assign token'>=</span> <span class='index_or_key identifier id'>index_or_key</span>
+      <span class='unless unless kw'>unless</span> <span class='index identifier id'>index</span><span class='dot token'>.</span><span class='class identifier id'>class</span> <span class='eq op'>==</span> <span class='Fixnum constant id'>Fixnum</span>
+        <span class='raise identifier id'>raise</span> <span class='dstring node'>&quot;Invalid sockect index: #{method_name} #{socket_key} #{index.inspect}. Should be: #{method_name} &lt;socket_key&gt; &lt;socket_index&gt; &amp;blk&quot;</span>          
+      <span class='end end kw'>end</span>
+      <span class='socket_index identifier id'>socket_index</span> <span class='assign token'>=</span> <span class='index identifier id'>index</span>
+      <span class='sockets identifier id'>sockets</span><span class='dot token'>.</span><span class='add_socket identifier id'>add_socket</span> <span class='symbol val'>:explicit</span><span class='comma token'>,</span> <span class='socket_key identifier id'>socket_key</span><span class='comma token'>,</span> <span class='socket_index identifier id'>socket_index</span><span class='comma token'>,</span> <span class='bitand op'>&amp;</span><span class='blk identifier id'>blk</span>
+    <span class='when when kw'>when</span> <span class='Fixnum constant id'>Fixnum</span>
+      <span class='socket_index identifier id'>socket_index</span> <span class='assign token'>=</span> <span class='index_or_key identifier id'>index_or_key</span>
+      <span class='sockets identifier id'>sockets</span><span class='dot token'>.</span><span class='add_socket identifier id'>add_socket</span> <span class='symbol val'>:implicit</span><span class='comma token'>,</span> <span class='string val'>&quot;Listeners&quot;</span><span class='comma token'>,</span> <span class='socket_index identifier id'>socket_index</span><span class='comma token'>,</span> <span class='bitand op'>&amp;</span><span class='blk identifier id'>blk</span>        
+    <span class='else else kw'>else</span>
+      <span class='raise identifier id'>raise</span> <span class='dstring node'>&quot;Invalid socket key: #{method_name} #{index_or_key.inspect}. Should be: #{method_name} &lt;socket_key&gt; &amp;blk&quot;</span>
+    <span class='end end kw'>end</span>
+    <span class='@hash ivar id'>@hash</span><span class='lbrack token'>[</span><span class='key identifier id'>key</span><span class='rbrack token'>]</span> <span class='assign token'>=</span> <span class='sockets identifier id'>sockets</span>
+  <span class='else else kw'>else</span>
+    <span class='@hash ivar id'>@hash</span><span class='lbrack token'>[</span><span class='key identifier id'>key</span><span class='rbrack token'>]</span>
+  <span class='end end kw'>end</span>
+<span class='end end kw'>end</span>
+</pre>
+    </td>
+  </tr>
+</table>
+</div>
+
+    
+      <div class="method_details " id="soft_resource_limits-instance_method">
+  <p class="signature "">
+  
+    - (<tt><a href="../../Object.html" target="_self" title="Object (class)">Object</a></tt>) <strong>soft_resource_limits</strong>(value = nil, &amp;blk) 
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    <p>
+Set or return the plist key &#8220;SoftResourceLimits&#8220;
+</p>
+<p>
+Resource limits to be imposed on the job. These adjust variables set with
+setrlimit(2). The following keys apply:
+</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+  <div class="examples">
+    <h3>Examples:</h3>
+    
+      <h4><div class='inline'><p>
+Reference
+</p>
+</div></h4>
+      <pre class="example code"><span class='soft_resource_limits identifier id'>soft_resource_limits</span> <span class='do do kw'>do</span>
+  <span class='core identifier id'>core</span> <span class='lt op'>&lt;</span><span class='integer identifier id'>integer</span><span class='gt op'>&gt;</span>
+  <span class='comment val'># The largest size (in bytes) core file that may be created.</span>
+
+  <span class='cpu identifier id'>cpu</span> <span class='lt op'>&lt;</span><span class='integer identifier id'>integer</span><span class='gt op'>&gt;</span>
+  <span class='comment val'># The maximum amount of cpu time (in seconds) to be used by each process.</span>
+
+  <span class='data identifier id'>data</span> <span class='lt op'>&lt;</span><span class='integer identifier id'>integer</span><span class='gt op'>&gt;</span>
+  <span class='comment val'># The maximum size (in bytes) of the data segment for a process; this defines how far a </span>
+  <span class='comment val'># program may extend its break with the sbrk(2) system call.</span>
+
+  <span class='file_size identifier id'>file_size</span> <span class='lt op'>&lt;</span><span class='integer identifier id'>integer</span><span class='gt op'>&gt;</span>
+  <span class='comment val'># The largest size (in bytes) file that may be created.</span>
+
+  <span class='memory_lock identifier id'>memory_lock</span> <span class='lt op'>&lt;</span><span class='integer identifier id'>integer</span><span class='gt op'>&gt;</span>
+  <span class='comment val'># The maximum size (in bytes) which a process may lock into memory using the mlock(2) function.</span>
+
+  <span class='number_of_files identifier id'>number_of_files</span> <span class='lt op'>&lt;</span><span class='integer identifier id'>integer</span><span class='gt op'>&gt;</span>
+  <span class='comment val'># The maximum number of open files for this process.  Setting this value in a system wide </span>
+  <span class='comment val'># daemon will set the sysctl(3) kern.maxfiles (SoftResourceLimits) or kern.maxfilesperproc</span>
+  <span class='comment val'># (HardResourceLimits) value in addition to the setrlimit(2) values.</span>
+
+  <span class='number_of_processes identifier id'>number_of_processes</span> <span class='lt op'>&lt;</span><span class='integer identifier id'>integer</span><span class='gt op'>&gt;</span>
+  <span class='comment val'># The maximum number of simultaneous processes for this user id.  Setting this value in a </span>
+  <span class='comment val'># system wide daemon will set the sysctl(3) kern.maxproc (SoftResource-Limits) or </span>
+  <span class='comment val'># kern.maxprocperuid (HardResourceLimits) value in addition to the setrlimit(2) values.</span>
+
+  <span class='resident_set_size identifier id'>resident_set_size</span> <span class='lt op'>&lt;</span><span class='integer identifier id'>integer</span><span class='gt op'>&gt;</span>
+  <span class='comment val'># The maximum size (in bytes) to which a process's resident set size may grow.  This imposes </span>
+  <span class='comment val'># a limit on the amount of physical memory to be given to a process; if memory is tight, the </span>
+  <span class='comment val'># system will prefer to take memory from processes that are exceeding their declared resident </span>
+  <span class='comment val'># set size.</span>
+
+  <span class='stack identifier id'>stack</span> <span class='lt op'>&lt;</span><span class='integer identifier id'>integer</span><span class='gt op'>&gt;</span>
+  <span class='comment val'># The maximum size (in bytes) of the stack segment for a process; this defines how far a </span>
+  <span class='comment val'># program's stack segment may be extended.  Stack extension is performed automatically </span>
+  <span class='comment val'># by the system.</span>
+<span class='end end kw'>end</span>
+</pre>
+    
+      <h4><div class='inline'><p>
+Example
+</p>
+</div></h4>
+      <pre class="example code">
+<span class='comment val'># Set soft resource limits</span>
+<span class='soft_resource_limits identifier id'>soft_resource_limits</span> <span class='do do kw'>do</span>
+  <span class='NumberOfProcesses constant id'>NumberOfProcesses</span> <span class='integer val'>4</span>
+  <span class='NumberOfFiles constant id'>NumberOfFiles</span> <span class='integer val'>512</span>
+<span class='end end kw'>end</span>
+
+<span class='comment val'># Return soft resource limits</span>
+<span class='soft_resource_limits identifier id'>soft_resource_limits</span> <span class='assign token'>=</span><span class='gt op'>&gt;</span> <span class='lbrace token'>{</span> <span class='string val'>&quot;NumberOfProcesses&quot;</span> <span class='assign token'>=</span><span class='gt op'>&gt;</span> <span class='integer val'>4</span><span class='comma token'>,</span> <span class='string val'>&quot;NumberOfFiles&quot;</span> <span class='assign token'>=</span><span class='gt op'>&gt;</span> <span class='integer val'>512</span> <span class='rbrace token'>}</span>
+</pre>
+    
+  </div>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+295
+296
+297
+298
+299
+300
+301
+302
+303</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/plist4r/plist_type/launchd.rb', line 295</span>
+
+<span class='def def kw'>def</span> <span class='soft_resource_limits identifier id'>soft_resource_limits</span> <span class='value identifier id'>value</span><span class='assign token'>=</span><span class='nil nil kw'>nil</span><span class='comma token'>,</span> <span class='bitand op'>&amp;</span><span class='blk identifier id'>blk</span>
+  <span class='key identifier id'>key</span> <span class='assign token'>=</span> <span class='string val'>&quot;SoftResourceLimits&quot;</span>
+  <span class='if if kw'>if</span> <span class='blk identifier id'>blk</span>
+    <span class='@hash ivar id'>@hash</span><span class='lbrack token'>[</span><span class='key identifier id'>key</span><span class='rbrack token'>]</span> <span class='opasgn op'>||=</span> <span class='colon3 op'>::</span><span class='Plist4r constant id'>Plist4r</span><span class='colon2 op'>::</span><span class='OrderedHash constant id'>OrderedHash</span><span class='dot token'>.</span><span class='new identifier id'>new</span>
+    <span class='@hash ivar id'>@hash</span><span class='lbrack token'>[</span><span class='key identifier id'>key</span><span class='rbrack token'>]</span> <span class='assign token'>=</span> <span class='colon3 op'>::</span><span class='LaunchdPlistStructs constant id'>LaunchdPlistStructs</span><span class='colon2 op'>::</span><span class='ResourceLimits constant id'>ResourceLimits</span><span class='dot token'>.</span><span class='new identifier id'>new</span><span class='lparen token'>(</span><span class='@hash ivar id'>@hash</span><span class='lbrack token'>[</span><span class='key identifier id'>key</span><span class='rbrack token'>]</span><span class='comma token'>,</span><span class='bitand op'>&amp;</span><span class='blk identifier id'>blk</span><span class='rparen token'>)</span><span class='dot token'>.</span><span class='hash identifier id'>hash</span>
+  <span class='else else kw'>else</span>
+    <span class='@hash ivar id'>@hash</span><span class='lbrack token'>[</span><span class='key identifier id'>key</span><span class='rbrack token'>]</span>
+  <span class='end end kw'>end</span>
+<span class='end end kw'>end</span>
+</pre>
+    </td>
+  </tr>
+</table>
+</div>
+
+    
+      <div class="method_details " id="start_calendar_interval-instance_method">
+  <p class="signature "">
+  
+    - (<tt><a href="../../Object.html" target="_self" title="Object (class)">Object</a></tt>) <strong>start_calendar_interval</strong>(index = nil, &amp;blk) 
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    <p>
+Set or return the plist key &#8220;StartCalendarInterval&#8220;
+</p>
+<p>
+This optional key causes the job to be started every calendar interval as
+specified. Missing arguments are considered to be wildcard. The semantics
+are much like crontab(5). Unlike cron which skips job invocations when the
+computer is asleep, launchd will start the job the next time the computer
+wakes up. If multiple intervals transpire before the computer is woken,
+those events will be coalesced into one event upon wake from sleep.
+</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+  <div class="examples">
+    <h3>Examples:</h3>
+    
+      <h4><div class='inline'><p>
+Reference
+</p>
+</div></h4>
+      <pre class="example code"><span class='start_calendar_interval identifier id'>start_calendar_interval</span> <span class='index identifier id'>index</span><span class='assign token'>=</span><span class='nil nil kw'>nil</span> <span class='do do kw'>do</span>
+  <span class='minute identifier id'>minute</span> <span class='lt op'>&lt;</span><span class='integer identifier id'>integer</span><span class='gt op'>&gt;</span>
+  <span class='comment val'># The minute on which this job will be run.</span>
+
+  <span class='hour identifier id'>hour</span> <span class='lt op'>&lt;</span><span class='integer identifier id'>integer</span><span class='gt op'>&gt;</span>
+  <span class='comment val'># The hour on which this job will be run.</span>
+
+  <span class='day identifier id'>day</span> <span class='lt op'>&lt;</span><span class='integer identifier id'>integer</span><span class='gt op'>&gt;</span>
+  <span class='comment val'># The day on which this job will be run.</span>
+
+  <span class='weekday identifier id'>weekday</span> <span class='lt op'>&lt;</span><span class='integer identifier id'>integer</span><span class='gt op'>&gt;</span>
+  <span class='comment val'># The weekday on which this job will be run (0 and 7 are Sunday).</span>
+
+  <span class='month identifier id'>month</span> <span class='lt op'>&lt;</span><span class='integer identifier id'>integer</span><span class='gt op'>&gt;</span>
+  <span class='comment val'># The month on which this job will be run.</span>
+<span class='end end kw'>end</span>
+</pre>
+    
+      <h4><div class='inline'><p>
+Example
+</p>
+</div></h4>
+      <pre class="example code"><span class='comment val'># Set start calendar interval</span>
+
+<span class='launchd_plist identifier id'>launchd_plist</span><span class='dot token'>.</span><span class='start_calendar_interval identifier id'>start_calendar_interval</span> <span class='integer val'>0</span> <span class='do do kw'>do</span>
+  <span class='hour identifier id'>hour</span>   <span class='integer val'>02</span>
+  <span class='minute identifier id'>minute</span> <span class='integer val'>05</span>
+  <span class='day identifier id'>day</span>    <span class='integer val'>06</span>
+<span class='end end kw'>end</span>
+
+<span class='launchd_plist identifier id'>launchd_plist</span><span class='dot token'>.</span><span class='start_calendar_interval identifier id'>start_calendar_interval</span> <span class='integer val'>1</span> <span class='do do kw'>do</span>
+  <span class='hour identifier id'>hour</span>   <span class='integer val'>10</span>
+  <span class='minute identifier id'>minute</span> <span class='integer val'>30</span>
+<span class='end end kw'>end</span>
+
+<span class='launchd_plist identifier id'>launchd_plist</span><span class='dot token'>.</span><span class='start_calendar_interval identifier id'>start_calendar_interval</span> <span class='do do kw'>do</span>
+  <span class='month identifier id'>month</span> <span class='integer val'>3</span>
+<span class='end end kw'>end</span>
+
+<span class='comment val'># Return start calendar interval</span>
+<span class='launchd_plist identifier id'>launchd_plist</span><span class='dot token'>.</span><span class='start_calendar_interval identifier id'>start_calendar_interval</span><span class='lbrack token'>[</span><span class='integer val'>1</span><span class='rbrack token'>]</span> <span class='assign token'>=</span><span class='gt op'>&gt;</span> <span class='lbrace token'>{</span> <span class='string val'>&quot;Hour&quot;</span> <span class='assign token'>=</span><span class='gt op'>&gt;</span> <span class='integer val'>10</span><span class='comma token'>,</span> <span class='string val'>&quot;Minute&quot;</span> <span class='assign token'>=</span><span class='gt op'>&gt;</span> <span class='integer val'>30</span> <span class='rbrace token'>}</span>
+<span class='launchd_plist identifier id'>launchd_plist</span><span class='dot token'>.</span><span class='start_calendar_interval identifier id'>start_calendar_interval</span><span class='dot token'>.</span><span class='last identifier id'>last</span> <span class='assign token'>=</span><span class='gt op'>&gt;</span> <span class='lbrace token'>{</span> <span class='string val'>&quot;Month&quot;</span> <span class='assign token'>=</span><span class='gt op'>&gt;</span> <span class='integer val'>3</span> <span class='rbrace token'>}</span>
+</pre>
+    
+  </div>
+<h3>Parameters:</h3>
+<ul class="param">
+  
+    <li>
+      
+        <span class='type'>(<tt>Fixnum</tt>)</span>
+      
+      
+        <span class='name'>index</span>
+      
+      
+        <em class="default">(defaults to: <tt>nil</tt>)</em>
+      
+      
+        &mdash;
+        <div class='inline'><p>
+The array index for this calendar entry
+</p>
+</div>
+      
+    </li>
+  
+    <li>
+      
+        <span class='type'>(<tt>Block</tt>)</span>
+      
+      
+        <span class='name'>blk</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'><p>
+A block setting the specific start calendar intervals. Appends a new entry
+to the end of the array if no index specified.
+</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+217
+218
+219
+220
+221
+222
+223
+224
+225
+226
+227
+228
+229
+230
+231
+232
+233</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/plist4r/plist_type/launchd.rb', line 217</span>
+
+<span class='def def kw'>def</span> <span class='start_calendar_interval identifier id'>start_calendar_interval</span> <span class='index identifier id'>index</span><span class='assign token'>=</span><span class='nil nil kw'>nil</span><span class='comma token'>,</span> <span class='bitand op'>&amp;</span><span class='blk identifier id'>blk</span>
+  <span class='key identifier id'>key</span> <span class='assign token'>=</span> <span class='string val'>&quot;StartCalendarInterval&quot;</span>
+  <span class='unless unless kw'>unless</span> <span class='lbrack token'>[</span><span class='Fixnum constant id'>Fixnum</span><span class='comma token'>,</span><span class='NilClass constant id'>NilClass</span><span class='rbrack token'>]</span><span class='dot token'>.</span><span class='include? fid id'>include?</span> <span class='index identifier id'>index</span><span class='dot token'>.</span><span class='class identifier id'>class</span>
+    <span class='raise identifier id'>raise</span> <span class='dstring node'>&quot;Invalid index: #{method_name} #{index.inspect}. Should be: #{method_name} &lt;integer&gt;&quot;</span>
+  <span class='end end kw'>end</span>
+  <span class='if if kw'>if</span> <span class='blk identifier id'>blk</span>
+    <span class='@hash ivar id'>@hash</span><span class='lbrack token'>[</span><span class='key identifier id'>key</span><span class='rbrack token'>]</span> <span class='opasgn op'>||=</span> <span class='lbrack token'>[</span><span class='rbrack token'>]</span>
+    <span class='h identifier id'>h</span> <span class='assign token'>=</span> <span class='colon3 op'>::</span><span class='LaunchdPlistStructs constant id'>LaunchdPlistStructs</span><span class='colon2 op'>::</span><span class='StartCalendarInterval constant id'>StartCalendarInterval</span><span class='dot token'>.</span><span class='new identifier id'>new</span><span class='lparen token'>(</span><span class='@hash ivar id'>@hash</span><span class='lbrack token'>[</span><span class='key identifier id'>key</span><span class='rbrack token'>]</span><span class='comma token'>,</span><span class='index identifier id'>index</span><span class='comma token'>,</span><span class='bitand op'>&amp;</span><span class='blk identifier id'>blk</span><span class='rparen token'>)</span><span class='dot token'>.</span><span class='hash identifier id'>hash</span>
+    <span class='if if kw'>if</span> <span class='index identifier id'>index</span>
+      <span class='@hash ivar id'>@hash</span><span class='lbrack token'>[</span><span class='key identifier id'>key</span><span class='rbrack token'>]</span><span class='lbrack token'>[</span><span class='index identifier id'>index</span><span class='rbrack token'>]</span> <span class='assign token'>=</span> <span class='h identifier id'>h</span>
+    <span class='else else kw'>else</span>
+      <span class='@hash ivar id'>@hash</span><span class='lbrack token'>[</span><span class='key identifier id'>key</span><span class='rbrack token'>]</span> <span class='lshft op'>&lt;&lt;</span> <span class='h identifier id'>h</span>
+    <span class='end end kw'>end</span>
+  <span class='else else kw'>else</span>
+    <span class='@hash ivar id'>@hash</span><span class='lbrack token'>[</span><span class='key identifier id'>key</span><span class='rbrack token'>]</span>
+  <span class='end end kw'>end</span>
+<span class='end end kw'>end</span>
+</pre>
+    </td>
+  </tr>
+</table>
+</div>
+
+    
+  </div>
+
+</div>
+    
+    <div id="footer">
+  Generated on Tue Jun 29 16:36:22 2010 by 
+  <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool">yard</a>
+  0.5.4  and the 
+  <a href="http://github.com/dreamcat4/yard-slipstream">yard-slipstream</a> plugin
+	(ruby-1.8.7).
+</div>
+
+  </body>
+</html>

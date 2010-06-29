@@ -1,0 +1,401 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+  <head>
+    <meta name="Content-Type" content="text/html; charset=utf-8" />
+<title>Class: Range</title>
+<link rel="stylesheet" href="css/style.css" type="text/css" media="screen" charset="utf-8" />
+<link rel="stylesheet" href="css/common.css" type="text/css" media="screen" charset="utf-8" />
+<link rel="stylesheet" href="css/custom.css" type="text/css" media="screen" charset="utf-8" />
+
+<script type="text/javascript" charset="utf-8">
+  relpath = '';
+  if (relpath != '') relpath += '/';
+</script>
+<base id="base_target" target="_top" />
+<script type="text/javascript" charset="utf-8" src="js/jquery.js"></script>
+<script type="text/javascript" charset="utf-8" src="js/autocomplete.js"></script>
+<script type="text/javascript" charset="utf-8" src="js/app.js"></script>
+<script type="text/javascript" charset="utf-8" src="js/live.js"></script>
+
+  </head>
+  <body>
+    <script type="text/javascript" charset="utf-8">
+      if (window.top.frames.main) document.body.className = 'frames';
+    </script>
+    
+    <div id="header">
+      <div id="menu">
+  
+		
+			<a href="object_index.html" target="_self" title="Index (R)">Index (R)</a>
+		 &raquo;
+    
+    
+    <span class="title">Range</span>
+  
+  
+  <div class="noframes">
+    <span class="title"></span>
+    <a id="frames_link" class="link_disabled">Frames</a> | 
+    <a target="_top" id="noframes_link" class="link_disabled">No Frames</a>
+    <span class="title"></span>
+  </div>
+</div>
+
+      <div id="search2">
+  
+  
+  <div class="search2_center">
+    <form class="search2" onsubmit="return false;" action="">
+      <input name="q" type="search" placeholder="Search" id="search_box2" size="30" value="" />
+    </form>
+  </div>
+  <script type="text/javascript" charset="utf-8"> 
+    $('#search_box2').focus(function(){
+      var search_index = relpath + 'search_index.json';
+      jQuery.getJSON(search_index, go_data);
+
+      function go_data(adata) {
+        $('#search_box2').autocomplete(adata, {
+          width: 300,
+          matchContains: true,
+          formatItem: function(item) {
+            return item.text;
+          }
+        }).result(function(event, item) {
+					if (window.location.search) {
+	          window.location.href = relpath + $(item.href_tag).attr("href");
+					} else {
+	          location.href = relpath + $(item.href_tag).attr("href");
+					}
+        });
+      }
+    });
+  </script> 
+</div>
+
+      <div class="clear"></div>
+    </div>
+    
+    <iframe id="search_frame"></iframe>
+    
+    <div id="content"><h1>Class: Range 
+  
+  
+</h1>
+
+<div id="info_box">
+  <dl class="box">
+    
+      
+    
+      
+    
+  
+    <dt class="r1 last">Defined in:</dt>
+		<dd class="r1 last">
+  		
+  lib/plist4r/mixin/ruby_stdlib.rb
+
+
+		</dd>
+  </dl>
+</div>
+<div class="clear"></div>
+
+
+	<h3 class="inherited">Instance Methods</h3>
+	    <ul id="methods_ribbon">
+	    
+	    
+	      <li class="r1"><a href="#%26-instance_method" target="_self" title="Range#& (method)">&</a></li>
+	      
+	    
+	      <li class="r2"><a href="#include_range%3F-instance_method" target="_self" title="Range#include_range? (method)">include_range?</a></li>
+	      
+	    
+	      <li class="r1"><a href="#size-instance_method" target="_self" title="Range#size (method)">size</a></li>
+	      
+	    
+	    </ul>
+
+
+
+
+
+  <div id="instance_method_details" class="method_details_list">
+    <h2>Instance Method Details</h2>
+    
+    
+      <div class="method_details first" id="&-instance_method">
+  <p class="signature first"">
+  
+    - (<tt><a href="" target="_self" title="Range (class)">Range</a></tt><sup>?</sup>) <strong>&amp;</strong>(other_range) 
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    <p>
+The intersection of 2 ranges. Returns nil if there are no common elements.
+</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+  <div class="examples">
+    <h3>Examples:</h3>
+    
+      <h4><div class='inline'></div></h4>
+      <pre class="example code"><span class='float val'>1</span><span class='dot2 op'>..</span><span class='integer val'>10</span> <span class='bitand op'>&amp;</span> <span class='float val'>5</span><span class='dot2 op'>..</span><span class='integer val'>15</span> <span class='assign token'>=</span><span class='gt op'>&gt;</span> <span class='float val'>5</span><span class='dot2 op'>..</span><span class='integer val'>10</span>
+</pre>
+    
+  </div>
+<h3>Returns:</h3>
+<ul class="return">
+  
+    <li>
+      
+        <span class='type'>(<tt><a href="" target="_self" title="Range (class)">Range</a></tt>, <tt>nil</tt>)</span>
+      
+      
+      
+      
+        &mdash;
+        <div class='inline'><p>
+The intesection between 2 overlapping ranges, or zero
+</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+89
+90
+91
+92
+93
+94
+95
+96
+97
+98
+99
+100
+101
+102
+103
+104
+105
+106</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/plist4r/mixin/ruby_stdlib.rb', line 89</span>
+
+<span class='def def kw'>def</span> <span class='bitand op'>&amp;</span> <span class='other_range identifier id'>other_range</span>
+  <span class='case case kw'>case</span> <span class='other_range identifier id'>other_range</span>
+  <span class='when when kw'>when</span> <span class='Range constant id'>Range</span>
+    <span class='intersection identifier id'>intersection</span> <span class='assign token'>=</span> <span class='lbrack token'>[</span><span class='rbrack token'>]</span>
+    <span class='each identifier id'>each</span> <span class='do do kw'>do</span> <span class='bitor op'>|</span><span class='i identifier id'>i</span><span class='bitor op'>|</span>
+      <span class='intersection identifier id'>intersection</span> <span class='lshft op'>&lt;&lt;</span> <span class='i identifier id'>i</span> <span class='if if_mod kw'>if</span> <span class='other_range identifier id'>other_range</span><span class='dot token'>.</span><span class='include? fid id'>include?</span> <span class='i identifier id'>i</span>
+    <span class='end end kw'>end</span>
+    <span class='result identifier id'>result</span> <span class='assign token'>=</span> <span class='intersection identifier id'>intersection</span><span class='dot token'>.</span><span class='to_ranges identifier id'>to_ranges</span>
+    <span class='case case kw'>case</span> <span class='result identifier id'>result</span><span class='lbrack token'>[</span><span class='integer val'>0</span><span class='rbrack token'>]</span>
+    <span class='when when kw'>when</span> <span class='Integer constant id'>Integer</span>
+      <span class='return return kw'>return</span> <span class='lparen token'>(</span><span class='result identifier id'>result</span><span class='lbrack token'>[</span><span class='integer val'>0</span><span class='rbrack token'>]</span><span class='rparen token'>)</span><span class='dot2 op'>..</span><span class='lparen token'>(</span><span class='result identifier id'>result</span><span class='lbrack token'>[</span><span class='integer val'>0</span><span class='rbrack token'>]</span><span class='rparen token'>)</span>
+    <span class='when when kw'>when</span> <span class='Range constant id'>Range</span><span class='comma token'>,</span> <span class='nil nil kw'>nil</span>
+      <span class='return return kw'>return</span> <span class='result identifier id'>result</span><span class='lbrack token'>[</span><span class='integer val'>0</span><span class='rbrack token'>]</span>
+    <span class='end end kw'>end</span>
+  <span class='else else kw'>else</span>
+    <span class='raise identifier id'>raise</span> <span class='string val'>&quot;unsupported type&quot;</span>
+  <span class='end end kw'>end</span>
+<span class='end end kw'>end</span>
+</pre>
+    </td>
+  </tr>
+</table>
+</div>
+
+    
+      <div class="method_details " id="include_range?-instance_method">
+  <p class="signature "">
+  
+    - (<tt>true</tt>, <tt>false</tt>) <strong>include_range?</strong>(other_range) 
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    <p>
+Does this range wholely include other_range? (true or false)
+</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+  <div class="examples">
+    <h3>Examples:</h3>
+    
+      <h4><div class='inline'></div></h4>
+      <pre class="example code"><span class='lparen token'>(</span><span class='float val'>3</span><span class='dot2 op'>..</span><span class='integer val'>5</span><span class='rparen token'>)</span><span class='dot token'>.</span><span class='include_range? fid id'>include_range?</span> <span class='lparen token'>(</span><span class='float val'>3</span><span class='dot2 op'>..</span><span class='integer val'>3</span><span class='rparen token'>)</span>
+<span class='assign token'>=</span><span class='gt op'>&gt;</span> <span class='true true kw'>true</span>
+
+<span class='lparen token'>(</span><span class='integer val'>0</span><span class='dot2 op'>..</span><span class='integer val'>4</span><span class='rparen token'>)</span><span class='dot token'>.</span><span class='include_range? fid id'>include_range?</span> <span class='lparen token'>(</span><span class='float val'>6</span><span class='dot2 op'>..</span><span class='integer val'>7</span><span class='rparen token'>)</span>
+<span class='assign token'>=</span><span class='gt op'>&gt;</span> <span class='false false kw'>false</span>
+</pre>
+    
+  </div>
+<h3>Returns:</h3>
+<ul class="return">
+  
+    <li>
+      
+        <span class='type'>(<tt>true</tt>, <tt>false</tt>)</span>
+      
+      
+      
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+116
+117
+118
+119
+120
+121
+122
+123
+124
+125
+126
+127</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/plist4r/mixin/ruby_stdlib.rb', line 116</span>
+
+<span class='def def kw'>def</span> <span class='include_range? fid id'>include_range?</span> <span class='other_range identifier id'>other_range</span>
+  <span class='case case kw'>case</span> <span class='other_range identifier id'>other_range</span>
+  <span class='when when kw'>when</span> <span class='Range constant id'>Range</span>
+    <span class='if if kw'>if</span> <span class='other_range identifier id'>other_range</span><span class='dot token'>.</span><span class='first identifier id'>first</span> <span class='geq op'>&gt;=</span> <span class='self self kw'>self</span><span class='dot token'>.</span><span class='first identifier id'>first</span> <span class='andop op'>&amp;&amp;</span> <span class='other_range identifier id'>other_range</span><span class='dot token'>.</span><span class='last identifier id'>last</span> <span class='leq op'>&lt;=</span> <span class='self self kw'>self</span><span class='dot token'>.</span><span class='last identifier id'>last</span>
+      <span class='return return kw'>return</span> <span class='true true kw'>true</span>
+    <span class='else else kw'>else</span>
+      <span class='return return kw'>return</span> <span class='false false kw'>false</span>
+    <span class='end end kw'>end</span>
+  <span class='else else kw'>else</span>
+    <span class='raise identifier id'>raise</span> <span class='string val'>&quot;unsupported type&quot;</span>
+  <span class='end end kw'>end</span>
+<span class='end end kw'>end</span>
+</pre>
+    </td>
+  </tr>
+</table>
+</div>
+
+    
+      <div class="method_details " id="size-instance_method">
+  <p class="signature "">
+  
+    - (<tt><a href="Object.html" target="_self" title="Object (class)">Object</a></tt>) <strong>size</strong> 
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    <p>
+The Range&#8217;s computed size, ie the number of elements in range.
+</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+  <div class="examples">
+    <h3>Examples:</h3>
+    
+      <h4><div class='inline'></div></h4>
+      <pre class="example code"><span class='lparen token'>(</span><span class='float val'>3</span><span class='dot2 op'>..</span><span class='integer val'>3</span><span class='rparen token'>)</span><span class='dot token'>.</span><span class='size identifier id'>size</span>
+<span class='assign token'>=</span><span class='gt op'>&gt;</span> <span class='integer val'>1</span>
+
+<span class='lparen token'>(</span><span class='integer val'>0</span><span class='dot2 op'>..</span><span class='integer val'>9</span><span class='rparen token'>)</span><span class='dot token'>.</span><span class='size identifier id'>size</span>
+<span class='assign token'>=</span><span class='gt op'>&gt;</span> <span class='integer val'>10</span>
+</pre>
+    
+  </div>
+<h3>Returns:</h3>
+<ul class="return">
+  
+    <li>
+      
+        <span class='type'></span>
+      
+      
+      
+      
+        
+        <div class='inline'><p>
+The size of the range
+</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+81
+82
+83</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/plist4r/mixin/ruby_stdlib.rb', line 81</span>
+
+<span class='def def kw'>def</span> <span class='size identifier id'>size</span>
+  <span class='last identifier id'>last</span> <span class='minus op'>-</span> <span class='first identifier id'>first</span> <span class='plus op'>+</span> <span class='integer val'>1</span>
+<span class='end end kw'>end</span>
+</pre>
+    </td>
+  </tr>
+</table>
+</div>
+
+    
+  </div>
+
+</div>
+    
+    <div id="footer">
+  Generated on Tue Jun 29 16:36:16 2010 by 
+  <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool">yard</a>
+  0.5.4  and the 
+  <a href="http://github.com/dreamcat4/yard-slipstream">yard-slipstream</a> plugin
+	(ruby-1.8.7).
+</div>
+
+  </body>
+</html>
