@@ -11,7 +11,7 @@ module Plist4r
 %h1 Backend Test Matrix
 %div
   %h3 Performance Results
-  %p A test performed 10 times each with non-flat (nested) plist structure of 1144 string keys.
+  %p A test performed 1x times each with non-flat (nested) plist structure of 1024 keys.
   %p Real elapsed time is based on a 2GB, 2GHz Intel Core Duo Architecture
   %p Ruby Enterprise Edition (REE) 1.8.7 p248, Mac OS-X 10.6.3
   = @test_harness.results
