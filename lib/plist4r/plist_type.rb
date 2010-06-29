@@ -5,11 +5,15 @@ module Plist4r
   class PlistType
     include ::Plist4r::DataMethods
 
+    # @param [Plist4r::Plist] plist A pointer referencing back to the plist object
     def initialize plist, *args, &blk
       @plist = plist
       @hash = @orig = plist.to_hash
     end
     
+    # Set or return the plist's raw data object
+    # @param [Plist4r::OrderedHash] hash Set the hash if not nil
+    # @return [Plist4r::OrderedHash] @hash
     def hash hash=nil
       case hash
       when ::Plist4r::OrderedHash
@@ -21,54 +25,51 @@ module Plist4r
       end
     end
 
-    def self.valid_keys
-      raise "Method not implemented #{method_name.to_sym.inspect}, for class #{self.inspect}"
-    end
-
-    # A Hash Array of the supported plist keys for this type. These are only those plist keys 
-    # recognized as belonging to a specific plist datatype. Used in validation, part of DataMethods.
-    # We usually overload this method in subclasses of {Plist4r::PlistType}.
+    # Compare a list of foreign keys to the valid keys for this known PlistType.
+    # Generate statistics about how many keys (what proportion) match the the key names
+    # match this particular PlistType.
+    # @param [Array] plist_keys The list of keys to compare to this PlistType
+    # @return [Hash] A hash of the match statistics
+    # @see Plist4r::Plist#detect_plist_type
     # @example
-    #  class Plist4r::PlistType::MyPlistType < PlistType
-    #      def self.valid_keys
-    #     {
-    #        :string => %w[PlistKeyS1 PlistKeyS2 ...],
-    #        :bool => %w[PlistKeyB1 PlistKeyB2 ...],
-    #        :integer => %w[PlistKeyI1 PlistKeyI2 ...],
-    #        :method_defined => %w[CustomPlistKey1 CustomPlistKey2 ...]
-    #      }
-    #    end
-    #  end
-    #
-    #  plist.plist_type :my_plist_type
-    #  plist.plist_key_s1 "some string"
-    #  plist.plist_key_b1 true
-    #  plist.plist_key_i1 08
-    #  plist.custom_plist_key1 MyClass.new(opts)
-    # 
-    def valid_keys
-      self.class.valid_keys
-    end
-
+    #  Plist4r::PlistType::Launchd.match_stat ["ProgramArguments","Sockets","SomeArbitraryKeyName"]
+    #  # => { :matches => 2, :ratio => 0.0465116279069767 }
     def self.match_stat plist_keys
-      type_keys = valid_keys.values.flatten
+      type_keys = ValidKeys.values.flatten
       matches = plist_keys & type_keys
       include_ratio = matches.size.to_f / type_keys.size
       return :matches => matches.size, :ratio => include_ratio
     end
 
+    # @return The shortform string, in snake case, a unique name
+    # @example
+    #  pt = Plist4r::PlistType::Launchd.new
+    #  pt.to_s
+    #  # => "launchd"
     def to_s
       return @string ||= self.class.to_s.gsub(/.*:/,"").snake_case
     end
 
+    # @return A symbol representation the shortform string, in snake case, a unique name
+    # @example
+    #  pt = Plist4r::PlistType::Launchd.new
+    #  pt.to_sym
+    #  # => :launchd
     def to_sym
       return @sym ||= to_s.to_sym
     end
   end
 
+  # Abstract Base class. Represents some nested data structure within an open {Plist4r::Plist}.
+  # Typically, a {Plist4r::PlistType} will create and build upon nested instances of this class.
   class ArrayDict
     include ::Plist4r::DataMethods
 
+    # The initializer for this object. Here we set a reference to our raw data structure,
+    # which typically is a nested hash within the plist root hash object.
+    # Or an Array type structure if index is set.
+    # @param [OrderedHash] orig The nested hash object which this structure represents.
+    # @param [Fixnum] index The Array index (if representing an Array structure)
     def initialize orig, index=nil, &blk
       @orig = orig
       if index
@@ -88,26 +89,36 @@ module Plist4r
       # puts "@hash = #{@hash}"
     end
 
+    # The raw data object
+    # @return [Plist4r::OrderedHash] @hash
     def hash
       @hash
     end
 
+    # Select (keep) plist keys from the object.
+    # Copy them to the resultant object moving forward.
+    # @param [Array, *args] keys The list of Plist Keys to keep
     def select *keys
-      keys.each do |k|
+      keys.flatten.each do |k|
         @hash[k] = @orig[k]
       end
     end
 
+    # Unselect (delete) plist keys from the object.
+    # @param [Array, *args] keys The list of Plist Keys to delete
     def unselect *keys
-      keys.each do |k|
+      keys.flatten.each do |k|
         @hash.delete k
       end
     end
 
+    # Unselect (delete) all plist keys from the object.
     def unselect_all
       @hash = ::Plist4r::OrderedHash.new
     end
 
+    # Select (keep) all plist keys from the object.
+    # Copy them to the resultant object moving forward.
     def select_all
       @hash = @orig
     end

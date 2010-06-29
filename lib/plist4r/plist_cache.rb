@@ -32,7 +32,8 @@ module Plist4r
 
     def to_xml
       if needs_update || @xml.nil?
-        puts "needs update"
+        # puts "needs update"
+        # is there still a caching error here?
         update_checksum
         @xml = @backend.call :to_xml
       else
@@ -49,12 +50,12 @@ module Plist4r
       end
     end
 
-    def to_next_step
-      if needs_update || @next_step.nil?
+    def to_gnustep
+      if needs_update || @gnustep.nil?
         update_checksum
-        @next_step = @backend.call :to_next_step
+        @gnustep = @backend.call :to_gnustep
       else
-        @next_step
+        @gnustep
       end
     end
   
@@ -66,12 +67,14 @@ module Plist4r
     end
   
     def save
-      if needs_update
+      puts "saving..."
+      # if needs_update
         update_checksum
         @backend.call :save
-      else
+      # else
+        puts "not need saving?"
         true
-      end
+      # end
     end
   end
 end

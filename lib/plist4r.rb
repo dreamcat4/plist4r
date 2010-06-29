@@ -39,12 +39,12 @@ module Plist4r
     # @return [Symbol] A Symbol representing the plist data type. One of: Plist4r::Plist.FileFormats
     # @see Plist4r::Plist.FileFormats
     # @example
-    # Plist4r.string_detect_format("{ \"key1\" = \"value1\"; \"key2\" = \"value2\"; }") => :next_step
+    # Plist4r.string_detect_format("{ \"key1\" = \"value1\"; \"key2\" = \"value2\"; }") => :gnustep
     def string_detect_format string
       string.strip! if string[0,1] =~ /\s/
       case string[0,1]
       when "{","("
-        :next_step
+        :gnustep
       when "b"
         if string =~ /^bplist/
           :binary

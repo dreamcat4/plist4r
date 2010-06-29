@@ -4,17 +4,17 @@ require 'plist4r/mixin/ruby_stdlib'
 require 'plist4r/plist_cache'
 require 'plist4r/plist_type'
 Dir.glob(File.dirname(__FILE__) + "/plist_type/**/*.rb").each {|t| require File.expand_path t}
-require 'plist4r/backend'
+# require 'plist4r/backend'
 
 module Plist4r
   class Plist
     # Recognised keys of the options hash. Passed when instantiating a new Plist Object
     # @see #initialize
     # @see #parse_opts
-    PlistOptionsHash = %w[filename path file_format plist_type strict_keys backends from_string]
+    OptionsHash = %w[filename path file_format plist_type strict_keys backends from_string]
     # The plist file formats, written as symbols. 
     # @see #file_format
-    FileFormats      = %w[binary xml next_step]
+    FileFormats      = %w[binary xml gnustep]
 
     # Instantiate a new Plist4r::Plist object. We usually set our per-application defaults in {Plist4r::Config} beforehand.
     # 
@@ -33,9 +33,10 @@ module Plist4r
     # Plist4r::Plist.new({ :filename => "example.plist", :path => plist_working_dir, :backends => ["libxml4r","ruby_cocoa"]})
     #  => #<Plist4r::Plist:0x111546c @file_format=nil, ...>
     # @return [Plist4r::Plist] The new Plist object
+    # @yield An optional block to instance_eval &blk, and apply an edit on creation
     def initialize *args, &blk
       @hash             = ::Plist4r::OrderedHash.new
-      @plist_type       = plist_type :plist
+      plist_type :plist
 
       @strict_keys = Config[:strict_keys]
       @backends         = Config[:backends]
@@ -57,6 +58,8 @@ module Plist4r
       end
       
       @plist_cache ||= PlistCache.new self
+
+      edit(&blk) if block_given?
     end
 
     # Reinitialize plist object from string (overwrites the current contents). Usually called from {Plist#initialize}
@@ -64,7 +67,7 @@ module Plist4r
     # plist = Plist4r::Plist.new
     #  => #<Plist4r::Plist:0x11e161c @file_format=nil, ...>
     # plist.from_string "{ \"key1\" = \"value1\"; \"key2\" = \"value2\"; }"
-    #  => #<Plist4r::Plist:0x11e161c @file_format="next_step", ...>
+    #  => #<Plist4r::Plist:0x11e161c @file_format="gnustep", ...>
     def from_string string=nil
       case string
       when String
@@ -122,7 +125,7 @@ module Plist4r
     # @see filename
     # @see path
     def filename_path filename_path=nil
-      case path
+      case filename_path
       when String
         @filename = File.basename filename_path
         @path     = File.dirname  filename_path
@@ -135,7 +138,7 @@ module Plist4r
 
     # The file format of the plist file we are loading / saving. Written as a symbol.
     # One of {Plist4r::Plist.FileFormats}. Defaults to :xml
-    # @param [Symbol, String] file_format Can be :binary, :xml, :next_step
+    # @param [Symbol, String] file_format Can be :binary, :xml, :gnustep
     # @return The file format associated to this current plist object
     # @see Plist4r::Plist.FileFormats
     def file_format file_format=nil
@@ -236,16 +239,25 @@ module Plist4r
 
     # An array of strings, symbols or class names which correspond to the active Plist4r::Backends for this object.
     # The priority order in which backends are executed is determined by the in sequence array order.
-    # @param [Array] backends Inherited from {Plist4r::Config}[:backends]
-    # @return The backends for this object
-    # @example Execute haml before resorting to RubyCocoa
+    # @param [Array <Symbol,String>] A new list of backends to use, in Priority order
+    # @return [Array <Symbol>] The plist's backends, each written as a symbol. Must be a sublcass of Plist4r::Backend
+    # Defaults to {Plist4r::Config}[:backends]
+    # @example
     # plist.backends [:haml, :ruby_cocoa]
     # @see Plist4r::Backend
     # @see Plist4r::Backend::Example
     def backends backends=nil
       case backends
       when Array
-        @backends = backends
+        @backends = backends.collect do |b| 
+          case b
+          when Symbol, String
+            eval "::Plist4r::Backend::#{b.to_s.camelcase}"
+            b.to_sym
+          else
+            raise "Backend #{b.inspect} is of unsupported type: #{b.class}"
+          end
+        end
       when nil
         @backends
       else
@@ -254,11 +266,11 @@ module Plist4r
     end
   
     # Sets up those valid (settable) plist attributes as found the options hash.
-    # Normally we dont call this method ourselves. Called from {#initialize}.
-    # @param [Hash <PlistOptionsHash>] opts The options hash, containing keys of {PlistOptionsHash}
+    # Normally we dont call this method directly. Called from {#initialize}.
+    # @param [Hash <OptionsHash>] opts The options hash, containing keys of {OptionsHash}
     # @see #initialize
     def parse_opts opts
-      PlistOptionsHash.each do |opt|
+      OptionsHash.each do |opt|
         if opts[opt.to_sym]
           value = opts[opt.to_sym]
           eval "self.#{opt}(value)"
@@ -369,9 +381,9 @@ module Plist4r
     end
 
     # @todo Needs a backend
-    #   We are missing a backend for writing out :next_step strings and saving :next_step files to disk
-    def to_next_step
-      @plist_cache.to_next_step
+    #   We are missing a backend for writing out :gnustep strings and saving :gnustep files to disk
+    def to_gnustep
+      @plist_cache.to_gnustep
     end
   
     # Save plist to #filename

@@ -35,6 +35,7 @@ module Plist4r
     end
     plist4r_cli_options
     
+    # @yield Some block to yield
     def parse argv=ARGV
       parse_options(argv)
       config

@@ -47,9 +47,7 @@ module Plist4r
         FileUtils.rm_rf(non_brew_files)
 
         config = File.read "#{dest}/plist4r/config.rb"
-        config.gsub! /\n(\s*)backends \[.*\](\s*)\n/ do |match|
-          "\n#{$1}backends [\"ruby_cocoa\"]#{$2}\n"
-        end
+        config.gsub! /backends default_backends/,"backends default_backends :brew"
 
         File.open("#{dest}/plist4r/config.rb",'w') do |o|
           o << config
