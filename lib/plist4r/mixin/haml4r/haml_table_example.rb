@@ -1,12 +1,11 @@
 require 'haml'
-require 'plist4r/mixin/haml/table'
+require 'plist4r/mixin/haml4r/table'
 
-module Plist4r
-  module Haml
-    class TableExample
+module Haml4r
+  class TableExample
 
-      def haml
-        @haml ||= <<-'EOC'
+    def haml
+      @haml ||= <<-'EOC'
 %h1 Backend Test Matrix
 %div
   %h3 Code to generate html table
@@ -31,17 +30,17 @@ module Plist4r
   = @table
 %p
 EOC
-      end
+    end
 
-      def to_s
-        require 'haml'
-        engine = ::Haml::Engine.new self.haml
-        rendered_html_output = engine.render self
-      end
+    def to_s
+      require 'haml'
+      engine = ::Haml::Engine.new self.haml
+      rendered_html_output = engine.render self
+    end
 
-      def create_dynamic_table
+    def create_dynamic_table
 @create_dynamic_table ||= <<-'EOC'
-t = Plist4r::Haml::Table.new :size => [1..3, 1..2]
+t = Haml4r::Table.new :size => [1..3, 1..2]
 
 t.col_range.each do |col|
   t.row_range.each do |row|
@@ -62,20 +61,19 @@ t.row_header.row_range.each do |row|
 end
 @table = t
 EOC
-      end
-
-      def initialize *args, &blk
-        eval create_dynamic_table
-      end
-
-      def write_html_file
-        docs_dir = File.dirname(__FILE__) + "/../../../lib/plist4r/docs"
-        File.open "#{docs_dir}/BackendTestMatrix.html","w" do |o|
-          o << to_s
-        end
-      end
-
     end
+
+    def initialize *args, &blk
+      eval create_dynamic_table
+    end
+
+    def write_html_file
+      docs_dir = File.dirname(__FILE__) + "/../../../lib/plist4r/docs"
+      File.open "#{docs_dir}/BackendTestMatrix.html","w" do |o|
+        o << to_s
+      end
+    end
+
   end
 end
 
