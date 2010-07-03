@@ -1,0 +1,912 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+  <head>
+    <meta name="Content-Type" content="text/html; charset=utf-8" />
+<title>Class: Plist4r::Backend::CFPropertyList::List</title>
+<link rel="stylesheet" href="../../../css/style.css" type="text/css" media="screen" charset="utf-8" />
+<link rel="stylesheet" href="../../../css/common.css" type="text/css" media="screen" charset="utf-8" />
+<link rel="stylesheet" href="../../../css/custom.css" type="text/css" media="screen" charset="utf-8" />
+
+<script type="text/javascript" charset="utf-8">
+  relpath = '../../..';
+  if (relpath != '') relpath += '/';
+</script>
+<base id="base_target" target="_top" />
+<script type="text/javascript" charset="utf-8" src="../../../js/jquery.js"></script>
+<script type="text/javascript" charset="utf-8" src="../../../js/autocomplete.js"></script>
+<script type="text/javascript" charset="utf-8" src="../../../js/app.js"></script>
+<script type="text/javascript" charset="utf-8" src="../../../js/live.js"></script>
+
+  </head>
+  <body>
+    <script type="text/javascript" charset="utf-8">
+      if (window.top.frames.main) document.body.className = 'frames';
+    </script>
+    
+    <div id="header">
+      <div id="menu">
+  
+		
+			<a href="../../../object_index.html" target="_self" title="Index (L)">Index (L)</a>
+		 &raquo;
+    <span class='title'><a href="../../../Plist4r.html" target="_self" title="Plist4r (module)">Plist4r</a></span> &raquo; <span class='title'><a href="../../Backend.html" target="_self" title="Plist4r::Backend (class)">Backend</a></span> &raquo; <span class='title'><a href="../CFPropertyList.html" target="_self" title="Plist4r::Backend::CFPropertyList (module)">CFPropertyList</a></span>
+     &raquo; 
+    <span class="title">List</span>
+  
+  
+  <div class="noframes">
+    <span class="title"></span>
+    <a id="frames_link" class="link_disabled">Frames</a> | 
+    <a target="_top" id="noframes_link" class="link_disabled">No Frames</a>
+    <span class="title"></span>
+  </div>
+</div>
+
+      <div id="search2">
+  
+  
+  <div class="search2_center">
+    <form class="search2" onsubmit="return false;" action="">
+      <input name="q" type="search" placeholder="Search" id="search_box2" size="30" value="" />
+    </form>
+  </div>
+  <script type="text/javascript" charset="utf-8"> 
+    $('#search_box2').focus(function(){
+      var search_index = relpath + 'search_index.json';
+      jQuery.getJSON(search_index, go_data);
+
+      function go_data(adata) {
+        $('#search_box2').autocomplete(adata, {
+          width: 300,
+          matchContains: true,
+          formatItem: function(item) {
+            return item.text;
+          }
+        }).result(function(event, item) {
+					if (window.location.search) {
+	          window.location.href = relpath + $(item.href_tag).attr("href");
+					} else {
+	          location.href = relpath + $(item.href_tag).attr("href");
+					}
+        });
+      }
+    });
+  </script> 
+</div>
+
+      <div class="clear"></div>
+    </div>
+    
+    <iframe id="search_frame"></iframe>
+    
+    <div id="content"><h1>Class: Plist4r::Backend::CFPropertyList::List
+  
+  
+  
+</h1>
+
+<div id="info_box">
+  <dl class="box">
+    
+      
+    
+      
+    
+  
+    <dt class="r1 last">Defined in:</dt>
+		<dd class="r1 last">
+  		
+  lib/plist4r/backend/c_f_property_list/rbCFPropertyList.rb
+
+
+		</dd>
+  </dl>
+</div>
+<div class="clear"></div>
+
+
+	<h3 class="inherited">Instance Methods</h3>
+	    <ul id="methods_ribbon">
+	    
+	    
+	      <li class="r1"><a href="#initialize-instance_method" target="_self" title="Plist4r::Backend::CFPropertyList::List#initialize (method)">initialize</a></li>
+	      
+	    
+	      <li class="r2"><a href="#load-instance_method" target="_self" title="Plist4r::Backend::CFPropertyList::List#load (method)">load</a></li>
+	      
+	    
+	      <li class="r1"><a href="#load_binary-instance_method" target="_self" title="Plist4r::Backend::CFPropertyList::List#load_binary (method)">load_binary</a></li>
+	      
+	    
+	      <li class="r2"><a href="#load_binary_str-instance_method" target="_self" title="Plist4r::Backend::CFPropertyList::List#load_binary_str (method)">load_binary_str</a></li>
+	      
+	    
+	      <li class="r1"><a href="#load_str-instance_method" target="_self" title="Plist4r::Backend::CFPropertyList::List#load_str (method)">load_str</a></li>
+	      
+	    
+	      <li class="r2"><a href="#load_xml-instance_method" target="_self" title="Plist4r::Backend::CFPropertyList::List#load_xml (method)">load_xml</a></li>
+	      
+	    
+	      <li class="r1"><a href="#load_xml_str-instance_method" target="_self" title="Plist4r::Backend::CFPropertyList::List#load_xml_str (method)">load_xml_str</a></li>
+	      
+	    
+	      <li class="r2"><a href="#save-instance_method" target="_self" title="Plist4r::Backend::CFPropertyList::List#save (method)">save</a></li>
+	      
+	    
+	      <li class="r1"><a href="#to_str-instance_method" target="_self" title="Plist4r::Backend::CFPropertyList::List#to_str (method)">to_str</a></li>
+	      
+	    
+	    </ul>
+
+
+
+  <h2>Constant Summary</h2>
+  
+    <dl class="constants">
+      
+        <dt id="FORMAT_BINARY-constant" class="">FORMAT_BINARY =
+          <div class="docstring">
+  <div class="discussion">
+    <p>
+Format constant for binary format
+</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+</div>
+        </dt>
+        <dd><pre class="code"><span class='integer val'>1</span>
+</pre></dd>
+      
+        <dt id="FORMAT_XML-constant" class="">FORMAT_XML =
+          <div class="docstring">
+  <div class="discussion">
+    <p>
+Format constant for XML format
+</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+</div>
+        </dt>
+        <dd><pre class="code"><span class='integer val'>2</span>
+</pre></dd>
+      
+        <dt id="FORMAT_AUTO-constant" class="">FORMAT_AUTO =
+          <div class="docstring">
+  <div class="discussion">
+    <p>
+Format constant for automatic format recognizing
+</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+</div>
+        </dt>
+        <dd><pre class="code"><span class='integer val'>0</span>
+</pre></dd>
+      
+        <dt id="parsers-classvariable" class="">@@parsers =
+          
+        </dt>
+        <dd><pre class="code"><span class='lbrack token'>[</span><span class='Binary constant id'>Binary</span><span class='comma token'>,</span><span class='XML constant id'>XML</span><span class='rbrack token'>]</span>
+</pre></dd>
+      
+    </dl>
+  
+
+
+  <h2>Instance Attributes</h2>
+  <ul class="summary">
+    
+      <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#filename-instance_method" target="_self" title="#filename (instance method)">- (Object) <strong>filename</strong> </a>
+    
+
+    
+  </span>
+  
+  
+    
+    
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'><p>
+Path of PropertyList.
+</p>
+</div></span>
+  
+</li>
+
+    
+      <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#format-instance_method" target="_self" title="#format (instance method)">- (Object) <strong>format</strong> </a>
+    
+
+    
+  </span>
+  
+  
+    
+    
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'><p>
+Path of PropertyList.
+</p>
+</div></span>
+  
+</li>
+
+    
+      <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#value-instance_method" target="_self" title="#value (instance method)">- (Object) <strong>value</strong> </a>
+    
+
+    
+  </span>
+  
+  
+    
+    
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'><p>
+the root value in the plist file.
+</p>
+</div></span>
+  
+</li>
+
+    
+  </ul>
+
+<div id="constructor_details" class="method_details_list">
+  <h2>Constructor Details</h2>
+  
+    <div class="method_details first" id="initialize-instance_method">
+  <p class="signature first"">
+  
+    - (<tt><a href="" target="_self" title="Plist4r::Backend::CFPropertyList::List (class)">List</a></tt>) <strong>initialize</strong>(opts = {}) 
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    <p>
+A new instance of List
+</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+172
+173
+174
+175
+176
+177
+178
+179</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/plist4r/backend/c_f_property_list/rbCFPropertyList.rb', line 172</span>
+
+<span class='def def kw'>def</span> <span class='initialize identifier id'>initialize</span><span class='lparen token'>(</span><span class='opts identifier id'>opts</span><span class='assign token'>=</span><span class='lbrace token'>{</span><span class='rbrace token'>}</span><span class='rparen token'>)</span>
+  <span class='@filename ivar id'>@filename</span> <span class='assign token'>=</span> <span class='opts identifier id'>opts</span><span class='lbrack token'>[</span><span class='symbol val'>:file</span><span class='rbrack token'>]</span>
+  <span class='@format ivar id'>@format</span> <span class='assign token'>=</span> <span class='opts identifier id'>opts</span><span class='lbrack token'>[</span><span class='symbol val'>:format</span><span class='rbrack token'>]</span> <span class='orop op'>||</span> <span class='FORMAT_AUTO constant id'>FORMAT_AUTO</span>
+  <span class='@data ivar id'>@data</span> <span class='assign token'>=</span> <span class='opts identifier id'>opts</span><span class='lbrack token'>[</span><span class='symbol val'>:data</span><span class='rbrack token'>]</span>
+
+  <span class='load identifier id'>load</span><span class='lparen token'>(</span><span class='@filename ivar id'>@filename</span><span class='rparen token'>)</span> <span class='unless unless_mod kw'>unless</span> <span class='@filename ivar id'>@filename</span><span class='dot token'>.</span><span class='nil? fid id'>nil?</span>
+  <span class='load_str identifier id'>load_str</span><span class='lparen token'>(</span><span class='@data ivar id'>@data</span><span class='rparen token'>)</span> <span class='unless unless_mod kw'>unless</span> <span class='@data ivar id'>@data</span><span class='dot token'>.</span><span class='nil? fid id'>nil?</span>
+<span class='end end kw'>end</span>
+</pre>
+    </td>
+  </tr>
+</table>
+</div>
+
+  
+</div>
+
+  <div id="instance_method_details" class="method_details_list">
+    <h2>Instance Method Details</h2>
+    
+    
+      <div class="method_details first" id="load-instance_method">
+  <p class="signature first"">
+  
+    - (<tt><a href="../../../Object.html" target="_self" title="Object (class)">Object</a></tt>) <strong>load</strong>(file = nil, format = nil) 
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    <p>
+Read a plist file
+</p>
+<table>
+<tr><td valign="top">file = nil:</td><td>The filename of the file to read. If nil, use <tt>filename</tt> instance
+variable
+
+</td></tr>
+<tr><td valign="top">format = nil:</td><td>The format of the plist file. Auto-detect if nil
+
+</td></tr>
+</table>
+
+
+  </div>
+</div>
+<div class="tags">
+  <h3>Raises:</h3>
+<ul class="raise">
+  
+    <li>
+      
+        <span class='type'>(<tt>IOError</tt>)</span>
+      
+      
+      
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+237
+238
+239
+240
+241
+242
+243
+244
+245
+246
+247
+248
+249
+250
+251
+252
+253
+254
+255
+256
+257
+258
+259
+260
+261
+262
+263
+264</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/plist4r/backend/c_f_property_list/rbCFPropertyList.rb', line 237</span>
+
+<span class='def def kw'>def</span> <span class='load identifier id'>load</span><span class='lparen token'>(</span><span class='file identifier id'>file</span><span class='assign token'>=</span><span class='nil nil kw'>nil</span><span class='comma token'>,</span><span class='format identifier id'>format</span><span class='assign token'>=</span><span class='nil nil kw'>nil</span><span class='rparen token'>)</span>
+  <span class='file identifier id'>file</span> <span class='assign token'>=</span> <span class='@filename ivar id'>@filename</span> <span class='if if_mod kw'>if</span> <span class='file identifier id'>file</span><span class='dot token'>.</span><span class='nil? fid id'>nil?</span>
+  <span class='format identifier id'>format</span> <span class='assign token'>=</span> <span class='@format ivar id'>@format</span> <span class='if if_mod kw'>if</span> <span class='format identifier id'>format</span><span class='dot token'>.</span><span class='nil? fid id'>nil?</span>
+  <span class='@value ivar id'>@value</span> <span class='assign token'>=</span> <span class='lbrace token'>{</span><span class='rbrace token'>}</span>
+
+  <span class='raise identifier id'>raise</span> <span class='IOError constant id'>IOError</span><span class='dot token'>.</span><span class='new identifier id'>new</span><span class='lparen token'>(</span><span class='dstring node'>&quot;File #{file} not readable!&quot;</span><span class='rparen token'>)</span> <span class='unless unless_mod kw'>unless</span> <span class='File constant id'>File</span><span class='dot token'>.</span><span class='readable? fid id'>readable?</span> <span class='file identifier id'>file</span>
+
+  <span class='case case kw'>case</span> <span class='format identifier id'>format</span>
+  <span class='when when kw'>when</span> <span class='List constant id'>List</span><span class='colon2 op'>::</span><span class='FORMAT_BINARY constant id'>FORMAT_BINARY</span><span class='comma token'>,</span> <span class='List constant id'>List</span><span class='colon2 op'>::</span><span class='FORMAT_XML constant id'>FORMAT_XML</span> <span class='then then kw'>then</span>
+    <span class='prsr identifier id'>prsr</span> <span class='assign token'>=</span> <span class='@@parsers ivar id'>@@parsers</span><span class='lbrack token'>[</span><span class='format identifier id'>format</span><span class='minus op'>-</span><span class='integer val'>1</span><span class='rbrack token'>]</span><span class='dot token'>.</span><span class='new identifier id'>new</span>
+    <span class='@value ivar id'>@value</span> <span class='assign token'>=</span> <span class='prsr identifier id'>prsr</span><span class='dot token'>.</span><span class='load identifier id'>load</span><span class='lparen token'>(</span><span class='lbrace token'>{</span><span class='symbol val'>:file</span> <span class='assign token'>=</span><span class='gt op'>&gt;</span> <span class='file identifier id'>file</span><span class='rbrace token'>}</span><span class='rparen token'>)</span>
+
+  <span class='when when kw'>when</span> <span class='List constant id'>List</span><span class='colon2 op'>::</span><span class='FORMAT_AUTO constant id'>FORMAT_AUTO</span> <span class='then then kw'>then</span> <span class='comment val'># what we now do is ugly, but neccessary to recognize the file format</span>
+    <span class='magic_number identifier id'>magic_number</span> <span class='assign token'>=</span> <span class='IO constant id'>IO</span><span class='dot token'>.</span><span class='read identifier id'>read</span><span class='lparen token'>(</span><span class='file identifier id'>file</span><span class='comma token'>,</span><span class='integer val'>8</span><span class='rparen token'>)</span>
+    <span class='filetype identifier id'>filetype</span> <span class='assign token'>=</span> <span class='magic_number identifier id'>magic_number</span><span class='lbrack token'>[</span><span class='integer val'>0</span><span class='dot2 op'>..</span><span class='integer val'>5</span><span class='rbrack token'>]</span>
+    <span class='version identifier id'>version</span> <span class='assign token'>=</span> <span class='magic_number identifier id'>magic_number</span><span class='lbrack token'>[</span><span class='float val'>6</span><span class='dot2 op'>..</span><span class='integer val'>7</span><span class='rbrack token'>]</span>
+
+    <span class='prsr identifier id'>prsr</span> <span class='assign token'>=</span> <span class='nil nil kw'>nil</span>
+    <span class='if if kw'>if</span> <span class='filetype identifier id'>filetype</span> <span class='eq op'>==</span> <span class='string val'>&quot;bplist&quot;</span> <span class='then then kw'>then</span>
+      <span class='raise identifier id'>raise</span> <span class='CFFormatError constant id'>CFFormatError</span><span class='dot token'>.</span><span class='new identifier id'>new</span><span class='lparen token'>(</span><span class='dstring node'>&quot;Wong file version #{version}&quot;</span><span class='rparen token'>)</span> <span class='unless unless_mod kw'>unless</span> <span class='version identifier id'>version</span> <span class='eq op'>==</span> <span class='string val'>&quot;00&quot;</span>
+      <span class='prsr identifier id'>prsr</span> <span class='assign token'>=</span> <span class='Binary constant id'>Binary</span><span class='dot token'>.</span><span class='new identifier id'>new</span>
+    <span class='else else kw'>else</span>
+      <span class='prsr identifier id'>prsr</span> <span class='assign token'>=</span> <span class='XML constant id'>XML</span><span class='dot token'>.</span><span class='new identifier id'>new</span>
+    <span class='end end kw'>end</span>
+
+    <span class='@value ivar id'>@value</span> <span class='assign token'>=</span> <span class='prsr identifier id'>prsr</span><span class='dot token'>.</span><span class='load identifier id'>load</span><span class='lparen token'>(</span><span class='lbrace token'>{</span><span class='symbol val'>:file</span> <span class='assign token'>=</span><span class='gt op'>&gt;</span> <span class='file identifier id'>file</span><span class='rbrace token'>}</span><span class='rparen token'>)</span>
+  <span class='end end kw'>end</span>
+<span class='end end kw'>end</span>
+</pre>
+    </td>
+  </tr>
+</table>
+</div>
+
+    
+      <div class="method_details " id="load_binary-instance_method">
+  <p class="signature "">
+  
+    - (<tt><a href="../../../Object.html" target="_self" title="Object (class)">Object</a></tt>) <strong>load_binary</strong>(filename = nil) 
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    <p>
+read a binary plist file
+</p>
+<table>
+<tr><td valign="top">filename = nil:</td><td>The filename to read from; if nil, read from the file defined by instance
+variable <tt>filename</tt>
+
+</td></tr>
+</table>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+189
+190
+191</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/plist4r/backend/c_f_property_list/rbCFPropertyList.rb', line 189</span>
+
+<span class='def def kw'>def</span> <span class='load_binary identifier id'>load_binary</span><span class='lparen token'>(</span><span class='filename identifier id'>filename</span><span class='assign token'>=</span><span class='nil nil kw'>nil</span><span class='rparen token'>)</span>
+  <span class='load identifier id'>load</span><span class='lparen token'>(</span><span class='filename identifier id'>filename</span><span class='comma token'>,</span><span class='List constant id'>List</span><span class='colon2 op'>::</span><span class='FORMAT_BINARY constant id'>FORMAT_BINARY</span><span class='rparen token'>)</span>
+<span class='end end kw'>end</span>
+</pre>
+    </td>
+  </tr>
+</table>
+</div>
+
+    
+      <div class="method_details " id="load_binary_str-instance_method">
+  <p class="signature "">
+  
+    - (<tt><a href="../../../Object.html" target="_self" title="Object (class)">Object</a></tt>) <strong>load_binary_str</strong>(str = nil) 
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    <p>
+load a plist from a binary string
+</p>
+<table>
+<tr><td valign="top">str:</td><td>The string containing the plist
+
+</td></tr>
+</table>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+201
+202
+203</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/plist4r/backend/c_f_property_list/rbCFPropertyList.rb', line 201</span>
+
+<span class='def def kw'>def</span> <span class='load_binary_str identifier id'>load_binary_str</span><span class='lparen token'>(</span><span class='str identifier id'>str</span><span class='assign token'>=</span><span class='nil nil kw'>nil</span><span class='rparen token'>)</span>
+  <span class='load_str identifier id'>load_str</span><span class='lparen token'>(</span><span class='str identifier id'>str</span><span class='comma token'>,</span><span class='List constant id'>List</span><span class='colon2 op'>::</span><span class='FORMAT_BINARY constant id'>FORMAT_BINARY</span><span class='rparen token'>)</span>
+<span class='end end kw'>end</span>
+</pre>
+    </td>
+  </tr>
+</table>
+</div>
+
+    
+      <div class="method_details " id="load_str-instance_method">
+  <p class="signature "">
+  
+    - (<tt><a href="../../../Object.html" target="_self" title="Object (class)">Object</a></tt>) <strong>load_str</strong>(str = nil, format = nil) 
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    <p>
+load a plist from a string
+</p>
+<table>
+<tr><td valign="top">str = nil:</td><td>The string containing the plist
+
+</td></tr>
+<tr><td valign="top">format = nil:</td><td>The format of the plist
+
+</td></tr>
+</table>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+208
+209
+210
+211
+212
+213
+214
+215
+216
+217
+218
+219
+220
+221
+222
+223
+224
+225
+226
+227
+228
+229
+230
+231
+232</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/plist4r/backend/c_f_property_list/rbCFPropertyList.rb', line 208</span>
+
+<span class='def def kw'>def</span> <span class='load_str identifier id'>load_str</span><span class='lparen token'>(</span><span class='str identifier id'>str</span><span class='assign token'>=</span><span class='nil nil kw'>nil</span><span class='comma token'>,</span><span class='format identifier id'>format</span><span class='assign token'>=</span><span class='nil nil kw'>nil</span><span class='rparen token'>)</span>
+  <span class='str identifier id'>str</span> <span class='assign token'>=</span> <span class='@data ivar id'>@data</span> <span class='if if_mod kw'>if</span> <span class='str identifier id'>str</span><span class='dot token'>.</span><span class='nil? fid id'>nil?</span>
+  <span class='format identifier id'>format</span> <span class='assign token'>=</span> <span class='@format ivar id'>@format</span> <span class='if if_mod kw'>if</span> <span class='format identifier id'>format</span><span class='dot token'>.</span><span class='nil? fid id'>nil?</span>
+
+  <span class='@value ivar id'>@value</span> <span class='assign token'>=</span> <span class='lbrace token'>{</span><span class='rbrace token'>}</span>
+  <span class='case case kw'>case</span> <span class='format identifier id'>format</span>
+  <span class='when when kw'>when</span> <span class='List constant id'>List</span><span class='colon2 op'>::</span><span class='FORMAT_BINARY constant id'>FORMAT_BINARY</span><span class='comma token'>,</span> <span class='List constant id'>List</span><span class='colon2 op'>::</span><span class='FORMAT_XML constant id'>FORMAT_XML</span> <span class='then then kw'>then</span>
+    <span class='prsr identifier id'>prsr</span> <span class='assign token'>=</span> <span class='@@parsers ivar id'>@@parsers</span><span class='lbrack token'>[</span><span class='format identifier id'>format</span><span class='minus op'>-</span><span class='integer val'>1</span><span class='rbrack token'>]</span><span class='dot token'>.</span><span class='new identifier id'>new</span>
+    <span class='@value ivar id'>@value</span> <span class='assign token'>=</span> <span class='prsr identifier id'>prsr</span><span class='dot token'>.</span><span class='load identifier id'>load</span><span class='lparen token'>(</span><span class='lbrace token'>{</span><span class='symbol val'>:data</span> <span class='assign token'>=</span><span class='gt op'>&gt;</span> <span class='str identifier id'>str</span><span class='rbrace token'>}</span><span class='rparen token'>)</span>
+
+  <span class='when when kw'>when</span> <span class='List constant id'>List</span><span class='colon2 op'>::</span><span class='FORMAT_AUTO constant id'>FORMAT_AUTO</span> <span class='then then kw'>then</span> <span class='comment val'># what we now do is ugly, but neccessary to recognize the file format</span>
+    <span class='filetype identifier id'>filetype</span> <span class='assign token'>=</span> <span class='str identifier id'>str</span><span class='lbrack token'>[</span><span class='integer val'>0</span><span class='dot2 op'>..</span><span class='integer val'>5</span><span class='rbrack token'>]</span>
+    <span class='version identifier id'>version</span> <span class='assign token'>=</span> <span class='str identifier id'>str</span><span class='lbrack token'>[</span><span class='float val'>6</span><span class='dot2 op'>..</span><span class='integer val'>7</span><span class='rbrack token'>]</span>
+
+    <span class='prsr identifier id'>prsr</span> <span class='assign token'>=</span> <span class='nil nil kw'>nil</span>
+    <span class='if if kw'>if</span> <span class='filetype identifier id'>filetype</span> <span class='eq op'>==</span> <span class='string val'>&quot;bplist&quot;</span> <span class='then then kw'>then</span>
+      <span class='raise identifier id'>raise</span> <span class='CFFormatError constant id'>CFFormatError</span><span class='dot token'>.</span><span class='new identifier id'>new</span><span class='lparen token'>(</span><span class='dstring node'>&quot;Wong file version #{version}&quot;</span><span class='rparen token'>)</span> <span class='unless unless_mod kw'>unless</span> <span class='version identifier id'>version</span> <span class='eq op'>==</span> <span class='string val'>&quot;00&quot;</span>
+      <span class='prsr identifier id'>prsr</span> <span class='assign token'>=</span> <span class='Binary constant id'>Binary</span><span class='dot token'>.</span><span class='new identifier id'>new</span>
+    <span class='else else kw'>else</span>
+      <span class='prsr identifier id'>prsr</span> <span class='assign token'>=</span> <span class='XML constant id'>XML</span><span class='dot token'>.</span><span class='new identifier id'>new</span>
+    <span class='end end kw'>end</span>
+
+    <span class='@value ivar id'>@value</span> <span class='assign token'>=</span> <span class='prsr identifier id'>prsr</span><span class='dot token'>.</span><span class='load identifier id'>load</span><span class='lparen token'>(</span><span class='lbrace token'>{</span><span class='symbol val'>:data</span> <span class='assign token'>=</span><span class='gt op'>&gt;</span> <span class='str identifier id'>str</span><span class='rbrace token'>}</span><span class='rparen token'>)</span>
+  <span class='end end kw'>end</span>
+<span class='end end kw'>end</span>
+</pre>
+    </td>
+  </tr>
+</table>
+</div>
+
+    
+      <div class="method_details " id="load_xml-instance_method">
+  <p class="signature "">
+  
+    - (<tt><a href="../../../Object.html" target="_self" title="Object (class)">Object</a></tt>) <strong>load_xml</strong>(filename = nil) 
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    <p>
+Load an XML PropertyList
+</p>
+<table>
+<tr><td valign="top">filename = nil:</td><td>The filename to read from; if nil, read from the file defined by instance
+variable <tt>filename</tt>
+
+</td></tr>
+</table>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+183
+184
+185</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/plist4r/backend/c_f_property_list/rbCFPropertyList.rb', line 183</span>
+
+<span class='def def kw'>def</span> <span class='load_xml identifier id'>load_xml</span><span class='lparen token'>(</span><span class='filename identifier id'>filename</span><span class='assign token'>=</span><span class='nil nil kw'>nil</span><span class='rparen token'>)</span>
+  <span class='load identifier id'>load</span><span class='lparen token'>(</span><span class='filename identifier id'>filename</span><span class='comma token'>,</span><span class='List constant id'>List</span><span class='colon2 op'>::</span><span class='FORMAT_XML constant id'>FORMAT_XML</span><span class='rparen token'>)</span>
+<span class='end end kw'>end</span>
+</pre>
+    </td>
+  </tr>
+</table>
+</div>
+
+    
+      <div class="method_details " id="load_xml_str-instance_method">
+  <p class="signature "">
+  
+    - (<tt><a href="../../../Object.html" target="_self" title="Object (class)">Object</a></tt>) <strong>load_xml_str</strong>(str = nil) 
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    <p>
+load a plist from a XML string
+</p>
+<table>
+<tr><td valign="top">str:</td><td>The string containing the plist
+
+</td></tr>
+</table>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+195
+196
+197</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/plist4r/backend/c_f_property_list/rbCFPropertyList.rb', line 195</span>
+
+<span class='def def kw'>def</span> <span class='load_xml_str identifier id'>load_xml_str</span><span class='lparen token'>(</span><span class='str identifier id'>str</span><span class='assign token'>=</span><span class='nil nil kw'>nil</span><span class='rparen token'>)</span>
+  <span class='load_str identifier id'>load_str</span><span class='lparen token'>(</span><span class='str identifier id'>str</span><span class='comma token'>,</span><span class='List constant id'>List</span><span class='colon2 op'>::</span><span class='FORMAT_XML constant id'>FORMAT_XML</span><span class='rparen token'>)</span>
+<span class='end end kw'>end</span>
+</pre>
+    </td>
+  </tr>
+</table>
+</div>
+
+    
+      <div class="method_details " id="save-instance_method">
+  <p class="signature "">
+  
+    - (<tt><a href="../../../Object.html" target="_self" title="Object (class)">Object</a></tt>) <strong>save</strong>(file = nil, format = nil, opts = {}) 
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    <p>
+Serialize CFPropertyList object to specified format and write it to file
+</p>
+<table>
+<tr><td valign="top">file = nil:</td><td>The filename of the file to write to. Uses <tt>filename</tt> instance
+variable if nil
+
+</td></tr>
+<tr><td valign="top">format = nil:</td><td>The format to save in. Uses <tt>format</tt> instance variable if nil
+
+</td></tr>
+</table>
+
+
+  </div>
+</div>
+<div class="tags">
+  <h3>Raises:</h3>
+<ul class="raise">
+  
+    <li>
+      
+        <span class='type'>(<tt><a href="CFFormatError.html" target="_self" title="Plist4r::Backend::CFPropertyList::CFFormatError (class)">CFFormatError</a></tt>)</span>
+      
+      
+      
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+269
+270
+271
+272
+273
+274
+275
+276
+277
+278
+279
+280
+281
+282
+283
+284
+285
+286
+287
+288
+289</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/plist4r/backend/c_f_property_list/rbCFPropertyList.rb', line 269</span>
+
+<span class='def def kw'>def</span> <span class='save identifier id'>save</span><span class='lparen token'>(</span><span class='file identifier id'>file</span><span class='assign token'>=</span><span class='nil nil kw'>nil</span><span class='comma token'>,</span><span class='format identifier id'>format</span><span class='assign token'>=</span><span class='nil nil kw'>nil</span><span class='comma token'>,</span><span class='opts identifier id'>opts</span><span class='assign token'>=</span><span class='lbrace token'>{</span><span class='rbrace token'>}</span><span class='rparen token'>)</span>
+  <span class='format identifier id'>format</span> <span class='assign token'>=</span> <span class='@format ivar id'>@format</span> <span class='if if_mod kw'>if</span> <span class='format identifier id'>format</span><span class='dot token'>.</span><span class='nil? fid id'>nil?</span>
+  <span class='file identifier id'>file</span> <span class='assign token'>=</span> <span class='@filename ivar id'>@filename</span> <span class='if if_mod kw'>if</span> <span class='file identifier id'>file</span><span class='dot token'>.</span><span class='nil? fid id'>nil?</span>
+
+  <span class='raise identifier id'>raise</span> <span class='CFFormatError constant id'>CFFormatError</span><span class='dot token'>.</span><span class='new identifier id'>new</span><span class='lparen token'>(</span><span class='dstring node'>&quot;Format #{format} not supported, use List::FORMAT_BINARY or List::FORMAT_XML&quot;</span><span class='rparen token'>)</span> <span class='if if_mod kw'>if</span> <span class='format identifier id'>format</span> <span class='neq op'>!=</span> <span class='FORMAT_BINARY constant id'>FORMAT_BINARY</span> <span class='andop op'>&amp;&amp;</span> <span class='format identifier id'>format</span> <span class='neq op'>!=</span> <span class='FORMAT_XML constant id'>FORMAT_XML</span>
+
+  <span class='if if kw'>if</span><span class='lparen token'>(</span><span class='notop op'>!</span><span class='File constant id'>File</span><span class='dot token'>.</span><span class='exists? fid id'>exists?</span><span class='lparen token'>(</span><span class='file identifier id'>file</span><span class='rparen token'>)</span><span class='rparen token'>)</span> <span class='then then kw'>then</span>
+    <span class='raise identifier id'>raise</span> <span class='IOError constant id'>IOError</span><span class='dot token'>.</span><span class='new identifier id'>new</span><span class='lparen token'>(</span><span class='dstring node'>&quot;File #{file} not writable!&quot;</span><span class='rparen token'>)</span> <span class='unless unless_mod kw'>unless</span> <span class='File constant id'>File</span><span class='dot token'>.</span><span class='writable? fid id'>writable?</span><span class='lparen token'>(</span><span class='File constant id'>File</span><span class='dot token'>.</span><span class='dirname identifier id'>dirname</span><span class='lparen token'>(</span><span class='file identifier id'>file</span><span class='rparen token'>)</span><span class='rparen token'>)</span>
+  <span class='elsif elsif kw'>elsif</span><span class='lparen token'>(</span><span class='notop op'>!</span><span class='File constant id'>File</span><span class='dot token'>.</span><span class='writable? fid id'>writable?</span><span class='lparen token'>(</span><span class='file identifier id'>file</span><span class='rparen token'>)</span><span class='rparen token'>)</span> <span class='then then kw'>then</span>
+    <span class='raise identifier id'>raise</span> <span class='IOError constant id'>IOError</span><span class='dot token'>.</span><span class='new identifier id'>new</span><span class='lparen token'>(</span><span class='dstring node'>&quot;File #{file} not writable!&quot;</span><span class='rparen token'>)</span>
+  <span class='end end kw'>end</span>
+
+  <span class='opts identifier id'>opts</span><span class='lbrack token'>[</span><span class='symbol val'>:root</span><span class='rbrack token'>]</span> <span class='assign token'>=</span> <span class='@value ivar id'>@value</span>
+  <span class='prsr identifier id'>prsr</span> <span class='assign token'>=</span> <span class='@@parsers ivar id'>@@parsers</span><span class='lbrack token'>[</span><span class='format identifier id'>format</span><span class='minus op'>-</span><span class='integer val'>1</span><span class='rbrack token'>]</span><span class='dot token'>.</span><span class='new identifier id'>new</span>
+  <span class='content identifier id'>content</span> <span class='assign token'>=</span> <span class='prsr identifier id'>prsr</span><span class='dot token'>.</span><span class='to_str identifier id'>to_str</span><span class='lparen token'>(</span><span class='opts identifier id'>opts</span><span class='rparen token'>)</span>
+
+  <span class='File constant id'>File</span><span class='dot token'>.</span><span class='open identifier id'>open</span><span class='lparen token'>(</span><span class='file identifier id'>file</span><span class='comma token'>,</span> <span class='string val'>'wb'</span><span class='rparen token'>)</span> <span class='lbrace token'>{</span>
+    <span class='bitor op'>|</span><span class='fd identifier id'>fd</span><span class='bitor op'>|</span>
+    <span class='fd identifier id'>fd</span><span class='dot token'>.</span><span class='write identifier id'>write</span> <span class='content identifier id'>content</span>
+  <span class='rbrace token'>}</span>
+<span class='end end kw'>end</span>
+</pre>
+    </td>
+  </tr>
+</table>
+</div>
+
+    
+      <div class="method_details " id="to_str-instance_method">
+  <p class="signature "">
+  
+    - (<tt><a href="../../../Object.html" target="_self" title="Object (class)">Object</a></tt>) <strong>to_str</strong>(format = List::FORMAT_BINARY, opts = {}) 
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    <p>
+convert plist to string
+</p>
+<table>
+<tr><td valign="top">format = List::FORMAT_BINARY:</td><td>The format to save the plist
+
+</td></tr>
+<tr><td valign="top">opts={}:</td><td>Pass parser options
+
+</td></tr>
+</table>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+294
+295
+296
+297
+298</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/plist4r/backend/c_f_property_list/rbCFPropertyList.rb', line 294</span>
+
+<span class='def def kw'>def</span> <span class='to_str identifier id'>to_str</span><span class='lparen token'>(</span><span class='format identifier id'>format</span><span class='assign token'>=</span><span class='List constant id'>List</span><span class='colon2 op'>::</span><span class='FORMAT_BINARY constant id'>FORMAT_BINARY</span><span class='comma token'>,</span><span class='opts identifier id'>opts</span><span class='assign token'>=</span><span class='lbrace token'>{</span><span class='rbrace token'>}</span><span class='rparen token'>)</span>
+  <span class='prsr identifier id'>prsr</span> <span class='assign token'>=</span> <span class='@@parsers ivar id'>@@parsers</span><span class='lbrack token'>[</span><span class='format identifier id'>format</span><span class='minus op'>-</span><span class='integer val'>1</span><span class='rbrack token'>]</span><span class='dot token'>.</span><span class='new identifier id'>new</span>
+  <span class='opts identifier id'>opts</span><span class='lbrack token'>[</span><span class='symbol val'>:root</span><span class='rbrack token'>]</span> <span class='assign token'>=</span> <span class='@value ivar id'>@value</span>
+  <span class='return return kw'>return</span> <span class='prsr identifier id'>prsr</span><span class='dot token'>.</span><span class='to_str identifier id'>to_str</span><span class='lparen token'>(</span><span class='opts identifier id'>opts</span><span class='rparen token'>)</span>
+<span class='end end kw'>end</span>
+</pre>
+    </td>
+  </tr>
+</table>
+</div>
+
+    
+  </div>
+
+</div>
+    
+    <div id="footer">
+  Generated on Sat Jul  3 08:36:12 2010 by 
+  <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool">yard</a>
+  0.5.8  and the 
+  <a href="http://github.com/dreamcat4/yard-slipstream">yard-slipstream</a> plugin
+	(ruby-1.8.7).
+</div>
+
+  </body>
+</html>
