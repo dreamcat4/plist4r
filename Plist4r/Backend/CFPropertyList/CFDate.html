@@ -80,7 +80,8 @@
     
     <iframe id="search_frame"></iframe>
     
-    <div id="content"><h1>Class: Plist4r::Backend::CFPropertyList::CFDate 
+    <div id="content"><h1>Class: Plist4r::Backend::CFPropertyList::CFDate
+  
   
   
 </h1>
@@ -216,16 +217,16 @@ set value to defined state
       <pre class="lines">
 
 
-101
 102
 103
 104
 105
 106
-107</pre>
+107
+108</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/plist4r/backend/c_f_property_list/rbCFTypes.rb', line 101</span>
+      <pre class="code"><span class="info file"># File 'lib/plist4r/backend/c_f_property_list/rbCFTypes.rb', line 102</span>
 
 <span class='def def kw'>def</span> <span class='initialize identifier id'>initialize</span><span class='lparen token'>(</span><span class='value identifier id'>value</span> <span class='assign token'>=</span> <span class='nil nil kw'>nil</span><span class='comma token'>,</span><span class='format identifier id'>format</span><span class='assign token'>=</span><span class='CFDate constant id'>CFDate</span><span class='colon2 op'>::</span><span class='TIMESTAMP_UNIX constant id'>TIMESTAMP_UNIX</span><span class='rparen token'>)</span>
   <span class='if if kw'>if</span><span class='lparen token'>(</span><span class='value identifier id'>value</span><span class='dot token'>.</span><span class='is_a? fid id'>is_a?</span><span class='lparen token'>(</span><span class='Time constant id'>Time</span><span class='rparen token'>)</span> <span class='orop op'>||</span> <span class='value identifier id'>value</span><span class='dot token'>.</span><span class='nil? fid id'>nil?</span><span class='rparen token'>)</span> <span class='then then kw'>then</span>
@@ -271,13 +272,13 @@ create a XML date strimg from a time object
       <pre class="lines">
 
 
-87
 88
 89
-90</pre>
+90
+91</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/plist4r/backend/c_f_property_list/rbCFTypes.rb', line 87</span>
+      <pre class="code"><span class="info file"># File 'lib/plist4r/backend/c_f_property_list/rbCFTypes.rb', line 88</span>
 
 <span class='def def kw'>def</span> <span class='CFDate constant id'>CFDate</span><span class='dot token'>.</span><span class='date_string identifier id'>date_string</span><span class='lparen token'>(</span><span class='val identifier id'>val</span><span class='rparen token'>)</span>
   <span class='comment val'># 2009-05-13T20:23:43Z</span>
@@ -314,15 +315,15 @@ parse a XML date string
       <pre class="lines">
 
 
-93
 94
 95
 96
 97
-98</pre>
+98
+99</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/plist4r/backend/c_f_property_list/rbCFTypes.rb', line 93</span>
+      <pre class="code"><span class="info file"># File 'lib/plist4r/backend/c_f_property_list/rbCFTypes.rb', line 94</span>
 
 <span class='def def kw'>def</span> <span class='CFDate constant id'>CFDate</span><span class='dot token'>.</span><span class='parse_date identifier id'>parse_date</span><span class='lparen token'>(</span><span class='val identifier id'>val</span><span class='rparen token'>)</span>
   <span class='comment val'># 2009-05-13T20:23:43Z</span>
@@ -367,16 +368,16 @@ get timestamp, either UNIX or Apple timestamp
       <pre class="lines">
 
 
-119
 120
 121
 122
 123
 124
-125</pre>
+125
+126</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/plist4r/backend/c_f_property_list/rbCFTypes.rb', line 119</span>
+      <pre class="code"><span class="info file"># File 'lib/plist4r/backend/c_f_property_list/rbCFTypes.rb', line 120</span>
 
 <span class='def def kw'>def</span> <span class='get_value identifier id'>get_value</span><span class='lparen token'>(</span><span class='format identifier id'>format</span><span class='assign token'>=</span><span class='CFDate constant id'>CFDate</span><span class='colon2 op'>::</span><span class='TIMESTAMP_UNIX constant id'>TIMESTAMP_UNIX</span><span class='rparen token'>)</span>
   <span class='if if kw'>if</span><span class='lparen token'>(</span><span class='format identifier id'>format</span> <span class='eq op'>==</span> <span class='CFDate constant id'>CFDate</span><span class='colon2 op'>::</span><span class='TIMESTAMP_UNIX constant id'>TIMESTAMP_UNIX</span><span class='rparen token'>)</span> <span class='then then kw'>then</span>
@@ -416,16 +417,16 @@ set value with timestamp, either Apple or UNIX
       <pre class="lines">
 
 
-110
 111
 112
 113
 114
 115
-116</pre>
+116
+117</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/plist4r/backend/c_f_property_list/rbCFTypes.rb', line 110</span>
+      <pre class="code"><span class="info file"># File 'lib/plist4r/backend/c_f_property_list/rbCFTypes.rb', line 111</span>
 
 <span class='def def kw'>def</span> <span class='set_value identifier id'>set_value</span><span class='lparen token'>(</span><span class='value identifier id'>value</span><span class='comma token'>,</span><span class='format identifier id'>format</span><span class='assign token'>=</span><span class='CFDate constant id'>CFDate</span><span class='colon2 op'>::</span><span class='TIMESTAMP_UNIX constant id'>TIMESTAMP_UNIX</span><span class='rparen token'>)</span>
   <span class='if if kw'>if</span><span class='lparen token'>(</span><span class='format identifier id'>format</span> <span class='eq op'>==</span> <span class='CFDate constant id'>CFDate</span><span class='colon2 op'>::</span><span class='TIMESTAMP_UNIX constant id'>TIMESTAMP_UNIX</span><span class='rparen token'>)</span> <span class='then then kw'>then</span>
@@ -465,12 +466,12 @@ convert to binary
       <pre class="lines">
 
 
-133
 134
-135</pre>
+135
+136</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/plist4r/backend/c_f_property_list/rbCFTypes.rb', line 133</span>
+      <pre class="code"><span class="info file"># File 'lib/plist4r/backend/c_f_property_list/rbCFTypes.rb', line 134</span>
 
 <span class='def def kw'>def</span> <span class='to_binary identifier id'>to_binary</span><span class='lparen token'>(</span><span class='bplist identifier id'>bplist</span><span class='rparen token'>)</span>
   <span class='return return kw'>return</span> <span class='bplist identifier id'>bplist</span><span class='dot token'>.</span><span class='date_to_binary identifier id'>date_to_binary</span><span class='lparen token'>(</span><span class='@value ivar id'>@value</span><span class='rparen token'>)</span>
@@ -506,12 +507,12 @@ convert to XML
       <pre class="lines">
 
 
-128
 129
-130</pre>
+130
+131</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/plist4r/backend/c_f_property_list/rbCFTypes.rb', line 128</span>
+      <pre class="code"><span class="info file"># File 'lib/plist4r/backend/c_f_property_list/rbCFTypes.rb', line 129</span>
 
 <span class='def def kw'>def</span> <span class='to_xml identifier id'>to_xml</span>
   <span class='return return kw'>return</span> <span class='LibXML constant id'>LibXML</span><span class='colon2 op'>::</span><span class='XML constant id'>XML</span><span class='colon2 op'>::</span><span class='Node constant id'>Node</span><span class='dot token'>.</span><span class='new identifier id'>new</span><span class='lparen token'>(</span><span class='string val'>'date'</span><span class='rparen token'>)</span> <span class='lshft op'>&lt;&lt;</span> <span class='LibXML constant id'>LibXML</span><span class='colon2 op'>::</span><span class='XML constant id'>XML</span><span class='colon2 op'>::</span><span class='Node constant id'>Node</span><span class='dot token'>.</span><span class='new_text identifier id'>new_text</span><span class='lparen token'>(</span><span class='CFDate constant id'>CFDate</span><span class='colon2 op'>::</span><span class='date_string identifier id'>date_string</span><span class='lparen token'>(</span><span class='@value ivar id'>@value</span><span class='rparen token'>)</span><span class='rparen token'>)</span>
@@ -528,9 +529,9 @@ convert to XML
 </div>
     
     <div id="footer">
-  Generated on Tue Jun 29 17:44:40 2010 by 
+  Generated on Fri Jul  2 15:22:06 2010 by 
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool">yard</a>
-  0.5.4  and the 
+  0.5.8  and the 
   <a href="http://github.com/dreamcat4/yard-slipstream">yard-slipstream</a> plugin
 	(ruby-1.8.7).
 </div>

@@ -80,7 +80,8 @@
     
     <iframe id="search_frame"></iframe>
     
-    <div id="content"><h1>Module: Plist4r::Backend::Haml 
+    <div id="content"><h1>Module: Plist4r::Backend::Haml
+  
   
   
 </h1>
@@ -121,7 +122,7 @@
 <h2>Overview</h2><div class="docstring">
   <div class="discussion">
     <p>
-This backend uses haml to <b>write</b> xml plists
+This backend uses haml to generate xml plists
 </p>
 
 
@@ -172,15 +173,17 @@ Dreamcat4 (dreamcat4@gmail.com)
 77
 78
 79
-80</pre>
+80
+81</pre>
     </td>
     <td>
       <pre class="code"><span class="info file"># File 'lib/plist4r/backend/haml.rb', line 74</span>
 
 <span class='def def kw'>def</span> <span class='to_xml identifier id'>to_xml</span> <span class='plist identifier id'>plist</span>
-  <span class='@plist ivar id'>@plist</span> <span class='assign token'>=</span> <span class='plist identifier id'>plist</span>
   <span class='require identifier id'>require</span> <span class='string val'>'haml'</span>
   <span class='require identifier id'>require</span> <span class='string val'>'base64'</span>
+
+  <span class='@plist ivar id'>@plist</span> <span class='assign token'>=</span> <span class='plist identifier id'>plist</span>
   <span class='engine identifier id'>engine</span> <span class='assign token'>=</span> <span class='Haml constant id'>Haml</span><span class='colon2 op'>::</span><span class='Engine constant id'>Engine</span><span class='dot token'>.</span><span class='new identifier id'>new</span> <span class='to_xml_haml identifier id'>to_xml_haml</span>
   <span class='rendered_xml_output identifier id'>rendered_xml_output</span> <span class='assign token'>=</span> <span class='engine identifier id'>engine</span><span class='dot token'>.</span><span class='render identifier id'>render</span> <span class='self self kw'>self</span>
 <span class='end end kw'>end</span>
@@ -226,9 +229,9 @@ Dreamcat4 (dreamcat4@gmail.com)
 </div>
     
     <div id="footer">
-  Generated on Tue Jun 29 17:44:37 2010 by 
+  Generated on Fri Jul  2 15:21:48 2010 by 
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool">yard</a>
-  0.5.4  and the 
+  0.5.8  and the 
   <a href="http://github.com/dreamcat4/yard-slipstream">yard-slipstream</a> plugin
 	(ruby-1.8.7).
 </div>

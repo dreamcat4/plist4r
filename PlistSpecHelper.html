@@ -3,7 +3,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
   <head>
     <meta name="Content-Type" content="text/html; charset=utf-8" />
-<title>Class: Float</title>
+<title>Module: PlistSpecHelper</title>
 <link rel="stylesheet" href="css/style.css" type="text/css" media="screen" charset="utf-8" />
 <link rel="stylesheet" href="css/common.css" type="text/css" media="screen" charset="utf-8" />
 <link rel="stylesheet" href="css/custom.css" type="text/css" media="screen" charset="utf-8" />
@@ -28,11 +28,11 @@
       <div id="menu">
   
 		
-			<a href="object_index.html" target="_self" title="Index (F)">Index (F)</a>
+			<a href="object_index.html" target="_self" title="Index (P)">Index (P)</a>
 		 &raquo;
     
     
-    <span class="title">Float</span>
+    <span class="title">PlistSpecHelper</span>
   
   
   <div class="noframes">
@@ -80,7 +80,7 @@
     
     <iframe id="search_frame"></iframe>
     
-    <div id="content"><h1>Class: Float
+    <div id="content"><h1>Module: PlistSpecHelper
   
   
   
@@ -97,7 +97,7 @@
     <dt class="r1 last">Defined in:</dt>
 		<dd class="r1 last">
   		
-  lib/plist4r/mixin/ruby_stdlib.rb
+  spec/spec_helper.rb
 
 
 		</dd>
@@ -110,7 +110,10 @@
 	    <ul id="methods_ribbon">
 	    
 	    
-	      <li class="r1"><a href="#round-instance_method" target="_self" title="Float#round (method)">round</a></li>
+	      <li class="r1"><a href="#test_xml_plist-instance_method" target="_self" title="PlistSpecHelper#test_xml_plist (method)">test_xml_plist</a></li>
+	      
+	    
+	      <li class="r2"><a href="#valid_plist_attributes-instance_method" target="_self" title="PlistSpecHelper#valid_plist_attributes (method)">valid_plist_attributes</a></li>
 	      
 	    
 	    </ul>
@@ -123,52 +126,68 @@
     <h2>Instance Method Details</h2>
     
     
-      <div class="method_details first" id="round-instance_method">
+      <div class="method_details first" id="test_xml_plist-instance_method">
   <p class="signature first"">
   
-    - (<tt><a href="Object.html" target="_self" title="Object (class)">Object</a></tt>) <strong>round</strong>(n = 0) 
+    - (<tt><a href="Object.html" target="_self" title="Object (class)">Object</a></tt>) <strong>test_xml_plist</strong> 
   
 
   
-    <span class="aliases">Also known as:
-    <span class="names"><span id='round_orig-instance_method'>round_orig</span></span>
-    </span>
-  
-</p><div class="docstring">
-  <div class="discussion">
-    <p>
-Round to nearest n decimal places
-</p>
-
-
-  </div>
-</div>
-<div class="tags">
-  
-  <div class="examples">
-    <h3>Examples:</h3>
-    
-      <h4><div class='inline'></div></h4>
-      <pre class="example code"><span class='float val'>16.347</span><span class='dot token'>.</span><span class='round identifier id'>round</span><span class='lparen token'>(</span><span class='integer val'>2</span><span class='rparen token'>)</span> <span class='assign token'>=</span><span class='gt op'>&gt;</span> <span class='float val'>16.35</span>
-</pre>
-    
-  </div>
-
-</div><table class="source_code">
+</p><table class="source_code">
   <tr>
     <td>
       <pre class="lines">
 
 
-153
-154
-155</pre>
+14
+15
+16</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/plist4r/mixin/ruby_stdlib.rb', line 153</span>
+      <pre class="code"><span class="info file"># File 'spec/spec_helper.rb', line 14</span>
 
-<span class='def def kw'>def</span> <span class='round identifier id'>round</span><span class='lparen token'>(</span><span class='n identifier id'>n</span><span class='assign token'>=</span><span class='integer val'>0</span><span class='rparen token'>)</span>
-    <span class='lparen token'>(</span><span class='self self kw'>self</span> <span class='mult op'>*</span> <span class='lparen token'>(</span><span class='float val'>10.0</span> <span class='pow op'>**</span> <span class='n identifier id'>n</span><span class='rparen token'>)</span><span class='rparen token'>)</span><span class='dot token'>.</span><span class='round_orig identifier id'>round_orig</span> <span class='mult op'>*</span> <span class='lparen token'>(</span><span class='float val'>10.0</span> <span class='pow op'>**</span> <span class='lparen token'>(</span><span class='minus op'>-</span><span class='n identifier id'>n</span><span class='rparen token'>)</span><span class='rparen token'>)</span>
+<span class='def def kw'>def</span> <span class='test_xml_plist identifier id'>test_xml_plist</span>
+  <span class='@test_xml_plist ivar id'>@test_xml_plist</span> <span class='opasgn op'>||=</span> <span class='string val'>&quot;&lt;?xml version=\&quot;1.0\&quot; encoding=\&quot;UTF-8\&quot;?&gt;\n&lt;!DOCTYPE plist PUBLIC \&quot;-//Apple//DTD PLIST 1.0//EN\&quot; \&quot;http://www.apple.com/DTDs/PropertyList-1.0.dtd\&quot;&gt;\n&lt;plist version=\&quot;1.0\&quot;&gt;&lt;dict&gt;&lt;/dict&gt;&lt;/plist&gt;\n&quot;</span>
+<span class='end end kw'>end</span>
+</pre>
+    </td>
+  </tr>
+</table>
+</div>
+
+    
+      <div class="method_details " id="valid_plist_attributes-instance_method">
+  <p class="signature "">
+  
+    - (<tt><a href="Object.html" target="_self" title="Object (class)">Object</a></tt>) <strong>valid_plist_attributes</strong> 
+  
+
+  
+</p><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+23
+24
+25
+26
+27
+28
+29
+30</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'spec/spec_helper.rb', line 23</span>
+
+<span class='def def kw'>def</span> <span class='valid_plist_attributes identifier id'>valid_plist_attributes</span>
+  <span class='lbrace token'>{</span>
+    <span class='symbol val'>:from_string</span> <span class='assign token'>=</span><span class='gt op'>&gt;</span> <span class='test_xml_plist identifier id'>test_xml_plist</span><span class='comma token'>,</span>
+    <span class='symbol val'>:filename</span> <span class='assign token'>=</span><span class='gt op'>&gt;</span> <span class='string val'>&quot;test_xml.plist&quot;</span><span class='comma token'>,</span>
+    <span class='symbol val'>:plist_type</span> <span class='assign token'>=</span><span class='gt op'>&gt;</span> <span class='string val'>&quot;test_type&quot;</span><span class='comma token'>,</span>
+    <span class='symbol val'>:backends</span> <span class='assign token'>=</span><span class='gt op'>&gt;</span> <span class='lbrack token'>[</span><span class='string val'>&quot;test&quot;</span><span class='rbrack token'>]</span>
+  <span class='rbrace token'>}</span>
 <span class='end end kw'>end</span>
 </pre>
     </td>
@@ -182,7 +201,7 @@ Round to nearest n decimal places
 </div>
     
     <div id="footer">
-  Generated on Fri Jul  2 15:21:43 2010 by 
+  Generated on Fri Jul  2 15:21:42 2010 by 
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool">yard</a>
   0.5.8  and the 
   <a href="http://github.com/dreamcat4/yard-slipstream">yard-slipstream</a> plugin

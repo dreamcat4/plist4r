@@ -80,7 +80,8 @@
     
     <iframe id="search_frame"></iframe>
     
-    <div id="content"><h1>Class: Plist4r::Plist 
+    <div id="content"><h1>Class: Plist4r::Plist
+  
   
   
 </h1>
@@ -453,7 +454,7 @@ method_missing -> PlistType -> DataMethods.
     <h3>Examples:</h3>
     
       <h4><div class='inline'><p>
-This will actually call <tt><a href="DataMethods.html#set-instance_method" target="_self" title="Plist4r::DataMethods#set (method)">DataMethods#set</a></tt>
+This will actually call <tt><a href="DataMethods.html#set-instance_method" target="_self" title="Plist4r::DataMethods#set (method)">Plist4r::DataMethods#set</a></tt>
 </p>
 </div></h4>
       <pre class="example code"><span class='plist identifier id'>plist</span><span class='dot token'>.</span><span class='set identifier id'>set</span> <span class='string val'>&quot;CFBundleVersion&quot;</span> <span class='string val'>&quot;0.1.0&quot;</span>
@@ -733,7 +734,7 @@ always
   <h3>See Also:</h3>
   <ul class="see">
     
-      <li><a href="PlistType.html" target="_self" title="Plist4r::PlistType (class)">Plist4r::PlistType</a></li>
+      <li><a href="PlistType.html" target="_self" title="Plist4r::PlistType (class)">Type</a></li>
     
   </ul>
 
@@ -846,7 +847,7 @@ string.
     <h3>Examples:</h3>
     
       <h4><div class='inline'><p>
-Set some arbitrary keys and values via <tt><a href="DataMethods.html#set-instance_method" target="_self" title="Plist4r::DataMethods#set (method)">DataMethods#set</a></tt>
+Set some arbitrary keys and values via <tt><a href="DataMethods.html#set-instance_method" target="_self" title="Plist4r::DataMethods#set (method)">Plist4r::DataMethods#set</a></tt>
 </p>
 </div></h4>
       <pre class="example code"><span class='plist identifier id'>plist</span><span class='dot token'>.</span><span class='edit identifier id'>edit</span> <span class='do do kw'>do</span>
@@ -856,8 +857,8 @@ Set some arbitrary keys and values via <tt><a href="DataMethods.html#set-instanc
 </pre>
     
       <h4><div class='inline'><p>
-Retrieve, and modify a plist key, value pair, with <tt><a href="DataMethods.html#set-instance_method" target="_self" title="Plist4r::DataMethods#set (method)">DataMethods#set</a></tt> and
-<tt><a href="DataMethods.html#value_of-instance_method" target="_self" title="Plist4r::DataMethods#value_of (method)">DataMethods#value_of</a></tt>
+Retrieve, and modify a plist key, value pair, with <tt><a href="DataMethods.html#set-instance_method" target="_self" title="Plist4r::DataMethods#set (method)">Plist4r::DataMethods#set</a></tt> and
+<tt><a href="DataMethods.html#value_of-instance_method" target="_self" title="Plist4r::DataMethods#value_of (method)">Plist4r::DataMethods#value_of</a></tt>
 </p>
 </div></h4>
       <pre class="example code"><span class='plist identifier id'>plist</span><span class='dot token'>.</span><span class='edit identifier id'>edit</span> <span class='do do kw'>do</span>
@@ -918,7 +919,7 @@ Modify a Launchd plist, by camel-cased accessor methods
   <div class="discussion">
     <p>
 The file format of the plist file we are loading / saving. Written as a
-symbol. One of <tt><a href="#FileFormats-constant" target="_self" title="Plist4r::Plist::FileFormats (constant)">Plist4r::Plist.FileFormats</a></tt>. Defaults to :xml
+symbol. One of <tt><a href="#FileFormats-constant" target="_self" title="Plist4r::Plist::FileFormats (constant)">FileFormats</a></tt>. Defaults to :xml
 </p>
 
 
@@ -971,7 +972,7 @@ The file format associated to this current plist object
   <h3>See Also:</h3>
   <ul class="see">
     
-      <li><a href="#FileFormats-constant" target="_self" title="Plist4r::Plist::FileFormats (constant)">Plist4r::Plist.FileFormats</a></li>
+      <li><a href="#FileFormats-constant" target="_self" title="Plist4r::Plist::FileFormats (constant)">FileFormats</a></li>
     
   </ul>
 
@@ -1083,11 +1084,11 @@ The plist&#8217;s filename
   <h3>See Also:</h3>
   <ul class="see">
     
-      <li><a href="#open-instance_method" target="_self" title="Plist4r::Plist#open (method)">Plist::Plist#open</a></li>
+      <li><a href="#open-instance_method" target="_self" title="Plist4r::Plist#open (method)">#open</a></li>
     
-      <li><a href="#save-instance_method" target="_self" title="Plist4r::Plist#save (method)">Plist::Plist#save</a></li>
+      <li><a href="#save-instance_method" target="_self" title="Plist4r::Plist#save (method)">#save</a></li>
     
-      <li><a href="#save_as-instance_method" target="_self" title="Plist4r::Plist#save_as (method)">Plist::Plist#save_as</a></li>
+      <li><a href="#save_as-instance_method" target="_self" title="Plist4r::Plist#save_as (method)">#save_as</a></li>
     
   </ul>
 
@@ -1249,7 +1250,7 @@ the full, expanded path to the plist file
   <div class="discussion">
     <p>
 Reinitialize plist object from string (overwrites the current contents).
-Usually called from <tt><a href="#initialize-instance_method" target="_self" title="Plist4r::Plist#initialize (method)">Plist#initialize</a></tt> plist.from_string &#8220;{
+Usually called from <tt><a href="#initialize-instance_method" target="_self" title="Plist4r::Plist#initialize (method)">#initialize</a></tt> plist.from_string &#8220;{
 \&#8220;key1\&#8221; = \&#8220;value1\&#8221;; \&#8220;key2\&#8221; =
 \&#8220;value2\&#8221;; }&#8220;
 </p>
@@ -1391,7 +1392,7 @@ root object
   <h3>See Also:</h3>
   <ul class="see">
     
-      <li><a href="Backend/Example.html" target="_self" title="Plist4r::Backend::Example (module)">Backend::Example</a></li>
+      <li><a href="Backend/Example.html" target="_self" title="Plist4r::Backend::Example (module)">Plist4r::Backend::Example</a></li>
     
   </ul>
 
@@ -1676,7 +1677,7 @@ The plist&#8217;s working path
   <h3>See Also:</h3>
   <ul class="see">
     
-      <li><a href="#filename_path-instance_method" target="_self" title="Plist4r::Plist#filename_path (method)">Plist::Plist#filename_path</a></li>
+      <li><a href="#filename_path-instance_method" target="_self" title="Plist4r::Plist#filename_path (method)">#filename_path</a></li>
     
   </ul>
 
@@ -1749,7 +1750,7 @@ override the automatic type detection.
       
         &mdash;
         <div class='inline'><p>
-Must be a sublcass of <tt><a href="PlistType.html" target="_self" title="Plist4r::PlistType (class)">Plist4r::PlistType</a></tt>
+Must be a sublcass of <tt><a href="PlistType.html" target="_self" title="Plist4r::PlistType (class)">Type</a></tt>
 </p>
 </div>
       
@@ -1780,9 +1781,9 @@ Plist4r::PlistType. Defaults to :plist
   <h3>See Also:</h3>
   <ul class="see">
     
-      <li><a href="PlistType.html" target="_self" title="Plist4r::PlistType (class)">Plist4r::PlistType</a></li>
+      <li><a href="PlistType.html" target="_self" title="Plist4r::PlistType (class)">Type</a></li>
     
-      <li><a href="PlistType/Plist.html" target="_self" title="Plist4r::PlistType::Plist (class)">Plist4r::PlistType::Plist</a></li>
+      <li><a href="PlistType/Plist.html" target="_self" title="Plist4r::PlistType::Plist (class)">Type::Plist</a></li>
     
   </ul>
 
@@ -2150,14 +2151,14 @@ The strict_keys setting for this object
 </p><div class="docstring">
   <div class="discussion">
     
-  <p class="note todo">
+  <div class="note todo">
     <strong>TODO:</strong> 
     <div class='inline'><p>
 Needs a backend We are missing a backend for writing out :gnustep strings
 and saving :gnustep files to disk
 </p>
 </div>
-  </p>
+  </div>
 
 
 
@@ -2238,7 +2239,7 @@ Nested hash of ruby objects. The raw Plist data
   <h3>See Also:</h3>
   <ul class="see">
     
-      <li><a href="OrderedHash.html" target="_self" title="Plist4r::OrderedHash (class)">::Plist4r::OrderedHash</a></li>
+      <li><a href="OrderedHash.html" target="_self" title="Plist4r::OrderedHash (class)">Plist4r::OrderedHash</a></li>
     
   </ul>
 
@@ -2342,9 +2343,9 @@ file
 </div>
     
     <div id="footer">
-  Generated on Tue Jun 29 17:44:50 2010 by 
+  Generated on Fri Jul  2 15:22:00 2010 by 
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool">yard</a>
-  0.5.4  and the 
+  0.5.8  and the 
   <a href="http://github.com/dreamcat4/yard-slipstream">yard-slipstream</a> plugin
 	(ruby-1.8.7).
 </div>

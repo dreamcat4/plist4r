@@ -80,7 +80,8 @@
     
     <iframe id="search_frame"></iframe>
     
-    <div id="content"><h1>Module: Plist4r::Backend::CFPropertyList 
+    <div id="content"><h1>Module: Plist4r::Backend::CFPropertyList
+  
   
   
 </h1>
@@ -210,22 +211,16 @@
 <h2>Overview</h2><div class="docstring">
   <div class="discussion">
     <p>
-CFPropertyList is an independant Ruby Library, which is written natively in
-Ruby.
+C.Kruse&#8217;s CFPropertyList is an independant Ruby Library and written
+natively in Ruby. Supports binary and xml format property lists. With a
+dependency on libxml-ruby for reading/writing the xml plists.
 </p>
 
 
   </div>
 </div>
 <div class="tags">
-  
-  <h3>See Also:</h3>
-  <ul class="see">
-    
-      <li><a href="../Backend.html" target="_self" title="Plist4r::Backend (class)">Plist4r::Backend</a></li>
-    
-  </ul>
-<h3>Author:</h3>
+  <h3>Author:</h3>
 <ul class="author">
   
     <li>
@@ -555,7 +550,6 @@ cftypes = CFPropertyList.guess(x,:convert_unknown_to_string => true)
       <pre class="lines">
 
 
-82
 83
 84
 85
@@ -592,10 +586,11 @@ cftypes = CFPropertyList.guess(x,:convert_unknown_to_string => true)
 116
 117
 118
-119</pre>
+119
+120</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/plist4r/backend/c_f_property_list/rbCFPropertyList.rb', line 82</span>
+      <pre class="code"><span class="info file"># File 'lib/plist4r/backend/c_f_property_list/rbCFPropertyList.rb', line 83</span>
 
 <span class='def def kw'>def</span> <span class='guess identifier id'>guess</span><span class='lparen token'>(</span><span class='object identifier id'>object</span><span class='comma token'>,</span> <span class='options identifier id'>options</span> <span class='assign token'>=</span> <span class='lbrace token'>{</span><span class='rbrace token'>}</span><span class='rparen token'>)</span>
   <span class='if if kw'>if</span><span class='lparen token'>(</span><span class='object identifier id'>object</span><span class='dot token'>.</span><span class='is_a? fid id'>is_a?</span><span class='lparen token'>(</span><span class='Fixnum constant id'>Fixnum</span><span class='rparen token'>)</span> <span class='orop op'>||</span> <span class='object identifier id'>object</span><span class='dot token'>.</span><span class='is_a? fid id'>is_a?</span><span class='lparen token'>(</span><span class='Integer constant id'>Integer</span><span class='rparen token'>)</span><span class='rparen token'>)</span> <span class='then then kw'>then</span>
@@ -666,7 +661,6 @@ Converts a CFType hiercharchy to native Ruby types
       <pre class="lines">
 
 
-122
 123
 124
 125
@@ -692,10 +686,11 @@ Converts a CFType hiercharchy to native Ruby types
 145
 146
 147
-148</pre>
+148
+149</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/plist4r/backend/c_f_property_list/rbCFPropertyList.rb', line 122</span>
+      <pre class="code"><span class="info file"># File 'lib/plist4r/backend/c_f_property_list/rbCFPropertyList.rb', line 123</span>
 
 <span class='def def kw'>def</span> <span class='native_types identifier id'>native_types</span><span class='lparen token'>(</span><span class='object identifier id'>object</span><span class='comma token'>,</span><span class='keys_as_symbols identifier id'>keys_as_symbols</span><span class='assign token'>=</span><span class='false false kw'>false</span><span class='rparen token'>)</span>
   <span class='return return kw'>return</span> <span class='if if_mod kw'>if</span> <span class='object identifier id'>object</span><span class='dot token'>.</span><span class='nil? fid id'>nil?</span>
@@ -736,9 +731,9 @@ Converts a CFType hiercharchy to native Ruby types
 </div>
     
     <div id="footer">
-  Generated on Tue Jun 29 17:44:47 2010 by 
+  Generated on Fri Jul  2 15:21:40 2010 by 
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool">yard</a>
-  0.5.4  and the 
+  0.5.8  and the 
   <a href="http://github.com/dreamcat4/yard-slipstream">yard-slipstream</a> plugin
 	(ruby-1.8.7).
 </div>

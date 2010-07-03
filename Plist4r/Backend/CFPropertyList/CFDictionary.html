@@ -80,7 +80,8 @@
     
     <iframe id="search_frame"></iframe>
     
-    <div id="content"><h1>Class: Plist4r::Backend::CFPropertyList::CFDictionary 
+    <div id="content"><h1>Class: Plist4r::Backend::CFPropertyList::CFDictionary
+  
   
   
 </h1>
@@ -170,12 +171,12 @@ Create new CFDictonary type.
       <pre class="lines">
 
 
-210
 211
-212</pre>
+212
+213</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/plist4r/backend/c_f_property_list/rbCFTypes.rb', line 210</span>
+      <pre class="code"><span class="info file"># File 'lib/plist4r/backend/c_f_property_list/rbCFTypes.rb', line 211</span>
 
 <span class='def def kw'>def</span> <span class='initialize identifier id'>initialize</span><span class='lparen token'>(</span><span class='value identifier id'>value</span><span class='assign token'>=</span><span class='lbrace token'>{</span><span class='rbrace token'>}</span><span class='rparen token'>)</span>
   <span class='@value ivar id'>@value</span> <span class='assign token'>=</span> <span class='value identifier id'>value</span>
@@ -217,12 +218,12 @@ convert to binary
       <pre class="lines">
 
 
-228
 229
-230</pre>
+230
+231</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/plist4r/backend/c_f_property_list/rbCFTypes.rb', line 228</span>
+      <pre class="code"><span class="info file"># File 'lib/plist4r/backend/c_f_property_list/rbCFTypes.rb', line 229</span>
 
 <span class='def def kw'>def</span> <span class='to_binary identifier id'>to_binary</span><span class='lparen token'>(</span><span class='bplist identifier id'>bplist</span><span class='rparen token'>)</span>
   <span class='return return kw'>return</span> <span class='bplist identifier id'>bplist</span><span class='dot token'>.</span><span class='dict_to_binary identifier id'>dict_to_binary</span><span class='lparen token'>(</span><span class='self self kw'>self</span><span class='rparen token'>)</span>
@@ -258,7 +259,6 @@ convert to XML
       <pre class="lines">
 
 
-215
 216
 217
 218
@@ -268,10 +268,11 @@ convert to XML
 222
 223
 224
-225</pre>
+225
+226</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/plist4r/backend/c_f_property_list/rbCFTypes.rb', line 215</span>
+      <pre class="code"><span class="info file"># File 'lib/plist4r/backend/c_f_property_list/rbCFTypes.rb', line 216</span>
 
 <span class='def def kw'>def</span> <span class='to_xml identifier id'>to_xml</span>
   <span class='n identifier id'>n</span> <span class='assign token'>=</span> <span class='LibXML constant id'>LibXML</span><span class='colon2 op'>::</span><span class='XML constant id'>XML</span><span class='colon2 op'>::</span><span class='Node constant id'>Node</span><span class='dot token'>.</span><span class='new identifier id'>new</span><span class='lparen token'>(</span><span class='string val'>'dict'</span><span class='rparen token'>)</span>
@@ -296,9 +297,9 @@ convert to XML
 </div>
     
     <div id="footer">
-  Generated on Tue Jun 29 17:44:39 2010 by 
+  Generated on Fri Jul  2 15:22:05 2010 by 
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool">yard</a>
-  0.5.4  and the 
+  0.5.8  and the 
   <a href="http://github.com/dreamcat4/yard-slipstream">yard-slipstream</a> plugin
 	(ruby-1.8.7).
 </div>

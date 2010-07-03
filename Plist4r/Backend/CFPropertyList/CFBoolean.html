@@ -80,7 +80,8 @@
     
     <iframe id="search_frame"></iframe>
     
-    <div id="content"><h1>Class: Plist4r::Backend::CFPropertyList::CFBoolean 
+    <div id="content"><h1>Class: Plist4r::Backend::CFPropertyList::CFBoolean
+  
   
   
 </h1>
@@ -180,12 +181,12 @@ convert to binary
       <pre class="lines">
 
 
-146
 147
-148</pre>
+148
+149</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/plist4r/backend/c_f_property_list/rbCFTypes.rb', line 146</span>
+      <pre class="code"><span class="info file"># File 'lib/plist4r/backend/c_f_property_list/rbCFTypes.rb', line 147</span>
 
 <span class='def def kw'>def</span> <span class='to_binary identifier id'>to_binary</span><span class='lparen token'>(</span><span class='bplist identifier id'>bplist</span><span class='rparen token'>)</span>
   <span class='return return kw'>return</span> <span class='bplist identifier id'>bplist</span><span class='dot token'>.</span><span class='bool_to_binary identifier id'>bool_to_binary</span><span class='lparen token'>(</span><span class='@value ivar id'>@value</span><span class='rparen token'>)</span>
@@ -221,12 +222,12 @@ convert to XML
       <pre class="lines">
 
 
-141
 142
-143</pre>
+143
+144</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/plist4r/backend/c_f_property_list/rbCFTypes.rb', line 141</span>
+      <pre class="code"><span class="info file"># File 'lib/plist4r/backend/c_f_property_list/rbCFTypes.rb', line 142</span>
 
 <span class='def def kw'>def</span> <span class='to_xml identifier id'>to_xml</span>
   <span class='return return kw'>return</span> <span class='LibXML constant id'>LibXML</span><span class='colon2 op'>::</span><span class='XML constant id'>XML</span><span class='colon2 op'>::</span><span class='Node constant id'>Node</span><span class='dot token'>.</span><span class='new identifier id'>new</span><span class='lparen token'>(</span><span class='@value ivar id'>@value</span> <span class='question op'>?</span> <span class='string val'>'true'</span> <span class='colon op'>:</span> <span class='string val'>'false'</span><span class='rparen token'>)</span>
@@ -243,9 +244,9 @@ convert to XML
 </div>
     
     <div id="footer">
-  Generated on Tue Jun 29 17:44:51 2010 by 
+  Generated on Fri Jul  2 15:21:42 2010 by 
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool">yard</a>
-  0.5.4  and the 
+  0.5.8  and the 
   <a href="http://github.com/dreamcat4/yard-slipstream">yard-slipstream</a> plugin
 	(ruby-1.8.7).
 </div>
