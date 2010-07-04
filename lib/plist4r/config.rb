@@ -54,10 +54,11 @@ module Plist4r
     backends default_backends
     backends << Dir.glob(File.dirname(__FILE__) + "/backend/*.rb").collect {|b| File.basename(b,".rb") }
     backends.flatten!.uniq!
+    backends.delete "example"
 
     strict_keys false
     raise_any_failure false
-    deafult_format :xml
+    default_format :xml
     default_path nil
   end
 end

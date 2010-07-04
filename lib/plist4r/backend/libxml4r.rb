@@ -1,7 +1,7 @@
 
 require 'plist4r/backend_base'
 
-# This backend uses Libxml4r / Libxml-Ruby to *read* xml plists
+# This backend uses Libxml4r / Libxml-Ruby to parse xml plists
 # @author Dreamcat4 (dreamcat4@gmail.com)
 module Plist4r::Backend::Libxml4r
   class << self
@@ -87,8 +87,8 @@ module Plist4r::Backend::Libxml4r
     end
 
     def parse_plist_xml string
-      require 'rubygems'
       require 'libxml4r'
+
       ::LibXML::XML.default_keep_blanks = false
       doc = string.to_xmldoc
       doc.strip!
@@ -106,15 +106,6 @@ module Plist4r::Backend::Libxml4r
       end
       ordered_hash
     end
-
-    # def from_xml plist, string
-    #   # plist_format = Plist4r.string_detect_format string
-    #   # raise "#{self} - cant convert string of format #{plist_format}" unless plist_format == :xml
-    #   hash = parse_plist_xml string
-    #   plist.import_hash hash
-    #   plist.file_format plist_format
-    #   return plist
-    # end
 
     def from_xml plist
       hash = parse_plist_xml plist.from_string

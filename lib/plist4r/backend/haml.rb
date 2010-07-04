@@ -1,7 +1,7 @@
 
 require 'plist4r/backend_base'
 
-# This backend uses haml to *write* xml plists
+# This backend uses haml to generate xml plists
 # @author Dreamcat4 (dreamcat4@gmail.com)
 module Plist4r::Backend::Haml
   class << self
@@ -71,9 +71,10 @@ EOC
     end
 
     def to_xml plist
-      @plist = plist
       require 'haml'
       require 'base64'
+
+      @plist = plist
       engine = Haml::Engine.new to_xml_haml
       rendered_xml_output = engine.render self
     end
