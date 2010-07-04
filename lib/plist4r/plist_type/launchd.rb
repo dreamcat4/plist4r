@@ -7,7 +7,7 @@ module Plist4r
 
     # A Hash Array of the supported plist keys for this type. These are plist keys which belong to the
     # PlistType for Launchd plists. Each CamelCased key name has a corresponding set_or_return method call.
-    # For example "UserName" => user_name(value). To see how to use these Plist Keys, go to {file:PlistKeyNames}
+    # For example "UserName" => user_name(value). For more information please see {file:PlistKeyNames}
     # @see Plist4r::DataMethods
     ValidKeys =
     {

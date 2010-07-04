@@ -11,9 +11,17 @@ module Plist4r
     {
       :string => [String], 
       :bool => [TrueClass,FalseClass],
+      :bool_or_string => [TrueClass,FalseClass,String],
       :integer => [Fixnum], 
       :array_of_strings => [Array],
+      :array_of_hashes => [Array],
+      :array => [Array],
+      :array_or_integer => [Array,Fixnum],
+      :array_or_hash => [Array, Hash],
       :hash_of_bools => [Hash],
+      :hash_of_strings => [Hash],
+      :hash_of_arrays => [Hash],
+      :hash_of_arrays_of_strings => [Hash],
       :hash => [Hash],
       :bool_or_string_or_array_of_strings => [TrueClass,FalseClass,String,Array]
     }
@@ -39,6 +47,48 @@ module Plist4r
     #  plist.custom_plist_key1 MyClass.new(opts)
     # @see ClassesForKeyType
     ValidKeys = {}
+
+    # A template for creating new plist types
+    ValidKeysTemplate =
+    {
+      :string => %w[
+        
+        ],
+      :bool => %w[
+        
+        ],
+      :integer => %w[
+        
+        ],
+      :array_of_strings => %w[
+        
+        ],
+      :array_of_hashes => %w[
+        
+        ],
+      :array => %w[
+        
+        ],
+      :hash_of_bools => %w[
+        
+        ],
+      :hash_of_strings => %w[
+        
+        ],
+      :hash_of_arrays => %w[
+        
+        ],
+      :hash_of_arrays_of_strings => %w[
+        
+        ],
+      :hash => %w[
+        
+        ],
+      :could_be_method_defined   => %w[
+        
+        ]
+    }
+
 
     # Call {#set_or_return} with the appropriate arguments. If {Plist4r::Plist#strict_keys} is enabled, 
     # then raise an error on any unrecognised Plist Keys.
@@ -86,10 +136,39 @@ module Plist4r
             end
           end
         end
+      when :array_of_hashes
+        value.each_index do |i|
+          unless value[i].class == Hash
+            raise "Element: #{key}[#{i}], value: #{value[i].inspect} is of type #{value[i].class}. Should be: #{ClassesForKeyType[:hash].join ", "}"
+          end
+        end
       when :hash_of_bools
         value.each do |k,v|
           unless [TrueClass,FalseClass].include? v.class
             raise "Key: #{key}[#{k}], value: #{v.inspect} is of type #{v.class}. Should be: #{ClassesForKeyType[:bool].join ", "}"
+          end
+        end
+      when :hash_of_strings
+        value.each do |k,v|
+          unless v.class == String
+            raise "Key: #{key}[#{k}], value: #{v.inspect} is of type #{v.class}. Should be: #{ClassesForKeyType[:string].join ", "}"
+          end
+        end
+      when :hash_of_arrays
+        value.each do |k,v|
+          unless v.class == Array
+            raise "Key: #{key}[#{k}], value: #{v.inspect} is of type #{v.class}. Should be: #{ClassesForKeyType[:array].join ", "}"
+          end
+        end
+      when :hash_of_arrays_of_strings
+        value.each do |k,v|
+          unless v.class == Array
+            raise "Key: #{key}[#{k}], value: #{v.inspect} is of type #{v.class}. Should be: #{ClassesForKeyType[:array].join ", "}"
+          end
+          v.each_index do |i|
+            unless v[i].class == String
+              raise "Element: #{key}[#{k}][#{i}], value: #{v[i].inspect} is of type #{v[i].class}. Should be: #{ClassesForKeyType[:string].join ", "}"
+            end
           end
         end
       end

@@ -35,7 +35,7 @@ module Plist4r
     #  Plist4r::PlistType::Launchd.match_stat ["ProgramArguments","Sockets","SomeArbitraryKeyName"]
     #  # => { :matches => 2, :ratio => 0.0465116279069767 }
     def self.match_stat plist_keys
-      type_keys = ValidKeys.values.flatten
+      type_keys = self::ValidKeys.values.flatten
       matches = plist_keys & type_keys
       include_ratio = matches.size.to_f / type_keys.size
       return :matches => matches.size, :ratio => include_ratio

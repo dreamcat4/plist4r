@@ -69,6 +69,32 @@ class Array
   end
 end
 
+class Hash
+  def merge_array_of_hashes_of_arrays array_of_hashes_of_arrays
+    a = array_of_hashes_of_arrays
+    raise "not an array_of_hashes_of_arrays" unless a.is_a? Array
+    if a[0].is_a? Hash
+      h = self.deep_clone
+      a.each_index do |i|
+        raise "not an array_of_hashes_of_arrays" unless a[i].is_a? Hash
+        a[i].each do |k,v|
+          raise "not an array_of_hashes_of_arrays" unless v.is_a? Array
+          h[k] = [h[k]].flatten.compact + v
+        end
+      end
+    else
+      raise "not an array_of_hashes_of_arrays"
+    end
+    h
+  end
+
+  def merge_array_of_hashes_of_arrays! array_of_hashes_of_arrays
+    h = merge_array_of_hashes_of_arrays array_of_hashes_of_arrays
+    self.replace h
+    self
+  end
+end
+
 class Range
   # The Range's computed size, ie the number of elements in range.
   # @example
