@@ -9,11 +9,12 @@ Gem::Specification.new do |s|
 
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
   s.authors = ["dreamcat4"]
-  s.date = %q{2010-04-20}
+  s.date = %q{2010-07-04}
   s.default_executable = %q{plist4r}
   s.description = %q{In development. Plist4R is a gem which is striving for 3 things: ease of use, speed, and reliability handling of plists. To help achieve these goals, we may plug-in or re-write this gem with one or several backends. Notably, we try to distinguish this gem by providing easy-to use DSL interface for users. For common plist type(s), such as convenience methods for Launchd Plist}
   s.email = %q{dreamcat4@gmail.com}
   s.executables = ["plist4r"]
+  s.extensions = ["ext/osx_plist/extconf.rb"]
   s.extra_rdoc_files = [
     "LICENSE",
     "README.rdoc"
@@ -28,27 +29,57 @@ Gem::Specification.new do |s|
     "Rakefile",
     "VERSION",
     "bin/plist4r",
+    "ext/osx_plist/Makefile",
+    "ext/osx_plist/extconf.rb",
+    "ext/osx_plist/plist.c",
+    "ext/osx_plist/plist.o",
     "features/plist4r.feature",
     "features/step_definitions/plist4r_steps.rb",
     "features/support/env.rb",
     "lib/plist4r.rb",
     "lib/plist4r/application.rb",
     "lib/plist4r/backend.rb",
+    "lib/plist4r/backend/c_f_property_list.rb",
+    "lib/plist4r/backend/c_f_property_list/LICENSE",
+    "lib/plist4r/backend/c_f_property_list/README",
+    "lib/plist4r/backend/c_f_property_list/rbBinaryCFPropertyList.rb",
+    "lib/plist4r/backend/c_f_property_list/rbCFPlistError.rb",
+    "lib/plist4r/backend/c_f_property_list/rbCFPropertyList.rb",
+    "lib/plist4r/backend/c_f_property_list/rbCFTypes.rb",
+    "lib/plist4r/backend/c_f_property_list/rbXMLCFPropertyList.rb",
     "lib/plist4r/backend/example.rb",
     "lib/plist4r/backend/haml.rb",
     "lib/plist4r/backend/libxml4r.rb",
-    "lib/plist4r/backend/plutil.rb",
+    "lib/plist4r/backend/osx_plist.rb",
     "lib/plist4r/backend/ruby_cocoa.rb",
+    "lib/plist4r/backend/test/data.rb",
+    "lib/plist4r/backend/test/harness.rb",
+    "lib/plist4r/backend/test/output.rb",
     "lib/plist4r/backend_base.rb",
     "lib/plist4r/commands.rb",
     "lib/plist4r/config.rb",
+    "lib/plist4r/docs/Backends.html",
+    "lib/plist4r/docs/DeveloperGuide.rdoc",
+    "lib/plist4r/docs/EditingPlistFiles.rdoc",
+    "lib/plist4r/docs/PlistKeyNames.rdoc",
+    "lib/plist4r/docs/Todo.rdoc",
+    "lib/plist4r/docs/ToyCarExample.rdoc",
     "lib/plist4r/mixin.rb",
     "lib/plist4r/mixin/data_methods.rb",
+    "lib/plist4r/mixin/haml4r.rb",
+    "lib/plist4r/mixin/haml4r/css_attributes.rb",
+    "lib/plist4r/mixin/haml4r/examples.rb",
+    "lib/plist4r/mixin/haml4r/haml_table_example.rb",
+    "lib/plist4r/mixin/haml4r/table.rb",
+    "lib/plist4r/mixin/haml4r/table_cell.rb",
+    "lib/plist4r/mixin/haml4r/table_cells.rb",
+    "lib/plist4r/mixin/haml4r/table_section.rb",
     "lib/plist4r/mixin/mixlib_cli.rb",
     "lib/plist4r/mixin/mixlib_config.rb",
     "lib/plist4r/mixin/ordered_hash.rb",
     "lib/plist4r/mixin/popen4.rb",
     "lib/plist4r/mixin/ruby_stdlib.rb",
+    "lib/plist4r/mixin/table.rb",
     "lib/plist4r/options.rb",
     "lib/plist4r/plist.rb",
     "lib/plist4r/plist_cache.rb",
@@ -57,11 +88,12 @@ Gem::Specification.new do |s|
     "lib/plist4r/plist_type/launchd.rb",
     "lib/plist4r/plist_type/plist.rb",
     "plist4r.gemspec",
-    "plists/array_mini.xml",
-    "plists/example_big_binary.plist",
-    "plists/example_medium_binary_launchd.plist",
-    "plists/example_medium_launchd.xml",
-    "plists/mini.xml",
+    "spec/data/manual/array_mini.xml",
+    "spec/data/manual/example_big_binary.plist",
+    "spec/data/manual/example_medium_binary_launchd.plist",
+    "spec/data/manual/example_medium_launchd.xml",
+    "spec/data/manual/mini.xml",
+    "spec/data/manual/reference_plist.xml",
     "spec/examples.rb",
     "spec/plist4r/plist_spec.rb",
     "spec/plist4r_spec.rb",
@@ -76,7 +108,15 @@ Gem::Specification.new do |s|
   s.summary = %q{Dreamcat4's plist4r gem. For reading/writing plists in ruby}
   s.test_files = [
     "spec/examples.rb",
+    "spec/plist4r/application_spec.rb",
+    "spec/plist4r/backend_spec.rb",
+    "spec/plist4r/commands_spec.rb",
+    "spec/plist4r/config_spec.rb",
+    "spec/plist4r/mixin_spec.rb",
+    "spec/plist4r/options_spec.rb",
+    "spec/plist4r/plist_cache_spec.rb",
     "spec/plist4r/plist_spec.rb",
+    "spec/plist4r/plist_type_spec.rb",
     "spec/plist4r_spec.rb",
     "spec/spec_helper.rb"
   ]
@@ -86,12 +126,14 @@ Gem::Specification.new do |s|
     s.specification_version = 3
 
     if Gem::Version.new(Gem::RubyGemsVersion) >= Gem::Version.new('1.2.0') then
+      s.add_runtime_dependency(%q<libxml-ruby>, [">= 0"])
       s.add_runtime_dependency(%q<haml>, [">= 0"])
       s.add_runtime_dependency(%q<libxml4r>, [">= 0"])
       s.add_development_dependency(%q<rspec>, [">= 1.2.9"])
       s.add_development_dependency(%q<yard>, [">= 0"])
       s.add_development_dependency(%q<cucumber>, [">= 0"])
     else
+      s.add_dependency(%q<libxml-ruby>, [">= 0"])
       s.add_dependency(%q<haml>, [">= 0"])
       s.add_dependency(%q<libxml4r>, [">= 0"])
       s.add_dependency(%q<rspec>, [">= 1.2.9"])
@@ -99,6 +141,7 @@ Gem::Specification.new do |s|
       s.add_dependency(%q<cucumber>, [">= 0"])
     end
   else
+    s.add_dependency(%q<libxml-ruby>, [">= 0"])
     s.add_dependency(%q<haml>, [">= 0"])
     s.add_dependency(%q<libxml4r>, [">= 0"])
     s.add_dependency(%q<rspec>, [">= 1.2.9"])
