@@ -7,6 +7,7 @@
 # Copyright:: Copyright (c) 2010
 # License::   Distributes under the same terms as Ruby
 
+#
 module Plist4r
   class Backend
     module CFPropertyList

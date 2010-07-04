@@ -7,6 +7,7 @@
 # Copyright:: Copyright (c) 2009
 # License::   Distributes under the same terms as Ruby
 
+# 
 require 'base64'
 module Plist4r
   class Backend

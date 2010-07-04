@@ -2,10 +2,10 @@
 require 'plist4r/backend_base'
 require 'plist4r/backend/c_f_property_list/rbCFPropertyList'
 
-# CFPropertyList is an independant Ruby Library, which is written natively in Ruby.
+# C.Kruse's CFPropertyList is an independant Ruby Library and written natively in Ruby.
+# Supports binary and xml format property lists. With a dependency on libxml-ruby
+# for reading/writing the xml plists.
 # @author Christian Kruse (http://github.com/ckruse)
-# 
-# @see Plist4r::Backend
 module Plist4r::Backend::CFPropertyList
   class << self
 
@@ -29,9 +29,6 @@ module Plist4r::Backend::CFPropertyList
       hash.replace hash_obj
       plist.import_hash hash
 
-      plist_format = Plist4r.string_detect_format plist.from_string
-      plist.file_format plist_format
-
       return plist
     end
 
@@ -41,10 +38,6 @@ module Plist4r::Backend::CFPropertyList
 
     def from_binary plist
       from_string plist
-    end
-
-    def from_gnustep plist
-      raise "Not implemented"
     end
 
     def to_xml plist
@@ -57,10 +50,6 @@ module Plist4r::Backend::CFPropertyList
       cf_plist = Plist4r::Backend::CFPropertyList::List.new
       cf_plist.value = Plist4r::Backend::CFPropertyList.guess(plist.to_hash)
       return cf_plist.to_str(Plist4r::Backend::CFPropertyList::List::FORMAT_BINARY)
-    end
-
-    def to_gnustep plist
-      raise "Not implemented"
     end
 
   end
