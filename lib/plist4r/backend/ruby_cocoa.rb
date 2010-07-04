@@ -113,21 +113,21 @@ module Plist
     end
   end
 
-  def save input_file, filename, file_format
-    hash = Marshal.load(File.read(input_file))
-    case file_format.to_sym
-    when :xml
-      x = hash.to_plist # NSPropertyListXMLFormat_v1_0
-    when :binary
-      x = hash.to_plist 200 # NSPropertyListBinaryFormat_v1_0
-    when :gnustep
-      raise "File format #{file_format.inspect} is not supported by RubyCocoa"
-    else
-      raise "File format #{file_format.inspect} not recognised"
-    end
-    # puts x
-    File.open(filename,'w'){ |o| o << x }
-  end
+  # def save input_file, filename, file_format
+  #   hash = Marshal.load(File.read(input_file))
+  #   case file_format.to_sym
+  #   when :xml
+  #     x = hash.to_plist # NSPropertyListXMLFormat_v1_0
+  #   when :binary
+  #     x = hash.to_plist 200 # NSPropertyListBinaryFormat_v1_0
+  #   when :gnustep
+  #     raise "File format #{file_format.inspect} is not supported by RubyCocoa"
+  #   else
+  #     raise "File format #{file_format.inspect} not recognised"
+  #   end
+  #   # puts x
+  #   File.open(filename,'w'){ |o| o << x }
+  # end
 end
 
 class RubyCocoaWrapper
@@ -162,7 +162,7 @@ EOC
         @rb_script.close
         File.chmod 0755, @rb_script.path
       end
-      
+
       cmd = @rb_script.path
       plist4r_root = File.expand_path File.join(File.dirname(__FILE__), "..", "..")
       @result_file = Tempfile.new("result_file.rb")
@@ -229,7 +229,7 @@ EOC
         raise "Error executing #{result[0]}. See stderr for more information"
       end
     end
-    
+
     def open_with_args plist, filename
       require 'date'
 
@@ -243,9 +243,16 @@ EOC
         $stderr.puts result[3]
         raise "Error executing #{result[0]}. See stderr for more information"
       end
-      file_format = Plist4r.file_detect_format filename
-      plist.file_format file_format
       return plist
+    end
+
+    def from_string plist
+      require 'tempfile'
+      tf = Tempfile.new "from_string.plist."
+      tf.write plist.from_string
+      tf.close
+      filename = tf.path
+      return open_with_args plist, filename
     end
 
     def from_xml plist
@@ -260,38 +267,30 @@ EOC
       from_string plist
     end
 
-    def from_string plist
-      require 'tempfile'
-      tf = Tempfile.new "from_string.plist."
-      tf.write plist.from_string
-      tf.close
-      filename = tf.path
-      return open_with_args plist, filename
-    end
+    # def open plist
+    #   return open_with_args plist, plist.filename_path
+    # end
 
-    def open plist
-      return open_with_args plist, plist.filename_path
-    end
-
-    def save plist
-      filename = plist.filename_path
-      file_format = plist.file_format || Config[:default_format]
-      raise "#{self} - cant save file of format #{file_format}" unless [:xml,:binary].include? file_format.to_sym
-    
-      require 'tempfile'
-      input_file = Tempfile.new "input_file.rb."
-      input_file.puts Marshal.dump(plist.to_hash)
-      input_file.close
-    
-      result = ruby_cocoa_exec "save(\"#{input_file.path}\",\"#{filename}\",\"#{file_format}\")"
-    
-      case result[1].exitstatus
-      when 0
-        return true
-      else
-        raise "Error executing #{result[0]}. Stderr:" + result[3]
-      end
-    end
+    # def save plist
+    #   require 'plist4r/config'
+    #   filename = plist.filename_path
+    #   file_format = plist.file_format || Plist4r::Config[:default_format]
+    #   raise "#{self} - cant save file of format #{file_format}" unless [:xml,:binary].include? file_format.to_sym
+    # 
+    #   require 'tempfile'
+    #   input_file = Tempfile.new "input_file.rb."
+    #   input_file.puts Marshal.dump(plist.to_hash)
+    #   input_file.close
+    # 
+    #   result = ruby_cocoa_exec "save(\"#{input_file.path}\",\"#{filename}\",\"#{file_format}\")"
+    # 
+    #   case result[1].exitstatus
+    #   when 0
+    #     return true
+    #   else
+    #     raise "Error executing #{result[0]}. Stderr:" + result[3]
+    #   end
+    # end
   end
 end
 
