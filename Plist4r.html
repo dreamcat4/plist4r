@@ -200,7 +200,7 @@
       <div class="method_details first" id="file_detect_format-class_method">
   <p class="signature first"">
   
-    + (<tt><a href="Object.html" target="_self" title="Object (class)">Object</a></tt>) <strong>file_detect_format</strong>(filename) 
+    + (<tt>Symbol</tt>) <strong>file_detect_format</strong>(filename) 
   
 
   
@@ -235,6 +235,26 @@ plist file to check
     </li>
   
 </ul>
+<h3>Returns:</h3>
+<ul class="return">
+  
+    <li>
+      
+        <span class='type'>(<tt>Symbol</tt>)</span>
+      
+      
+      
+      
+        &mdash;
+        <div class='inline'><p>
+A Symbol representing the plist data type. One of:
+Plist4r::Plist.FileFormats
+</p>
+</div>
+      
+    </li>
+  
+</ul>
 
   <h3>See Also:</h3>
   <ul class="see">
@@ -251,12 +271,12 @@ plist file to check
       <pre class="lines">
 
 
-70
-71
-72</pre>
+73
+74
+75</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/plist4r.rb', line 70</span>
+      <pre class="code"><span class="info file"># File 'lib/plist4r.rb', line 73</span>
 
 <span class='def def kw'>def</span> <span class='file_detect_format identifier id'>file_detect_format</span> <span class='filename identifier id'>filename</span>
   <span class='string_detect_format identifier id'>string_detect_format</span> <span class='File constant id'>File</span><span class='dot token'>.</span><span class='read identifier id'>read</span><span class='lparen token'>(</span><span class='filename identifier id'>filename</span><span class='rparen token'>)</span>
@@ -330,13 +350,13 @@ The new Plist object
       <pre class="lines">
 
 
-18
 19
 20
-21</pre>
+21
+22</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/plist4r.rb', line 18</span>
+      <pre class="code"><span class="info file"># File 'lib/plist4r.rb', line 19</span>
 
 <span class='def def kw'>def</span> <span class='new identifier id'>new</span> <span class='mult op'>*</span><span class='args identifier id'>args</span><span class='comma token'>,</span> <span class='bitand op'>&amp;</span><span class='blk identifier id'>blk</span>
   <span class='comment val'># puts args.inspect</span>
@@ -434,13 +454,13 @@ The loaded Plist object
       <pre class="lines">
 
 
-31
-32
 33
-34</pre>
+34
+35
+36</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/plist4r.rb', line 31</span>
+      <pre class="code"><span class="info file"># File 'lib/plist4r.rb', line 33</span>
 
 <span class='def def kw'>def</span> <span class='open identifier id'>open</span> <span class='filename identifier id'>filename</span><span class='comma token'>,</span> <span class='mult op'>*</span><span class='args identifier id'>args</span><span class='comma token'>,</span> <span class='bitand op'>&amp;</span><span class='blk identifier id'>blk</span>
   <span class='p identifier id'>p</span> <span class='assign token'>=</span> <span class='Plist constant id'>Plist</span><span class='dot token'>.</span><span class='new identifier id'>new</span> <span class='filename identifier id'>filename</span><span class='comma token'>,</span> <span class='mult op'>*</span><span class='args identifier id'>args</span><span class='comma token'>,</span> <span class='bitand op'>&amp;</span><span class='blk identifier id'>blk</span>
@@ -535,8 +555,6 @@ Plist4r::Plist.FileFormats
       <pre class="lines">
 
 
-43
-44
 45
 46
 47
@@ -555,10 +573,12 @@ Plist4r::Plist.FileFormats
 60
 61
 62
-63</pre>
+63
+64
+65</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/plist4r.rb', line 43</span>
+      <pre class="code"><span class="info file"># File 'lib/plist4r.rb', line 45</span>
 
 <span class='def def kw'>def</span> <span class='string_detect_format identifier id'>string_detect_format</span> <span class='string identifier id'>string</span>
   <span class='string identifier id'>string</span><span class='dot token'>.</span><span class='strip! fid id'>strip!</span> <span class='if if_mod kw'>if</span> <span class='string identifier id'>string</span><span class='lbrack token'>[</span><span class='integer val'>0</span><span class='comma token'>,</span><span class='integer val'>1</span><span class='rbrack token'>]</span> <span class='match op'>=~</span> <span class='regexp val'>/\s/</span>
@@ -593,7 +613,7 @@ Plist4r::Plist.FileFormats
 </div>
     
     <div id="footer">
-  Generated on Sat Jul  3 15:53:55 2010 by 
+  Generated on Sun Jul  4 18:15:05 2010 by 
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool">yard</a>
   0.5.8  and the 
   <a href="http://github.com/dreamcat4/yard-slipstream">yard-slipstream</a> plugin

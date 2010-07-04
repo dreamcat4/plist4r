@@ -175,19 +175,13 @@
 	      <li class="r1"><a href="#from_binary-class_method" target="_self" title="Plist4r::Backend::CFPropertyList.from_binary (method)">from_binary</a></li>
 	      
 	    
-	      <li class="r2"><a href="#from_gnustep-class_method" target="_self" title="Plist4r::Backend::CFPropertyList.from_gnustep (method)">from_gnustep</a></li>
+	      <li class="r2"><a href="#from_string-class_method" target="_self" title="Plist4r::Backend::CFPropertyList.from_string (method)">from_string</a></li>
 	      
 	    
-	      <li class="r1"><a href="#from_string-class_method" target="_self" title="Plist4r::Backend::CFPropertyList.from_string (method)">from_string</a></li>
+	      <li class="r1"><a href="#from_xml-class_method" target="_self" title="Plist4r::Backend::CFPropertyList.from_xml (method)">from_xml</a></li>
 	      
 	    
-	      <li class="r2"><a href="#from_xml-class_method" target="_self" title="Plist4r::Backend::CFPropertyList.from_xml (method)">from_xml</a></li>
-	      
-	    
-	      <li class="r1"><a href="#to_binary-class_method" target="_self" title="Plist4r::Backend::CFPropertyList.to_binary (method)">to_binary</a></li>
-	      
-	    
-	      <li class="r2"><a href="#to_gnustep-class_method" target="_self" title="Plist4r::Backend::CFPropertyList.to_gnustep (method)">to_gnustep</a></li>
+	      <li class="r2"><a href="#to_binary-class_method" target="_self" title="Plist4r::Backend::CFPropertyList.to_binary (method)">to_binary</a></li>
 	      
 	    
 	      <li class="r1"><a href="#to_xml-class_method" target="_self" title="Plist4r::Backend::CFPropertyList.to_xml (method)">to_xml</a></li>
@@ -258,45 +252,15 @@ Christian Kruse (<a href="http://github.com/ckruse">github.com/ckruse</a>)
       <pre class="lines">
 
 
-42
-43
-44</pre>
+39
+40
+41</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/plist4r/backend/c_f_property_list.rb', line 42</span>
+      <pre class="code"><span class="info file"># File 'lib/plist4r/backend/c_f_property_list.rb', line 39</span>
 
 <span class='def def kw'>def</span> <span class='from_binary identifier id'>from_binary</span> <span class='plist identifier id'>plist</span>
   <span class='from_string identifier id'>from_string</span> <span class='plist identifier id'>plist</span>
-<span class='end end kw'>end</span>
-</pre>
-    </td>
-  </tr>
-</table>
-</div>
-
-    
-      <div class="method_details " id="from_gnustep-class_method">
-  <p class="signature "">
-  
-    + (<tt><a href="../../Object.html" target="_self" title="Object (class)">Object</a></tt>) <strong>from_gnustep</strong>(plist) 
-  
-
-  
-</p><table class="source_code">
-  <tr>
-    <td>
-      <pre class="lines">
-
-
-46
-47
-48</pre>
-    </td>
-    <td>
-      <pre class="code"><span class="info file"># File 'lib/plist4r/backend/c_f_property_list.rb', line 46</span>
-
-<span class='def def kw'>def</span> <span class='from_gnustep identifier id'>from_gnustep</span> <span class='plist identifier id'>plist</span>
-  <span class='raise identifier id'>raise</span> <span class='string val'>&quot;Not implemented&quot;</span>
 <span class='end end kw'>end</span>
 </pre>
     </td>
@@ -339,10 +303,7 @@ Christian Kruse (<a href="http://github.com/ckruse">github.com/ckruse</a>)
 30
 31
 32
-33
-34
-35
-36</pre>
+33</pre>
     </td>
     <td>
       <pre class="code"><span class="info file"># File 'lib/plist4r/backend/c_f_property_list.rb', line 12</span>
@@ -367,9 +328,6 @@ Christian Kruse (<a href="http://github.com/ckruse">github.com/ckruse</a>)
   <span class='hash identifier id'>hash</span><span class='dot token'>.</span><span class='replace identifier id'>replace</span> <span class='hash_obj identifier id'>hash_obj</span>
   <span class='plist identifier id'>plist</span><span class='dot token'>.</span><span class='import_hash identifier id'>import_hash</span> <span class='hash identifier id'>hash</span>
 
-  <span class='plist_format identifier id'>plist_format</span> <span class='assign token'>=</span> <span class='Plist4r constant id'>Plist4r</span><span class='dot token'>.</span><span class='string_detect_format identifier id'>string_detect_format</span> <span class='plist identifier id'>plist</span><span class='dot token'>.</span><span class='from_string identifier id'>from_string</span>
-  <span class='plist identifier id'>plist</span><span class='dot token'>.</span><span class='file_format identifier id'>file_format</span> <span class='plist_format identifier id'>plist_format</span>
-
   <span class='return return kw'>return</span> <span class='plist identifier id'>plist</span>
 <span class='end end kw'>end</span>
 </pre>
@@ -392,12 +350,12 @@ Christian Kruse (<a href="http://github.com/ckruse">github.com/ckruse</a>)
       <pre class="lines">
 
 
-38
-39
-40</pre>
+35
+36
+37</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/plist4r/backend/c_f_property_list.rb', line 38</span>
+      <pre class="code"><span class="info file"># File 'lib/plist4r/backend/c_f_property_list.rb', line 35</span>
 
 <span class='def def kw'>def</span> <span class='from_xml identifier id'>from_xml</span> <span class='plist identifier id'>plist</span>
   <span class='from_string identifier id'>from_string</span> <span class='plist identifier id'>plist</span>
@@ -422,49 +380,19 @@ Christian Kruse (<a href="http://github.com/ckruse">github.com/ckruse</a>)
       <pre class="lines">
 
 
-56
-57
-58
-59
-60</pre>
+49
+50
+51
+52
+53</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/plist4r/backend/c_f_property_list.rb', line 56</span>
+      <pre class="code"><span class="info file"># File 'lib/plist4r/backend/c_f_property_list.rb', line 49</span>
 
 <span class='def def kw'>def</span> <span class='to_binary identifier id'>to_binary</span> <span class='plist identifier id'>plist</span>
   <span class='cf_plist identifier id'>cf_plist</span> <span class='assign token'>=</span> <span class='Plist4r constant id'>Plist4r</span><span class='colon2 op'>::</span><span class='Backend constant id'>Backend</span><span class='colon2 op'>::</span><span class='CFPropertyList constant id'>CFPropertyList</span><span class='colon2 op'>::</span><span class='List constant id'>List</span><span class='dot token'>.</span><span class='new identifier id'>new</span>
   <span class='cf_plist identifier id'>cf_plist</span><span class='dot token'>.</span><span class='value identifier id'>value</span> <span class='assign token'>=</span> <span class='Plist4r constant id'>Plist4r</span><span class='colon2 op'>::</span><span class='Backend constant id'>Backend</span><span class='colon2 op'>::</span><span class='CFPropertyList constant id'>CFPropertyList</span><span class='dot token'>.</span><span class='guess identifier id'>guess</span><span class='lparen token'>(</span><span class='plist identifier id'>plist</span><span class='dot token'>.</span><span class='to_hash identifier id'>to_hash</span><span class='rparen token'>)</span>
   <span class='return return kw'>return</span> <span class='cf_plist identifier id'>cf_plist</span><span class='dot token'>.</span><span class='to_str identifier id'>to_str</span><span class='lparen token'>(</span><span class='Plist4r constant id'>Plist4r</span><span class='colon2 op'>::</span><span class='Backend constant id'>Backend</span><span class='colon2 op'>::</span><span class='CFPropertyList constant id'>CFPropertyList</span><span class='colon2 op'>::</span><span class='List constant id'>List</span><span class='colon2 op'>::</span><span class='FORMAT_BINARY constant id'>FORMAT_BINARY</span><span class='rparen token'>)</span>
-<span class='end end kw'>end</span>
-</pre>
-    </td>
-  </tr>
-</table>
-</div>
-
-    
-      <div class="method_details " id="to_gnustep-class_method">
-  <p class="signature "">
-  
-    + (<tt><a href="../../Object.html" target="_self" title="Object (class)">Object</a></tt>) <strong>to_gnustep</strong>(plist) 
-  
-
-  
-</p><table class="source_code">
-  <tr>
-    <td>
-      <pre class="lines">
-
-
-62
-63
-64</pre>
-    </td>
-    <td>
-      <pre class="code"><span class="info file"># File 'lib/plist4r/backend/c_f_property_list.rb', line 62</span>
-
-<span class='def def kw'>def</span> <span class='to_gnustep identifier id'>to_gnustep</span> <span class='plist identifier id'>plist</span>
-  <span class='raise identifier id'>raise</span> <span class='string val'>&quot;Not implemented&quot;</span>
 <span class='end end kw'>end</span>
 </pre>
     </td>
@@ -486,14 +414,14 @@ Christian Kruse (<a href="http://github.com/ckruse">github.com/ckruse</a>)
       <pre class="lines">
 
 
-50
-51
-52
-53
-54</pre>
+43
+44
+45
+46
+47</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/plist4r/backend/c_f_property_list.rb', line 50</span>
+      <pre class="code"><span class="info file"># File 'lib/plist4r/backend/c_f_property_list.rb', line 43</span>
 
 <span class='def def kw'>def</span> <span class='to_xml identifier id'>to_xml</span> <span class='plist identifier id'>plist</span>
   <span class='cf_plist identifier id'>cf_plist</span> <span class='assign token'>=</span> <span class='Plist4r constant id'>Plist4r</span><span class='colon2 op'>::</span><span class='Backend constant id'>Backend</span><span class='colon2 op'>::</span><span class='CFPropertyList constant id'>CFPropertyList</span><span class='colon2 op'>::</span><span class='List constant id'>List</span><span class='dot token'>.</span><span class='new identifier id'>new</span>
@@ -731,7 +659,7 @@ Converts a CFType hiercharchy to native Ruby types
 </div>
     
     <div id="footer">
-  Generated on Sat Jul  3 15:54:04 2010 by 
+  Generated on Sun Jul  4 18:15:30 2010 by 
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool">yard</a>
   0.5.8  and the 
   <a href="http://github.com/dreamcat4/yard-slipstream">yard-slipstream</a> plugin

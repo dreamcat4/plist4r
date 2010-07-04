@@ -127,8 +127,212 @@
   
   <h3 class="inherited">Methods included from <a href="../DataMethods.html" target="_self" title="Plist4r::DataMethods (module)">Plist4r::DataMethods</a></h3>
   <p class="inherited"><a href="../DataMethods.html#method_missing-instance_method" target="_self" title="Plist4r::DataMethods#method_missing (method)">#method_missing</a>, <a href="../DataMethods.html#set-instance_method" target="_self" title="Plist4r::DataMethods#set (method)">#set</a>, <a href="../DataMethods.html#set_or_return-instance_method" target="_self" title="Plist4r::DataMethods#set_or_return (method)">#set_or_return</a>, <a href="../DataMethods.html#validate_value-instance_method" target="_self" title="Plist4r::DataMethods#validate_value (method)">#validate_value</a>, <a href="../DataMethods.html#value_of-instance_method" target="_self" title="Plist4r::DataMethods#value_of (method)">#value_of</a></p>
+<h2>Overview</h2><div class="docstring">
+  <div class="discussion">
+    <p>
+For documentation on the Info.plist keys, and their values, see: <a
+href="http://developer.apple.com/mac/library/documentation/General/Reference/InfoPlistKeyReference">developer.apple.com/mac/library/documentation/General/Reference/InfoPlistKeyReference</a>
+</p>
 
+
+  </div>
+</div>
+<div class="tags">
+  
+</div>
   <h2>Constant Summary</h2>
+  
+    <dl class="constants">
+      
+        <dt id="ValidKeysCoreFoundation-constant" class="">ValidKeysCoreFoundation =
+          
+        </dt>
+        <dd><pre class="code"><span class='lbrace token'>{</span>
+  <span class='symbol val'>:string</span> <span class='assign token'>=</span><span class='gt op'>&gt;</span> <span class='dstring node'>%w[
+    CFAppleHelpAnchor
+    CFBundleDevelopmentRegion
+    CFBundleDisplayName
+    CFBundleExecutable
+    CFBundleGetInfoString
+    CFBundleHelpBookFolder
+    CFBundleHelpBookName
+    CFBundleIconFile
+    CFBundleIdentifier
+    CFBundleInfoDictionaryVersion
+    CFBundleName
+    CFBundlePackageType
+    CFBundleShortVersionString
+    CFBundleSignature
+    CFBundleVersion
+    CFPlugInDynamicRegistration
+    CFPlugInDynamicRegisterFunction
+    CFPlugInUnloadFunction
+    ]</span><span class='comma token'>,</span>
+  <span class='symbol val'>:bool</span> <span class='assign token'>=</span><span class='gt op'>&gt;</span> <span class='dstring node'>%w[
+    CFBundleAllowMixedLocalizations
+    ]</span><span class='comma token'>,</span>
+  <span class='symbol val'>:array_of_strings</span> <span class='assign token'>=</span><span class='gt op'>&gt;</span> <span class='dstring node'>%w[
+    CFBundleIconFiles
+    CFBundleLocalizations
+    ]</span><span class='comma token'>,</span>
+  <span class='symbol val'>:array_of_hashes</span> <span class='assign token'>=</span><span class='gt op'>&gt;</span> <span class='dstring node'>%w[
+    CFBundleDocumentTypes
+    ]</span><span class='comma token'>,</span>
+  <span class='symbol val'>:array</span> <span class='assign token'>=</span><span class='gt op'>&gt;</span> <span class='dstring node'>%w[
+    CFBundleDocumentTypes
+    CFBundleURLTypes
+    ]</span><span class='comma token'>,</span>
+  <span class='symbol val'>:hash_of_strings</span> <span class='assign token'>=</span><span class='gt op'>&gt;</span> <span class='dstring node'>%w[
+    CFPlugInFactories
+    ]</span><span class='comma token'>,</span>
+  <span class='symbol val'>:hash_of_arrays_of_strings</span> <span class='assign token'>=</span><span class='gt op'>&gt;</span> <span class='dstring node'>%w[
+    CFPlugInTypes
+    ]</span><span class='comma token'>,</span>
+<span class='rbrace token'>}</span>
+</pre></dd>
+      
+        <dt id="ValidKeysLaunchServices-constant" class="">ValidKeysLaunchServices =
+          
+        </dt>
+        <dd><pre class="code"><span class='lbrace token'>{</span>
+  <span class='symbol val'>:string</span> <span class='assign token'>=</span><span class='gt op'>&gt;</span> <span class='dstring node'>%w[
+    LSMinimumSystemVersion
+    LSUIElement
+    LSVisibleInClassic
+    MinimumOSVersion
+    ]</span><span class='comma token'>,</span>
+  <span class='symbol val'>:bool</span> <span class='assign token'>=</span><span class='gt op'>&gt;</span> <span class='dstring node'>%w[
+    LSBackgroundOnly
+    LSFileQuarantineEnabled
+    LSGetAppDiedEvents
+    LSMultipleInstancesProhibited
+    LSRequiresIPhoneOS
+    LSRequiresNativeExecution
+    ]</span><span class='comma token'>,</span>
+  <span class='symbol val'>:integer</span> <span class='assign token'>=</span><span class='gt op'>&gt;</span> <span class='dstring node'>%w[
+    LSUIPresentationMode
+    ]</span><span class='comma token'>,</span>
+  <span class='symbol val'>:array_of_strings</span> <span class='assign token'>=</span><span class='gt op'>&gt;</span> <span class='dstring node'>%w[
+    LSArchitecturePriority
+    LSFileQuarantineExcludedPathPatterns
+    ]</span><span class='comma token'>,</span>
+  <span class='symbol val'>:hash_of_strings</span> <span class='assign token'>=</span><span class='gt op'>&gt;</span> <span class='dstring node'>%w[
+    LSEnvironment
+    LSMinimumSystemVersionByArchitecture
+    ]</span><span class='comma token'>,</span>
+<span class='rbrace token'>}</span>
+</pre></dd>
+      
+        <dt id="ValidKeysCocoa-constant" class="">ValidKeysCocoa =
+          
+        </dt>
+        <dd><pre class="code"><span class='lbrace token'>{</span>
+  <span class='symbol val'>:string</span> <span class='assign token'>=</span><span class='gt op'>&gt;</span> <span class='dstring node'>%w[
+    NSDockTilePlugIn
+    NSHumanReadableCopyright
+    NSJavaRoot
+    NSMainNibFile
+    NSPersistentStoreTypeKey
+    NSPrefPaneIconFile
+    NSPrefPaneIconLabel
+    NSPrincipalClass
+    ]</span><span class='comma token'>,</span>
+  <span class='symbol val'>:bool</span> <span class='assign token'>=</span><span class='gt op'>&gt;</span> <span class='dstring node'>%w[
+    NSSupportsSuddenTermination
+    ]</span><span class='comma token'>,</span>
+  <span class='symbol val'>:bool_or_string</span> <span class='assign token'>=</span><span class='gt op'>&gt;</span> <span class='dstring node'>%w[
+    NSAppleScriptEnabled
+    NSJavaNeeded
+    ]</span><span class='comma token'>,</span>
+  <span class='symbol val'>:array_of_strings</span> <span class='assign token'>=</span><span class='gt op'>&gt;</span> <span class='dstring node'>%w[
+    NSJavaPath
+    ]</span><span class='comma token'>,</span>
+  <span class='symbol val'>:array_of_hashes</span> <span class='assign token'>=</span><span class='gt op'>&gt;</span> <span class='dstring node'>%w[
+    NSServices
+    UTExportedTypeDeclarations
+    UTImportedTypeDeclarations
+    ]</span><span class='comma token'>,</span>
+<span class='rbrace token'>}</span>
+</pre></dd>
+      
+        <dt id="ValidKeysMacOsx-constant" class="">ValidKeysMacOsx =
+          
+        </dt>
+        <dd><pre class="code"><span class='lbrace token'>{</span>
+  <span class='symbol val'>:string</span> <span class='assign token'>=</span><span class='gt op'>&gt;</span> <span class='dstring node'>%w[ APInstallerURL ATSApplicationFontsPath ]</span><span class='comma token'>,</span>
+  <span class='symbol val'>:bool</span> <span class='assign token'>=</span><span class='gt op'>&gt;</span> <span class='dstring node'>%w[ CSResourcesFileMapped QuartzGLEnable ]</span><span class='comma token'>,</span>
+  <span class='symbol val'>:array_of_strings</span> <span class='assign token'>=</span><span class='gt op'>&gt;</span> <span class='dstring node'>%w[ APFiles ]</span>
+<span class='rbrace token'>}</span>
+</pre></dd>
+      
+        <dt id="ValidKeysUiKit-constant" class="">ValidKeysUiKit =
+          
+        </dt>
+        <dd><pre class="code"><span class='lbrace token'>{</span>
+  <span class='symbol val'>:string</span> <span class='assign token'>=</span><span class='gt op'>&gt;</span> <span class='dstring node'>%w[
+    UIInterfaceOrientation
+    UILaunchImageFile
+    UIStatusBarStyle
+    ]</span><span class='comma token'>,</span>
+  <span class='symbol val'>:bool</span> <span class='assign token'>=</span><span class='gt op'>&gt;</span> <span class='dstring node'>%w[
+    UIApplicationExitsOnSuspend
+    UIFileSharingEnabled
+    UIPrerenderedIcon
+    UIRequiresPersistentWiFi
+    UIStatusBarHidden
+    UIViewEdgeAntialiasing
+    UIViewGroupOpacity
+    ]</span><span class='comma token'>,</span>
+  <span class='symbol val'>:array_of_strings</span> <span class='assign token'>=</span><span class='gt op'>&gt;</span> <span class='dstring node'>%w[
+    UIAppFonts
+    UIBackgroundModes
+    UISupportedExternalAccessoryProtocols
+    UISupportedInterfaceOrientations
+    ]</span><span class='comma token'>,</span>
+  <span class='symbol val'>:array_or_integer</span> <span class='assign token'>=</span><span class='gt op'>&gt;</span> <span class='dstring node'>%w[
+    UIDeviceFamily
+    ]</span><span class='comma token'>,</span>
+  <span class='symbol val'>:array_or_hash</span> <span class='assign token'>=</span><span class='gt op'>&gt;</span> <span class='dstring node'>%w[
+    UIRequiredDeviceCapabilities
+    ]</span><span class='comma token'>,</span>
+<span class='rbrace token'>}</span>
+</pre></dd>
+      
+        <dt id="ValidKeys-constant" class="">ValidKeys =
+          <div class="docstring">
+  <div class="discussion">
+    <p>
+A Hash Array of the supported plist keys for this type. These are plist
+keys which belong to the PlistType for Info plists. Each CamelCased key
+name has a corresponding set_or_return method call. For example
+&#8220;CFBundleIdentifier&#8221; => c_f_bundle_identifier(value). For more
+information please see <a href="../../file.PlistKeyNames.html" target="_self" title="PlistKeyNames">PlistKeyNames</a>
+</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+  <h3>See Also:</h3>
+  <ul class="see">
+    
+      <li><a href="../DataMethods.html" target="_self" title="Plist4r::DataMethods (module)">Plist4r::DataMethods</a></li>
+    
+  </ul>
+
+</div>
+        </dt>
+        <dd><pre class="code"><span class='lbrace token'>{</span><span class='rbrace token'>}</span><span class='dot token'>.</span><span class='merge_array_of_hashes_of_arrays identifier id'>merge_array_of_hashes_of_arrays</span> <span class='lbrack token'>[</span>
+<span class='ValidKeysCoreFoundation constant id'>ValidKeysCoreFoundation</span><span class='comma token'>,</span>
+<span class='ValidKeysLaunchServices constant id'>ValidKeysLaunchServices</span><span class='comma token'>,</span>
+<span class='ValidKeysCocoa constant id'>ValidKeysCocoa</span><span class='comma token'>,</span>
+<span class='ValidKeysMacOsx constant id'>ValidKeysMacOsx</span><span class='comma token'>,</span>
+<span class='ValidKeysUiKit constant id'>ValidKeysUiKit</span>
+<span class='rbrack token'>]</span>
+</pre></dd>
+      
+    </dl>
   
 
 
@@ -141,7 +345,7 @@
   
   
   <h3 class="inherited">Constants included from <a href="../DataMethods.html" target="_self" title="Plist4r::DataMethods (module)">Plist4r::DataMethods</a></h3>
-  <p class="inherited"><a href="../DataMethods.html#ClassesForKeyType-constant" target="_self" title="Plist4r::DataMethods::ClassesForKeyType (constant)">ClassesForKeyType</a>, <a href="../DataMethods.html#ValidKeys-constant" target="_self" title="Plist4r::DataMethods::ValidKeys (constant)">ValidKeys</a></p>
+  <p class="inherited"><a href="../DataMethods.html#ClassesForKeyType-constant" target="_self" title="Plist4r::DataMethods::ClassesForKeyType (constant)">ClassesForKeyType</a>, <a href="../DataMethods.html#ValidKeys-constant" target="_self" title="Plist4r::DataMethods::ValidKeys (constant)">ValidKeys</a>, <a href="../DataMethods.html#ValidKeysTemplate-constant" target="_self" title="Plist4r::DataMethods::ValidKeysTemplate (constant)">ValidKeysTemplate</a></p>
 
 <div id="constructor_details" class="method_details_list">
   <h2>Constructor Details</h2>
@@ -163,7 +367,7 @@
 </div>
     
     <div id="footer">
-  Generated on Sat Jul  3 15:54:04 2010 by 
+  Generated on Sun Jul  4 18:15:22 2010 by 
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool">yard</a>
   0.5.8  and the 
   <a href="http://github.com/dreamcat4/yard-slipstream">yard-slipstream</a> plugin

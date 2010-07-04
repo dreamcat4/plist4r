@@ -128,7 +128,7 @@
 	      <li class="r2"><a href="#to_binary-class_method" target="_self" title="Plist4r::Backend::OsxPlist.to_binary (method)">to_binary</a></li>
 	      
 	    
-	      <li class="r1"><a href="#to_gnustep-class_method" target="_self" title="Plist4r::Backend::OsxPlist.to_gnustep (method)">to_gnustep</a></li>
+	      <li class="r1"><a href="#to_fmt-class_method" target="_self" title="Plist4r::Backend::OsxPlist.to_fmt (method)">to_fmt</a></li>
 	      
 	    
 	      <li class="r2"><a href="#to_xml-class_method" target="_self" title="Plist4r::Backend::OsxPlist.to_xml (method)">to_xml</a></li>
@@ -199,12 +199,12 @@ href="http://github.com/kballard">github.com/kballard</a>)
       <pre class="lines">
 
 
-53
-54
-55</pre>
+50
+51
+52</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/plist4r/backend/osx_plist.rb', line 53</span>
+      <pre class="code"><span class="info file"># File 'lib/plist4r/backend/osx_plist.rb', line 50</span>
 
 <span class='def def kw'>def</span> <span class='from_binary identifier id'>from_binary</span> <span class='plist identifier id'>plist</span>
   <span class='from_string identifier id'>from_string</span> <span class='plist identifier id'>plist</span>
@@ -229,12 +229,12 @@ href="http://github.com/kballard">github.com/kballard</a>)
       <pre class="lines">
 
 
-57
-58
-59</pre>
+54
+55
+56</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/plist4r/backend/osx_plist.rb', line 57</span>
+      <pre class="code"><span class="info file"># File 'lib/plist4r/backend/osx_plist.rb', line 54</span>
 
 <span class='def def kw'>def</span> <span class='from_gnustep identifier id'>from_gnustep</span> <span class='plist identifier id'>plist</span>
   <span class='from_string identifier id'>from_string</span> <span class='plist identifier id'>plist</span>
@@ -279,10 +279,7 @@ href="http://github.com/kballard">github.com/kballard</a>)
 41
 42
 43
-44
-45
-46
-47</pre>
+44</pre>
     </td>
     <td>
       <pre class="code"><span class="info file"># File 'lib/plist4r/backend/osx_plist.rb', line 24</span>
@@ -306,9 +303,6 @@ href="http://github.com/kballard">github.com/kballard</a>)
   <span class='hash identifier id'>hash</span><span class='dot token'>.</span><span class='replace identifier id'>replace</span> <span class='hash_obj identifier id'>hash_obj</span>
   <span class='plist identifier id'>plist</span><span class='dot token'>.</span><span class='import_hash identifier id'>import_hash</span> <span class='hash identifier id'>hash</span>
 
-  <span class='plist_format identifier id'>plist_format</span> <span class='assign token'>=</span> <span class='Plist4r constant id'>Plist4r</span><span class='dot token'>.</span><span class='string_detect_format identifier id'>string_detect_format</span> <span class='plist identifier id'>plist</span><span class='dot token'>.</span><span class='from_string identifier id'>from_string</span>
-  <span class='plist identifier id'>plist</span><span class='dot token'>.</span><span class='file_format identifier id'>file_format</span> <span class='plist_format identifier id'>plist_format</span>
-
   <span class='return return kw'>return</span> <span class='plist identifier id'>plist</span>
 <span class='end end kw'>end</span>
 </pre>
@@ -331,12 +325,12 @@ href="http://github.com/kballard">github.com/kballard</a>)
       <pre class="lines">
 
 
-49
-50
-51</pre>
+46
+47
+48</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/plist4r/backend/osx_plist.rb', line 49</span>
+      <pre class="code"><span class="info file"># File 'lib/plist4r/backend/osx_plist.rb', line 46</span>
 
 <span class='def def kw'>def</span> <span class='from_xml identifier id'>from_xml</span> <span class='plist identifier id'>plist</span>
   <span class='from_string identifier id'>from_string</span> <span class='plist identifier id'>plist</span>
@@ -401,23 +395,13 @@ href="http://github.com/kballard">github.com/kballard</a>)
 
 70
 71
-72
-73
-74
-75
-76
-77</pre>
+72</pre>
     </td>
     <td>
       <pre class="code"><span class="info file"># File 'lib/plist4r/backend/osx_plist.rb', line 70</span>
 
 <span class='def def kw'>def</span> <span class='to_binary identifier id'>to_binary</span> <span class='plist identifier id'>plist</span>
-  <span class='require_c_ext identifier id'>require_c_ext</span>
-  <span class='string identifier id'>string</span> <span class='assign token'>=</span> <span class='string val'>&quot;&quot;</span>
-  <span class='sio identifier id'>sio</span> <span class='assign token'>=</span> <span class='StringIO constant id'>StringIO</span><span class='dot token'>.</span><span class='new identifier id'>new</span><span class='lparen token'>(</span><span class='string identifier id'>string</span><span class='comma token'>,</span> <span class='string val'>&quot;w&quot;</span><span class='rparen token'>)</span>
-  <span class='format identifier id'>format</span> <span class='assign token'>=</span> <span class='symbol val'>:binary1</span>
-  <span class='Plist4r constant id'>Plist4r</span><span class='colon2 op'>::</span><span class='Backend constant id'>Backend</span><span class='colon2 op'>::</span><span class='OsxPlist constant id'>OsxPlist</span><span class='dot token'>.</span><span class='dump identifier id'>dump</span><span class='lparen token'>(</span><span class='sio identifier id'>sio</span><span class='comma token'>,</span> <span class='plist identifier id'>plist</span><span class='dot token'>.</span><span class='to_hash identifier id'>to_hash</span><span class='comma token'>,</span> <span class='format identifier id'>format</span><span class='rparen token'>)</span>
-  <span class='return return kw'>return</span> <span class='string identifier id'>string</span>
+  <span class='to_fmt identifier id'>to_fmt</span> <span class='plist identifier id'>plist</span><span class='comma token'>,</span> <span class='symbol val'>:binary1</span>
 <span class='end end kw'>end</span>
 </pre>
     </td>
@@ -426,10 +410,10 @@ href="http://github.com/kballard">github.com/kballard</a>)
 </div>
 
     
-      <div class="method_details " id="to_gnustep-class_method">
+      <div class="method_details " id="to_fmt-class_method">
   <p class="signature "">
   
-    + (<tt><a href="../../Object.html" target="_self" title="Object (class)">Object</a></tt>) <strong>to_gnustep</strong>(plist) 
+    + (<tt><a href="../../Object.html" target="_self" title="Object (class)">Object</a></tt>) <strong>to_fmt</strong>(plist, fmt) 
   
 
   
@@ -439,24 +423,22 @@ href="http://github.com/kballard">github.com/kballard</a>)
       <pre class="lines">
 
 
-79
-80
-81
-82
-83
-84
-85
-86</pre>
+58
+59
+60
+61
+62
+63
+64</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/plist4r/backend/osx_plist.rb', line 79</span>
+      <pre class="code"><span class="info file"># File 'lib/plist4r/backend/osx_plist.rb', line 58</span>
 
-<span class='def def kw'>def</span> <span class='to_gnustep identifier id'>to_gnustep</span> <span class='plist identifier id'>plist</span>
+<span class='def def kw'>def</span> <span class='to_fmt identifier id'>to_fmt</span> <span class='plist identifier id'>plist</span><span class='comma token'>,</span> <span class='fmt identifier id'>fmt</span>
   <span class='require_c_ext identifier id'>require_c_ext</span>
   <span class='string identifier id'>string</span> <span class='assign token'>=</span> <span class='string val'>&quot;&quot;</span>
   <span class='sio identifier id'>sio</span> <span class='assign token'>=</span> <span class='StringIO constant id'>StringIO</span><span class='dot token'>.</span><span class='new identifier id'>new</span><span class='lparen token'>(</span><span class='string identifier id'>string</span><span class='comma token'>,</span> <span class='string val'>&quot;w&quot;</span><span class='rparen token'>)</span>
-  <span class='format identifier id'>format</span> <span class='assign token'>=</span> <span class='symbol val'>:openstep</span>
-  <span class='Plist4r constant id'>Plist4r</span><span class='colon2 op'>::</span><span class='Backend constant id'>Backend</span><span class='colon2 op'>::</span><span class='OsxPlist constant id'>OsxPlist</span><span class='dot token'>.</span><span class='dump identifier id'>dump</span><span class='lparen token'>(</span><span class='sio identifier id'>sio</span><span class='comma token'>,</span> <span class='plist identifier id'>plist</span><span class='dot token'>.</span><span class='to_hash identifier id'>to_hash</span><span class='comma token'>,</span> <span class='format identifier id'>format</span><span class='rparen token'>)</span>
+  <span class='Plist4r constant id'>Plist4r</span><span class='colon2 op'>::</span><span class='Backend constant id'>Backend</span><span class='colon2 op'>::</span><span class='OsxPlist constant id'>OsxPlist</span><span class='dot token'>.</span><span class='dump identifier id'>dump</span><span class='lparen token'>(</span><span class='sio identifier id'>sio</span><span class='comma token'>,</span> <span class='plist identifier id'>plist</span><span class='dot token'>.</span><span class='to_hash identifier id'>to_hash</span><span class='comma token'>,</span> <span class='fmt identifier id'>fmt</span><span class='rparen token'>)</span>
   <span class='return return kw'>return</span> <span class='string identifier id'>string</span>
 <span class='end end kw'>end</span>
 </pre>
@@ -479,25 +461,15 @@ href="http://github.com/kballard">github.com/kballard</a>)
       <pre class="lines">
 
 
-61
-62
-63
-64
-65
 66
 67
 68</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/plist4r/backend/osx_plist.rb', line 61</span>
+      <pre class="code"><span class="info file"># File 'lib/plist4r/backend/osx_plist.rb', line 66</span>
 
 <span class='def def kw'>def</span> <span class='to_xml identifier id'>to_xml</span> <span class='plist identifier id'>plist</span>
-  <span class='require_c_ext identifier id'>require_c_ext</span>
-  <span class='string identifier id'>string</span> <span class='assign token'>=</span> <span class='string val'>&quot;&quot;</span>
-  <span class='sio identifier id'>sio</span> <span class='assign token'>=</span> <span class='StringIO constant id'>StringIO</span><span class='dot token'>.</span><span class='new identifier id'>new</span><span class='lparen token'>(</span><span class='string identifier id'>string</span><span class='comma token'>,</span> <span class='string val'>&quot;w&quot;</span><span class='rparen token'>)</span>
-  <span class='format identifier id'>format</span> <span class='assign token'>=</span> <span class='symbol val'>:xml1</span>
-  <span class='Plist4r constant id'>Plist4r</span><span class='colon2 op'>::</span><span class='Backend constant id'>Backend</span><span class='colon2 op'>::</span><span class='OsxPlist constant id'>OsxPlist</span><span class='dot token'>.</span><span class='dump identifier id'>dump</span><span class='lparen token'>(</span><span class='sio identifier id'>sio</span><span class='comma token'>,</span> <span class='plist identifier id'>plist</span><span class='dot token'>.</span><span class='to_hash identifier id'>to_hash</span><span class='comma token'>,</span> <span class='format identifier id'>format</span><span class='rparen token'>)</span>
-  <span class='return return kw'>return</span> <span class='string identifier id'>string</span>
+  <span class='to_fmt identifier id'>to_fmt</span> <span class='plst identifier id'>plst</span><span class='comma token'>,</span> <span class='symbol val'>:xml1</span>
 <span class='end end kw'>end</span>
 </pre>
     </td>
@@ -511,7 +483,7 @@ href="http://github.com/kballard">github.com/kballard</a>)
 </div>
     
     <div id="footer">
-  Generated on Sat Jul  3 15:53:58 2010 by 
+  Generated on Sun Jul  4 18:15:19 2010 by 
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool">yard</a>
   0.5.8  and the 
   <a href="http://github.com/dreamcat4/yard-slipstream">yard-slipstream</a> plugin

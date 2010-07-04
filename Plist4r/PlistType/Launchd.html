@@ -222,8 +222,8 @@ Dreamcat4 (dreamcat4@gmail.com)
 A Hash Array of the supported plist keys for this type. These are plist
 keys which belong to the PlistType for Launchd plists. Each CamelCased key
 name has a corresponding set_or_return method call. For example
-&#8220;UserName&#8221; => user_name(value). To see how to use these Plist
-Keys, go to <a href="../../file.PlistKeyNames.html" target="_self" title="PlistKeyNames">PlistKeyNames</a>
+&#8220;UserName&#8221; => user_name(value). For more information please see
+<a href="../../file.PlistKeyNames.html" target="_self" title="PlistKeyNames">PlistKeyNames</a>
 </p>
 
 
@@ -270,7 +270,7 @@ Keys, go to <a href="../../file.PlistKeyNames.html" target="_self" title="PlistK
   
   
   <h3 class="inherited">Constants included from <a href="../DataMethods.html" target="_self" title="Plist4r::DataMethods (module)">Plist4r::DataMethods</a></h3>
-  <p class="inherited"><a href="../DataMethods.html#ClassesForKeyType-constant" target="_self" title="Plist4r::DataMethods::ClassesForKeyType (constant)">ClassesForKeyType</a>, <a href="../DataMethods.html#ValidKeys-constant" target="_self" title="Plist4r::DataMethods::ValidKeys (constant)">ValidKeys</a></p>
+  <p class="inherited"><a href="../DataMethods.html#ClassesForKeyType-constant" target="_self" title="Plist4r::DataMethods::ClassesForKeyType (constant)">ClassesForKeyType</a>, <a href="../DataMethods.html#ValidKeys-constant" target="_self" title="Plist4r::DataMethods::ValidKeys (constant)">ValidKeys</a>, <a href="../DataMethods.html#ValidKeysTemplate-constant" target="_self" title="Plist4r::DataMethods::ValidKeysTemplate (constant)">ValidKeysTemplate</a></p>
 
 <div id="constructor_details" class="method_details_list">
   <h2>Constructor Details</h2>
@@ -328,7 +328,7 @@ Set or return the plist key &#8220;EnvironmentVariables&#8220;
   
     <li>
       
-        <span class='type'>(<tt>Hash &lt;<a href="../../String.html" target="_self" title="String (class)">String</a>&gt;</tt>)</span>
+        <span class='type'>(<tt><a href="../../Hash.html" target="_self" title="Hash (class)">Hash</a> &lt;<a href="../../String.html" target="_self" title="String (class)">String</a>&gt;</tt>)</span>
       
       
         <span class='name'>value</span>
@@ -559,7 +559,7 @@ Set or return the plist key &#8220;inetdCompatibility&#8220;
   
     <li>
       
-        <span class='type'>(<tt>Hash &lt;true,false&gt;</tt>)</span>
+        <span class='type'>(<tt><a href="../../Hash.html" target="_self" title="Hash (class)">Hash</a> &lt;true,false&gt;</tt>)</span>
       
       
         <span class='name'>value</span>
@@ -702,7 +702,7 @@ Set or return the plist key &#8220;KeepAlive&#8220;
   
     <li>
       
-        <span class='type'>(<tt>true</tt>, <tt>false</tt>, <tt>Hash</tt>)</span>
+        <span class='type'>(<tt>true</tt>, <tt>false</tt>, <tt><a href="../../Hash.html" target="_self" title="Hash (class)">Hash</a></tt>)</span>
       
       
         <span class='name'>value</span>
@@ -774,7 +774,7 @@ the inverse condition.
         </tr>
       
         <li>
-          <span class="type">(<tt>Hash &lt;true,false&gt;</tt>)</span>
+          <span class="type">(<tt><a href="../../Hash.html" target="_self" title="Hash (class)">Hash</a> &lt;true,false&gt;</tt>)</span>
           <span class="name">:path_state</span>
           <span class="default">
             
@@ -793,7 +793,7 @@ create semaphores in the file-system namespace.
         </tr>
       
         <li>
-          <span class="type">(<tt>Hash &lt;true,false&gt;</tt>)</span>
+          <span class="type">(<tt><a href="../../Hash.html" target="_self" title="Hash (class)">Hash</a> &lt;true,false&gt;</tt>)</span>
           <span class="name">:other_job_enabled</span>
           <span class="default">
             
@@ -1587,7 +1587,7 @@ to the end of the array if no index specified.
 </div>
     
     <div id="footer">
-  Generated on Sat Jul  3 15:54:14 2010 by 
+  Generated on Sun Jul  4 18:15:16 2010 by 
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool">yard</a>
   0.5.8  and the 
   <a href="http://github.com/dreamcat4/yard-slipstream">yard-slipstream</a> plugin
