@@ -40,9 +40,6 @@ module Plist4r::Backend::OsxPlist
       hash.replace hash_obj
       plist.import_hash hash
 
-      plist_format = Plist4r.string_detect_format plist.from_string
-      plist.file_format plist_format
-
       return plist
     end
 
@@ -58,33 +55,26 @@ module Plist4r::Backend::OsxPlist
       from_string plist
     end
 
-    def to_xml plist
+    def to_fmt plist, fmt
       require_c_ext
       string = ""
       sio = StringIO.new(string, "w")
-      format = :xml1
-      Plist4r::Backend::OsxPlist.dump(sio, plist.to_hash, format)
+      Plist4r::Backend::OsxPlist.dump(sio, plist.to_hash, fmt)
       return string
+    end
+
+    def to_xml plist
+      to_fmt plst, :xml1
     end
 
     def to_binary plist
-      require_c_ext
-      string = ""
-      sio = StringIO.new(string, "w")
-      format = :binary1
-      Plist4r::Backend::OsxPlist.dump(sio, plist.to_hash, format)
-      return string
+      to_fmt plist, :binary1
     end
 
-    def to_gnustep plist
-      require_c_ext
-      string = ""
-      sio = StringIO.new(string, "w")
-      format = :openstep
-      Plist4r::Backend::OsxPlist.dump(sio, plist.to_hash, format)
-      return string
-    end
-
+    # alas, sadly all apple apis no longer support this call
+    # def to_gnustep plist
+    #   to_fmt plist, :openstep
+    # end
   end
 end
 
