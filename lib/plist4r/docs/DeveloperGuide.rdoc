@@ -4,15 +4,19 @@ There are now a number of ruby libraries which can read / write plist files. The
 
 Backends often only need to be a single ruby file, which implements the Plist4r API methods and calls out to other (existing) ruby code. No single backend has to provide the whole API. Instead, Plist4r simply iterates over all of the backends it knows about, and then calls the first backend that can responds to the API method.
 
-There are just 6 supported API methods
+There are only 3 generally recognized Plist file formats. (the gnustep plist format also goes by the names openstep, and nextstep)
 
-  ApiMethods = %w[from_string to_xml to_binary to_gnustep open save]
+  FileFormats = %w[ binary xml gnustep ]
 
-And (as above) the 3 supported Plist file formats are
+And so a plist4r backend can implement any number of these 6 supported API methods
 
-  FileFormats = %w[binary xml gnustep]
+  ApiMethods = %w[ from_xml from_binary from_gnustep to_xml to_binary to_gnustep ]
 
-We believe thats allright for most uses, and decided to include `gnustep` for completeness. `NextStep` is also known by other names such as `OpenStep` and (more updated version) `GNU Step`. For example the apple `defaults` command on Mac OS-X will still return `NextStep` formatted plist data.
+Other API methods are `generated` methods, which call upon the real backend API methods. Generally speaking, these methods should not be provided by a Plist4r backend
+
+  PrivateApiMethods = %w[ from_string open save ]
+
+For backends performance data see {file:Backends}.
 
 == Plist4r Types
 

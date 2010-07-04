@@ -31,10 +31,13 @@ Plist4r is a friendly rubygem / ruby lib for handling plist files.
 
 == Overview
 
-The principal class is {Plist4r::Plist}. This is commonly where you will find most documentation.
-And we might often invoke {Plist4r.open} and {Plist4r.new} from the main module {Plist4r}.
+* The principal class is {Plist4r::Plist}. This is commonly where you will find most documentation.
 
-Use {Plist4r::Config} to set any global configuration defaults.
+* For convenience we invoke {Plist4r.open} and {Plist4r.new} to initially create a plist object.
+
+* Use {Plist4r::Config} to set any global configuration defaults.
+
+* See {file:Backends} for the backends performance data.
 
 Further reading
 * See {file:ToyCarExample}
@@ -55,6 +58,6 @@ Please see the inline source-code documentation on those classes.
 
 == Copyright
 
-Copyright (c) 2010 Dreamcat4 under MIT License. See {file:LICENSE} for details.
+Plist4r is Copyright (c) 2009 under MIT License. See {file:LICENSE} for details.
 
 

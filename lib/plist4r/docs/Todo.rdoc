@@ -1,27 +1,23 @@
 
 == Remaining Work
 
-* Walk around the various editing capabilities. Note any new bugs!
 
- - Test all of the Caching, eg save caching, from_string caching, etc
-
- - Try reloading into an open object
-
- - Try the edit block. Are existing keys preserved?
-
- - Are the select / unselect methods doing their jobs?
+* rake task for backend tests
 
 
-* wrap backend.call in a timeout block
-  (& global config option to covers all backends)
-
-
-* A Plist Type for Info.plist
-
-
-* Tests or info for the Plist Types
+* document more methods
 
 
 * Regression Tests (rspec)
+
+
+* Walk around the select/ unselect methods
+
+
+* patch brew code with plist4r
+
+
+* brew formula examples
+
 
 
