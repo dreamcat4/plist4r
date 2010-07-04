@@ -193,7 +193,6 @@ module Plist4r
       else
         plist_type stat_m[most_matches]
       end
-      return true
     end
 
     # Set or return the plist_type of the current object. We can use this to override the automatic type detection.
@@ -322,7 +321,6 @@ module Plist4r
       @plist_type.hash @hash
       instance_eval *args, &blk
       detect_plist_type
-      @plist_cache.update_checksum
     end
   
     # Pass down unknown method calls to the selected plist_type, to set or return plist keys.
