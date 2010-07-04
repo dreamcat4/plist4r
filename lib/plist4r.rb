@@ -15,6 +15,7 @@ module Plist4r
     # @see Plist4r::Plist#initialize
     # @example Create new, empty plist
     # Plist4r.new => #<Plist4r::Plist:0x111546c @file_format=nil, ...>
+    # @api public
     def new *args, &blk
       # puts args.inspect
       return Plist.new *args, &blk
@@ -28,6 +29,7 @@ module Plist4r
     # Plist4r.open("example.plist") => #<Plist4r::Plist:0x1152d1c @file_format="xml", ...>
     # @see Plist4r::Plist#initialize
     # @see Plist4r::Plist#open
+    # @api public
     def open filename, *args, &blk
       p = Plist.new filename, *args, &blk
       p.open
@@ -65,6 +67,7 @@ module Plist4r
     # Given a Plist filename, peek the first few bytes and detect the file format
     # 
     # @param [String] filename plist file to check
+    # @return [Symbol] A Symbol representing the plist data type. One of: Plist4r::Plist.FileFormats
     # @see Plist4r.string_detect_format
     # @see Plist4r::Plist.FileFormats
     def file_detect_format filename
@@ -79,6 +82,7 @@ class String
   # 
   # @return [Plist4r::Plist] The new Plist object
   # @see Plist4r::Plist#initialize
+  # @api public
   def to_plist
     return ::Plist4r.new(:from_string => self)
   end
