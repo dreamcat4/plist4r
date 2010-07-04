@@ -56,6 +56,8 @@ module Plist4r
     backends.flatten!.uniq!
     backends.delete "example"
 
+    backend_timeout 15
+
     strict_keys false
     raise_any_failure false
     default_format :xml
