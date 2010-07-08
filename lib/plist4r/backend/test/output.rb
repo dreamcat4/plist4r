@@ -33,7 +33,7 @@ EOC
 
         def write_html_file
           docs_dir = File.dirname(__FILE__) + "/../../../../lib/plist4r/docs"
-          File.open "#{docs_dir}/BackendTestMatrix.html","w" do |o|
+          File.open "#{docs_dir}/Backends.html","w" do |o|
             o << to_s
           end
         end

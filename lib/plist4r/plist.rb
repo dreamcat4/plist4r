@@ -403,47 +403,5 @@ module Plist4r
   end
 end
 
-module Plist4r
-  # @private
-  class OldPlist
-  
-    def initialize path_prefix, plist_str, &blk
-      plist_str << ".plist" unless plist_str =~ /\.plist$/
-
-      @filename = nil
-      if plist_str =~ /^\//
-        @filename = plist_str
-      else
-        @filename = "#{path_prefix}/#{plist_str}"
-      end
-    
-      @label = @filename.match(/^.*\/(.*)\.plist$/)[1]
-      @shortname = @filename.match(/^.*\.(.*)$/)[1]
-
-      @block = blk
-      @hash = @orig = ::Plist4r::OrderedHash.new
-
-      instance_eval(&@block) if @block
-    end
-
-    def override_plist_keys?
-      return true unless @label == @filename.match(/^.*\/(.*)\.plist$/)[1]
-      vars = self.instance_variables - ["@filename","@label","@shortname","@block","@hash","@obj"]
-      return true unless vars.empty?
-    end
-
-    def finalize
-      if File.exists? @filename
-        if override_plist_keys?
-          # @hash = @obj = ::LibxmlLaunchdPlistParser.new(@filename).plist_struct
-          # eval_plist_block(&@block) if @block
-          # write_plist
-        end
-      else
-        # write_plist
-      end
-    end  
-  end
-end
 
 

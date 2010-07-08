@@ -45,31 +45,7 @@ The << operator can alternatively be used, interchangeably. Its just another way
   end
   launchd_plist.save
 
-== Deleting / removing keys
+== Editing operations
 
-Sometimes we need to select or delete a whole bunch of plist keys. This kind of an edit operation is useful when we want to keep hold of a few keys, and discard the rest. Or discard a few of the plist keys and keep the rest.
+Certain kinds of edit operation are available on the plist keys. These are useful when we want to treat the plist keys like we would an Array object or a Hash object. Methods select, map/collect, delete_if, clear and similar. These methods are all documented as part of  {Plist4r::Plist}.
 
-These methods are all documented in the {Plist4r::ArrayDict} abstract base class. All subclasses of {Plist4r::PlistType} also inherit these methods from ArrayDict. They are called through method_missing.
-
-  launchd_plist.<< do
-    select :label
-    # discards - :program, :launch_only_once
-    # keeps - :label
-  end
-  launchd_plist.to_hash
-  # => { "Label" => "com.mydomain.myapp" }
-  
-  launchd_plist.<< do
-    unselect :label
-    # keeps - :program, :launch_only_once
-    # discards - :label
-  end
-  launchd_plist.to_hash
-  # => { "Program" => "/path/to/myapp", "LaunchOnlyOnce" => true }
-  
-  launchd_plist.<< do
-    unselect_all
-    # deletes all plist keys
-  end
-  launchd_plist.to_hash
-  # => {}

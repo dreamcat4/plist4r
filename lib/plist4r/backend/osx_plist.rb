@@ -64,14 +64,14 @@ module Plist4r::Backend::OsxPlist
     end
 
     def to_xml plist
-      to_fmt plst, :xml1
+      to_fmt plist, :xml1
     end
 
     def to_binary plist
       to_fmt plist, :binary1
     end
 
-    # alas, sadly all apple apis no longer support this call
+    # alas, no longer supported by the apple apis :(
     # def to_gnustep plist
     #   to_fmt plist, :openstep
     # end

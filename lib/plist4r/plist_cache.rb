@@ -66,7 +66,6 @@ module Plist4r
 
     def open
       @backend.call :open
-      # @plist.detect_plist_type
       @plist
     end
 
