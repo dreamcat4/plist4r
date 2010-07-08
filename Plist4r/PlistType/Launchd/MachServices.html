@@ -151,7 +151,7 @@
   
   
   <h3 class="inherited">Methods included from <a href="../../DataMethods.html" target="_self" title="Plist4r::DataMethods (module)">Plist4r::DataMethods</a></h3>
-  <p class="inherited"><a href="../../DataMethods.html#method_missing-instance_method" target="_self" title="Plist4r::DataMethods#method_missing (method)">#method_missing</a>, <a href="../../DataMethods.html#set-instance_method" target="_self" title="Plist4r::DataMethods#set (method)">#set</a>, <a href="../../DataMethods.html#set_or_return-instance_method" target="_self" title="Plist4r::DataMethods#set_or_return (method)">#set_or_return</a>, <a href="../../DataMethods.html#validate_value-instance_method" target="_self" title="Plist4r::DataMethods#validate_value (method)">#validate_value</a>, <a href="../../DataMethods.html#value_of-instance_method" target="_self" title="Plist4r::DataMethods#value_of (method)">#value_of</a></p>
+  <p class="inherited"><a href="../../DataMethods.html#method_missing-instance_method" target="_self" title="Plist4r::DataMethods#method_missing (method)">#method_missing</a>, <a href="../../DataMethods.html#set-instance_method" target="_self" title="Plist4r::DataMethods#set (method)">#set</a>, <a href="../../DataMethods.html#set_or_return-instance_method" target="_self" title="Plist4r::DataMethods#set_or_return (method)">#set_or_return</a>, <a href="../../DataMethods.html#set_or_return_of_type-instance_method" target="_self" title="Plist4r::DataMethods#set_or_return_of_type (method)">#set_or_return_of_type</a>, <a href="../../DataMethods.html#validate_value-instance_method" target="_self" title="Plist4r::DataMethods#validate_value (method)">#validate_value</a>, <a href="../../DataMethods.html#value_of-instance_method" target="_self" title="Plist4r::DataMethods#value_of (method)">#value_of</a></p>
 
   <h2>Constant Summary</h2>
   
@@ -220,7 +220,7 @@
 <span class='def def kw'>def</span> <span class='add identifier id'>add</span> <span class='service identifier id'>service</span><span class='comma token'>,</span> <span class='value identifier id'>value</span><span class='assign token'>=</span><span class='nil nil kw'>nil</span><span class='comma token'>,</span> <span class='bitand op'>&amp;</span><span class='blk identifier id'>blk</span>
   <span class='if if kw'>if</span> <span class='value identifier id'>value</span>
     <span class='@hash ivar id'>@hash</span><span class='lbrack token'>[</span><span class='service identifier id'>service</span><span class='rbrack token'>]</span> <span class='assign token'>=</span> <span class='value identifier id'>value</span>
-    <span class='set_or_return identifier id'>set_or_return</span> <span class='symbol val'>:bool</span><span class='comma token'>,</span> <span class='service identifier id'>service</span><span class='comma token'>,</span> <span class='value identifier id'>value</span>
+    <span class='set_or_return_of_type identifier id'>set_or_return_of_type</span> <span class='symbol val'>:bool</span><span class='comma token'>,</span> <span class='service identifier id'>service</span><span class='comma token'>,</span> <span class='value identifier id'>value</span>
   <span class='elsif elsif kw'>elsif</span> <span class='blk identifier id'>blk</span>
     <span class='@hash ivar id'>@hash</span><span class='lbrack token'>[</span><span class='service identifier id'>service</span><span class='rbrack token'>]</span> <span class='assign token'>=</span> <span class='colon3 op'>::</span><span class='Plist4r constant id'>Plist4r</span><span class='colon2 op'>::</span><span class='OrderedHash constant id'>OrderedHash</span><span class='dot token'>.</span><span class='new identifier id'>new</span>
     <span class='@hash ivar id'>@hash</span><span class='lbrack token'>[</span><span class='service identifier id'>service</span><span class='rbrack token'>]</span> <span class='assign token'>=</span> <span class='colon3 op'>::</span><span class='LaunchdPlistStructs constant id'>LaunchdPlistStructs</span><span class='colon2 op'>::</span><span class='MachServices constant id'>MachServices</span><span class='colon2 op'>::</span><span class='MachService constant id'>MachService</span><span class='dot token'>.</span><span class='new identifier id'>new</span><span class='lparen token'>(</span><span class='@hash ivar id'>@hash</span><span class='lbrack token'>[</span><span class='service identifier id'>service</span><span class='rbrack token'>]</span><span class='comma token'>,</span><span class='bitand op'>&amp;</span><span class='blk identifier id'>blk</span><span class='rparen token'>)</span><span class='dot token'>.</span><span class='hash identifier id'>hash</span>
@@ -240,7 +240,7 @@
 </div>
     
     <div id="footer">
-  Generated on Sun Jul  4 18:15:29 2010 by 
+  Generated on Thu Jul  8 08:54:12 2010 by 
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool">yard</a>
   0.5.8  and the 
   <a href="http://github.com/dreamcat4/yard-slipstream">yard-slipstream</a> plugin

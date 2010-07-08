@@ -137,46 +137,17 @@ another way of writing plist.edit.
   <span class='end end kw'>end</span>
   <span class='launchd_plist identifier id'>launchd_plist</span><span class='dot token'>.</span><span class='save identifier id'>save</span>
 </pre>
-<h2>Deleting / removing keys</h2>
+<h2>Editing operations</h2>
 <p>
-Sometimes we need to select or delete a whole bunch of plist keys. This
-kind of an edit operation is useful when we want to keep hold of a few
-keys, and discard the rest. Or discard a few of the plist keys and keep the
-rest.
+Certain kinds of edit operation are available on the plist keys. These are
+useful when we want to treat the plist keys like we would an Array object
+or a Hash object. Methods select, map/collect, delete_if, clear and
+similar. These methods are all documented as part of <tt><a href="Plist4r/Plist.html" target="_self" title="Plist4r::Plist (class)">Plist4r::Plist</a></tt>.
 </p>
-<p>
-These methods are all documented in the <tt><a href="Plist4r/ArrayDict.html" target="_self" title="Plist4r::ArrayDict (class)">Plist4r::ArrayDict</a></tt> abstract base
-class. All subclasses of <tt><a href="Plist4r/PlistType.html" target="_self" title="Plist4r::PlistType (class)">Plist4r::PlistType</a></tt> also inherit these methods
-from ArrayDict. They are called through method_missing.
-</p>
-<pre class="code">
-  <span class='launchd_plist identifier id'>launchd_plist</span><span class='dot token'>.</span><span class='lshft op'>&lt;&lt;</span> <span class='do do kw'>do</span>
-    <span class='select identifier id'>select</span> <span class='symbol val'>:label</span>
-    <span class='comment val'># discards - :program, :launch_only_once</span>
-    <span class='comment val'># keeps - :label</span>
-  <span class='end end kw'>end</span>
-  <span class='launchd_plist identifier id'>launchd_plist</span><span class='dot token'>.</span><span class='to_hash identifier id'>to_hash</span>
-  <span class='comment val'># =&gt; { &quot;Label&quot; =&gt; &quot;com.mydomain.myapp&quot; }</span>
-
-  <span class='launchd_plist identifier id'>launchd_plist</span><span class='dot token'>.</span><span class='lshft op'>&lt;&lt;</span> <span class='do do kw'>do</span>
-    <span class='unselect identifier id'>unselect</span> <span class='symbol val'>:label</span>
-    <span class='comment val'># keeps - :program, :launch_only_once</span>
-    <span class='comment val'># discards - :label</span>
-  <span class='end end kw'>end</span>
-  <span class='launchd_plist identifier id'>launchd_plist</span><span class='dot token'>.</span><span class='to_hash identifier id'>to_hash</span>
-  <span class='comment val'># =&gt; { &quot;Program&quot; =&gt; &quot;/path/to/myapp&quot;, &quot;LaunchOnlyOnce&quot; =&gt; true }</span>
-
-  <span class='launchd_plist identifier id'>launchd_plist</span><span class='dot token'>.</span><span class='lshft op'>&lt;&lt;</span> <span class='do do kw'>do</span>
-    <span class='unselect_all identifier id'>unselect_all</span>
-    <span class='comment val'># deletes all plist keys</span>
-  <span class='end end kw'>end</span>
-  <span class='launchd_plist identifier id'>launchd_plist</span><span class='dot token'>.</span><span class='to_hash identifier id'>to_hash</span>
-  <span class='comment val'># =&gt; {}</span>
-</pre>
 </div></div>
     
     <div id="footer">
-  Generated on Sun Jul  4 18:14:55 2010 by 
+  Generated on Thu Jul  8 08:54:08 2010 by 
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool">yard</a>
   0.5.8  and the 
   <a href="http://github.com/dreamcat4/yard-slipstream">yard-slipstream</a> plugin

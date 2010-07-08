@@ -168,13 +168,16 @@
 	      <li class="r2"><a href="#shift-instance_method" target="_self" title="Plist4r::ActiveSupport::OrderedHash#shift (method)">shift</a></li>
 	      
 	    
-	      <li class="r1"><a href="#to_a-instance_method" target="_self" title="Plist4r::ActiveSupport::OrderedHash#to_a (method)">to_a</a></li>
+	      <li class="r1"><a href="#store-instance_method" target="_self" title="Plist4r::ActiveSupport::OrderedHash#store (method)">store</a></li>
 	      
 	    
-	      <li class="r2"><a href="#to_hash-instance_method" target="_self" title="Plist4r::ActiveSupport::OrderedHash#to_hash (method)">to_hash</a></li>
+	      <li class="r2"><a href="#to_a-instance_method" target="_self" title="Plist4r::ActiveSupport::OrderedHash#to_a (method)">to_a</a></li>
 	      
 	    
-	      <li class="r1"><a href="#values-instance_method" target="_self" title="Plist4r::ActiveSupport::OrderedHash#values (method)">values</a></li>
+	      <li class="r1"><a href="#to_hash-instance_method" target="_self" title="Plist4r::ActiveSupport::OrderedHash#to_hash (method)">to_hash</a></li>
+	      
+	    
+	      <li class="r2"><a href="#values-instance_method" target="_self" title="Plist4r::ActiveSupport::OrderedHash#values (method)">values</a></li>
 	      
 	    
 	    </ul>
@@ -382,13 +385,13 @@ A new instance of OrderedHash
       <pre class="lines">
 
 
-71
-72
-73
-74</pre>
+76
+77
+78
+79</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/plist4r/mixin/ordered_hash.rb', line 71</span>
+      <pre class="code"><span class="info file"># File 'lib/plist4r/mixin/ordered_hash.rb', line 76</span>
 
 <span class='def def kw'>def</span> <span class='aset op'>[]=</span><span class='lparen token'>(</span><span class='key identifier id'>key</span><span class='comma token'>,</span> <span class='value identifier id'>value</span><span class='rparen token'>)</span>
   <span class='@keys ivar id'>@keys</span> <span class='lshft op'>&lt;&lt;</span> <span class='key identifier id'>key</span> <span class='if if_mod kw'>if</span> <span class='notop op'>!</span><span class='has_key? fid id'>has_key?</span><span class='lparen token'>(</span><span class='key identifier id'>key</span><span class='rparen token'>)</span>
@@ -414,14 +417,14 @@ A new instance of OrderedHash
       <pre class="lines">
 
 
-130
-131
-132
-133
-134</pre>
+135
+136
+137
+138
+139</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/plist4r/mixin/ordered_hash.rb', line 130</span>
+      <pre class="code"><span class="info file"># File 'lib/plist4r/mixin/ordered_hash.rb', line 135</span>
 
 <span class='def def kw'>def</span> <span class='clear identifier id'>clear</span>
   <span class='super super kw'>super</span>
@@ -448,16 +451,16 @@ A new instance of OrderedHash
       <pre class="lines">
 
 
-76
-77
-78
-79
-80
 81
-82</pre>
+82
+83
+84
+85
+86
+87</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/plist4r/mixin/ordered_hash.rb', line 76</span>
+      <pre class="code"><span class="info file"># File 'lib/plist4r/mixin/ordered_hash.rb', line 81</span>
 
 <span class='def def kw'>def</span> <span class='delete identifier id'>delete</span><span class='lparen token'>(</span><span class='key identifier id'>key</span><span class='rparen token'>)</span>
   <span class='if if kw'>if</span> <span class='has_key? fid id'>has_key?</span> <span class='key identifier id'>key</span>
@@ -486,14 +489,14 @@ A new instance of OrderedHash
       <pre class="lines">
 
 
-84
-85
-86
-87
-88</pre>
+89
+90
+91
+92
+93</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/plist4r/mixin/ordered_hash.rb', line 84</span>
+      <pre class="code"><span class="info file"># File 'lib/plist4r/mixin/ordered_hash.rb', line 89</span>
 
 <span class='def def kw'>def</span> <span class='delete_if identifier id'>delete_if</span>
   <span class='super super kw'>super</span>
@@ -524,12 +527,12 @@ A new instance of OrderedHash
       <pre class="lines">
 
 
-124
-125
-126</pre>
+129
+130
+131</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/plist4r/mixin/ordered_hash.rb', line 124</span>
+      <pre class="code"><span class="info file"># File 'lib/plist4r/mixin/ordered_hash.rb', line 129</span>
 
 <span class='def def kw'>def</span> <span class='each identifier id'>each</span>
   <span class='@keys ivar id'>@keys</span><span class='dot token'>.</span><span class='each identifier id'>each</span> <span class='lbrace token'>{</span><span class='bitor op'>|</span><span class='key identifier id'>key</span><span class='bitor op'>|</span> <span class='yield yield kw'>yield</span> <span class='lbrack token'>[</span><span class='key identifier id'>key</span><span class='comma token'>,</span> <span class='self self kw'>self</span><span class='lbrack token'>[</span><span class='key identifier id'>key</span><span class='rbrack token'>]</span><span class='rbrack token'>]</span><span class='rbrace token'>}</span>
@@ -554,12 +557,12 @@ A new instance of OrderedHash
       <pre class="lines">
 
 
-116
-117
-118</pre>
+121
+122
+123</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/plist4r/mixin/ordered_hash.rb', line 116</span>
+      <pre class="code"><span class="info file"># File 'lib/plist4r/mixin/ordered_hash.rb', line 121</span>
 
 <span class='def def kw'>def</span> <span class='each_key identifier id'>each_key</span>
   <span class='@keys ivar id'>@keys</span><span class='dot token'>.</span><span class='each identifier id'>each</span> <span class='lbrace token'>{</span> <span class='bitor op'>|</span><span class='key identifier id'>key</span><span class='bitor op'>|</span> <span class='yield yield kw'>yield</span> <span class='key identifier id'>key</span> <span class='rbrace token'>}</span>
@@ -584,12 +587,12 @@ A new instance of OrderedHash
       <pre class="lines">
 
 
-120
-121
-122</pre>
+125
+126
+127</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/plist4r/mixin/ordered_hash.rb', line 120</span>
+      <pre class="code"><span class="info file"># File 'lib/plist4r/mixin/ordered_hash.rb', line 125</span>
 
 <span class='def def kw'>def</span> <span class='each_value identifier id'>each_value</span>
   <span class='@keys ivar id'>@keys</span><span class='dot token'>.</span><span class='each identifier id'>each</span> <span class='lbrace token'>{</span> <span class='bitor op'>|</span><span class='key identifier id'>key</span><span class='bitor op'>|</span> <span class='yield yield kw'>yield</span> <span class='self self kw'>self</span><span class='lbrack token'>[</span><span class='key identifier id'>key</span><span class='rbrack token'>]</span><span class='rbrace token'>}</span>
@@ -648,12 +651,12 @@ A new instance of OrderedHash
       <pre class="lines">
 
 
-100
-101
-102</pre>
+105
+106
+107</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/plist4r/mixin/ordered_hash.rb', line 100</span>
+      <pre class="code"><span class="info file"># File 'lib/plist4r/mixin/ordered_hash.rb', line 105</span>
 
 <span class='def def kw'>def</span> <span class='keys identifier id'>keys</span>
   <span class='@keys ivar id'>@keys</span><span class='dot token'>.</span><span class='dup identifier id'>dup</span>
@@ -678,12 +681,12 @@ A new instance of OrderedHash
       <pre class="lines">
 
 
-147
-148
-149</pre>
+152
+153
+154</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/plist4r/mixin/ordered_hash.rb', line 147</span>
+      <pre class="code"><span class="info file"># File 'lib/plist4r/mixin/ordered_hash.rb', line 152</span>
 
 <span class='def def kw'>def</span> <span class='merge identifier id'>merge</span><span class='lparen token'>(</span><span class='other_hash identifier id'>other_hash</span><span class='rparen token'>)</span>
   <span class='dup identifier id'>dup</span><span class='dot token'>.</span><span class='merge! fid id'>merge!</span><span class='lparen token'>(</span><span class='other_hash identifier id'>other_hash</span><span class='rparen token'>)</span>
@@ -708,13 +711,13 @@ A new instance of OrderedHash
       <pre class="lines">
 
 
-142
-143
-144
-145</pre>
+147
+148
+149
+150</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/plist4r/mixin/ordered_hash.rb', line 142</span>
+      <pre class="code"><span class="info file"># File 'lib/plist4r/mixin/ordered_hash.rb', line 147</span>
 
 <span class='def def kw'>def</span> <span class='merge! fid id'>merge!</span><span class='lparen token'>(</span><span class='other_hash identifier id'>other_hash</span><span class='rparen token'>)</span>
   <span class='other_hash identifier id'>other_hash</span><span class='dot token'>.</span><span class='each identifier id'>each</span> <span class='lbrace token'>{</span><span class='bitor op'>|</span><span class='k identifier id'>k</span><span class='comma token'>,</span><span class='v identifier id'>v</span><span class='bitor op'>|</span> <span class='self self kw'>self</span><span class='lbrack token'>[</span><span class='k identifier id'>k</span><span class='rbrack token'>]</span> <span class='assign token'>=</span> <span class='v identifier id'>v</span> <span class='rbrace token'>}</span>
@@ -740,12 +743,12 @@ A new instance of OrderedHash
       <pre class="lines">
 
 
-96
-97
-98</pre>
+101
+102
+103</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/plist4r/mixin/ordered_hash.rb', line 96</span>
+      <pre class="code"><span class="info file"># File 'lib/plist4r/mixin/ordered_hash.rb', line 101</span>
 
 <span class='def def kw'>def</span> <span class='reject identifier id'>reject</span><span class='lparen token'>(</span><span class='bitand op'>&amp;</span><span class='block identifier id'>block</span><span class='rparen token'>)</span>
   <span class='dup identifier id'>dup</span><span class='dot token'>.</span><span class='reject! fid id'>reject!</span><span class='lparen token'>(</span><span class='bitand op'>&amp;</span><span class='block identifier id'>block</span><span class='rparen token'>)</span>
@@ -770,14 +773,14 @@ A new instance of OrderedHash
       <pre class="lines">
 
 
-90
-91
-92
-93
-94</pre>
+95
+96
+97
+98
+99</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/plist4r/mixin/ordered_hash.rb', line 90</span>
+      <pre class="code"><span class="info file"># File 'lib/plist4r/mixin/ordered_hash.rb', line 95</span>
 
 <span class='def def kw'>def</span> <span class='reject! fid id'>reject!</span>
   <span class='super super kw'>super</span>
@@ -816,14 +819,14 @@ from the other hash -ordered or not.
       <pre class="lines">
 
 
-152
-153
-154
-155
-156</pre>
+157
+158
+159
+160
+161</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/plist4r/mixin/ordered_hash.rb', line 152</span>
+      <pre class="code"><span class="info file"># File 'lib/plist4r/mixin/ordered_hash.rb', line 157</span>
 
 <span class='def def kw'>def</span> <span class='replace identifier id'>replace</span><span class='lparen token'>(</span><span class='other identifier id'>other</span><span class='rparen token'>)</span>
   <span class='super super kw'>super</span>
@@ -850,19 +853,51 @@ from the other hash -ordered or not.
       <pre class="lines">
 
 
-136
-137
-138
-139
-140</pre>
+141
+142
+143
+144
+145</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/plist4r/mixin/ordered_hash.rb', line 136</span>
+      <pre class="code"><span class="info file"># File 'lib/plist4r/mixin/ordered_hash.rb', line 141</span>
 
 <span class='def def kw'>def</span> <span class='shift identifier id'>shift</span>
   <span class='k identifier id'>k</span> <span class='assign token'>=</span> <span class='@keys ivar id'>@keys</span><span class='dot token'>.</span><span class='first identifier id'>first</span>
   <span class='v identifier id'>v</span> <span class='assign token'>=</span> <span class='delete identifier id'>delete</span><span class='lparen token'>(</span><span class='k identifier id'>k</span><span class='rparen token'>)</span>
   <span class='lbrack token'>[</span><span class='k identifier id'>k</span><span class='comma token'>,</span> <span class='v identifier id'>v</span><span class='rbrack token'>]</span>
+<span class='end end kw'>end</span>
+</pre>
+    </td>
+  </tr>
+</table>
+</div>
+
+    
+      <div class="method_details " id="store-instance_method">
+  <p class="signature "">
+  
+    - (<tt><a href="../../Object.html" target="_self" title="Object (class)">Object</a></tt>) <strong>store</strong>(key, value) 
+  
+
+  
+</p><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+71
+72
+73
+74</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/plist4r/mixin/ordered_hash.rb', line 71</span>
+
+<span class='def def kw'>def</span> <span class='store identifier id'>store</span><span class='lparen token'>(</span><span class='key identifier id'>key</span><span class='comma token'>,</span> <span class='value identifier id'>value</span><span class='rparen token'>)</span>
+  <span class='@keys ivar id'>@keys</span> <span class='lshft op'>&lt;&lt;</span> <span class='key identifier id'>key</span> <span class='if if_mod kw'>if</span> <span class='notop op'>!</span><span class='has_key? fid id'>has_key?</span><span class='lparen token'>(</span><span class='key identifier id'>key</span><span class='rparen token'>)</span>
+  <span class='super super kw'>super</span>
 <span class='end end kw'>end</span>
 </pre>
     </td>
@@ -884,12 +919,12 @@ from the other hash -ordered or not.
       <pre class="lines">
 
 
-112
-113
-114</pre>
+117
+118
+119</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/plist4r/mixin/ordered_hash.rb', line 112</span>
+      <pre class="code"><span class="info file"># File 'lib/plist4r/mixin/ordered_hash.rb', line 117</span>
 
 <span class='def def kw'>def</span> <span class='to_a identifier id'>to_a</span>
   <span class='@keys ivar id'>@keys</span><span class='dot token'>.</span><span class='map identifier id'>map</span> <span class='lbrace token'>{</span> <span class='bitor op'>|</span><span class='key identifier id'>key</span><span class='bitor op'>|</span> <span class='lbrack token'>[</span> <span class='key identifier id'>key</span><span class='comma token'>,</span> <span class='self self kw'>self</span><span class='lbrack token'>[</span><span class='key identifier id'>key</span><span class='rbrack token'>]</span> <span class='rbrack token'>]</span> <span class='rbrace token'>}</span>
@@ -914,12 +949,12 @@ from the other hash -ordered or not.
       <pre class="lines">
 
 
-108
-109
-110</pre>
+113
+114
+115</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/plist4r/mixin/ordered_hash.rb', line 108</span>
+      <pre class="code"><span class="info file"># File 'lib/plist4r/mixin/ordered_hash.rb', line 113</span>
 
 <span class='def def kw'>def</span> <span class='to_hash identifier id'>to_hash</span>
   <span class='self self kw'>self</span>
@@ -944,12 +979,12 @@ from the other hash -ordered or not.
       <pre class="lines">
 
 
-104
-105
-106</pre>
+109
+110
+111</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/plist4r/mixin/ordered_hash.rb', line 104</span>
+      <pre class="code"><span class="info file"># File 'lib/plist4r/mixin/ordered_hash.rb', line 109</span>
 
 <span class='def def kw'>def</span> <span class='values identifier id'>values</span>
   <span class='@keys ivar id'>@keys</span><span class='dot token'>.</span><span class='collect identifier id'>collect</span> <span class='lbrace token'>{</span> <span class='bitor op'>|</span><span class='key identifier id'>key</span><span class='bitor op'>|</span> <span class='self self kw'>self</span><span class='lbrack token'>[</span><span class='key identifier id'>key</span><span class='rbrack token'>]</span> <span class='rbrace token'>}</span>
@@ -966,7 +1001,7 @@ from the other hash -ordered or not.
 </div>
     
     <div id="footer">
-  Generated on Sun Jul  4 18:14:57 2010 by 
+  Generated on Thu Jul  8 08:54:23 2010 by 
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool">yard</a>
   0.5.8  and the 
   <a href="http://github.com/dreamcat4/yard-slipstream">yard-slipstream</a> plugin
