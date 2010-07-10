@@ -1,0 +1,540 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+  <head>
+    <meta name="Content-Type" content="text/html; charset=utf-8" />
+<title>Class: Plist4r::Backend::CFPropertyList::CFDate</title>
+<link rel="stylesheet" href="../../../../css/style.css" type="text/css" media="screen" charset="utf-8" />
+<link rel="stylesheet" href="../../../../css/common.css" type="text/css" media="screen" charset="utf-8" />
+<link rel="stylesheet" href="../../../../css/custom.css" type="text/css" media="screen" charset="utf-8" />
+
+<script type="text/javascript" charset="utf-8">
+  relpath = '../../../..';
+  if (relpath != '') relpath += '/';
+</script>
+<base id="base_target" target="_top" />
+<script type="text/javascript" charset="utf-8" src="../../../../js/jquery.js"></script>
+<script type="text/javascript" charset="utf-8" src="../../../../js/autocomplete.js"></script>
+<script type="text/javascript" charset="utf-8" src="../../../../js/app.js"></script>
+<script type="text/javascript" charset="utf-8" src="../../../../js/live.js"></script>
+
+  </head>
+  <body>
+    <script type="text/javascript" charset="utf-8">
+      if (window.top.frames.main) document.body.className = 'frames';
+    </script>
+    
+    <div id="header">
+      <div id="menu">
+  
+		
+			<a href="../../../../object_index.html" target="_self" title="Index (C)">Index (C)</a>
+		 &raquo;
+    <span class='title'><a href="../../../../Plist4r.html" target="_self" title="Plist4r (module)">Plist4r</a></span> &raquo; <span class='title'><a href="../../../Backend.html" target="_self" title="Plist4r::Backend (class)">Backend</a></span> &raquo; <span class='title'><a href="../../Implementation.html" target="_self" title="Plist4r::Backend::Implementation (module)">Implementation</a></span> &raquo; <span class='title'><a href="../CFPropertyList.html" target="_self" title="Plist4r::Backend::CFPropertyList (module)">CFPropertyList</a></span>
+     &raquo; 
+    <span class="title">CFDate</span>
+  
+  
+  <div class="noframes">
+    <span class="title"></span>
+    <a id="frames_link" class="link_disabled">Frames</a> | 
+    <a target="_top" id="noframes_link" class="link_disabled">No Frames</a>
+    <span class="title"></span>
+  </div>
+</div>
+
+      <div id="search2">
+  
+  
+  <div class="search2_center">
+    <form class="search2" onsubmit="return false;" action="">
+      <input name="q" type="search" placeholder="Search" id="search_box2" size="30" value="" />
+    </form>
+  </div>
+  <script type="text/javascript" charset="utf-8"> 
+    $('#search_box2').focus(function(){
+      var search_index = relpath + 'search_index.json';
+      jQuery.getJSON(search_index, go_data);
+
+      function go_data(adata) {
+        $('#search_box2').autocomplete(adata, {
+          width: 300,
+          matchContains: true,
+          formatItem: function(item) {
+            return item.text;
+          }
+        }).result(function(event, item) {
+					if (window.location.search) {
+	          window.location.href = relpath + $(item.href_tag).attr("href");
+					} else {
+	          location.href = relpath + $(item.href_tag).attr("href");
+					}
+        });
+      }
+    });
+  </script> 
+</div>
+
+      <div class="clear"></div>
+    </div>
+    
+    <iframe id="search_frame"></iframe>
+    
+    <div id="content"><h1>Class: Plist4r::Backend::CFPropertyList::CFDate
+  
+  
+  
+</h1>
+
+<div id="info_box">
+  <dl class="box">
+    
+      
+    
+      
+    
+  
+    <dt class="r1 last">Defined in:</dt>
+		<dd class="r1 last">
+  		
+  lib/plist4r/backend/c_f_property_list/rbCFTypes.rb
+
+
+		</dd>
+  </dl>
+</div>
+<div class="clear"></div>
+
+
+	<h3 class="inherited">Class Methods</h3>
+	    <ul id="methods_ribbon">
+	    
+	    
+	      <li class="r1"><a href="#date_string-class_method" target="_self" title="Plist4r::Backend::CFPropertyList::CFDate.date_string (method)">date_string</a></li>
+	      
+	    
+	      <li class="r2"><a href="#parse_date-class_method" target="_self" title="Plist4r::Backend::CFPropertyList::CFDate.parse_date (method)">parse_date</a></li>
+	      
+	    
+	    </ul>
+
+	<h3 class="inherited">Instance Methods</h3>
+	    <ul id="methods_ribbon">
+	    
+	    
+	      <li class="r1"><a href="#get_value-instance_method" target="_self" title="Plist4r::Backend::CFPropertyList::CFDate#get_value (method)">get_value</a></li>
+	      
+	    
+	      <li class="r2"><a href="#initialize-instance_method" target="_self" title="Plist4r::Backend::CFPropertyList::CFDate#initialize (method)">initialize</a></li>
+	      
+	    
+	      <li class="r1"><a href="#set_value-instance_method" target="_self" title="Plist4r::Backend::CFPropertyList::CFDate#set_value (method)">set_value</a></li>
+	      
+	    
+	      <li class="r2"><a href="#to_binary-instance_method" target="_self" title="Plist4r::Backend::CFPropertyList::CFDate#to_binary (method)">to_binary</a></li>
+	      
+	    
+	      <li class="r1"><a href="#to_xml-instance_method" target="_self" title="Plist4r::Backend::CFPropertyList::CFDate#to_xml (method)">to_xml</a></li>
+	      
+	    
+	    </ul>
+
+
+
+  
+  
+  
+  
+  <h2>Overview</h2><div class="docstring">
+  <div class="discussion">
+    <p>
+This class holds Time values. While Apple uses seconds since 2001, the rest
+of the world uses seconds since 1970. So if you access value directly, you
+get the Time class. If you access via get_value you either geht the
+timestamp or the Apple timestamp
+</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+</div>
+  <h2>Constant Summary</h2>
+  
+    <dl class="constants">
+      
+        <dt id="TIMESTAMP_APPLE-constant" class="">TIMESTAMP_APPLE =
+          
+        </dt>
+        <dd><pre class="code"><span class='integer val'>0</span>
+</pre></dd>
+      
+        <dt id="TIMESTAMP_UNIX-constant" class="">TIMESTAMP_UNIX =
+          
+        </dt>
+        <dd><pre class="code"><span class='integer val'>1</span>
+</pre></dd>
+      
+        <dt id="DATE_DIFF_APPLE_UNIX-constant" class="">DATE_DIFF_APPLE_UNIX =
+          
+        </dt>
+        <dd><pre class="code"><span class='integer val'>978307200</span>
+</pre></dd>
+      
+    </dl>
+  
+
+
+  
+  
+  
+  
+<div id="constructor_details" class="method_details_list">
+  <h2>Constructor Details</h2>
+  
+    <div class="method_details first" id="initialize-instance_method">
+  <p class="signature first"">
+  
+    - (<tt><a href="" target="_self" title="Plist4r::Backend::CFPropertyList::CFDate (class)">CFDate</a></tt>) <strong>initialize</strong>(value = nil, format = CFDate::TIMESTAMP_UNIX) 
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    <p>
+set value to defined state
+</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+103
+104
+105
+106
+107
+108
+109</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/plist4r/backend/c_f_property_list/rbCFTypes.rb', line 103</span>
+
+<span class='def def kw'>def</span> <span class='initialize identifier id'>initialize</span><span class='lparen token'>(</span><span class='value identifier id'>value</span> <span class='assign token'>=</span> <span class='nil nil kw'>nil</span><span class='comma token'>,</span><span class='format identifier id'>format</span><span class='assign token'>=</span><span class='CFDate constant id'>CFDate</span><span class='colon2 op'>::</span><span class='TIMESTAMP_UNIX constant id'>TIMESTAMP_UNIX</span><span class='rparen token'>)</span>
+  <span class='if if kw'>if</span><span class='lparen token'>(</span><span class='value identifier id'>value</span><span class='dot token'>.</span><span class='is_a? fid id'>is_a?</span><span class='lparen token'>(</span><span class='Time constant id'>Time</span><span class='rparen token'>)</span> <span class='orop op'>||</span> <span class='value identifier id'>value</span><span class='dot token'>.</span><span class='nil? fid id'>nil?</span><span class='rparen token'>)</span> <span class='then then kw'>then</span>
+    <span class='@value ivar id'>@value</span> <span class='assign token'>=</span> <span class='value identifier id'>value</span><span class='dot token'>.</span><span class='nil? fid id'>nil?</span> <span class='integer val'>? </span><span class='Time constant id'>Time</span><span class='dot token'>.</span><span class='now identifier id'>now</span> <span class='colon op'>:</span> <span class='value identifier id'>value</span>
+  <span class='else else kw'>else</span>
+    <span class='set_value identifier id'>set_value</span><span class='lparen token'>(</span><span class='value identifier id'>value</span><span class='comma token'>,</span><span class='format identifier id'>format</span><span class='rparen token'>)</span>
+  <span class='end end kw'>end</span>
+<span class='end end kw'>end</span>
+</pre>
+    </td>
+  </tr>
+</table>
+</div>
+
+  
+</div>
+
+  <div id="class_method_details" class="method_details_list">
+    <h2>Class Method Details</h2>
+    
+    
+      <div class="method_details first" id="date_string-class_method">
+  <p class="signature first"">
+  
+    + (<tt><a href="../../../../Object.html" target="_self" title="Object (class)">Object</a></tt>) <strong>date_string</strong>(val) 
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    <p>
+create a XML date strimg from a time object
+</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+89
+90
+91
+92</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/plist4r/backend/c_f_property_list/rbCFTypes.rb', line 89</span>
+
+<span class='def def kw'>def</span> <span class='CFDate constant id'>CFDate</span><span class='dot token'>.</span><span class='date_string identifier id'>date_string</span><span class='lparen token'>(</span><span class='val identifier id'>val</span><span class='rparen token'>)</span>
+  <span class='comment val'># 2009-05-13T20:23:43Z</span>
+  <span class='val identifier id'>val</span><span class='dot token'>.</span><span class='getutc identifier id'>getutc</span><span class='dot token'>.</span><span class='strftime identifier id'>strftime</span><span class='lparen token'>(</span><span class='string val'>&quot;%Y-%m-%dT%H:%M:%SZ&quot;</span><span class='rparen token'>)</span>
+<span class='end end kw'>end</span>
+</pre>
+    </td>
+  </tr>
+</table>
+</div>
+
+    
+      <div class="method_details " id="parse_date-class_method">
+  <p class="signature "">
+  
+    + (<tt><a href="../../../../Object.html" target="_self" title="Object (class)">Object</a></tt>) <strong>parse_date</strong>(val) 
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    <p>
+parse a XML date string
+</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+95
+96
+97
+98
+99
+100</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/plist4r/backend/c_f_property_list/rbCFTypes.rb', line 95</span>
+
+<span class='def def kw'>def</span> <span class='CFDate constant id'>CFDate</span><span class='dot token'>.</span><span class='parse_date identifier id'>parse_date</span><span class='lparen token'>(</span><span class='val identifier id'>val</span><span class='rparen token'>)</span>
+  <span class='comment val'># 2009-05-13T20:23:43Z</span>
+  <span class='val identifier id'>val</span> <span class='match op'>=~</span> <span class='regexp val'>%r{^(\d{4})-(\d{2})-(\d{2})T(\d{2}):(\d{2}):(\d{2})Z$}</span>
+  <span class='year identifier id'>year</span><span class='comma token'>,</span><span class='month identifier id'>month</span><span class='comma token'>,</span><span class='day identifier id'>day</span><span class='comma token'>,</span><span class='hour identifier id'>hour</span><span class='comma token'>,</span><span class='min identifier id'>min</span><span class='comma token'>,</span><span class='sec identifier id'>sec</span> <span class='assign token'>=</span> <span class='$1 nth_ref id'>$1</span><span class='comma token'>,</span> <span class='$2 nth_ref id'>$2</span><span class='comma token'>,</span> <span class='$3 nth_ref id'>$3</span><span class='comma token'>,</span> <span class='$4 nth_ref id'>$4</span><span class='comma token'>,</span> <span class='$5 nth_ref id'>$5</span><span class='comma token'>,</span> <span class='$6 nth_ref id'>$6</span>
+  <span class='return return kw'>return</span> <span class='Time constant id'>Time</span><span class='dot token'>.</span><span class='utc identifier id'>utc</span><span class='lparen token'>(</span><span class='year identifier id'>year</span><span class='comma token'>,</span><span class='month identifier id'>month</span><span class='comma token'>,</span><span class='day identifier id'>day</span><span class='comma token'>,</span><span class='hour identifier id'>hour</span><span class='comma token'>,</span><span class='min identifier id'>min</span><span class='comma token'>,</span><span class='sec identifier id'>sec</span><span class='rparen token'>)</span><span class='dot token'>.</span><span class='getlocal identifier id'>getlocal</span>
+<span class='end end kw'>end</span>
+</pre>
+    </td>
+  </tr>
+</table>
+</div>
+
+    
+  </div>
+
+  <div id="instance_method_details" class="method_details_list">
+    <h2>Instance Method Details</h2>
+    
+    
+      <div class="method_details first" id="get_value-instance_method">
+  <p class="signature first"">
+  
+    - (<tt><a href="../../../../Object.html" target="_self" title="Object (class)">Object</a></tt>) <strong>get_value</strong>(format = CFDate::TIMESTAMP_UNIX) 
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    <p>
+get timestamp, either UNIX or Apple timestamp
+</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+121
+122
+123
+124
+125
+126
+127</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/plist4r/backend/c_f_property_list/rbCFTypes.rb', line 121</span>
+
+<span class='def def kw'>def</span> <span class='get_value identifier id'>get_value</span><span class='lparen token'>(</span><span class='format identifier id'>format</span><span class='assign token'>=</span><span class='CFDate constant id'>CFDate</span><span class='colon2 op'>::</span><span class='TIMESTAMP_UNIX constant id'>TIMESTAMP_UNIX</span><span class='rparen token'>)</span>
+  <span class='if if kw'>if</span><span class='lparen token'>(</span><span class='format identifier id'>format</span> <span class='eq op'>==</span> <span class='CFDate constant id'>CFDate</span><span class='colon2 op'>::</span><span class='TIMESTAMP_UNIX constant id'>TIMESTAMP_UNIX</span><span class='rparen token'>)</span> <span class='then then kw'>then</span>
+    <span class='return return kw'>return</span> <span class='@value ivar id'>@value</span><span class='dot token'>.</span><span class='to_i identifier id'>to_i</span>
+  <span class='else else kw'>else</span>
+    <span class='return return kw'>return</span> <span class='@value ivar id'>@value</span><span class='dot token'>.</span><span class='to_f identifier id'>to_f</span> <span class='minus op'>-</span> <span class='CFDate constant id'>CFDate</span><span class='colon2 op'>::</span><span class='DATE_DIFF_APPLE_UNIX constant id'>DATE_DIFF_APPLE_UNIX</span>
+  <span class='end end kw'>end</span>
+<span class='end end kw'>end</span>
+</pre>
+    </td>
+  </tr>
+</table>
+</div>
+
+    
+      <div class="method_details " id="set_value-instance_method">
+  <p class="signature "">
+  
+    - (<tt><a href="../../../../Object.html" target="_self" title="Object (class)">Object</a></tt>) <strong>set_value</strong>(value, format = CFDate::TIMESTAMP_UNIX) 
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    <p>
+set value with timestamp, either Apple or UNIX
+</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+112
+113
+114
+115
+116
+117
+118</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/plist4r/backend/c_f_property_list/rbCFTypes.rb', line 112</span>
+
+<span class='def def kw'>def</span> <span class='set_value identifier id'>set_value</span><span class='lparen token'>(</span><span class='value identifier id'>value</span><span class='comma token'>,</span><span class='format identifier id'>format</span><span class='assign token'>=</span><span class='CFDate constant id'>CFDate</span><span class='colon2 op'>::</span><span class='TIMESTAMP_UNIX constant id'>TIMESTAMP_UNIX</span><span class='rparen token'>)</span>
+  <span class='if if kw'>if</span><span class='lparen token'>(</span><span class='format identifier id'>format</span> <span class='eq op'>==</span> <span class='CFDate constant id'>CFDate</span><span class='colon2 op'>::</span><span class='TIMESTAMP_UNIX constant id'>TIMESTAMP_UNIX</span><span class='rparen token'>)</span> <span class='then then kw'>then</span>
+    <span class='@value ivar id'>@value</span> <span class='assign token'>=</span> <span class='Time constant id'>Time</span><span class='dot token'>.</span><span class='at identifier id'>at</span><span class='lparen token'>(</span><span class='value identifier id'>value</span><span class='rparen token'>)</span>
+  <span class='else else kw'>else</span>
+    <span class='@value ivar id'>@value</span> <span class='assign token'>=</span> <span class='Time constant id'>Time</span><span class='dot token'>.</span><span class='at identifier id'>at</span><span class='lparen token'>(</span><span class='value identifier id'>value</span> <span class='plus op'>+</span> <span class='CFDate constant id'>CFDate</span><span class='colon2 op'>::</span><span class='DATE_DIFF_APPLE_UNIX constant id'>DATE_DIFF_APPLE_UNIX</span><span class='rparen token'>)</span>
+  <span class='end end kw'>end</span>
+<span class='end end kw'>end</span>
+</pre>
+    </td>
+  </tr>
+</table>
+</div>
+
+    
+      <div class="method_details " id="to_binary-instance_method">
+  <p class="signature "">
+  
+    - (<tt><a href="../../../../Object.html" target="_self" title="Object (class)">Object</a></tt>) <strong>to_binary</strong>(bplist) 
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    <p>
+convert to binary
+</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+135
+136
+137</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/plist4r/backend/c_f_property_list/rbCFTypes.rb', line 135</span>
+
+<span class='def def kw'>def</span> <span class='to_binary identifier id'>to_binary</span><span class='lparen token'>(</span><span class='bplist identifier id'>bplist</span><span class='rparen token'>)</span>
+  <span class='return return kw'>return</span> <span class='bplist identifier id'>bplist</span><span class='dot token'>.</span><span class='date_to_binary identifier id'>date_to_binary</span><span class='lparen token'>(</span><span class='@value ivar id'>@value</span><span class='rparen token'>)</span>
+<span class='end end kw'>end</span>
+</pre>
+    </td>
+  </tr>
+</table>
+</div>
+
+    
+      <div class="method_details " id="to_xml-instance_method">
+  <p class="signature "">
+  
+    - (<tt><a href="../../../../Object.html" target="_self" title="Object (class)">Object</a></tt>) <strong>to_xml</strong> 
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    <p>
+convert to XML
+</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+130
+131
+132</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/plist4r/backend/c_f_property_list/rbCFTypes.rb', line 130</span>
+
+<span class='def def kw'>def</span> <span class='to_xml identifier id'>to_xml</span>
+  <span class='return return kw'>return</span> <span class='LibXML constant id'>LibXML</span><span class='colon2 op'>::</span><span class='XML constant id'>XML</span><span class='colon2 op'>::</span><span class='Node constant id'>Node</span><span class='dot token'>.</span><span class='new identifier id'>new</span><span class='lparen token'>(</span><span class='string val'>'date'</span><span class='rparen token'>)</span> <span class='lshft op'>&lt;&lt;</span> <span class='LibXML constant id'>LibXML</span><span class='colon2 op'>::</span><span class='XML constant id'>XML</span><span class='colon2 op'>::</span><span class='Node constant id'>Node</span><span class='dot token'>.</span><span class='new_text identifier id'>new_text</span><span class='lparen token'>(</span><span class='CFDate constant id'>CFDate</span><span class='colon2 op'>::</span><span class='date_string identifier id'>date_string</span><span class='lparen token'>(</span><span class='@value ivar id'>@value</span><span class='rparen token'>)</span><span class='rparen token'>)</span>
+<span class='end end kw'>end</span>
+</pre>
+    </td>
+  </tr>
+</table>
+</div>
+
+    
+  </div>
+
+</div>
+    
+    <div id="footer">
+  Generated on Sat Jul 10 06:53:31 2010 by 
+  <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool">yard</a>
+  0.5.8  and the 
+  <a href="http://github.com/dreamcat4/yard-slipstream">yard-slipstream</a> plugin
+	(ruby-1.8.7).
+</div>
+
+  </body>
+</html>

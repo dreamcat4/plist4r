@@ -249,13 +249,13 @@ A pointer referencing back to the plist object
       <pre class="lines">
 
 
-9
 10
 11
-12</pre>
+12
+13</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/plist4r/plist_type.rb', line 9</span>
+      <pre class="code"><span class="info file"># File 'lib/plist4r/plist_type.rb', line 10</span>
 
 <span class='def def kw'>def</span> <span class='initialize identifier id'>initialize</span> <span class='plist identifier id'>plist</span><span class='comma token'>,</span> <span class='mult op'>*</span><span class='args identifier id'>args</span><span class='comma token'>,</span> <span class='bitand op'>&amp;</span><span class='blk identifier id'>blk</span>
   <span class='@plist ivar id'>@plist</span> <span class='assign token'>=</span> <span class='plist identifier id'>plist</span>
@@ -367,15 +367,15 @@ A hash of the match statistics
       <pre class="lines">
 
 
-37
 38
 39
 40
 41
-42</pre>
+42
+43</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/plist4r/plist_type.rb', line 37</span>
+      <pre class="code"><span class="info file"># File 'lib/plist4r/plist_type.rb', line 38</span>
 
 <span class='def def kw'>def</span> <span class='self self kw'>self</span><span class='dot token'>.</span><span class='match_stat identifier id'>match_stat</span> <span class='plist_keys identifier id'>plist_keys</span>
   <span class='type_keys identifier id'>type_keys</span> <span class='assign token'>=</span> <span class='self self kw'>self</span><span class='colon2 op'>::</span><span class='ValidKeys constant id'>ValidKeys</span><span class='dot token'>.</span><span class='values identifier id'>values</span><span class='dot token'>.</span><span class='flatten identifier id'>flatten</span>
@@ -409,15 +409,15 @@ A hash of the match statistics
       <pre class="lines">
 
 
-62
 63
 64
 65
 66
-67</pre>
+67
+68</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/plist4r/plist_type.rb', line 62</span>
+      <pre class="code"><span class="info file"># File 'lib/plist4r/plist_type.rb', line 63</span>
 
 <span class='def def kw'>def</span> <span class='array_dict identifier id'>array_dict</span> <span class='method_sym identifier id'>method_sym</span><span class='comma token'>,</span> <span class='mult op'>*</span><span class='args identifier id'>args</span>
   <span class='a identifier id'>a</span> <span class='assign token'>=</span> <span class='ArrayDict constant id'>ArrayDict</span><span class='dot token'>.</span><span class='new identifier id'>new</span> <span class='@hash ivar id'>@hash</span>
@@ -498,7 +498,6 @@ Set the hash if not nil
       <pre class="lines">
 
 
-17
 18
 19
 20
@@ -507,10 +506,11 @@ Set the hash if not nil
 23
 24
 25
-26</pre>
+26
+27</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/plist4r/plist_type.rb', line 17</span>
+      <pre class="code"><span class="info file"># File 'lib/plist4r/plist_type.rb', line 18</span>
 
 <span class='def def kw'>def</span> <span class='hash identifier id'>hash</span> <span class='hash identifier id'>hash</span><span class='assign token'>=</span><span class='nil nil kw'>nil</span>
   <span class='case case kw'>case</span> <span class='hash identifier id'>hash</span>
@@ -583,12 +583,12 @@ The shortform string, in snake case, a unique name
       <pre class="lines">
 
 
-49
 50
-51</pre>
+51
+52</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/plist4r/plist_type.rb', line 49</span>
+      <pre class="code"><span class="info file"># File 'lib/plist4r/plist_type.rb', line 50</span>
 
 <span class='def def kw'>def</span> <span class='to_s identifier id'>to_s</span>
   <span class='return return kw'>return</span> <span class='@string ivar id'>@string</span> <span class='opasgn op'>||=</span> <span class='self self kw'>self</span><span class='dot token'>.</span><span class='class identifier id'>class</span><span class='dot token'>.</span><span class='to_s identifier id'>to_s</span><span class='dot token'>.</span><span class='gsub identifier id'>gsub</span><span class='lparen token'>(</span><span class='regexp val'>/.*:/</span><span class='comma token'>,</span><span class='string val'>&quot;&quot;</span><span class='rparen token'>)</span><span class='dot token'>.</span><span class='snake_case identifier id'>snake_case</span>
@@ -654,12 +654,12 @@ A symbol representation the shortform string, in snake case, a unique name
       <pre class="lines">
 
 
-58
 59
-60</pre>
+60
+61</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/plist4r/plist_type.rb', line 58</span>
+      <pre class="code"><span class="info file"># File 'lib/plist4r/plist_type.rb', line 59</span>
 
 <span class='def def kw'>def</span> <span class='to_sym identifier id'>to_sym</span>
   <span class='return return kw'>return</span> <span class='@sym ivar id'>@sym</span> <span class='opasgn op'>||=</span> <span class='to_s identifier id'>to_s</span><span class='dot token'>.</span><span class='to_sym identifier id'>to_sym</span>
@@ -676,7 +676,7 @@ A symbol representation the shortform string, in snake case, a unique name
 </div>
     
     <div id="footer">
-  Generated on Thu Jul  8 08:54:17 2010 by 
+  Generated on Sat Jul 10 18:57:34 2010 by 
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool">yard</a>
   0.5.8  and the 
   <a href="http://github.com/dreamcat4/yard-slipstream">yard-slipstream</a> plugin

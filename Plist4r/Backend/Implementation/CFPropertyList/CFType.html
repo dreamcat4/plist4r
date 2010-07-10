@@ -1,0 +1,342 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+  <head>
+    <meta name="Content-Type" content="text/html; charset=utf-8" />
+<title>Class: Plist4r::Backend::CFPropertyList::CFType</title>
+<link rel="stylesheet" href="../../../../css/style.css" type="text/css" media="screen" charset="utf-8" />
+<link rel="stylesheet" href="../../../../css/common.css" type="text/css" media="screen" charset="utf-8" />
+<link rel="stylesheet" href="../../../../css/custom.css" type="text/css" media="screen" charset="utf-8" />
+
+<script type="text/javascript" charset="utf-8">
+  relpath = '../../../..';
+  if (relpath != '') relpath += '/';
+</script>
+<base id="base_target" target="_top" />
+<script type="text/javascript" charset="utf-8" src="../../../../js/jquery.js"></script>
+<script type="text/javascript" charset="utf-8" src="../../../../js/autocomplete.js"></script>
+<script type="text/javascript" charset="utf-8" src="../../../../js/app.js"></script>
+<script type="text/javascript" charset="utf-8" src="../../../../js/live.js"></script>
+
+  </head>
+  <body>
+    <script type="text/javascript" charset="utf-8">
+      if (window.top.frames.main) document.body.className = 'frames';
+    </script>
+    
+    <div id="header">
+      <div id="menu">
+  
+		
+			<a href="../../../../object_index.html" target="_self" title="Index (C)">Index (C)</a>
+		 &raquo;
+    <span class='title'><a href="../../../../Plist4r.html" target="_self" title="Plist4r (module)">Plist4r</a></span> &raquo; <span class='title'><a href="../../../Backend.html" target="_self" title="Plist4r::Backend (class)">Backend</a></span> &raquo; <span class='title'><a href="../../Implementation.html" target="_self" title="Plist4r::Backend::Implementation (module)">Implementation</a></span> &raquo; <span class='title'><a href="../CFPropertyList.html" target="_self" title="Plist4r::Backend::CFPropertyList (module)">CFPropertyList</a></span>
+     &raquo; 
+    <span class="title">CFType</span>
+  
+  
+  <div class="noframes">
+    <span class="title"></span>
+    <a id="frames_link" class="link_disabled">Frames</a> | 
+    <a target="_top" id="noframes_link" class="link_disabled">No Frames</a>
+    <span class="title"></span>
+  </div>
+</div>
+
+      <div id="search2">
+  
+  
+  <div class="search2_center">
+    <form class="search2" onsubmit="return false;" action="">
+      <input name="q" type="search" placeholder="Search" id="search_box2" size="30" value="" />
+    </form>
+  </div>
+  <script type="text/javascript" charset="utf-8"> 
+    $('#search_box2').focus(function(){
+      var search_index = relpath + 'search_index.json';
+      jQuery.getJSON(search_index, go_data);
+
+      function go_data(adata) {
+        $('#search_box2').autocomplete(adata, {
+          width: 300,
+          matchContains: true,
+          formatItem: function(item) {
+            return item.text;
+          }
+        }).result(function(event, item) {
+					if (window.location.search) {
+	          window.location.href = relpath + $(item.href_tag).attr("href");
+					} else {
+	          location.href = relpath + $(item.href_tag).attr("href");
+					}
+        });
+      }
+    });
+  </script> 
+</div>
+
+      <div class="clear"></div>
+    </div>
+    
+    <iframe id="search_frame"></iframe>
+    
+    <div id="content"><h1>Class: Plist4r::Backend::CFPropertyList::CFType
+  
+  
+  
+</h1>
+
+<div id="info_box">
+  <dl class="box">
+    
+      
+    
+      
+    
+  
+    <dt class="r1 last">Defined in:</dt>
+		<dd class="r1 last">
+  		
+  lib/plist4r/backend/c_f_property_list/rbCFTypes.rb
+
+
+		</dd>
+  </dl>
+</div>
+<div class="clear"></div>
+
+<div id="subclasses">
+  <h3 class="inherited">Direct Known Subclasses</h3>
+  <ul id="classes_ribbon">
+  
+  
+    <li class="r1"><a href="CFArray.html" target="_self" title="Plist4r::Backend::CFPropertyList::CFArray (class)">CFArray</a></li>
+    
+  
+    <li class="r2"><a href="CFBoolean.html" target="_self" title="Plist4r::Backend::CFPropertyList::CFBoolean (class)">CFBoolean</a></li>
+    
+  
+    <li class="r1"><a href="CFData.html" target="_self" title="Plist4r::Backend::CFPropertyList::CFData (class)">CFData</a></li>
+    
+  
+    <li class="r2"><a href="CFDate.html" target="_self" title="Plist4r::Backend::CFPropertyList::CFDate (class)">CFDate</a></li>
+    
+  
+    <li class="r1"><a href="CFDictionary.html" target="_self" title="Plist4r::Backend::CFPropertyList::CFDictionary (class)">CFDictionary</a></li>
+    
+  
+    <li class="r2"><a href="CFInteger.html" target="_self" title="Plist4r::Backend::CFPropertyList::CFInteger (class)">CFInteger</a></li>
+    
+  
+    <li class="r1"><a href="CFReal.html" target="_self" title="Plist4r::Backend::CFPropertyList::CFReal (class)">CFReal</a></li>
+    
+  
+    <li class="r2"><a href="CFString.html" target="_self" title="Plist4r::Backend::CFPropertyList::CFString (class)">CFString</a></li>
+    
+  
+  </ul>
+</div>
+
+	<h3 class="inherited">Instance Methods</h3>
+	    <ul id="methods_ribbon">
+	    
+	    
+	      <li class="r1"><a href="#initialize-instance_method" target="_self" title="Plist4r::Backend::CFPropertyList::CFType#initialize (method)">initialize</a></li>
+	      
+	    
+	      <li class="r2"><a href="#to_binary-instance_method" target="_self" title="Plist4r::Backend::CFPropertyList::CFType#to_binary (method)">to_binary</a></li>
+	      
+	    
+	      <li class="r1"><a href="#to_xml-instance_method" target="_self" title="Plist4r::Backend::CFPropertyList::CFType#to_xml (method)">to_xml</a></li>
+	      
+	    
+	    </ul>
+
+
+<h2>Overview</h2><div class="docstring">
+  <div class="discussion">
+    <p>
+This class defines the base class for all CFType classes
+</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+</div>
+
+  <h2>Instance Attributes</h2>
+  <ul class="summary">
+    
+      <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#value-instance_method" target="_self" title="#value (instance method)">- (Object) <strong>value</strong> </a>
+    
+
+    
+  </span>
+  
+  
+    
+    
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'><p>
+value of the type.
+</p>
+</div></span>
+  
+</li>
+
+    
+  </ul>
+
+<div id="constructor_details" class="method_details_list">
+  <h2>Constructor Details</h2>
+  
+    <div class="method_details first" id="initialize-instance_method">
+  <p class="signature first"">
+  
+    - (<tt><a href="" target="_self" title="Plist4r::Backend::CFPropertyList::CFType (class)">CFType</a></tt>) <strong>initialize</strong>(value = nil) 
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    <p>
+set internal value to parameter value by default
+</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+24
+25
+26</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/plist4r/backend/c_f_property_list/rbCFTypes.rb', line 24</span>
+
+<span class='def def kw'>def</span> <span class='initialize identifier id'>initialize</span><span class='lparen token'>(</span><span class='value identifier id'>value</span><span class='assign token'>=</span><span class='nil nil kw'>nil</span><span class='rparen token'>)</span>
+  <span class='@value ivar id'>@value</span> <span class='assign token'>=</span> <span class='value identifier id'>value</span>
+<span class='end end kw'>end</span>
+</pre>
+    </td>
+  </tr>
+</table>
+</div>
+
+  
+</div>
+
+  <div id="instance_method_details" class="method_details_list">
+    <h2>Instance Method Details</h2>
+    
+    
+      <div class="method_details first" id="to_binary-instance_method">
+  <p class="signature first"">
+  
+    - (<tt><a href="../../../../Object.html" target="_self" title="Object (class)">Object</a></tt>) <strong>to_binary</strong>(bplist) 
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    <p>
+convert type to binary
+</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+33
+34</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/plist4r/backend/c_f_property_list/rbCFTypes.rb', line 33</span>
+
+<span class='def def kw'>def</span> <span class='to_binary identifier id'>to_binary</span><span class='lparen token'>(</span><span class='bplist identifier id'>bplist</span><span class='rparen token'>)</span>
+<span class='end end kw'>end</span>
+</pre>
+    </td>
+  </tr>
+</table>
+</div>
+
+    
+      <div class="method_details " id="to_xml-instance_method">
+  <p class="signature "">
+  
+    - (<tt><a href="../../../../Object.html" target="_self" title="Object (class)">Object</a></tt>) <strong>to_xml</strong> 
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    <p>
+convert type to XML
+</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+29
+30</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/plist4r/backend/c_f_property_list/rbCFTypes.rb', line 29</span>
+
+<span class='def def kw'>def</span> <span class='to_xml identifier id'>to_xml</span>
+<span class='end end kw'>end</span>
+</pre>
+    </td>
+  </tr>
+</table>
+</div>
+
+    
+  </div>
+
+</div>
+    
+    <div id="footer">
+  Generated on Sat Jul 10 06:53:49 2010 by 
+  <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool">yard</a>
+  0.5.8  and the 
+  <a href="http://github.com/dreamcat4/yard-slipstream">yard-slipstream</a> plugin
+	(ruby-1.8.7).
+</div>
+
+  </body>
+</html>

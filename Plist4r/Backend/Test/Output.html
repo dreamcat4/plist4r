@@ -200,7 +200,7 @@ A new instance of Output
       <pre class="code"><span class="info file"># File 'lib/plist4r/backend/test/output.rb', line 9</span>
 
 <span class='def def kw'>def</span> <span class='haml identifier id'>haml</span>
-  <span class='@haml ivar id'>@haml</span> <span class='opasgn op'>||=</span> <span class='string val'>&quot;%h1 Backends\n%div\n%h3 Performance Results\n%p A test performed 1x times each with non-flat (nested) plist structure of 1024 keys.\n%p Real elapsed time is based on a 2GB, 2GHz Intel Core Duo Architecture\n%p Ruby Enterprise Edition (REE) 1.8.7 p248, Mac OS-X 10.6.3\n= @test_harness.results\n%p To re-run the above backend tests\n%pre{ :class =&gt; \&quot;code\&quot; } $ cd plist4r &amp;&amp; rake backend:tests\n%p\n&quot;</span>
+  <span class='@haml ivar id'>@haml</span> <span class='opasgn op'>||=</span> <span class='string val'>&quot;%h1 Backends\n%div\n%h3 Performance Comparison\n%p Time elapsed for encoding / decoding a non-flat (nested) plist structure of 1024 keys.\n%p Real elapsed time based on - 2GHz Intel Core Duo with 2GB Ram\n%p Ruby Enterprise Edition (REE) 1.8.7 p248, Mac OS-X 10.6.3\n= @test_harness.results\n%p To re-run the above backend tests\n%pre{ :class =&gt; \&quot;code\&quot; } $ cd plist4r &amp;&amp; rake backend:tests\n%p\n&quot;</span>
 <span class='end end kw'>end</span>
 </pre>
     </td>
@@ -284,7 +284,7 @@ A new instance of Output
 </div>
     
     <div id="footer">
-  Generated on Thu Jul  8 08:54:28 2010 by 
+  Generated on Sat Jul 10 18:57:17 2010 by 
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool">yard</a>
   0.5.8  and the 
   <a href="http://github.com/dreamcat4/yard-slipstream">yard-slipstream</a> plugin
