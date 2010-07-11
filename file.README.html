@@ -105,23 +105,19 @@ href="http://dreamcat4.github.com/plist4r">dreamcat4.github.com/plist4r</a>
   <span class='comment val'># =&gt; :xml</span>
 
   <span class='p identifier id'>p</span><span class='dot token'>.</span><span class='edit identifier id'>edit</span> <span class='do do kw'>do</span>
-    <span class='ProgramArguments constant id'>ProgramArguments</span> <span class='lbrack token'>[</span><span class='string val'>&quot;/usr/local/bin/myservice&quot;</span><span class='rbrack token'>]</span>
-    <span class='WatchPaths constant id'>WatchPaths</span> <span class='lbrack token'>[</span><span class='string val'>&quot;/var/db/myservice&quot;</span><span class='rbrack token'>]</span>
+    <span class='program_arguments identifier id'>program_arguments</span> <span class='lbrack token'>[</span><span class='string val'>&quot;/usr/local/bin/myservice&quot;</span><span class='rbrack token'>]</span>
+    <span class='watch_paths identifier id'>watch_paths</span> <span class='lbrack token'>[</span><span class='string val'>&quot;/var/db/myservice&quot;</span><span class='rbrack token'>]</span>
   <span class='end end kw'>end</span>
 
   <span class='p identifier id'>p</span><span class='dot token'>.</span><span class='save identifier id'>save</span>
 </pre>
 <h2>Overview</h2>
 <ul>
-<li>The principal class is <tt><a href="Plist4r/Plist.html" target="_self" title="Plist4r::Plist (class)">Plist4r::Plist</a></tt>. This is commonly where you will
-find most documentation.
-
-</li>
 <li>For convenience we invoke <tt><a href="Plist4r.html#open-class_method" target="_self" title="Plist4r.open (method)">Plist4r.open</a></tt> and <tt><a href="Plist4r.html#new-class_method" target="_self" title="Plist4r.new (method)">Plist4r.new</a></tt> to initially
 create a plist object.
 
 </li>
-<li>Use <tt><a href="Plist4r/Config.html" target="_self" title="Plist4r::Config (class)">Plist4r::Config</a></tt> to set any global configuration defaults.
+<li>And use <tt><a href="Plist4r/Config.html" target="_self" title="Plist4r::Config (class)">Plist4r::Config</a></tt> to set any global configuration defaults.
 
 </li>
 <li>See <a href="file.Backends.html" target="_self" title="Backends">Backends</a> for the backends performance data.
@@ -129,10 +125,24 @@ create a plist object.
 </li>
 </ul>
 <p>
-Further reading
+Examples
 </p>
 <ul>
-<li>See <a href="file.ToyCarExample.html" target="_self" title="ToyCarExample">ToyCarExample</a>
+<li>See <a href="file.InfoPlistExample.html" target="_self" title="InfoPlistExample">InfoPlistExample</a>
+
+</li>
+<li>See <a href="file.LaunchdPlistExample.html" target="_self" title="LaunchdPlistExample">LaunchdPlistExample</a>
+
+</li>
+</ul>
+<p>
+Recommended reading
+</p>
+<ul>
+<li>See <a href="file.EditingPlistFiles.html" target="_self" title="EditingPlistFiles">EditingPlistFiles</a>
+
+</li>
+<li>See <a href="file.PlistKeyNames.html" target="_self" title="PlistKeyNames">PlistKeyNames</a>
 
 </li>
 <li>Please see the inline source-code documentation on <tt><a href="Plist4r/Plist.html" target="_self" title="Plist4r::Plist (class)">Plist4r::Plist</a></tt>
@@ -140,40 +150,13 @@ Further reading
 </li>
 </ul>
 <p>
-For more advanced usage, you might want to read up on the following help
-files:
+How to contribute
 </p>
 <ul>
-<li><a href="file.EditingPlistFiles.html" target="_self" title="EditingPlistFiles">EditingPlistFiles</a>
-
-</li>
-<li><a href="file.PlistKeyNames.html" target="_self" title="PlistKeyNames">PlistKeyNames</a>
-
-</li>
 <li><a href="file.DeveloperGuide.html" target="_self" title="DeveloperGuide">DeveloperGuide</a>
 
 </li>
 </ul>
-<p>
-Through method_missing, we can also call methods from these subclasses:
-</p>
-<ul>
-<li><tt><a href="Plist4r/PlistType/Launchd.html" target="_self" title="Plist4r::PlistType::Launchd (class)">Plist4r::PlistType::Launchd</a></tt>
-
-</li>
-<li><tt><a href="Plist4r/Backend/Example.html" target="_self" title="Plist4r::Backend::Example (module)">Plist4r::Backend::Example</a></tt>
-
-</li>
-<li><tt><a href="Plist4r/DataMethods.html" target="_self" title="Plist4r::DataMethods (module)">Plist4r::DataMethods</a></tt>
-
-</li>
-<li><tt><a href="Plist4r/ArrayDict.html" target="_self" title="Plist4r::ArrayDict (class)">Plist4r::ArrayDict</a></tt>
-
-</li>
-</ul>
-<p>
-Please see the inline source-code documentation on those classes.
-</p>
 <h2>Copyright</h2>
 <p>
 Plist4r is Copyright &#169; 2009 under MIT License. See <a href="file.LICENSE.html" target="_self" title="LICENSE">LICENSE</a> for
@@ -182,7 +165,7 @@ details.
 </div></div>
     
     <div id="footer">
-  Generated on Sat Jul 10 18:57:16 2010 by 
+  Generated on Sun Jul 11 10:31:11 2010 by 
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool">yard</a>
   0.5.8  and the 
   <a href="http://github.com/dreamcat4/yard-slipstream">yard-slipstream</a> plugin

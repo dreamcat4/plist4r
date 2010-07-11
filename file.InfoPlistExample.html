@@ -76,53 +76,47 @@
     
     <iframe id="search_frame"></iframe>
     
-    <div id="content"><div id='filecontents'><h1>Toy Car Example</h1>
+    <div id="content"><div id='filecontents'><h1>Info Plist Example</h1>
 <p>
-In this example, we use a fictional <tt><a href="Plist4r/PlistType.html" target="_self" title="Plist4r::PlistType (class)">Plist4r::PlistType</a></tt> called
-&#8220;Cars&#8221;. In real life, we would either use the generic type
-(<tt><a href="Plist4r/PlistType/Plist.html" target="_self" title="Plist4r::PlistType::Plist (class)">Plist4r::PlistType::Plist</a></tt>). Or some application - specific PlistType
-(such as <tt><a href="Plist4r/PlistType/Launchd.html" target="_self" title="Plist4r::PlistType::Launchd (class)">Plist4r::PlistType::Launchd</a></tt>).
+In this example, we edit an Apple Info.plist, to modify a couple of the
+keys and write them back to the same file. For setting the plist file
+attributes see <tt><a href="Plist4r/Plist.html" target="_self" title="Plist4r::Plist (class)">Plist4r::Plist</a></tt>. For more information specifically about
+Info Plists, see <tt><a href="Plist4r/PlistType/Info.html" target="_self" title="Plist4r::PlistType::Info (class)">Plist4r::PlistType::Info</a></tt>.
 </p>
 <pre class="code">
-  <span class='Plist4r constant id'>Plist4r</span><span class='colon2 op'>::</span><span class='Config constant id'>Config</span><span class='dot token'>.</span><span class='default_path identifier id'>default_path</span> <span class='assign token'>=</span> <span class='string val'>&quot;/Library/Cars&quot;</span>
+  <span class='comment val'># standard method</span>
+  <span class='info_plist identifier id'>info_plist</span> <span class='assign token'>=</span> <span class='Plist4r constant id'>Plist4r</span><span class='dot token'>.</span><span class='open identifier id'>open</span> <span class='string val'>&quot;/Applications/MyApp.app/Contents/Info.plist&quot;</span>
+  <span class='info_plist identifier id'>info_plist</span><span class='lbrack token'>[</span><span class='symbol val'>:c_f_bundle_signature</span><span class='rbrack token'>]</span> <span class='comment val'># =&gt; &quot;????&quot;</span>
+  <span class='info_plist identifier id'>info_plist</span><span class='lbrack token'>[</span><span class='string val'>&quot;LSUIElement&quot;</span><span class='rbrack token'>]</span> <span class='assign token'>=</span> <span class='true true kw'>true</span>
+  <span class='info_plist identifier id'>info_plist</span><span class='dot token'>.</span><span class='save identifier id'>save</span>
 
-  <span class='car identifier id'>car</span> <span class='assign token'>=</span> <span class='Plist4r constant id'>Plist4r</span><span class='dot token'>.</span><span class='new identifier id'>new</span> <span class='string val'>&quot;car.plist&quot;</span>
+  <span class='comment val'># block method</span>
+  <span class='info_plist identifier id'>info_plist</span> <span class='assign token'>=</span> <span class='Plist4r constant id'>Plist4r</span><span class='dot token'>.</span><span class='open identifier id'>open</span> <span class='string val'>&quot;/Applications/MyApp.app/Contents/Info.plist&quot;</span> <span class='do do kw'>do</span>
 
-  <span class='car identifier id'>car</span><span class='dot token'>.</span><span class='open identifier id'>open</span>
+    <span class='comment val'># plist attributes</span>
+    <span class='filename identifier id'>filename</span>    <span class='comment val'># =&gt; &quot;/Applications/MyApp.app/Contents/Info.plist&quot;</span>
+    <span class='file_format identifier id'>file_format</span> <span class='comment val'># =&gt; :xml</span>
+    <span class='plist_type identifier id'>plist_type</span>  <span class='comment val'># =&gt; :info</span>
 
-  <span class='car identifier id'>car</span><span class='dot token'>.</span><span class='plist_type identifier id'>plist_type</span>
-  <span class='comment val'># =&gt; :car</span>
+    <span class='comment val'># read</span>
+    <span class='c_f_bundle_executable identifier id'>c_f_bundle_executable</span> <span class='comment val'># =&gt; &quot;MyApp&quot;</span>
+    <span class='c_f_bundle_icon_file identifier id'>c_f_bundle_icon_file</span>  <span class='comment val'># =&gt; &quot;Icon&quot;</span>
+    <span class='c_f_bundle_identifier identifier id'>c_f_bundle_identifier</span> <span class='comment val'># =&gt; &quot;com.mydomain.MyApp&quot;</span>
+    <span class='c_f_bundle_name identifier id'>c_f_bundle_name</span>       <span class='comment val'># =&gt; &quot;MyApp&quot;</span>
+    <span class='c_f_bundle_signature identifier id'>c_f_bundle_signature</span>  <span class='comment val'># =&gt; &quot;????&quot;</span>
 
-  <span class='car identifier id'>car</span><span class='dot token'>.</span><span class='file_format identifier id'>file_format</span>
-  <span class='comment val'># =&gt; :binary</span>
+    <span class='comment val'># write</span>
+    <span class='c_f_bundle_signature identifier id'>c_f_bundle_signature</span> <span class='string val'>&quot;MYAP&quot;</span>
+    <span class='store identifier id'>store</span> <span class='string val'>&quot;LSUIElement&quot;</span> <span class='true true kw'>true</span>
 
-  <span class='car identifier id'>car</span><span class='dot token'>.</span><span class='save identifier id'>save</span>
-
-  <span class='car identifier id'>car</span><span class='dot token'>.</span><span class='edit identifier id'>edit</span> <span class='do do kw'>do</span>
-    <span class='road_legal identifier id'>road_legal</span> <span class='true true kw'>true</span>
-    <span class='brake_light_color identifier id'>brake_light_color</span> <span class='string val'>&quot;red&quot;</span>
+    <span class='comment val'># call info_plist.save</span>
+    <span class='save identifier id'>save</span>
   <span class='end end kw'>end</span>
-
-  <span class='car identifier id'>car</span><span class='dot token'>.</span><span class='file_format identifier id'>file_format</span> <span class='symbol val'>:xml</span>
-  <span class='car identifier id'>car</span><span class='dot token'>.</span><span class='save_as identifier id'>save_as</span> <span class='string val'>&quot;car2.xml&quot;</span>
-
-  <span class='car identifier id'>car</span><span class='dot token'>.</span><span class='edit identifier id'>edit</span> <span class='do do kw'>do</span>
-    <span class='strict_keys identifier id'>strict_keys</span> <span class='true true kw'>true</span>
-    <span class='eyes identifier id'>eyes</span> <span class='string val'>&quot;blue&quot;</span>
-  <span class='end end kw'>end</span>
-  <span class='comment val'># =&gt; Exception, invalid plist key name &quot;Eyes&quot;</span>
-
-  <span class='car identifier id'>car</span><span class='dot token'>.</span><span class='edit identifier id'>edit</span> <span class='do do kw'>do</span>
-    <span class='tyres identifier id'>tyres</span> <span class='string val'>&quot;Pirelli&quot;</span>
-  <span class='end end kw'>end</span>
-
-  <span class='car identifier id'>car</span><span class='dot token'>.</span><span class='to_xml identifier id'>to_xml</span>
-  <span class='comment val'># =&gt; xml string</span>
 </pre>
 </div></div>
     
     <div id="footer">
-  Generated on Sat Jul 10 18:57:16 2010 by 
+  Generated on Sun Jul 11 10:31:11 2010 by 
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool">yard</a>
   0.5.8  and the 
   <a href="http://github.com/dreamcat4/yard-slipstream">yard-slipstream</a> plugin

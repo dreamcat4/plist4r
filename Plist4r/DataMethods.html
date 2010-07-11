@@ -417,12 +417,12 @@ key
       <pre class="lines">
 
 
+188
 189
-190
-191</pre>
+190</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/plist4r/mixin/data_methods.rb', line 189</span>
+      <pre class="code"><span class="info file"># File 'lib/plist4r/mixin/data_methods.rb', line 188</span>
 
 <span class='def def kw'>def</span> <span class='set identifier id'>set</span> <span class='key identifier id'>key</span><span class='comma token'>,</span> <span class='value identifier id'>value</span>
   <span class='set_or_return identifier id'>set_or_return</span> <span class='key identifier id'>key</span><span class='comma token'>,</span> <span class='value identifier id'>value</span>
@@ -444,27 +444,81 @@ key
 </p><div class="docstring">
   <div class="discussion">
     <p>
-# @param key The snake-cased symbol, camel case the key and convert it into
-a string def stringify key
-</p>
-<pre class="code">
-  <span class='key identifier id'>key</span><span class='dot token'>.</span><span class='class identifier id'>class</span> <span class='eq op'>==</span> <span class='Symbol constant id'>Symbol</span> <span class='integer val'>? </span><span class='key identifier id'>key</span><span class='dot token'>.</span><span class='to_s identifier id'>to_s</span><span class='dot token'>.</span><span class='camelcase identifier id'>camelcase</span> <span class='colon op'>:</span> <span class='key identifier id'>key</span>
-</pre>
-<p>
-end
+Set or return value data
 </p>
 
 
   </div>
 </div>
 <div class="tags">
+  <h3>Parameters:</h3>
+<ul class="param">
   
+    <li>
+      
+        <span class='type'>(<tt>Symbol</tt>, <tt><a href="../String.html" target="_self" title="String (class)">String</a></tt>)</span>
+      
+      
+        <span class='name'>key</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'><p>
+The plist key name, either a snake-cased symbol, or literal string
+</p>
+</div>
+      
+    </li>
+  
+    <li>
+      
+        <span class='type'>(<tt>nil</tt>, <tt><a href="../Object.html" target="_self" title="Object (class)">Object</a></tt>)</span>
+      
+      
+        <span class='name'>value</span>
+      
+      
+        <em class="default">(defaults to: <tt>nil</tt>)</em>
+      
+      
+        &mdash;
+        <div class='inline'><p>
+If present, store Object under the plist key &#8220;key&#8221;. If nil,
+return the stored object
+</p>
+</div>
+      
+    </li>
+  
+</ul>
+<h3>Returns:</h3>
+<ul class="return">
+  
+    <li>
+      
+        <span class='type'></span>
+      
+      
+      
+      
+        
+        <div class='inline'><p>
+The Object stored under key
+</p>
+</div>
+      
+    </li>
+  
+</ul>
+
 </div><table class="source_code">
   <tr>
     <td>
       <pre class="lines">
 
 
+103
 104
 105
 106
@@ -479,11 +533,10 @@ end
 115
 116
 117
-118
-119</pre>
+118</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/plist4r/mixin/data_methods.rb', line 104</span>
+      <pre class="code"><span class="info file"># File 'lib/plist4r/mixin/data_methods.rb', line 103</span>
 
 <span class='def def kw'>def</span> <span class='set_or_return identifier id'>set_or_return</span> <span class='key identifier id'>key</span><span class='comma token'>,</span> <span class='value identifier id'>value</span><span class='assign token'>=</span><span class='nil nil kw'>nil</span>
   <span class='key identifier id'>key</span> <span class='assign token'>=</span> <span class='key identifier id'>key</span><span class='dot token'>.</span><span class='to_s identifier id'>to_s</span><span class='dot token'>.</span><span class='camelcase identifier id'>camelcase</span> <span class='if if_mod kw'>if</span> <span class='key identifier id'>key</span><span class='dot token'>.</span><span class='class identifier id'>class</span> <span class='eq op'>==</span> <span class='Symbol constant id'>Symbol</span>
@@ -592,6 +645,7 @@ the key&#8217;s value
       <pre class="lines">
 
 
+212
 213
 214
 215
@@ -599,11 +653,10 @@ the key&#8217;s value
 217
 218
 219
-220
-221</pre>
+220</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/plist4r/mixin/data_methods.rb', line 213</span>
+      <pre class="code"><span class="info file"># File 'lib/plist4r/mixin/data_methods.rb', line 212</span>
 
 <span class='def def kw'>def</span> <span class='set_or_return_of_type identifier id'>set_or_return_of_type</span> <span class='key_type identifier id'>key_type</span><span class='comma token'>,</span> <span class='key identifier id'>key</span><span class='comma token'>,</span> <span class='value identifier id'>value</span><span class='assign token'>=</span><span class='nil nil kw'>nil</span>
   <span class='case case kw'>case</span> <span class='value identifier id'>value</span>
@@ -723,6 +776,7 @@ Class mistmatch
       <pre class="lines">
 
 
+130
 131
 132
 133
@@ -772,11 +826,10 @@ Class mistmatch
 177
 178
 179
-180
-181</pre>
+180</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/plist4r/mixin/data_methods.rb', line 131</span>
+      <pre class="code"><span class="info file"># File 'lib/plist4r/mixin/data_methods.rb', line 130</span>
 
 <span class='def def kw'>def</span> <span class='validate_value identifier id'>validate_value</span> <span class='key_type identifier id'>key_type</span><span class='comma token'>,</span> <span class='key identifier id'>key</span><span class='comma token'>,</span> <span class='value identifier id'>value</span>
   <span class='comment val'># puts key.inspect</span>
@@ -896,12 +949,12 @@ The key&#8217;s current value, at the time this method was called
       <pre class="lines">
 
 
+198
 199
-200
-201</pre>
+200</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/plist4r/mixin/data_methods.rb', line 199</span>
+      <pre class="code"><span class="info file"># File 'lib/plist4r/mixin/data_methods.rb', line 198</span>
 
 <span class='def def kw'>def</span> <span class='value_of identifier id'>value_of</span> <span class='key identifier id'>key</span>
   <span class='set_or_return identifier id'>set_or_return</span> <span class='key identifier id'>key</span>
@@ -918,7 +971,7 @@ The key&#8217;s current value, at the time this method was called
 </div>
     
     <div id="footer">
-  Generated on Sat Jul 10 18:57:35 2010 by 
+  Generated on Sun Jul 11 10:31:31 2010 by 
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool">yard</a>
   0.5.8  and the 
   <a href="http://github.com/dreamcat4/yard-slipstream">yard-slipstream</a> plugin

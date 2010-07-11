@@ -1,0 +1,308 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+  <head>
+    <meta name="Content-Type" content="text/html; charset=utf-8" />
+<title>Module: Plist4r::Script::ScriptModuleMethods</title>
+<link rel="stylesheet" href="../../css/style.css" type="text/css" media="screen" charset="utf-8" />
+<link rel="stylesheet" href="../../css/common.css" type="text/css" media="screen" charset="utf-8" />
+<link rel="stylesheet" href="../../css/custom.css" type="text/css" media="screen" charset="utf-8" />
+
+<script type="text/javascript" charset="utf-8">
+  relpath = '../..';
+  if (relpath != '') relpath += '/';
+</script>
+<base id="base_target" target="_top" />
+<script type="text/javascript" charset="utf-8" src="../../js/jquery.js"></script>
+<script type="text/javascript" charset="utf-8" src="../../js/autocomplete.js"></script>
+<script type="text/javascript" charset="utf-8" src="../../js/app.js"></script>
+<script type="text/javascript" charset="utf-8" src="../../js/live.js"></script>
+
+  </head>
+  <body>
+    <script type="text/javascript" charset="utf-8">
+      if (window.top.frames.main) document.body.className = 'frames';
+    </script>
+    
+    <div id="header">
+      <div id="menu">
+  
+		
+			<a href="../../object_index.html" target="_self" title="Index (S)">Index (S)</a>
+		 &raquo;
+    <span class='title'><a href="../../Plist4r.html" target="_self" title="Plist4r (module)">Plist4r</a></span> &raquo; <span class='title'><a href="../Script.html" target="_self" title="Plist4r::Script (class)">Script</a></span>
+     &raquo; 
+    <span class="title">ScriptModuleMethods</span>
+  
+  
+  <div class="noframes">
+    <span class="title"></span>
+    <a id="frames_link" class="link_disabled">Frames</a> | 
+    <a target="_top" id="noframes_link" class="link_disabled">No Frames</a>
+    <span class="title"></span>
+  </div>
+</div>
+
+      <div id="search2">
+  
+  
+  <div class="search2_center">
+    <form class="search2" onsubmit="return false;" action="">
+      <input name="q" type="search" placeholder="Search" id="search_box2" size="30" value="" />
+    </form>
+  </div>
+  <script type="text/javascript" charset="utf-8"> 
+    $('#search_box2').focus(function(){
+      var search_index = relpath + 'search_index.json';
+      jQuery.getJSON(search_index, go_data);
+
+      function go_data(adata) {
+        $('#search_box2').autocomplete(adata, {
+          width: 300,
+          matchContains: true,
+          formatItem: function(item) {
+            return item.text;
+          }
+        }).result(function(event, item) {
+					if (window.location.search) {
+	          window.location.href = relpath + $(item.href_tag).attr("href");
+					} else {
+	          location.href = relpath + $(item.href_tag).attr("href");
+					}
+        });
+      }
+    });
+  </script> 
+</div>
+
+      <div class="clear"></div>
+    </div>
+    
+    <iframe id="search_frame"></iframe>
+    
+    <div id="content"><h1>Module: Plist4r::Script::ScriptModuleMethods
+  
+  
+  
+</h1>
+
+<div id="info_box">
+  <dl class="box">
+    
+      
+    
+      
+    
+  
+    <dt class="r1">Included in:</dt>
+    <dd class="r1"><a href="../Script.html" target="_self" title="Plist4r::Script (class)"></a></dd>
+    
+  
+    <dt class="r2 last">Defined in:</dt>
+		<dd class="r2 last">
+  		
+  lib/plist4r/mixin/script.rb
+
+
+		</dd>
+  </dl>
+</div>
+<div class="clear"></div>
+
+
+	<h3 class="inherited">Instance Methods</h3>
+	    <ul id="methods_ribbon">
+	    
+	    
+	      <li class="r1"><a href="#__local_variable_get-instance_method" target="_self" title="Plist4r::Script::ScriptModuleMethods#__local_variable_get (method)">__local_variable_get</a></li>
+	      
+	    
+	      <li class="r2"><a href="#__local_variables-instance_method" target="_self" title="Plist4r::Script::ScriptModuleMethods#__local_variables (method)">__local_variables</a></li>
+	      
+	    
+	      <li class="r1"><a href="#method_added-instance_method" target="_self" title="Plist4r::Script::ScriptModuleMethods#method_added (method)">method_added</a></li>
+	      
+	    
+	    </ul>
+
+
+
+
+  <h2>Instance Attributes</h2>
+  <ul class="summary">
+    
+      <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#__script_scope-instance_method" target="_self" title="#__script_scope (instance method)">- (Object) <strong>__script_scope</strong> </a>
+    
+
+    
+  </span>
+  
+  
+    <span class="note title readonly">readonly</span>
+    
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'><p>
+Returns the value of attribute __script_scope.
+</p>
+</div></span>
+  
+</li>
+
+    
+  </ul>
+
+
+  <div id="instance_method_details" class="method_details_list">
+    <h2>Instance Method Details</h2>
+    
+    
+      <div class="method_details first" id="__local_variable_get-instance_method">
+  <p class="signature first"">
+  
+    - (<tt><a href="../../Object.html" target="_self" title="Object (class)">Object</a></tt>) <strong>__local_variable_get</strong>(name) 
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    <p>
+Gets value of local var in the script. Does not see local vars in files
+loaded or required by that script.
+</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+124
+125
+126</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/plist4r/mixin/script.rb', line 124</span>
+
+<span class='def def kw'>def</span> <span class='__local_variable_get identifier id'>__local_variable_get</span><span class='lparen token'>(</span><span class='name identifier id'>name</span><span class='rparen token'>)</span>
+  <span class='eval identifier id'>eval</span><span class='lparen token'>(</span><span class='name identifier id'>name</span><span class='dot token'>.</span><span class='to_s identifier id'>to_s</span><span class='comma token'>,</span> <span class='__script_scope identifier id'>__script_scope</span><span class='rparen token'>)</span>
+<span class='end end kw'>end</span>
+</pre>
+    </td>
+  </tr>
+</table>
+</div>
+
+    
+      <div class="method_details " id="__local_variables-instance_method">
+  <p class="signature "">
+  
+    - (<tt><a href="../../Object.html" target="_self" title="Object (class)">Object</a></tt>) <strong>__local_variables</strong> 
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    <p>
+Gets list of local vars in the script. Does not see local vars in files
+loaded or required by that script.
+</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+118
+119
+120</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/plist4r/mixin/script.rb', line 118</span>
+
+<span class='def def kw'>def</span> <span class='__local_variables identifier id'>__local_variables</span>
+  <span class='eval identifier id'>eval</span><span class='lparen token'>(</span><span class='string val'>&quot;local_variables&quot;</span><span class='comma token'>,</span> <span class='__script_scope identifier id'>__script_scope</span><span class='rparen token'>)</span>
+<span class='end end kw'>end</span>
+</pre>
+    </td>
+  </tr>
+</table>
+</div>
+
+    
+      <div class="method_details " id="method_added-instance_method">
+  <p class="signature "">
+  
+    - (<tt><a href="../../Object.html" target="_self" title="Object (class)">Object</a></tt>) <strong>method_added</strong>(name) 
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    <p>
+This is so that <tt>def meth...</tt> behaves like in Ruby&#8217;s top-level
+context. The implementation simply calls
+<tt>Module#module_function(name)</tt>.
+</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+110
+111
+112</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/plist4r/mixin/script.rb', line 110</span>
+
+<span class='def def kw'>def</span> <span class='method_added identifier id'>method_added</span><span class='lparen token'>(</span><span class='name identifier id'>name</span><span class='rparen token'>)</span> <span class='comment val'># :nodoc:</span>
+  <span class='module_function identifier id'>module_function</span><span class='lparen token'>(</span><span class='name identifier id'>name</span><span class='rparen token'>)</span>
+<span class='end end kw'>end</span>
+</pre>
+    </td>
+  </tr>
+</table>
+</div>
+
+    
+  </div>
+
+</div>
+    
+    <div id="footer">
+  Generated on Sun Jul 11 10:31:18 2010 by 
+  <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool">yard</a>
+  0.5.8  and the 
+  <a href="http://github.com/dreamcat4/yard-slipstream">yard-slipstream</a> plugin
+	(ruby-1.8.7).
+</div>
+
+  </body>
+</html>
