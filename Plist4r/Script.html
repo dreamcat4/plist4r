@@ -181,6 +181,11 @@ Marshal files.
 <p>
 See <a href="files/intro_txt.html">intro.txt</a> for an overview.
 </p>
+<p>
+Usable under the Ruby license. Copyright (C)2004 Joel VanderWerf. Questions
+to <a
+href="mailto:vjoel@users.sourceforge.net">vjoel@users.sourceforge.net</a>.
+</p>
 
 
   </div>
@@ -345,18 +350,18 @@ the object that the method was called on
       <pre class="lines">
 
 
-30
-31
-32
 33
 34
 35
 36
 37
-38</pre>
+38
+39
+40
+41</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/plist4r/mixin/script.rb', line 30</span>
+      <pre class="code"><span class="info file"># File 'lib/plist4r/mixin/script.rb', line 33</span>
 
 <span class='def def kw'>def</span> <span class='initialize identifier id'>initialize</span><span class='lparen token'>(</span><span class='main_file identifier id'>main_file</span><span class='rparen token'>)</span>   <span class='comment val'># :yields: self</span>
   <span class='extend identifier id'>extend</span> <span class='ScriptModuleMethods constant id'>ScriptModuleMethods</span>
@@ -418,15 +423,15 @@ from those sub files.
       <pre class="lines">
 
 
-54
-55
-56
 57
 58
-59</pre>
+59
+60
+61
+62</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/plist4r/mixin/script.rb', line 54</span>
+      <pre class="code"><span class="info file"># File 'lib/plist4r/mixin/script.rb', line 57</span>
 
 <span class='def def kw'>def</span> <span class='load identifier id'>load</span><span class='lparen token'>(</span><span class='file identifier id'>file</span><span class='comma token'>,</span> <span class='wrap identifier id'>wrap</span> <span class='assign token'>=</span> <span class='false false kw'>false</span><span class='rparen token'>)</span>
   <span class='load_in_module identifier id'>load_in_module</span><span class='lparen token'>(</span><span class='File constant id'>File</span><span class='dot token'>.</span><span class='join identifier id'>join</span><span class='lparen token'>(</span><span class='@__dir ivar id'>@__dir</span><span class='comma token'>,</span> <span class='file identifier id'>file</span><span class='rparen token'>)</span><span class='rparen token'>)</span>
@@ -467,9 +472,6 @@ Called by #load and #require; not normally called directly.
       <pre class="lines">
 
 
-89
-90
-91
 92
 93
 94
@@ -478,10 +480,13 @@ Called by #load and #require; not normally called directly.
 97
 98
 99
-100</pre>
+100
+101
+102
+103</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/plist4r/mixin/script.rb', line 89</span>
+      <pre class="code"><span class="info file"># File 'lib/plist4r/mixin/script.rb', line 92</span>
 
 <span class='def def kw'>def</span> <span class='load_in_module identifier id'>load_in_module</span><span class='lparen token'>(</span><span class='__file__ identifier id'>__file__</span><span class='rparen token'>)</span>
   <span class='module_eval identifier id'>module_eval</span><span class='lparen token'>(</span><span class='string val'>&quot;@__script_scope ||= binding\n&quot;</span> <span class='plus op'>+</span> <span class='IO constant id'>IO</span><span class='dot token'>.</span><span class='read identifier id'>read</span><span class='lparen token'>(</span><span class='__file__ identifier id'>__file__</span><span class='rparen token'>)</span><span class='comma token'>,</span>
@@ -535,9 +540,6 @@ argument is an extension or is not found locally.
       <pre class="lines">
 
 
-70
-71
-72
 73
 74
 75
@@ -545,10 +547,13 @@ argument is an extension or is not found locally.
 77
 78
 79
-80</pre>
+80
+81
+82
+83</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/plist4r/mixin/script.rb', line 70</span>
+      <pre class="code"><span class="info file"># File 'lib/plist4r/mixin/script.rb', line 73</span>
 
 <span class='def def kw'>def</span> <span class='require identifier id'>require</span><span class='lparen token'>(</span><span class='feature identifier id'>feature</span><span class='rparen token'>)</span>
   <span class='unless unless kw'>unless</span> <span class='@__loaded_features ivar id'>@__loaded_features</span><span class='lbrack token'>[</span><span class='feature identifier id'>feature</span><span class='rbrack token'>]</span>
@@ -592,12 +597,12 @@ argument is an extension or is not found locally.
       <pre class="lines">
 
 
-102
-103
-104</pre>
+105
+106
+107</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/plist4r/mixin/script.rb', line 102</span>
+      <pre class="code"><span class="info file"># File 'lib/plist4r/mixin/script.rb', line 105</span>
 
 <span class='def def kw'>def</span> <span class='to_s identifier id'>to_s</span> 
   <span class='dstring node'>&quot;#&lt;#{self.class}:#{File.join(__dir, File.basename(__main_file))}&gt;&quot;</span>
@@ -614,7 +619,7 @@ argument is an extension or is not found locally.
 </div>
     
     <div id="footer">
-  Generated on Sun Jul 11 11:00:50 2010 by 
+  Generated on Sun Jul 11 11:03:34 2010 by 
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool">yard</a>
   0.5.8  and the 
   <a href="http://github.com/dreamcat4/yard-slipstream">yard-slipstream</a> plugin
