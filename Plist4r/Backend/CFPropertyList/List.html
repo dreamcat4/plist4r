@@ -97,7 +97,7 @@
     <dt class="r1 last">Defined in:</dt>
 		<dd class="r1 last">
   		
-  lib/plist4r/backend/c_f_property_list/rbCFPropertyList.rb
+  lib/plist4r/backend/c_f_property_list_old/rbCFPropertyList.rb
 
 
 		</dd>
@@ -329,7 +329,7 @@ A new instance of List
 179</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/plist4r/backend/c_f_property_list/rbCFPropertyList.rb', line 172</span>
+      <pre class="code"><span class="info file"># File 'lib/plist4r/backend/c_f_property_list_old/rbCFPropertyList.rb', line 172</span>
 
 <span class='def def kw'>def</span> <span class='initialize identifier id'>initialize</span><span class='lparen token'>(</span><span class='opts identifier id'>opts</span><span class='assign token'>=</span><span class='lbrace token'>{</span><span class='rbrace token'>}</span><span class='rparen token'>)</span>
   <span class='@filename ivar id'>@filename</span> <span class='assign token'>=</span> <span class='opts identifier id'>opts</span><span class='lbrack token'>[</span><span class='symbol val'>:file</span><span class='rbrack token'>]</span>
@@ -428,7 +428,7 @@ variable
 264</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/plist4r/backend/c_f_property_list/rbCFPropertyList.rb', line 237</span>
+      <pre class="code"><span class="info file"># File 'lib/plist4r/backend/c_f_property_list_old/rbCFPropertyList.rb', line 237</span>
 
 <span class='def def kw'>def</span> <span class='load identifier id'>load</span><span class='lparen token'>(</span><span class='file identifier id'>file</span><span class='assign token'>=</span><span class='nil nil kw'>nil</span><span class='comma token'>,</span><span class='format identifier id'>format</span><span class='assign token'>=</span><span class='nil nil kw'>nil</span><span class='rparen token'>)</span>
   <span class='file identifier id'>file</span> <span class='assign token'>=</span> <span class='@filename ivar id'>@filename</span> <span class='if if_mod kw'>if</span> <span class='file identifier id'>file</span><span class='dot token'>.</span><span class='nil? fid id'>nil?</span>
@@ -500,7 +500,7 @@ variable <tt>filename</tt>
 191</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/plist4r/backend/c_f_property_list/rbCFPropertyList.rb', line 189</span>
+      <pre class="code"><span class="info file"># File 'lib/plist4r/backend/c_f_property_list_old/rbCFPropertyList.rb', line 189</span>
 
 <span class='def def kw'>def</span> <span class='load_binary identifier id'>load_binary</span><span class='lparen token'>(</span><span class='filename identifier id'>filename</span><span class='assign token'>=</span><span class='nil nil kw'>nil</span><span class='rparen token'>)</span>
   <span class='load identifier id'>load</span><span class='lparen token'>(</span><span class='filename identifier id'>filename</span><span class='comma token'>,</span><span class='List constant id'>List</span><span class='colon2 op'>::</span><span class='FORMAT_BINARY constant id'>FORMAT_BINARY</span><span class='rparen token'>)</span>
@@ -546,7 +546,7 @@ load a plist from a binary string
 203</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/plist4r/backend/c_f_property_list/rbCFPropertyList.rb', line 201</span>
+      <pre class="code"><span class="info file"># File 'lib/plist4r/backend/c_f_property_list_old/rbCFPropertyList.rb', line 201</span>
 
 <span class='def def kw'>def</span> <span class='load_binary_str identifier id'>load_binary_str</span><span class='lparen token'>(</span><span class='str identifier id'>str</span><span class='assign token'>=</span><span class='nil nil kw'>nil</span><span class='rparen token'>)</span>
   <span class='load_str identifier id'>load_str</span><span class='lparen token'>(</span><span class='str identifier id'>str</span><span class='comma token'>,</span><span class='List constant id'>List</span><span class='colon2 op'>::</span><span class='FORMAT_BINARY constant id'>FORMAT_BINARY</span><span class='rparen token'>)</span>
@@ -617,7 +617,7 @@ load a plist from a string
 232</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/plist4r/backend/c_f_property_list/rbCFPropertyList.rb', line 208</span>
+      <pre class="code"><span class="info file"># File 'lib/plist4r/backend/c_f_property_list_old/rbCFPropertyList.rb', line 208</span>
 
 <span class='def def kw'>def</span> <span class='load_str identifier id'>load_str</span><span class='lparen token'>(</span><span class='str identifier id'>str</span><span class='assign token'>=</span><span class='nil nil kw'>nil</span><span class='comma token'>,</span><span class='format identifier id'>format</span><span class='assign token'>=</span><span class='nil nil kw'>nil</span><span class='rparen token'>)</span>
   <span class='str identifier id'>str</span> <span class='assign token'>=</span> <span class='@data ivar id'>@data</span> <span class='if if_mod kw'>if</span> <span class='str identifier id'>str</span><span class='dot token'>.</span><span class='nil? fid id'>nil?</span>
@@ -686,7 +686,7 @@ variable <tt>filename</tt>
 185</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/plist4r/backend/c_f_property_list/rbCFPropertyList.rb', line 183</span>
+      <pre class="code"><span class="info file"># File 'lib/plist4r/backend/c_f_property_list_old/rbCFPropertyList.rb', line 183</span>
 
 <span class='def def kw'>def</span> <span class='load_xml identifier id'>load_xml</span><span class='lparen token'>(</span><span class='filename identifier id'>filename</span><span class='assign token'>=</span><span class='nil nil kw'>nil</span><span class='rparen token'>)</span>
   <span class='load identifier id'>load</span><span class='lparen token'>(</span><span class='filename identifier id'>filename</span><span class='comma token'>,</span><span class='List constant id'>List</span><span class='colon2 op'>::</span><span class='FORMAT_XML constant id'>FORMAT_XML</span><span class='rparen token'>)</span>
@@ -732,7 +732,7 @@ load a plist from a XML string
 197</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/plist4r/backend/c_f_property_list/rbCFPropertyList.rb', line 195</span>
+      <pre class="code"><span class="info file"># File 'lib/plist4r/backend/c_f_property_list_old/rbCFPropertyList.rb', line 195</span>
 
 <span class='def def kw'>def</span> <span class='load_xml_str identifier id'>load_xml_str</span><span class='lparen token'>(</span><span class='str identifier id'>str</span><span class='assign token'>=</span><span class='nil nil kw'>nil</span><span class='rparen token'>)</span>
   <span class='load_str identifier id'>load_str</span><span class='lparen token'>(</span><span class='str identifier id'>str</span><span class='comma token'>,</span><span class='List constant id'>List</span><span class='colon2 op'>::</span><span class='FORMAT_XML constant id'>FORMAT_XML</span><span class='rparen token'>)</span>
@@ -813,7 +813,7 @@ variable if nil
 289</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/plist4r/backend/c_f_property_list/rbCFPropertyList.rb', line 269</span>
+      <pre class="code"><span class="info file"># File 'lib/plist4r/backend/c_f_property_list_old/rbCFPropertyList.rb', line 269</span>
 
 <span class='def def kw'>def</span> <span class='save identifier id'>save</span><span class='lparen token'>(</span><span class='file identifier id'>file</span><span class='assign token'>=</span><span class='nil nil kw'>nil</span><span class='comma token'>,</span><span class='format identifier id'>format</span><span class='assign token'>=</span><span class='nil nil kw'>nil</span><span class='comma token'>,</span><span class='opts identifier id'>opts</span><span class='assign token'>=</span><span class='lbrace token'>{</span><span class='rbrace token'>}</span><span class='rparen token'>)</span>
   <span class='format identifier id'>format</span> <span class='assign token'>=</span> <span class='@format ivar id'>@format</span> <span class='if if_mod kw'>if</span> <span class='format identifier id'>format</span><span class='dot token'>.</span><span class='nil? fid id'>nil?</span>
@@ -882,7 +882,7 @@ convert plist to string
 298</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/plist4r/backend/c_f_property_list/rbCFPropertyList.rb', line 294</span>
+      <pre class="code"><span class="info file"># File 'lib/plist4r/backend/c_f_property_list_old/rbCFPropertyList.rb', line 294</span>
 
 <span class='def def kw'>def</span> <span class='to_str identifier id'>to_str</span><span class='lparen token'>(</span><span class='format identifier id'>format</span><span class='assign token'>=</span><span class='List constant id'>List</span><span class='colon2 op'>::</span><span class='FORMAT_BINARY constant id'>FORMAT_BINARY</span><span class='comma token'>,</span><span class='opts identifier id'>opts</span><span class='assign token'>=</span><span class='lbrace token'>{</span><span class='rbrace token'>}</span><span class='rparen token'>)</span>
   <span class='prsr identifier id'>prsr</span> <span class='assign token'>=</span> <span class='@@parsers ivar id'>@@parsers</span><span class='lbrack token'>[</span><span class='format identifier id'>format</span><span class='minus op'>-</span><span class='integer val'>1</span><span class='rbrack token'>]</span><span class='dot token'>.</span><span class='new identifier id'>new</span>
@@ -901,7 +901,7 @@ convert plist to string
 </div>
     
     <div id="footer">
-  Generated on Sat Jul 10 06:30:38 2010 by 
+  Generated on Sun Jul 11 11:00:55 2010 by 
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool">yard</a>
   0.5.8  and the 
   <a href="http://github.com/dreamcat4/yard-slipstream">yard-slipstream</a> plugin

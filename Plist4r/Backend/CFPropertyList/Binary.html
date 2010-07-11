@@ -97,7 +97,7 @@
     <dt class="r1 last">Defined in:</dt>
 		<dd class="r1 last">
   		
-  lib/plist4r/backend/c_f_property_list/rbBinaryCFPropertyList.rb
+  lib/plist4r/backend/c_f_property_list_old/rbBinaryCFPropertyList.rb
 
 
 		</dd>
@@ -223,7 +223,7 @@ non-ascii characters are present.
 510</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/plist4r/backend/c_f_property_list/rbBinaryCFPropertyList.rb', line 501</span>
+      <pre class="code"><span class="info file"># File 'lib/plist4r/backend/c_f_property_list_old/rbBinaryCFPropertyList.rb', line 501</span>
 
 <span class='def def kw'>def</span> <span class='Binary constant id'>Binary</span><span class='dot token'>.</span><span class='binary_strlen identifier id'>binary_strlen</span><span class='lparen token'>(</span><span class='val identifier id'>val</span><span class='rparen token'>)</span>
   <span class='val identifier id'>val</span><span class='dot token'>.</span><span class='each_byte identifier id'>each_byte</span> <span class='do do kw'>do</span> <span class='bitor op'>|</span><span class='b identifier id'>b</span><span class='bitor op'>|</span>
@@ -278,7 +278,7 @@ Calculate the byte needed for a „normal” integer value
 370</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/plist4r/backend/c_f_property_list/rbBinaryCFPropertyList.rb', line 361</span>
+      <pre class="code"><span class="info file"># File 'lib/plist4r/backend/c_f_property_list_old/rbBinaryCFPropertyList.rb', line 361</span>
 
 <span class='def def kw'>def</span> <span class='Binary constant id'>Binary</span><span class='dot token'>.</span><span class='bytes_int identifier id'>bytes_int</span><span class='lparen token'>(</span><span class='int identifier id'>int</span><span class='rparen token'>)</span>
   <span class='nbytes identifier id'>nbytes</span> <span class='assign token'>=</span> <span class='integer val'>1</span>
@@ -608,7 +608,7 @@ calculate how many bytes are needed to save <tt>count</tt>
 669</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/plist4r/backend/c_f_property_list/rbBinaryCFPropertyList.rb', line 385</span>
+      <pre class="code"><span class="info file"># File 'lib/plist4r/backend/c_f_property_list_old/rbBinaryCFPropertyList.rb', line 385</span>
 
 <span class='def def kw'>def</span> <span class='Binary constant id'>Binary</span><span class='dot token'>.</span><span class='bytes_needed identifier id'>bytes_needed</span><span class='lparen token'>(</span><span class='count identifier id'>count</span><span class='rparen token'>)</span>
     <span class='nbytes identifier id'>nbytes</span> <span class='assign token'>=</span> <span class='integer val'>0</span>
@@ -937,7 +937,7 @@ calculate the bytes needed for a size integer value
 358</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/plist4r/backend/c_f_property_list/rbBinaryCFPropertyList.rb', line 350</span>
+      <pre class="code"><span class="info file"># File 'lib/plist4r/backend/c_f_property_list_old/rbBinaryCFPropertyList.rb', line 350</span>
 
 <span class='def def kw'>def</span> <span class='Binary constant id'>Binary</span><span class='dot token'>.</span><span class='bytes_size_int identifier id'>bytes_size_int</span><span class='lparen token'>(</span><span class='int identifier id'>int</span><span class='rparen token'>)</span>
   <span class='nbytes identifier id'>nbytes</span> <span class='assign token'>=</span> <span class='integer val'>0</span>
@@ -985,7 +985,7 @@ Convert the given string from one charset to another
 232</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/plist4r/backend/c_f_property_list/rbBinaryCFPropertyList.rb', line 229</span>
+      <pre class="code"><span class="info file"># File 'lib/plist4r/backend/c_f_property_list_old/rbBinaryCFPropertyList.rb', line 229</span>
 
 <span class='def def kw'>def</span> <span class='Binary constant id'>Binary</span><span class='dot token'>.</span><span class='charset_convert identifier id'>charset_convert</span><span class='lparen token'>(</span><span class='str identifier id'>str</span><span class='comma token'>,</span><span class='from identifier id'>from</span><span class='comma token'>,</span><span class='to identifier id'>to</span><span class='assign token'>=</span><span class='string val'>&quot;UTF-8&quot;</span><span class='rparen token'>)</span>
   <span class='return return kw'>return</span> <span class='str identifier id'>str</span><span class='dot token'>.</span><span class='clone identifier id'>clone</span><span class='dot token'>.</span><span class='force_encoding identifier id'>force_encoding</span><span class='lparen token'>(</span><span class='from identifier id'>from</span><span class='rparen token'>)</span><span class='dot token'>.</span><span class='encode identifier id'>encode</span><span class='lparen token'>(</span><span class='to identifier id'>to</span><span class='rparen token'>)</span> <span class='if if_mod kw'>if</span> <span class='str identifier id'>str</span><span class='dot token'>.</span><span class='respond_to? fid id'>respond_to?</span><span class='lparen token'>(</span><span class='string val'>&quot;encode&quot;</span><span class='rparen token'>)</span>
@@ -1030,7 +1030,7 @@ Count characters considering character set
 240</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/plist4r/backend/c_f_property_list/rbBinaryCFPropertyList.rb', line 235</span>
+      <pre class="code"><span class="info file"># File 'lib/plist4r/backend/c_f_property_list_old/rbBinaryCFPropertyList.rb', line 235</span>
 
 <span class='def def kw'>def</span> <span class='Binary constant id'>Binary</span><span class='dot token'>.</span><span class='charset_strlen identifier id'>charset_strlen</span><span class='lparen token'>(</span><span class='str identifier id'>str</span><span class='comma token'>,</span><span class='charset identifier id'>charset</span><span class='assign token'>=</span><span class='string val'>&quot;UTF-8&quot;</span><span class='rparen token'>)</span>
   <span class='return return kw'>return</span> <span class='str identifier id'>str</span><span class='dot token'>.</span><span class='length identifier id'>length</span> <span class='if if_mod kw'>if</span> <span class='str identifier id'>str</span><span class='dot token'>.</span><span class='respond_to? fid id'>respond_to?</span><span class='lparen token'>(</span><span class='string val'>&quot;encode&quot;</span><span class='rparen token'>)</span>
@@ -1084,7 +1084,7 @@ create integer bytes of <tt>int</tt>
 409</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/plist4r/backend/c_f_property_list/rbBinaryCFPropertyList.rb', line 397</span>
+      <pre class="code"><span class="info file"># File 'lib/plist4r/backend/c_f_property_list_old/rbBinaryCFPropertyList.rb', line 397</span>
 
 <span class='def def kw'>def</span> <span class='Binary constant id'>Binary</span><span class='dot token'>.</span><span class='int_bytes identifier id'>int_bytes</span><span class='lparen token'>(</span><span class='int identifier id'>int</span><span class='rparen token'>)</span>
   <span class='intbytes identifier id'>intbytes</span> <span class='assign token'>=</span> <span class='string val'>&quot;&quot;</span>
@@ -1142,7 +1142,7 @@ pack an <tt>int</tt> of <tt>nbytes</tt> with size
 382</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/plist4r/backend/c_f_property_list/rbBinaryCFPropertyList.rb', line 373</span>
+      <pre class="code"><span class="info file"># File 'lib/plist4r/backend/c_f_property_list_old/rbBinaryCFPropertyList.rb', line 373</span>
 
 <span class='def def kw'>def</span> <span class='Binary constant id'>Binary</span><span class='dot token'>.</span><span class='pack_it_with_size identifier id'>pack_it_with_size</span><span class='lparen token'>(</span><span class='nbytes identifier id'>nbytes</span><span class='comma token'>,</span><span class='int identifier id'>int</span><span class='rparen token'>)</span>
   <span class='format identifier id'>format</span> <span class='assign token'>=</span> <span class='lbrack token'>[</span><span class='string val'>&quot;C&quot;</span><span class='comma token'>,</span> <span class='string val'>&quot;n&quot;</span><span class='comma token'>,</span> <span class='string val'>&quot;N&quot;</span><span class='comma token'>,</span> <span class='string val'>&quot;N&quot;</span><span class='rbrack token'>]</span><span class='lbrack token'>[</span><span class='nbytes identifier id'>nbytes</span><span class='minus op'>-</span><span class='integer val'>1</span><span class='rbrack token'>]</span>
@@ -1199,7 +1199,7 @@ Create a type byte for binary format as defined by apple
 423</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/plist4r/backend/c_f_property_list/rbBinaryCFPropertyList.rb', line 412</span>
+      <pre class="code"><span class="info file"># File 'lib/plist4r/backend/c_f_property_list_old/rbBinaryCFPropertyList.rb', line 412</span>
 
 <span class='def def kw'>def</span> <span class='Binary constant id'>Binary</span><span class='dot token'>.</span><span class='type_bytes identifier id'>type_bytes</span><span class='lparen token'>(</span><span class='type identifier id'>type</span><span class='comma token'>,</span><span class='type_len identifier id'>type_len</span><span class='rparen token'>)</span>
   <span class='optional_int identifier id'>optional_int</span> <span class='assign token'>=</span> <span class='string val'>&quot;&quot;</span>
@@ -1265,7 +1265,7 @@ Convert array to binary format and add it to the object table
 647</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/plist4r/backend/c_f_property_list/rbBinaryCFPropertyList.rb', line 635</span>
+      <pre class="code"><span class="info file"># File 'lib/plist4r/backend/c_f_property_list_old/rbBinaryCFPropertyList.rb', line 635</span>
 
 <span class='def def kw'>def</span> <span class='array_to_binary identifier id'>array_to_binary</span><span class='lparen token'>(</span><span class='val identifier id'>val</span><span class='rparen token'>)</span>
   <span class='saved_object_count identifier id'>saved_object_count</span> <span class='assign token'>=</span> <span class='@written_object_count ivar id'>@written_object_count</span>
@@ -1320,7 +1320,7 @@ Convert a bool value to binary and add it to the object table
 621</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/plist4r/backend/c_f_property_list/rbBinaryCFPropertyList.rb', line 615</span>
+      <pre class="code"><span class="info file"># File 'lib/plist4r/backend/c_f_property_list_old/rbBinaryCFPropertyList.rb', line 615</span>
 
 <span class='def def kw'>def</span> <span class='bool_to_binary identifier id'>bool_to_binary</span><span class='lparen token'>(</span><span class='val identifier id'>val</span><span class='rparen token'>)</span>
   <span class='saved_object_count identifier id'>saved_object_count</span> <span class='assign token'>=</span> <span class='@written_object_count ivar id'>@written_object_count</span>
@@ -1371,7 +1371,7 @@ Convert data value to binary format and add it to the object table
 632</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/plist4r/backend/c_f_property_list/rbBinaryCFPropertyList.rb', line 624</span>
+      <pre class="code"><span class="info file"># File 'lib/plist4r/backend/c_f_property_list_old/rbBinaryCFPropertyList.rb', line 624</span>
 
 <span class='def def kw'>def</span> <span class='data_to_binary identifier id'>data_to_binary</span><span class='lparen token'>(</span><span class='val identifier id'>val</span><span class='rparen token'>)</span>
   <span class='saved_object_count identifier id'>saved_object_count</span> <span class='assign token'>=</span> <span class='@written_object_count ivar id'>@written_object_count</span>
@@ -1426,7 +1426,7 @@ Convert date value (apple format) to binary and adds it to the object table
 612</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/plist4r/backend/c_f_property_list/rbBinaryCFPropertyList.rb', line 602</span>
+      <pre class="code"><span class="info file"># File 'lib/plist4r/backend/c_f_property_list_old/rbBinaryCFPropertyList.rb', line 602</span>
 
 <span class='def def kw'>def</span> <span class='date_to_binary identifier id'>date_to_binary</span><span class='lparen token'>(</span><span class='val identifier id'>val</span><span class='rparen token'>)</span>
   <span class='saved_object_count identifier id'>saved_object_count</span> <span class='assign token'>=</span> <span class='@written_object_count ivar id'>@written_object_count</span>
@@ -1491,7 +1491,7 @@ Convert dictionary to binary format and add it to the object table
 668</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/plist4r/backend/c_f_property_list/rbBinaryCFPropertyList.rb', line 650</span>
+      <pre class="code"><span class="info file"># File 'lib/plist4r/backend/c_f_property_list_old/rbBinaryCFPropertyList.rb', line 650</span>
 
 <span class='def def kw'>def</span> <span class='dict_to_binary identifier id'>dict_to_binary</span><span class='lparen token'>(</span><span class='val identifier id'>val</span><span class='rparen token'>)</span>
   <span class='saved_object_count identifier id'>saved_object_count</span> <span class='assign token'>=</span> <span class='@written_object_count ivar id'>@written_object_count</span>
@@ -1574,7 +1574,7 @@ Codes an integer to binary format
 576</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/plist4r/backend/c_f_property_list/rbBinaryCFPropertyList.rb', line 548</span>
+      <pre class="code"><span class="info file"># File 'lib/plist4r/backend/c_f_property_list_old/rbBinaryCFPropertyList.rb', line 548</span>
 
 <span class='def def kw'>def</span> <span class='int_to_binary identifier id'>int_to_binary</span><span class='lparen token'>(</span><span class='value identifier id'>value</span><span class='rparen token'>)</span>
   <span class='nbytes identifier id'>nbytes</span> <span class='assign token'>=</span> <span class='integer val'>0</span>
@@ -1700,7 +1700,7 @@ Read a binary plist file
 64</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/plist4r/backend/c_f_property_list/rbBinaryCFPropertyList.rb', line 16</span>
+      <pre class="code"><span class="info file"># File 'lib/plist4r/backend/c_f_property_list_old/rbBinaryCFPropertyList.rb', line 16</span>
 
 <span class='def def kw'>def</span> <span class='load identifier id'>load</span><span class='lparen token'>(</span><span class='opts identifier id'>opts</span><span class='rparen token'>)</span>
   <span class='@unique_table ivar id'>@unique_table</span> <span class='assign token'>=</span> <span class='lbrace token'>{</span><span class='rbrace token'>}</span>
@@ -1798,7 +1798,7 @@ Converts a numeric value to binary and adds it to the object table
 599</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/plist4r/backend/c_f_property_list/rbBinaryCFPropertyList.rb', line 586</span>
+      <pre class="code"><span class="info file"># File 'lib/plist4r/backend/c_f_property_list_old/rbBinaryCFPropertyList.rb', line 586</span>
 
 <span class='def def kw'>def</span> <span class='num_to_binary identifier id'>num_to_binary</span><span class='lparen token'>(</span><span class='value identifier id'>value</span><span class='rparen token'>)</span>
   <span class='saved_object_count identifier id'>saved_object_count</span> <span class='assign token'>=</span> <span class='@written_object_count ivar id'>@written_object_count</span>
@@ -1852,7 +1852,7 @@ Codes a real value to binary format
 583</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/plist4r/backend/c_f_property_list/rbBinaryCFPropertyList.rb', line 579</span>
+      <pre class="code"><span class="info file"># File 'lib/plist4r/backend/c_f_property_list_old/rbBinaryCFPropertyList.rb', line 579</span>
 
 <span class='def def kw'>def</span> <span class='real_to_binary identifier id'>real_to_binary</span><span class='lparen token'>(</span><span class='val identifier id'>val</span><span class='rparen token'>)</span>
   <span class='bdata identifier id'>bdata</span> <span class='assign token'>=</span> <span class='Binary constant id'>Binary</span><span class='dot token'>.</span><span class='type_bytes identifier id'>type_bytes</span><span class='lparen token'>(</span><span class='string val'>&quot;2&quot;</span><span class='comma token'>,</span><span class='integer val'>3</span><span class='rparen token'>)</span> <span class='comment val'># 2 is 0010, type indicator for reals</span>
@@ -1926,7 +1926,7 @@ object table
 545</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/plist4r/backend/c_f_property_list/rbBinaryCFPropertyList.rb', line 513</span>
+      <pre class="code"><span class="info file"># File 'lib/plist4r/backend/c_f_property_list_old/rbBinaryCFPropertyList.rb', line 513</span>
 
 <span class='def def kw'>def</span> <span class='string_to_binary identifier id'>string_to_binary</span><span class='lparen token'>(</span><span class='val identifier id'>val</span><span class='rparen token'>)</span>
   <span class='saved_object_count identifier id'>saved_object_count</span> <span class='assign token'>=</span> <span class='integer val'>-1</span>
@@ -2045,7 +2045,7 @@ we simply unique CFDictionary and CFArray
 117</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/plist4r/backend/c_f_property_list/rbBinaryCFPropertyList.rb', line 68</span>
+      <pre class="code"><span class="info file"># File 'lib/plist4r/backend/c_f_property_list_old/rbBinaryCFPropertyList.rb', line 68</span>
 
 <span class='def def kw'>def</span> <span class='to_str identifier id'>to_str</span><span class='lparen token'>(</span><span class='opts identifier id'>opts</span><span class='assign token'>=</span><span class='lbrace token'>{</span><span class='rbrace token'>}</span><span class='rparen token'>)</span>
   <span class='@unique_table ivar id'>@unique_table</span> <span class='assign token'>=</span> <span class='lbrace token'>{</span><span class='rbrace token'>}</span>
@@ -2109,7 +2109,7 @@ we simply unique CFDictionary and CFArray
 </div>
     
     <div id="footer">
-  Generated on Sat Jul 10 06:30:52 2010 by 
+  Generated on Sun Jul 11 11:00:44 2010 by 
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool">yard</a>
   0.5.8  and the 
   <a href="http://github.com/dreamcat4/yard-slipstream">yard-slipstream</a> plugin

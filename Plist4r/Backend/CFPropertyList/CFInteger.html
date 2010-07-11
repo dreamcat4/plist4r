@@ -97,7 +97,7 @@
     <dt class="r1 last">Defined in:</dt>
 		<dd class="r1 last">
   		
-  lib/plist4r/backend/c_f_property_list/rbCFTypes.rb
+  lib/plist4r/backend/c_f_property_list_old/rbCFTypes.rb
 
 
 		</dd>
@@ -186,7 +186,7 @@ convert to binary
 62</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/plist4r/backend/c_f_property_list/rbCFTypes.rb', line 60</span>
+      <pre class="code"><span class="info file"># File 'lib/plist4r/backend/c_f_property_list_old/rbCFTypes.rb', line 60</span>
 
 <span class='def def kw'>def</span> <span class='to_binary identifier id'>to_binary</span><span class='lparen token'>(</span><span class='bplist identifier id'>bplist</span><span class='rparen token'>)</span>
   <span class='return return kw'>return</span> <span class='bplist identifier id'>bplist</span><span class='dot token'>.</span><span class='num_to_binary identifier id'>num_to_binary</span><span class='lparen token'>(</span><span class='self self kw'>self</span><span class='rparen token'>)</span>
@@ -227,7 +227,7 @@ convert to XML
 57</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/plist4r/backend/c_f_property_list/rbCFTypes.rb', line 55</span>
+      <pre class="code"><span class="info file"># File 'lib/plist4r/backend/c_f_property_list_old/rbCFTypes.rb', line 55</span>
 
 <span class='def def kw'>def</span> <span class='to_xml identifier id'>to_xml</span>
   <span class='return return kw'>return</span> <span class='LibXML constant id'>LibXML</span><span class='colon2 op'>::</span><span class='XML constant id'>XML</span><span class='colon2 op'>::</span><span class='Node constant id'>Node</span><span class='dot token'>.</span><span class='new identifier id'>new</span><span class='lparen token'>(</span><span class='string val'>'integer'</span><span class='rparen token'>)</span> <span class='lshft op'>&lt;&lt;</span> <span class='LibXML constant id'>LibXML</span><span class='colon2 op'>::</span><span class='XML constant id'>XML</span><span class='colon2 op'>::</span><span class='Node constant id'>Node</span><span class='dot token'>.</span><span class='new_text identifier id'>new_text</span><span class='lparen token'>(</span><span class='@value ivar id'>@value</span><span class='dot token'>.</span><span class='to_s identifier id'>to_s</span><span class='rparen token'>)</span>
@@ -244,7 +244,7 @@ convert to XML
 </div>
     
     <div id="footer">
-  Generated on Sat Jul 10 06:30:26 2010 by 
+  Generated on Sun Jul 11 11:00:50 2010 by 
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool">yard</a>
   0.5.8  and the 
   <a href="http://github.com/dreamcat4/yard-slipstream">yard-slipstream</a> plugin
