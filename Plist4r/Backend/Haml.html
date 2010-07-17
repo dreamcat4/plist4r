@@ -167,17 +167,17 @@ Dreamcat4 (dreamcat4@gmail.com)
       <pre class="lines">
 
 
-74
-75
-76
-77
-78
-79
-80
-81</pre>
+87
+88
+89
+90
+91
+92
+93
+94</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/plist4r/backend/haml.rb', line 74</span>
+      <pre class="code"><span class="info file"># File 'lib/plist4r/backend/haml.rb', line 87</span>
 
 <span class='def def kw'>def</span> <span class='to_xml identifier id'>to_xml</span> <span class='plist identifier id'>plist</span>
   <span class='require identifier id'>require</span> <span class='string val'>'haml'</span>
@@ -215,7 +215,7 @@ Dreamcat4 (dreamcat4@gmail.com)
       <pre class="code"><span class="info file"># File 'lib/plist4r/backend/haml.rb', line 8</span>
 
 <span class='def def kw'>def</span> <span class='to_xml_haml identifier id'>to_xml_haml</span>
-  <span class='@to_xml_haml ivar id'>@to_xml_haml</span> <span class='opasgn op'>||=</span> <span class='string val'>&quot;!!! XML UTF-8\n&lt;!DOCTYPE plist PUBLIC \&quot;-//Apple Computer//DTD PLIST 1.0//EN\&quot;\n\&quot;http://www.apple.com/DTDs/PropertyList-1.0.dtd\&quot; &gt;\n%plist{ :version =&gt; '1.0' }\n%dict\n- p = Proc.new do |data, block|\n- data.each_pair do |k,v|\n- raise \&quot;Invalid input. Hash: \#{data.inspect} can only contain keys of type Symbol or String. Found key \#{k.inspect}, of type: \\\&quot;\#{k.class}\\\&quot;\&quot; unless [Symbol,String].include? k.class\n- case v\n- when TrueClass, FalseClass\n%key \#{k}\n&lt;\#{v}/&gt;\n- when String\n%key \#{k}\n%string \#{v}\n- when Integer\n%key \#{k}\n%integer \#{v}\n- when Float\n%key \#{k}\n%real \#{v}\n- when Time\n%key \#{k}\n%date \#{v.utc.strftime('%Y-%m-%dT%H:%M:%SZ')}\n- when Date\n%key \#{k}\n%date \#{v.strftime('%Y-%m-%dT%H:%M:%SZ')}\n- when IO, StringIO\n- data = String.new; v.rewind\n- Base64::encode64(v.read).gsub(/\\s+/, '').scan(/.{1,68}/o) { data &lt;&lt; $&amp; &lt;&lt; \&quot;\\n\&quot; }\n%key \#{k}\n%data \#{data}\n- when Array\n%key \#{k}\n%array\n- v.compact.each do |e|\n- case e\n- when TrueClass, FalseClass\n&lt;\#{v}/&gt;\n- when String\n%string \#{e}\n- when Fixnum\n%integer \#{v}\n- when Hash\n%dict\n- tab_up ; block.call(e, block) ; tab_down\n- else\n- raise \&quot;Invalid input. Array: \#{v.inspect} can only contain elements of type String (&lt;string&gt;) or Hash (&lt;dict&gt;). Found element: \#{e.inspect} of type: \\\&quot;\#{e.class}\\\&quot;\&quot;\n- when Hash\n%key \#{k}\n%dict\n- tab_up ; block.call(v, block) ; tab_down\n- else\n- data = String.new\n- Base64::encode64(Marshal.dump(v)).gsub(/\\s+/, '').scan(/.{1,68}/o) { data &lt;&lt; $&amp; &lt;&lt; \&quot;\\n\&quot; }\n%key \#{k}\n%data\n\#{data}\n\n- p.call( @plist.to_hash, p)\n&quot;</span>
+  <span class='@to_xml_haml ivar id'>@to_xml_haml</span> <span class='opasgn op'>||=</span> <span class='string val'>&quot;!!! XML UTF-8\n&lt;!DOCTYPE plist PUBLIC \&quot;-//Apple Computer//DTD PLIST 1.0//EN\&quot;\n\&quot;http://www.apple.com/DTDs/PropertyList-1.0.dtd\&quot; &gt;\n%plist{ :version =&gt; '1.0' }\n%dict\n- p = Proc.new do |data, block|\n- data.each_pair do |k,v|\n- raise \&quot;Invalid input. Hash: \#{data.inspect} can only contain keys of type Symbol or String. Found key \#{k.inspect}, of type: \\\&quot;\#{k.class}\\\&quot;\&quot; unless [Symbol,String].include? k.class\n- case v\n- when TrueClass, FalseClass\n%key \#{k}\n&lt;\#{v}/&gt;\n- when String\n%key \#{k}\n%string \#{v}\n- when Integer\n%key \#{k}\n%integer \#{v}\n- when Float\n%key \#{k}\n%real \#{v}\n- when Time\n%key \#{k}\n%date \#{v.utc.strftime('%Y-%m-%dT%H:%M:%SZ')}\n- when Date\n%key \#{k}\n%date \#{v.strftime('%Y-%m-%dT%H:%M:%SZ')}\n- when IO, StringIO\n- data = String.new; v.rewind\n- Base64::encode64(v.read).gsub(/\\s+/, '').scan(/.{1,68}/o) { data &lt;&lt; $&amp; &lt;&lt; \&quot;\\n\&quot; }\n%key \#{k}\n%data \#{data}\n- when Array\n%key \#{k}\n%array\n- v.compact.each do |e|\n- case e\n- when TrueClass, FalseClass\n&lt;\#{v}/&gt;\n- when String\n%string \#{e}\n- when Integer\n%integer \#{v}\n- when Float\n%real \#{v}\n- when Time\n%date \#{v.utc.strftime('%Y-%m-%dT%H:%M:%SZ')}\n- when Date\n%date \#{v.strftime('%Y-%m-%dT%H:%M:%SZ')}\n- when IO, StringIO\n- data = String.new; v.rewind\n- Base64::encode64(v.read).gsub(/\\s+/, '').scan(/.{1,68}/o) { data &lt;&lt; $&amp; &lt;&lt; \&quot;\\n\&quot; }\n-# data = Base64::encode64(v.read)\n%data \#{data}\n- when Hash\n%dict\n- tab_up ; block.call(e, block) ; tab_down\n- else\n- data = String.new\n- Base64::encode64(Marshal.dump(v)).gsub(/\\s+/, '').scan(/.{1,68}/o) { data &lt;&lt; $&amp; &lt;&lt; \&quot;\\n\&quot; }\n- when Hash\n%key \#{k}\n%dict\n- tab_up ; block.call(v, block) ; tab_down\n- else\n- data = String.new\n- Base64::encode64(Marshal.dump(v)).gsub(/\\s+/, '').scan(/.{1,68}/o) { data &lt;&lt; $&amp; &lt;&lt; \&quot;\\n\&quot; }\n-# data = Base64::encode64(v.read)\n%key \#{k}\n%data\n\#{data}\n\n- p.call( @plist.to_hash, p)\n&quot;</span>
 <span class='end end kw'>end</span>
 </pre>
     </td>
@@ -229,7 +229,7 @@ Dreamcat4 (dreamcat4@gmail.com)
 </div>
     
     <div id="footer">
-  Generated on Sun Jul 11 11:03:19 2010 by 
+  Generated on Sat Jul 17 12:03:46 2010 by 
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool">yard</a>
   0.5.8  and the 
   <a href="http://github.com/dreamcat4/yard-slipstream">yard-slipstream</a> plugin

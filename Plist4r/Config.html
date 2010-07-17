@@ -168,6 +168,37 @@ it will inherit these defaults.
   </div>
 
 </div>
+  <h2>Constant Summary</h2>
+  
+    <dl class="constants">
+      
+        <dt id="CoreFoundationFramework-constant" class="">CoreFoundationFramework =
+          
+        </dt>
+        <dd><pre class="code"><span class='string val'>&quot;/System/Library/Frameworks/CoreFoundation.framework&quot;</span>
+</pre></dd>
+      
+        <dt id="RubycocoaFramework-constant" class="">RubycocoaFramework =
+          
+        </dt>
+        <dd><pre class="code"><span class='string val'>&quot;/System/Library/Frameworks/RubyCocoa.framework&quot;</span>
+</pre></dd>
+      
+        <dt id="DefaultBackendsAny-constant" class="">DefaultBackendsAny =
+          
+        </dt>
+        <dd><pre class="code"><span class='lbrack token'>[</span><span class='string val'>&quot;c_f_property_list&quot;</span><span class='comma token'>,</span><span class='string val'>&quot;haml&quot;</span><span class='comma token'>,</span><span class='string val'>&quot;libxml4r&quot;</span><span class='rbrack token'>]</span>
+</pre></dd>
+      
+        <dt id="DefaultBackendsOsx-constant" class="">DefaultBackendsOsx =
+          
+        </dt>
+        <dd><pre class="code"><span class='lbrack token'>[</span><span class='string val'>&quot;osx_plist&quot;</span><span class='comma token'>,</span><span class='string val'>&quot;c_f_property_list&quot;</span><span class='comma token'>,</span><span class='string val'>&quot;haml&quot;</span><span class='comma token'>,</span><span class='string val'>&quot;libxml4r&quot;</span><span class='rbrack token'>]</span>
+</pre></dd>
+      
+    </dl>
+  
+
 
   
   
@@ -191,14 +222,6 @@ it will inherit these defaults.
       <pre class="lines">
 
 
-30
-31
-32
-33
-34
-35
-36
-37
 38
 39
 40
@@ -208,26 +231,30 @@ it will inherit these defaults.
 44
 45
 46
-47</pre>
+47
+48
+49
+50
+51
+52
+53</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/plist4r/config.rb', line 30</span>
+      <pre class="code"><span class="info file"># File 'lib/plist4r/config.rb', line 38</span>
 
 <span class='def def kw'>def</span> <span class='self self kw'>self</span><span class='dot token'>.</span><span class='default_backends identifier id'>default_backends</span> <span class='sym identifier id'>sym</span><span class='assign token'>=</span><span class='nil nil kw'>nil</span>
   <span class='case case kw'>case</span> <span class='sym identifier id'>sym</span>
   <span class='when when kw'>when</span> <span class='symbol val'>:brew</span>
     <span class='lbrack token'>[</span><span class='string val'>&quot;ruby_cocoa&quot;</span><span class='rbrack token'>]</span>
   <span class='else else kw'>else</span>
-    <span class='core_foundation_framework identifier id'>core_foundation_framework</span> <span class='assign token'>=</span> <span class='string val'>&quot;/System/Library/Frameworks/CoreFoundation.framework&quot;</span>
-    <span class='rubycocoa_framework identifier id'>rubycocoa_framework</span>       <span class='assign token'>=</span> <span class='string val'>&quot;/System/Library/Frameworks/RubyCocoa.framework&quot;</span>
-    <span class='if if kw'>if</span> <span class='File constant id'>File</span><span class='dot token'>.</span><span class='exists? fid id'>exists?</span> <span class='core_foundation_framework identifier id'>core_foundation_framework</span>
-      <span class='if if kw'>if</span> <span class='File constant id'>File</span><span class='dot token'>.</span><span class='exists? fid id'>exists?</span> <span class='rubycocoa_framework identifier id'>rubycocoa_framework</span>
-        <span class='lbrack token'>[</span><span class='string val'>&quot;osx_plist&quot;</span><span class='comma token'>,</span><span class='string val'>&quot;c_f_property_list&quot;</span><span class='comma token'>,</span><span class='string val'>&quot;haml&quot;</span><span class='comma token'>,</span><span class='string val'>&quot;libxml4r&quot;</span><span class='comma token'>,</span><span class='string val'>&quot;ruby_cocoa&quot;</span><span class='rbrack token'>]</span>
+    <span class='if if kw'>if</span> <span class='File constant id'>File</span><span class='dot token'>.</span><span class='exists? fid id'>exists?</span> <span class='CoreFoundationFramework constant id'>CoreFoundationFramework</span>
+      <span class='if if kw'>if</span> <span class='File constant id'>File</span><span class='dot token'>.</span><span class='exists? fid id'>exists?</span> <span class='RubycocoaFramework constant id'>RubycocoaFramework</span>
+        <span class='DefaultBackendsOsx constant id'>DefaultBackendsOsx</span> <span class='plus op'>+</span> <span class='lbrack token'>[</span><span class='string val'>&quot;ruby_cocoa&quot;</span><span class='rbrack token'>]</span>
       <span class='else else kw'>else</span>
-        <span class='lbrack token'>[</span><span class='string val'>&quot;osx_plist&quot;</span><span class='comma token'>,</span><span class='string val'>&quot;c_f_property_list&quot;</span><span class='comma token'>,</span><span class='string val'>&quot;haml&quot;</span><span class='comma token'>,</span><span class='string val'>&quot;libxml4r&quot;</span><span class='rbrack token'>]</span>
+        <span class='DefaultBackendsOsx constant id'>DefaultBackendsOsx</span>
       <span class='end end kw'>end</span>
     <span class='else else kw'>else</span>
-      <span class='lbrack token'>[</span><span class='string val'>&quot;c_f_property_list&quot;</span><span class='comma token'>,</span><span class='string val'>&quot;haml&quot;</span><span class='comma token'>,</span><span class='string val'>&quot;libxml4r&quot;</span><span class='rbrack token'>]</span>
+      <span class='DefaultBackendsAny constant id'>DefaultBackendsAny</span>
     <span class='end end kw'>end</span>
   <span class='end end kw'>end</span>
 <span class='end end kw'>end</span>
@@ -243,7 +270,7 @@ it will inherit these defaults.
 </div>
     
     <div id="footer">
-  Generated on Sun Jul 11 11:03:44 2010 by 
+  Generated on Sat Jul 17 12:03:56 2010 by 
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool">yard</a>
   0.5.8  and the 
   <a href="http://github.com/dreamcat4/yard-slipstream">yard-slipstream</a> plugin

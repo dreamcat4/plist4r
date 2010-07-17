@@ -154,13 +154,13 @@ A new instance of Output
       <pre class="lines">
 
 
-31
 32
 33
-34</pre>
+34
+35</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/plist4r/backend/test/output.rb', line 31</span>
+      <pre class="code"><span class="info file"># File 'lib/plist4r/backend/test/output.rb', line 32</span>
 
 <span class='def def kw'>def</span> <span class='initialize identifier id'>initialize</span> <span class='mult op'>*</span><span class='args identifier id'>args</span><span class='comma token'>,</span> <span class='bitand op'>&amp;</span><span class='blk identifier id'>blk</span>
   <span class='@test_harness ivar id'>@test_harness</span> <span class='assign token'>=</span> <span class='Plist4r constant id'>Plist4r</span><span class='colon2 op'>::</span><span class='Backend constant id'>Backend</span><span class='colon2 op'>::</span><span class='Test constant id'>Test</span><span class='colon2 op'>::</span><span class='Harness constant id'>Harness</span><span class='dot token'>.</span><span class='new identifier id'>new</span>
@@ -200,7 +200,7 @@ A new instance of Output
       <pre class="code"><span class="info file"># File 'lib/plist4r/backend/test/output.rb', line 9</span>
 
 <span class='def def kw'>def</span> <span class='haml identifier id'>haml</span>
-  <span class='@haml ivar id'>@haml</span> <span class='opasgn op'>||=</span> <span class='string val'>&quot;%h1 Backends\n%div\n%h3 Performance Comparison\n%p Time elapsed for encoding / decoding a non-flat (nested) plist structure of 1024 keys.\n%p Real elapsed time based on - 2GHz Intel Core Duo with 2GB Ram\n%p Ruby Enterprise Edition (REE) 1.8.7 p248, Mac OS-X 10.6.3\n= @test_harness.results\n%p To re-run the backend tests\n%pre{ :class =&gt; \&quot;code\&quot; } $ cd plist4r &amp;&amp; rake backend:tests\n%p\n&quot;</span>
+  <span class='@haml ivar id'>@haml</span> <span class='opasgn op'>||=</span> <span class='string val'>&quot;%h1 Backends\n%div\n%p Documentation for the Plist4r backend modules - please see &lt;tt&gt;&lt;a href=\&quot;Plist4r/Backend.html\&quot; target=\&quot;_self\&quot; title=\&quot;Plist4r::Backend (class)\&quot;&gt;Plist4r::Backend&lt;/a&gt;&lt;/tt&gt;\n%h3 Performance\n%p Time elapsed for encoding / decoding a non-flat (nested) plist structure of 1024 keys\n%p Real elapsed time based on - 2GHz Intel Core Duo with 2GB Ram\n%p Ruby Enterprise Edition (REE) 1.8.7 p248, Mac OS-X 10.6.3\n= @test_harness.results\n%p To re-run the backend tests\n%pre{ :class =&gt; \&quot;code\&quot; } $ cd plist4r &amp;&amp; rake backend:tests\n%p\n&quot;</span>
 <span class='end end kw'>end</span>
 </pre>
     </td>
@@ -222,14 +222,14 @@ A new instance of Output
       <pre class="lines">
 
 
-25
 26
 27
 28
-29</pre>
+29
+30</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/plist4r/backend/test/output.rb', line 25</span>
+      <pre class="code"><span class="info file"># File 'lib/plist4r/backend/test/output.rb', line 26</span>
 
 <span class='def def kw'>def</span> <span class='to_s identifier id'>to_s</span>
   <span class='require identifier id'>require</span> <span class='string val'>'haml'</span>
@@ -256,15 +256,15 @@ A new instance of Output
       <pre class="lines">
 
 
-36
 37
 38
 39
 40
-41</pre>
+41
+42</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/plist4r/backend/test/output.rb', line 36</span>
+      <pre class="code"><span class="info file"># File 'lib/plist4r/backend/test/output.rb', line 37</span>
 
 <span class='def def kw'>def</span> <span class='write_html_file identifier id'>write_html_file</span>
   <span class='docs_dir identifier id'>docs_dir</span> <span class='assign token'>=</span> <span class='File constant id'>File</span><span class='dot token'>.</span><span class='dirname identifier id'>dirname</span><span class='lparen token'>(</span><span class='__FILE__ __file__ kw'>__FILE__</span><span class='rparen token'>)</span> <span class='plus op'>+</span> <span class='string val'>&quot;/../../../../lib/plist4r/docs&quot;</span>
@@ -284,7 +284,7 @@ A new instance of Output
 </div>
     
     <div id="footer">
-  Generated on Sun Jul 11 11:03:18 2010 by 
+  Generated on Sat Jul 17 12:03:43 2010 by 
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool">yard</a>
   0.5.8  and the 
   <a href="http://github.com/dreamcat4/yard-slipstream">yard-slipstream</a> plugin

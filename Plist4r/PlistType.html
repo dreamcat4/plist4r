@@ -188,9 +188,19 @@
   
   
   <h3 class="inherited">Methods included from <a href="DataMethods.html" target="_self" title="Plist4r::DataMethods (module)">DataMethods</a></h3>
-  <p class="inherited"><a href="DataMethods.html#method_missing-instance_method" target="_self" title="Plist4r::DataMethods#method_missing (method)">#method_missing</a>, <a href="DataMethods.html#set-instance_method" target="_self" title="Plist4r::DataMethods#set (method)">#set</a>, <a href="DataMethods.html#set_or_return-instance_method" target="_self" title="Plist4r::DataMethods#set_or_return (method)">#set_or_return</a>, <a href="DataMethods.html#set_or_return_of_type-instance_method" target="_self" title="Plist4r::DataMethods#set_or_return_of_type (method)">#set_or_return_of_type</a>, <a href="DataMethods.html#validate_value-instance_method" target="_self" title="Plist4r::DataMethods#validate_value (method)">#validate_value</a>, <a href="DataMethods.html#value_of-instance_method" target="_self" title="Plist4r::DataMethods#value_of (method)">#value_of</a></p>
+  <p class="inherited"><a href="DataMethods.html#_respond_to%3F-instance_method" target="_self" title="Plist4r::DataMethods#_respond_to? (method)">#_respond_to?</a>, <a href="DataMethods.html#method_missing-instance_method" target="_self" title="Plist4r::DataMethods#method_missing (method)">#method_missing</a>, <a href="DataMethods.html#set_or_return-instance_method" target="_self" title="Plist4r::DataMethods#set_or_return (method)">#set_or_return</a>, <a href="DataMethods.html#set_or_return_of_type-instance_method" target="_self" title="Plist4r::DataMethods#set_or_return_of_type (method)">#set_or_return_of_type</a>, <a href="DataMethods.html#validate_value-instance_method" target="_self" title="Plist4r::DataMethods#validate_value (method)">#validate_value</a></p>
 
   <h2>Constant Summary</h2>
+  
+    <dl class="constants">
+      
+        <dt id="ValidKeys-constant" class="">ValidKeys =
+          
+        </dt>
+        <dd><pre class="code"><span class='lbrace token'>{</span><span class='rbrace token'>}</span>
+</pre></dd>
+      
+    </dl>
   
 
 
@@ -249,13 +259,13 @@ A pointer referencing back to the plist object
       <pre class="lines">
 
 
-10
-11
 12
-13</pre>
+13
+14
+15</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/plist4r/plist_type.rb', line 10</span>
+      <pre class="code"><span class="info file"># File 'lib/plist4r/plist_type.rb', line 12</span>
 
 <span class='def def kw'>def</span> <span class='initialize identifier id'>initialize</span> <span class='plist identifier id'>plist</span><span class='comma token'>,</span> <span class='mult op'>*</span><span class='args identifier id'>args</span><span class='comma token'>,</span> <span class='bitand op'>&amp;</span><span class='blk identifier id'>blk</span>
   <span class='@plist ivar id'>@plist</span> <span class='assign token'>=</span> <span class='plist identifier id'>plist</span>
@@ -367,15 +377,15 @@ A hash of the match statistics
       <pre class="lines">
 
 
-38
-39
 40
 41
 42
-43</pre>
+43
+44
+45</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/plist4r/plist_type.rb', line 38</span>
+      <pre class="code"><span class="info file"># File 'lib/plist4r/plist_type.rb', line 40</span>
 
 <span class='def def kw'>def</span> <span class='self self kw'>self</span><span class='dot token'>.</span><span class='match_stat identifier id'>match_stat</span> <span class='plist_keys identifier id'>plist_keys</span>
   <span class='type_keys identifier id'>type_keys</span> <span class='assign token'>=</span> <span class='self self kw'>self</span><span class='colon2 op'>::</span><span class='ValidKeys constant id'>ValidKeys</span><span class='dot token'>.</span><span class='values identifier id'>values</span><span class='dot token'>.</span><span class='flatten identifier id'>flatten</span>
@@ -409,15 +419,15 @@ A hash of the match statistics
       <pre class="lines">
 
 
-63
-64
 65
 66
 67
-68</pre>
+68
+69
+70</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/plist4r/plist_type.rb', line 63</span>
+      <pre class="code"><span class="info file"># File 'lib/plist4r/plist_type.rb', line 65</span>
 
 <span class='def def kw'>def</span> <span class='array_dict identifier id'>array_dict</span> <span class='method_sym identifier id'>method_sym</span><span class='comma token'>,</span> <span class='mult op'>*</span><span class='args identifier id'>args</span>
   <span class='a identifier id'>a</span> <span class='assign token'>=</span> <span class='ArrayDict constant id'>ArrayDict</span><span class='dot token'>.</span><span class='new identifier id'>new</span> <span class='@hash ivar id'>@hash</span>
@@ -498,8 +508,6 @@ Set the hash if not nil
       <pre class="lines">
 
 
-18
-19
 20
 21
 22
@@ -507,10 +515,12 @@ Set the hash if not nil
 24
 25
 26
-27</pre>
+27
+28
+29</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/plist4r/plist_type.rb', line 18</span>
+      <pre class="code"><span class="info file"># File 'lib/plist4r/plist_type.rb', line 20</span>
 
 <span class='def def kw'>def</span> <span class='hash identifier id'>hash</span> <span class='hash identifier id'>hash</span><span class='assign token'>=</span><span class='nil nil kw'>nil</span>
   <span class='case case kw'>case</span> <span class='hash identifier id'>hash</span>
@@ -583,12 +593,12 @@ The shortform string, in snake case, a unique name
       <pre class="lines">
 
 
-50
-51
-52</pre>
+52
+53
+54</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/plist4r/plist_type.rb', line 50</span>
+      <pre class="code"><span class="info file"># File 'lib/plist4r/plist_type.rb', line 52</span>
 
 <span class='def def kw'>def</span> <span class='to_s identifier id'>to_s</span>
   <span class='return return kw'>return</span> <span class='@string ivar id'>@string</span> <span class='opasgn op'>||=</span> <span class='self self kw'>self</span><span class='dot token'>.</span><span class='class identifier id'>class</span><span class='dot token'>.</span><span class='to_s identifier id'>to_s</span><span class='dot token'>.</span><span class='gsub identifier id'>gsub</span><span class='lparen token'>(</span><span class='regexp val'>/.*:/</span><span class='comma token'>,</span><span class='string val'>&quot;&quot;</span><span class='rparen token'>)</span><span class='dot token'>.</span><span class='snake_case identifier id'>snake_case</span>
@@ -654,12 +664,12 @@ A symbol representation the shortform string, in snake case, a unique name
       <pre class="lines">
 
 
-59
-60
-61</pre>
+61
+62
+63</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/plist4r/plist_type.rb', line 59</span>
+      <pre class="code"><span class="info file"># File 'lib/plist4r/plist_type.rb', line 61</span>
 
 <span class='def def kw'>def</span> <span class='to_sym identifier id'>to_sym</span>
   <span class='return return kw'>return</span> <span class='@sym ivar id'>@sym</span> <span class='opasgn op'>||=</span> <span class='to_s identifier id'>to_s</span><span class='dot token'>.</span><span class='to_sym identifier id'>to_sym</span>
@@ -676,7 +686,7 @@ A symbol representation the shortform string, in snake case, a unique name
 </div>
     
     <div id="footer">
-  Generated on Sun Jul 11 11:03:20 2010 by 
+  Generated on Sat Jul 17 12:03:48 2010 by 
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool">yard</a>
   0.5.8  and the 
   <a href="http://github.com/dreamcat4/yard-slipstream">yard-slipstream</a> plugin

@@ -682,16 +682,16 @@ are positive, starting (and including) zero as the first index.
       <pre class="lines">
 
 
+404
+405
 406
 407
 408
 409
-410
-411
-412</pre>
+410</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/plist4r/mixin/table.rb', line 406</span>
+      <pre class="code"><span class="info file"># File 'lib/plist4r/mixin/table.rb', line 404</span>
 
 <span class='def def kw'>def</span> <span class='cells identifier id'>cells</span> <span class='col_range identifier id'>col_range</span><span class='assign token'>=</span><span class='nil nil kw'>nil</span><span class='comma token'>,</span> <span class='row_range identifier id'>row_range</span><span class='assign token'>=</span><span class='nil nil kw'>nil</span><span class='comma token'>,</span> <span class='value identifier id'>value</span><span class='assign token'>=</span><span class='nil nil kw'>nil</span>
   <span class='col_range identifier id'>col_range</span> <span class='assign token'>=</span> <span class='@cr ivar id'>@cr</span> <span class='if if_mod kw'>if</span> <span class='col_range identifier id'>col_range</span><span class='dot token'>.</span><span class='nil? fid id'>nil?</span> <span class='semicolon token'>;</span> <span class='row_range identifier id'>row_range</span> <span class='assign token'>=</span> <span class='@rr ivar id'>@rr</span> <span class='if if_mod kw'>if</span> <span class='row_range identifier id'>row_range</span><span class='dot token'>.</span><span class='nil? fid id'>nil?</span>
@@ -720,6 +720,8 @@ are positive, starting (and including) zero as the first index.
       <pre class="lines">
 
 
+412
+413
 414
 415
 416
@@ -727,12 +729,10 @@ are positive, starting (and including) zero as the first index.
 418
 419
 420
-421
-422
-423</pre>
+421</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/plist4r/mixin/table.rb', line 414</span>
+      <pre class="code"><span class="info file"># File 'lib/plist4r/mixin/table.rb', line 412</span>
 
 <span class='def def kw'>def</span> <span class='col identifier id'>col</span> <span class='col_range identifier id'>col_range</span><span class='comma token'>,</span> <span class='value identifier id'>value</span><span class='assign token'>=</span><span class='nil nil kw'>nil</span>
   <span class='col_range identifier id'>col_range</span> <span class='assign token'>=</span> <span class='Plist4r constant id'>Plist4r</span><span class='colon2 op'>::</span><span class='Table constant id'>Table</span><span class='dot token'>.</span><span class='sanitize_ranges identifier id'>sanitize_ranges</span> <span class='col_range identifier id'>col_range</span>
@@ -764,15 +764,15 @@ are positive, starting (and including) zero as the first index.
       <pre class="lines">
 
 
+390
+391
 392
 393
 394
-395
-396
-397</pre>
+395</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/plist4r/mixin/table.rb', line 392</span>
+      <pre class="code"><span class="info file"># File 'lib/plist4r/mixin/table.rb', line 390</span>
 
 <span class='def def kw'>def</span> <span class='col_insert identifier id'>col_insert</span> <span class='col_range identifier id'>col_range</span><span class='comma token'>,</span> <span class='row_range identifier id'>row_range</span><span class='comma token'>,</span> <span class='other_data identifier id'>other_data</span><span class='comma token'>,</span> <span class='resize identifier id'>resize</span><span class='assign token'>=</span><span class='true true kw'>true</span>
   <span class='col_range identifier id'>col_range</span><span class='comma token'>,</span> <span class='row_range identifier id'>row_range</span> <span class='assign token'>=</span> <span class='Plist4r constant id'>Plist4r</span><span class='colon2 op'>::</span><span class='Table constant id'>Table</span><span class='dot token'>.</span><span class='sanitize_ranges identifier id'>sanitize_ranges</span> <span class='col_range identifier id'>col_range</span><span class='comma token'>,</span> <span class='row_range identifier id'>row_range</span>
@@ -830,13 +830,13 @@ are positive, starting (and including) zero as the first index.
       <pre class="lines">
 
 
+370
+371
 372
-373
-374
-375</pre>
+373</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/plist4r/mixin/table.rb', line 372</span>
+      <pre class="code"><span class="info file"># File 'lib/plist4r/mixin/table.rb', line 370</span>
 
 <span class='def def kw'>def</span> <span class='col_replace identifier id'>col_replace</span> <span class='col_range identifier id'>col_range</span><span class='comma token'>,</span> <span class='data identifier id'>data</span>
   <span class='col_range identifier id'>col_range</span> <span class='assign token'>=</span> <span class='Plist4r constant id'>Plist4r</span><span class='colon2 op'>::</span><span class='Table constant id'>Table</span><span class='dot token'>.</span><span class='sanitize_ranges identifier id'>sanitize_ranges</span> <span class='col_range identifier id'>col_range</span>
@@ -862,6 +862,8 @@ are positive, starting (and including) zero as the first index.
       <pre class="lines">
 
 
+262
+263
 264
 265
 266
@@ -872,12 +874,10 @@ are positive, starting (and including) zero as the first index.
 271
 272
 273
-274
-275
-276</pre>
+274</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/plist4r/mixin/table.rb', line 264</span>
+      <pre class="code"><span class="info file"># File 'lib/plist4r/mixin/table.rb', line 262</span>
 
 <span class='def def kw'>def</span> <span class='crop identifier id'>crop</span> <span class='col_range identifier id'>col_range</span><span class='comma token'>,</span> <span class='row_range identifier id'>row_range</span>
   <span class='col_range identifier id'>col_range</span><span class='comma token'>,</span> <span class='row_range identifier id'>row_range</span> <span class='assign token'>=</span> <span class='Plist4r constant id'>Plist4r</span><span class='colon2 op'>::</span><span class='Table constant id'>Table</span><span class='dot token'>.</span><span class='sanitize_ranges identifier id'>sanitize_ranges</span> <span class='col_range identifier id'>col_range</span><span class='comma token'>,</span> <span class='row_range identifier id'>row_range</span>
@@ -912,6 +912,8 @@ are positive, starting (and including) zero as the first index.
       <pre class="lines">
 
 
+336
+337
 338
 339
 340
@@ -930,12 +932,10 @@ are positive, starting (and including) zero as the first index.
 353
 354
 355
-356
-357
-358</pre>
+356</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/plist4r/mixin/table.rb', line 338</span>
+      <pre class="code"><span class="info file"># File 'lib/plist4r/mixin/table.rb', line 336</span>
 
 <span class='def def kw'>def</span> <span class='data_replace identifier id'>data_replace</span> <span class='col_range identifier id'>col_range</span><span class='comma token'>,</span> <span class='row_range identifier id'>row_range</span><span class='comma token'>,</span> <span class='other_data identifier id'>other_data</span>
   <span class='col_range identifier id'>col_range</span><span class='comma token'>,</span> <span class='row_range identifier id'>row_range</span> <span class='assign token'>=</span> <span class='Plist4r constant id'>Plist4r</span><span class='colon2 op'>::</span><span class='Table constant id'>Table</span><span class='dot token'>.</span><span class='sanitize_ranges identifier id'>sanitize_ranges</span> <span class='col_range identifier id'>col_range</span><span class='comma token'>,</span> <span class='row_range identifier id'>row_range</span>
@@ -1020,6 +1020,8 @@ are positive, starting (and including) zero as the first index.
       <pre class="lines">
 
 
+276
+277
 278
 279
 280
@@ -1028,12 +1030,10 @@ are positive, starting (and including) zero as the first index.
 283
 284
 285
-286
-287
-288</pre>
+286</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/plist4r/mixin/table.rb', line 278</span>
+      <pre class="code"><span class="info file"># File 'lib/plist4r/mixin/table.rb', line 276</span>
 
 <span class='def def kw'>def</span> <span class='fill identifier id'>fill</span> <span class='col_range identifier id'>col_range</span><span class='comma token'>,</span> <span class='row_range identifier id'>row_range</span><span class='comma token'>,</span> <span class='data identifier id'>data</span><span class='assign token'>=</span><span class='nil nil kw'>nil</span>
   <span class='col_range identifier id'>col_range</span><span class='comma token'>,</span> <span class='row_range identifier id'>row_range</span> <span class='assign token'>=</span> <span class='Plist4r constant id'>Plist4r</span><span class='colon2 op'>::</span><span class='Table constant id'>Table</span><span class='dot token'>.</span><span class='sanitize_ranges identifier id'>sanitize_ranges</span> <span class='col_range identifier id'>col_range</span><span class='comma token'>,</span> <span class='row_range identifier id'>row_range</span>
@@ -1066,12 +1066,12 @@ are positive, starting (and including) zero as the first index.
       <pre class="lines">
 
 
-290
-291
-292</pre>
+288
+289
+290</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/plist4r/mixin/table.rb', line 290</span>
+      <pre class="code"><span class="info file"># File 'lib/plist4r/mixin/table.rb', line 288</span>
 
 <span class='def def kw'>def</span> <span class='fill_all identifier id'>fill_all</span> <span class='data identifier id'>data</span>
   <span class='fill identifier id'>fill</span> <span class='@cr ivar id'>@cr</span><span class='comma token'>,</span> <span class='@rr ivar id'>@rr</span><span class='comma token'>,</span> <span class='data identifier id'>data</span>
@@ -1224,17 +1224,17 @@ are positive, starting (and including) zero as the first index.
       <pre class="lines">
 
 
+292
+293
 294
 295
 296
 297
 298
-299
-300
-301</pre>
+299</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/plist4r/mixin/table.rb', line 294</span>
+      <pre class="code"><span class="info file"># File 'lib/plist4r/mixin/table.rb', line 292</span>
 
 <span class='def def kw'>def</span> <span class='inverse_fill identifier id'>inverse_fill</span> <span class='col_range identifier id'>col_range</span><span class='comma token'>,</span> <span class='row_range identifier id'>row_range</span><span class='comma token'>,</span> <span class='data identifier id'>data</span><span class='assign token'>=</span><span class='nil nil kw'>nil</span>
   <span class='col_range identifier id'>col_range</span><span class='comma token'>,</span> <span class='row_range identifier id'>row_range</span> <span class='assign token'>=</span> <span class='Plist4r constant id'>Plist4r</span><span class='colon2 op'>::</span><span class='Table constant id'>Table</span><span class='dot token'>.</span><span class='sanitize_ranges identifier id'>sanitize_ranges</span> <span class='col_range identifier id'>col_range</span><span class='comma token'>,</span> <span class='row_range identifier id'>row_range</span>
@@ -1338,9 +1338,7 @@ are positive, starting (and including) zero as the first index.
 253
 254
 255
-256
-257
-258</pre>
+256</pre>
     </td>
     <td>
       <pre class="code"><span class="info file"># File 'lib/plist4r/mixin/table.rb', line 230</span>
@@ -1365,14 +1363,12 @@ are positive, starting (and including) zero as the first index.
   <span class='lparen token'>(</span><span class='col_range identifier id'>col_range</span><span class='dot token'>.</span><span class='end identifier id'>end</span> <span class='minus op'>-</span> <span class='@array ivar id'>@array</span><span class='dot token'>.</span><span class='size identifier id'>size</span> <span class='plus op'>+</span> <span class='integer val'>1</span><span class='rparen token'>)</span><span class='dot token'>.</span><span class='times identifier id'>times</span> <span class='do do kw'>do</span>
     <span class='@array ivar id'>@array</span> <span class='lshft op'>&lt;&lt;</span> <span class='lbrack token'>[</span><span class='rbrack token'>]</span>
   <span class='end end kw'>end</span>
-  <span class='comment val'># puts &quot;&quot; unless EmptyCells.include? data</span>
+
   <span class='col_range identifier id'>col_range</span><span class='dot token'>.</span><span class='each identifier id'>each</span> <span class='do do kw'>do</span> <span class='bitor op'>|</span><span class='col identifier id'>col</span><span class='bitor op'>|</span>
     <span class='row_range identifier id'>row_range</span><span class='dot token'>.</span><span class='each identifier id'>each</span> <span class='do do kw'>do</span> <span class='bitor op'>|</span><span class='row identifier id'>row</span><span class='bitor op'>|</span>
-      <span class='comment val'># puts &quot;col = #{col}, row= #{row}&quot; unless EmptyCells.include? data</span>
       <span class='@array ivar id'>@array</span><span class='lbrack token'>[</span><span class='col identifier id'>col</span><span class='rbrack token'>]</span><span class='lbrack token'>[</span><span class='row identifier id'>row</span><span class='rbrack token'>]</span> <span class='assign token'>=</span> <span class='data identifier id'>data</span><span class='dot token'>.</span><span class='deep_clone identifier id'>deep_clone</span> <span class='if if_mod kw'>if</span> <span class='EmptyCells constant id'>EmptyCells</span><span class='dot token'>.</span><span class='include? fid id'>include?</span> <span class='@array ivar id'>@array</span><span class='lbrack token'>[</span><span class='col identifier id'>col</span><span class='rbrack token'>]</span><span class='lbrack token'>[</span><span class='row identifier id'>row</span><span class='rbrack token'>]</span>
     <span class='end end kw'>end</span>
   <span class='end end kw'>end</span>
-  <span class='comment val'># puts @array[0].inspect unless EmptyCells.include? data</span>
 <span class='end end kw'>end</span>
 </pre>
     </td>
@@ -1394,12 +1390,12 @@ are positive, starting (and including) zero as the first index.
       <pre class="lines">
 
 
-260
-261
-262</pre>
+258
+259
+260</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/plist4r/mixin/table.rb', line 260</span>
+      <pre class="code"><span class="info file"># File 'lib/plist4r/mixin/table.rb', line 258</span>
 
 <span class='def def kw'>def</span> <span class='pad_all identifier id'>pad_all</span> <span class='data identifier id'>data</span>
   <span class='pad identifier id'>pad</span> <span class='@cr ivar id'>@cr</span><span class='comma token'>,</span> <span class='@rr ivar id'>@rr</span><span class='comma token'>,</span> <span class='data identifier id'>data</span>
@@ -1504,6 +1500,8 @@ The options hash, containing keys of <tt><a href="#OptionsHash-constant" target=
       <pre class="lines">
 
 
+358
+359
 360
 361
 362
@@ -1512,12 +1510,10 @@ The options hash, containing keys of <tt><a href="#OptionsHash-constant" target=
 365
 366
 367
-368
-369
-370</pre>
+368</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/plist4r/mixin/table.rb', line 360</span>
+      <pre class="code"><span class="info file"># File 'lib/plist4r/mixin/table.rb', line 358</span>
 
 <span class='def def kw'>def</span> <span class='replace identifier id'>replace</span> <span class='col_range identifier id'>col_range</span><span class='comma token'>,</span> <span class='row_range identifier id'>row_range</span><span class='comma token'>,</span> <span class='data identifier id'>data</span>
   <span class='col_range identifier id'>col_range</span><span class='comma token'>,</span> <span class='row_range identifier id'>row_range</span> <span class='assign token'>=</span> <span class='Plist4r constant id'>Plist4r</span><span class='colon2 op'>::</span><span class='Table constant id'>Table</span><span class='dot token'>.</span><span class='sanitize_ranges identifier id'>sanitize_ranges</span> <span class='col_range identifier id'>col_range</span><span class='comma token'>,</span> <span class='row_range identifier id'>row_range</span>
@@ -1588,6 +1584,8 @@ The options hash, containing keys of <tt><a href="#OptionsHash-constant" target=
       <pre class="lines">
 
 
+423
+424
 425
 426
 427
@@ -1595,12 +1593,10 @@ The options hash, containing keys of <tt><a href="#OptionsHash-constant" target=
 429
 430
 431
-432
-433
-434</pre>
+432</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/plist4r/mixin/table.rb', line 425</span>
+      <pre class="code"><span class="info file"># File 'lib/plist4r/mixin/table.rb', line 423</span>
 
 <span class='def def kw'>def</span> <span class='row identifier id'>row</span> <span class='row_range identifier id'>row_range</span><span class='comma token'>,</span> <span class='value identifier id'>value</span><span class='assign token'>=</span><span class='nil nil kw'>nil</span>
   <span class='row_range identifier id'>row_range</span> <span class='assign token'>=</span> <span class='Plist4r constant id'>Plist4r</span><span class='colon2 op'>::</span><span class='Table constant id'>Table</span><span class='dot token'>.</span><span class='sanitize_ranges identifier id'>sanitize_ranges</span> <span class='row_range identifier id'>row_range</span>
@@ -1632,15 +1628,15 @@ The options hash, containing keys of <tt><a href="#OptionsHash-constant" target=
       <pre class="lines">
 
 
+397
+398
 399
 400
 401
-402
-403
-404</pre>
+402</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/plist4r/mixin/table.rb', line 399</span>
+      <pre class="code"><span class="info file"># File 'lib/plist4r/mixin/table.rb', line 397</span>
 
 <span class='def def kw'>def</span> <span class='row_insert identifier id'>row_insert</span> <span class='col_range identifier id'>col_range</span><span class='comma token'>,</span> <span class='row_range identifier id'>row_range</span><span class='comma token'>,</span> <span class='other_data identifier id'>other_data</span><span class='comma token'>,</span> <span class='resize identifier id'>resize</span><span class='assign token'>=</span><span class='true true kw'>true</span>
   <span class='col_range identifier id'>col_range</span><span class='comma token'>,</span> <span class='row_range identifier id'>row_range</span> <span class='assign token'>=</span> <span class='Plist4r constant id'>Plist4r</span><span class='colon2 op'>::</span><span class='Table constant id'>Table</span><span class='dot token'>.</span><span class='sanitize_ranges identifier id'>sanitize_ranges</span> <span class='col_range identifier id'>col_range</span><span class='comma token'>,</span> <span class='row_range identifier id'>row_range</span>
@@ -1698,13 +1694,13 @@ The options hash, containing keys of <tt><a href="#OptionsHash-constant" target=
       <pre class="lines">
 
 
+375
+376
 377
-378
-379
-380</pre>
+378</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/plist4r/mixin/table.rb', line 377</span>
+      <pre class="code"><span class="info file"># File 'lib/plist4r/mixin/table.rb', line 375</span>
 
 <span class='def def kw'>def</span> <span class='row_replace identifier id'>row_replace</span> <span class='row_range identifier id'>row_range</span><span class='comma token'>,</span> <span class='data identifier id'>data</span>
   <span class='row_range identifier id'>row_range</span> <span class='assign token'>=</span> <span class='Plist4r constant id'>Plist4r</span><span class='colon2 op'>::</span><span class='Table constant id'>Table</span><span class='dot token'>.</span><span class='sanitize_ranges identifier id'>sanitize_ranges</span> <span class='row_range identifier id'>row_range</span>
@@ -1770,18 +1766,18 @@ The options hash, containing keys of <tt><a href="#OptionsHash-constant" target=
       <pre class="lines">
 
 
+380
+381
 382
 383
 384
 385
 386
 387
-388
-389
-390</pre>
+388</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/plist4r/mixin/table.rb', line 382</span>
+      <pre class="code"><span class="info file"># File 'lib/plist4r/mixin/table.rb', line 380</span>
 
 <span class='def def kw'>def</span> <span class='translate identifier id'>translate</span> <span class='col_range identifier id'>col_range</span><span class='comma token'>,</span> <span class='row_range identifier id'>row_range</span><span class='comma token'>,</span> <span class='vector identifier id'>vector</span>
   <span class='col_range identifier id'>col_range</span><span class='comma token'>,</span> <span class='row_range identifier id'>row_range</span> <span class='assign token'>=</span> <span class='Plist4r constant id'>Plist4r</span><span class='colon2 op'>::</span><span class='Table constant id'>Table</span><span class='dot token'>.</span><span class='sanitize_ranges identifier id'>sanitize_ranges</span> <span class='col_range identifier id'>col_range</span><span class='comma token'>,</span> <span class='row_range identifier id'>row_range</span>
@@ -1812,6 +1808,8 @@ The options hash, containing keys of <tt><a href="#OptionsHash-constant" target=
       <pre class="lines">
 
 
+301
+302
 303
 304
 305
@@ -1843,12 +1841,10 @@ The options hash, containing keys of <tt><a href="#OptionsHash-constant" target=
 331
 332
 333
-334
-335
-336</pre>
+334</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/plist4r/mixin/table.rb', line 303</span>
+      <pre class="code"><span class="info file"># File 'lib/plist4r/mixin/table.rb', line 301</span>
 
 <span class='def def kw'>def</span> <span class='transpose identifier id'>transpose</span> <span class='col_range identifier id'>col_range</span><span class='assign token'>=</span><span class='nil nil kw'>nil</span><span class='comma token'>,</span> <span class='row_range identifier id'>row_range</span><span class='assign token'>=</span><span class='nil nil kw'>nil</span><span class='comma token'>,</span> <span class='keep_bounds identifier id'>keep_bounds</span><span class='assign token'>=</span><span class='false false kw'>false</span>
   <span class='col_range identifier id'>col_range</span> <span class='assign token'>=</span> <span class='@cr ivar id'>@cr</span> <span class='if if_mod kw'>if</span> <span class='col_range identifier id'>col_range</span><span class='dot token'>.</span><span class='nil? fid id'>nil?</span> <span class='semicolon token'>;</span> <span class='row_range identifier id'>row_range</span> <span class='assign token'>=</span> <span class='@rr ivar id'>@rr</span> <span class='if if_mod kw'>if</span> <span class='row_range identifier id'>row_range</span><span class='dot token'>.</span><span class='nil? fid id'>nil?</span>
@@ -1896,7 +1892,7 @@ The options hash, containing keys of <tt><a href="#OptionsHash-constant" target=
 </div>
     
     <div id="footer">
-  Generated on Sun Jul 11 11:03:33 2010 by 
+  Generated on Sat Jul 17 12:04:05 2010 by 
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool">yard</a>
   0.5.8  and the 
   <a href="http://github.com/dreamcat4/yard-slipstream">yard-slipstream</a> plugin

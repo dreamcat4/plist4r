@@ -114,10 +114,10 @@
 	    <ul id="methods_ribbon">
 	    
 	    
-	      <li class="r1"><a href="#method_missing-instance_method" target="_self" title="Plist4r::DataMethods#method_missing (method)">method_missing</a></li>
+	      <li class="r1"><a href="#_respond_to%3F-instance_method" target="_self" title="Plist4r::DataMethods#_respond_to? (method)">_respond_to?</a></li>
 	      
 	    
-	      <li class="r2"><a href="#set-instance_method" target="_self" title="Plist4r::DataMethods#set (method)">set</a></li>
+	      <li class="r2"><a href="#method_missing-instance_method" target="_self" title="Plist4r::DataMethods#method_missing (method)">method_missing</a></li>
 	      
 	    
 	      <li class="r1"><a href="#set_or_return-instance_method" target="_self" title="Plist4r::DataMethods#set_or_return (method)">set_or_return</a></li>
@@ -127,9 +127,6 @@
 	      
 	    
 	      <li class="r1"><a href="#validate_value-instance_method" target="_self" title="Plist4r::DataMethods#validate_value (method)">validate_value</a></li>
-	      
-	    
-	      <li class="r2"><a href="#value_of-instance_method" target="_self" title="Plist4r::DataMethods#value_of (method)">value_of</a></li>
 	      
 	    
 	    </ul>
@@ -315,12 +312,12 @@ unrecognised Plist Keys.
       <pre class="lines">
 
 
-95
-96
-97</pre>
+101
+102
+103</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/plist4r/mixin/data_methods.rb', line 95</span>
+      <pre class="code"><span class="info file"># File 'lib/plist4r/mixin/data_methods.rb', line 101</span>
 
 <span class='def def kw'>def</span> <span class='method_missing identifier id'>method_missing</span> <span class='method_symbol identifier id'>method_symbol</span><span class='comma token'>,</span> <span class='mult op'>*</span><span class='args identifier id'>args</span><span class='comma token'>,</span> <span class='bitand op'>&amp;</span><span class='blk identifier id'>blk</span>
   <span class='set_or_return identifier id'>set_or_return</span> <span class='method_symbol identifier id'>method_symbol</span><span class='dot token'>.</span><span class='to_s identifier id'>to_s</span><span class='dot token'>.</span><span class='camelcase identifier id'>camelcase</span><span class='comma token'>,</span> <span class='mult op'>*</span><span class='args identifier id'>args</span><span class='comma token'>,</span> <span class='bitand op'>&amp;</span><span class='blk identifier id'>blk</span>
@@ -338,65 +335,37 @@ unrecognised Plist Keys.
     <h2>Instance Method Details</h2>
     
     
-      <div class="method_details first" id="set-instance_method">
+      <div class="method_details first" id="_respond_to?-instance_method">
   <p class="signature first"">
   
-    - (<tt><a href="../Object.html" target="_self" title="Object (class)">Object</a></tt>) <strong>set</strong>(key, value) 
+    - (<tt>Boolean</tt>) <strong>_respond_to?</strong>(method_sym) 
   
 
   
 </p><div class="docstring">
   <div class="discussion">
     <p>
-Set a plist key to a specific value
+Defining respond_to? conflicts with rspec 1.3.0. @object.stub() blows up.
+To as a consequence we dont implement respond_to? for method_missing()
 </p>
 
 
   </div>
 </div>
 <div class="tags">
-  
-  <div class="examples">
-    <h3>Examples:</h3>
-    
-      <h4><div class='inline'></div></h4>
-      <pre class="example code"><span class='plist identifier id'>plist</span><span class='dot token'>.</span><span class='set identifier id'>set</span> <span class='string val'>&quot;CFBundleIdentifier&quot;</span><span class='comma token'>,</span> <span class='string val'>&quot;com.apple.myapp&quot;</span>
-</pre>
-    
-  </div>
-<h3>Parameters:</h3>
-<ul class="param">
+  <h3>Returns:</h3>
+<ul class="return">
   
     <li>
       
-        <span class='type'>(<tt><a href="../String.html" target="_self" title="String (class)">String</a></tt>)</span>
+        <span class='type'>(<tt>Boolean</tt>)</span>
       
-      
-        <span class='name'>The</span>
       
       
       
         &mdash;
         <div class='inline'><p>
-Plist key, as-is
-</p>
-</div>
-      
-    </li>
-  
-    <li>
-      
-        <span class='type'></span>
-      
-      
-        <span class='name'>value</span>
-      
-      
-      
-        &mdash;
-        <div class='inline'><p>
-A ruby object (Hash, String, Array, etc) to set as the value of the plist
-key
+true
 </p>
 </div>
       
@@ -404,28 +373,21 @@ key
   
 </ul>
 
-  <h3>See Also:</h3>
-  <ul class="see">
-    
-      <li><a href="#set_or_return-instance_method" target="_self" title="Plist4r::DataMethods#set_or_return (method)">#set_or_return</a></li>
-    
-  </ul>
-
 </div><table class="source_code">
   <tr>
     <td>
       <pre class="lines">
 
 
-188
-189
-190</pre>
+95
+96
+97</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/plist4r/mixin/data_methods.rb', line 188</span>
+      <pre class="code"><span class="info file"># File 'lib/plist4r/mixin/data_methods.rb', line 95</span>
 
-<span class='def def kw'>def</span> <span class='set identifier id'>set</span> <span class='key identifier id'>key</span><span class='comma token'>,</span> <span class='value identifier id'>value</span>
-  <span class='set_or_return identifier id'>set_or_return</span> <span class='key identifier id'>key</span><span class='comma token'>,</span> <span class='value identifier id'>value</span>
+<span class='def def kw'>def</span> <span class='_respond_to? fid id'>_respond_to?</span> <span class='method_sym identifier id'>method_sym</span>
+  <span class='true true kw'>true</span>
 <span class='end end kw'>end</span>
 </pre>
     </td>
@@ -518,12 +480,6 @@ The Object stored under key
       <pre class="lines">
 
 
-103
-104
-105
-106
-107
-108
 109
 110
 111
@@ -533,10 +489,16 @@ The Object stored under key
 115
 116
 117
-118</pre>
+118
+119
+120
+121
+122
+123
+124</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/plist4r/mixin/data_methods.rb', line 103</span>
+      <pre class="code"><span class="info file"># File 'lib/plist4r/mixin/data_methods.rb', line 109</span>
 
 <span class='def def kw'>def</span> <span class='set_or_return identifier id'>set_or_return</span> <span class='key identifier id'>key</span><span class='comma token'>,</span> <span class='value identifier id'>value</span><span class='assign token'>=</span><span class='nil nil kw'>nil</span>
   <span class='key identifier id'>key</span> <span class='assign token'>=</span> <span class='key identifier id'>key</span><span class='dot token'>.</span><span class='to_s identifier id'>to_s</span><span class='dot token'>.</span><span class='camelcase identifier id'>camelcase</span> <span class='if if_mod kw'>if</span> <span class='key identifier id'>key</span><span class='dot token'>.</span><span class='class identifier id'>class</span> <span class='eq op'>==</span> <span class='Symbol constant id'>Symbol</span>
@@ -645,18 +607,18 @@ the key&#8217;s value
       <pre class="lines">
 
 
-212
-213
-214
-215
-216
 217
 218
 219
-220</pre>
+220
+221
+222
+223
+224
+225</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/plist4r/mixin/data_methods.rb', line 212</span>
+      <pre class="code"><span class="info file"># File 'lib/plist4r/mixin/data_methods.rb', line 217</span>
 
 <span class='def def kw'>def</span> <span class='set_or_return_of_type identifier id'>set_or_return_of_type</span> <span class='key_type identifier id'>key_type</span><span class='comma token'>,</span> <span class='key identifier id'>key</span><span class='comma token'>,</span> <span class='value identifier id'>value</span><span class='assign token'>=</span><span class='nil nil kw'>nil</span>
   <span class='case case kw'>case</span> <span class='value identifier id'>value</span>
@@ -776,12 +738,6 @@ Class mistmatch
       <pre class="lines">
 
 
-130
-131
-132
-133
-134
-135
 136
 137
 138
@@ -826,13 +782,17 @@ Class mistmatch
 177
 178
 179
-180</pre>
+180
+181
+182
+183
+184
+185</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/plist4r/mixin/data_methods.rb', line 130</span>
+      <pre class="code"><span class="info file"># File 'lib/plist4r/mixin/data_methods.rb', line 136</span>
 
 <span class='def def kw'>def</span> <span class='validate_value identifier id'>validate_value</span> <span class='key_type identifier id'>key_type</span><span class='comma token'>,</span> <span class='key identifier id'>key</span><span class='comma token'>,</span> <span class='value identifier id'>value</span>
-  <span class='comment val'># puts key.inspect</span>
   <span class='unless unless kw'>unless</span> <span class='ClassesForKeyType constant id'>ClassesForKeyType</span><span class='lbrack token'>[</span><span class='key_type identifier id'>key_type</span><span class='rbrack token'>]</span><span class='dot token'>.</span><span class='include? fid id'>include?</span> <span class='value identifier id'>value</span><span class='dot token'>.</span><span class='class identifier id'>class</span>
     <span class='raise identifier id'>raise</span> <span class='dstring node'>&quot;Key: #{key}, value: #{value.inspect} is of type #{value.class}. Should be: #{ClassesForKeyType[key_type].join &quot;, &quot;}&quot;</span>
   <span class='end end kw'>end</span>
@@ -889,89 +849,12 @@ Class mistmatch
 </div>
 
     
-      <div class="method_details " id="value_of-instance_method">
-  <p class="signature "">
-  
-    - (<tt><a href="../Object.html" target="_self" title="Object (class)">Object</a></tt>) <strong>value_of</strong>(key) 
-  
-
-  
-</p><div class="docstring">
-  <div class="discussion">
-    <p>
-Return the value of an existing plist key
-</p>
-
-
-  </div>
-</div>
-<div class="tags">
-  
-  <div class="examples">
-    <h3>Examples:</h3>
-    
-      <h4><div class='inline'></div></h4>
-      <pre class="example code"><span class='plist identifier id'>plist</span><span class='dot token'>.</span><span class='value_of identifier id'>value_of</span> <span class='string val'>&quot;CFBundleIdentifier&quot;</span>
-<span class='comment val'># =&gt; &quot;com.apple.myapp&quot;</span>
-</pre>
-    
-  </div>
-<h3>Returns:</h3>
-<ul class="return">
-  
-    <li>
-      
-        <span class='type'></span>
-      
-      
-      
-      
-        
-        <div class='inline'><p>
-The key&#8217;s current value, at the time this method was called
-</p>
-</div>
-      
-    </li>
-  
-</ul>
-
-  <h3>See Also:</h3>
-  <ul class="see">
-    
-      <li><a href="#set_or_return-instance_method" target="_self" title="Plist4r::DataMethods#set_or_return (method)">#set_or_return</a></li>
-    
-  </ul>
-
-</div><table class="source_code">
-  <tr>
-    <td>
-      <pre class="lines">
-
-
-198
-199
-200</pre>
-    </td>
-    <td>
-      <pre class="code"><span class="info file"># File 'lib/plist4r/mixin/data_methods.rb', line 198</span>
-
-<span class='def def kw'>def</span> <span class='value_of identifier id'>value_of</span> <span class='key identifier id'>key</span>
-  <span class='set_or_return identifier id'>set_or_return</span> <span class='key identifier id'>key</span>
-<span class='end end kw'>end</span>
-</pre>
-    </td>
-  </tr>
-</table>
-</div>
-
-    
   </div>
 
 </div>
     
     <div id="footer">
-  Generated on Sun Jul 11 11:03:30 2010 by 
+  Generated on Sat Jul 17 12:03:51 2010 by 
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool">yard</a>
   0.5.8  and the 
   <a href="http://github.com/dreamcat4/yard-slipstream">yard-slipstream</a> plugin

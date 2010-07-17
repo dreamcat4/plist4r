@@ -370,7 +370,7 @@ the object that the method was called on
   <span class='@__loaded_features ivar id'>@__loaded_features</span> <span class='assign token'>=</span> <span class='lbrace token'>{</span><span class='rbrace token'>}</span>
 
   <span class='yield yield kw'>yield</span> <span class='self self kw'>self</span> <span class='if if_mod kw'>if</span> <span class='block_given? fid id'>block_given?</span>
-  <span class='load_in_module identifier id'>load_in_module</span><span class='lparen token'>(</span><span class='main_file identifier id'>main_file</span><span class='rparen token'>)</span>
+  <span class='load_in_module identifier id'>load_in_module</span><span class='lparen token'>(</span><span class='@__main_file ivar id'>@__main_file</span><span class='rparen token'>)</span>
 <span class='end end kw'>end</span>
 </pre>
     </td>
@@ -434,7 +434,7 @@ from those sub files.
       <pre class="code"><span class="info file"># File 'lib/plist4r/mixin/script.rb', line 57</span>
 
 <span class='def def kw'>def</span> <span class='load identifier id'>load</span><span class='lparen token'>(</span><span class='file identifier id'>file</span><span class='comma token'>,</span> <span class='wrap identifier id'>wrap</span> <span class='assign token'>=</span> <span class='false false kw'>false</span><span class='rparen token'>)</span>
-  <span class='load_in_module identifier id'>load_in_module</span><span class='lparen token'>(</span><span class='File constant id'>File</span><span class='dot token'>.</span><span class='join identifier id'>join</span><span class='lparen token'>(</span><span class='@__dir ivar id'>@__dir</span><span class='comma token'>,</span> <span class='file identifier id'>file</span><span class='rparen token'>)</span><span class='rparen token'>)</span>
+  <span class='load_in_module identifier id'>load_in_module</span><span class='lparen token'>(</span><span class='file identifier id'>file</span><span class='rparen token'>)</span>
   <span class='true true kw'>true</span>
 <span class='rescue rescue kw'>rescue</span> <span class='MissingFile constant id'>MissingFile</span>
   <span class='super super kw'>super</span>
@@ -483,14 +483,16 @@ Called by #load and #require; not normally called directly.
 100
 101
 102
-103</pre>
+103
+104</pre>
     </td>
     <td>
       <pre class="code"><span class="info file"># File 'lib/plist4r/mixin/script.rb', line 92</span>
 
 <span class='def def kw'>def</span> <span class='load_in_module identifier id'>load_in_module</span><span class='lparen token'>(</span><span class='__file__ identifier id'>__file__</span><span class='rparen token'>)</span>
+  <span class='__file__ identifier id'>__file__</span> <span class='assign token'>=</span> <span class='File constant id'>File</span><span class='dot token'>.</span><span class='expand_path identifier id'>expand_path</span><span class='lparen token'>(</span><span class='__file__ identifier id'>__file__</span><span class='comma token'>,</span> <span class='@__dir ivar id'>@__dir</span><span class='rparen token'>)</span>
   <span class='module_eval identifier id'>module_eval</span><span class='lparen token'>(</span><span class='string val'>&quot;@__script_scope ||= binding\n&quot;</span> <span class='plus op'>+</span> <span class='IO constant id'>IO</span><span class='dot token'>.</span><span class='read identifier id'>read</span><span class='lparen token'>(</span><span class='__file__ identifier id'>__file__</span><span class='rparen token'>)</span><span class='comma token'>,</span>
-    <span class='File constant id'>File</span><span class='dot token'>.</span><span class='expand_path identifier id'>expand_path</span><span class='lparen token'>(</span><span class='__file__ identifier id'>__file__</span><span class='rparen token'>)</span><span class='comma token'>,</span> <span class='integer val'>0</span><span class='rparen token'>)</span>
+    <span class='__file__ identifier id'>__file__</span><span class='comma token'>,</span> <span class='integer val'>0</span><span class='rparen token'>)</span>
     <span class='comment val'># start numbering at 0 because of the extra line.</span>
     <span class='comment val'># The extra line does nothing in sub-script files.</span>
 <span class='rescue rescue kw'>rescue</span> <span class='Errno constant id'>Errno</span><span class='colon2 op'>::</span><span class='ENOENT constant id'>ENOENT</span>
@@ -558,7 +560,7 @@ argument is an extension or is not found locally.
 <span class='def def kw'>def</span> <span class='require identifier id'>require</span><span class='lparen token'>(</span><span class='feature identifier id'>feature</span><span class='rparen token'>)</span>
   <span class='unless unless kw'>unless</span> <span class='@__loaded_features ivar id'>@__loaded_features</span><span class='lbrack token'>[</span><span class='feature identifier id'>feature</span><span class='rbrack token'>]</span>
     <span class='@__loaded_features ivar id'>@__loaded_features</span><span class='lbrack token'>[</span><span class='feature identifier id'>feature</span><span class='rbrack token'>]</span> <span class='assign token'>=</span> <span class='true true kw'>true</span>
-    <span class='file identifier id'>file</span> <span class='assign token'>=</span> <span class='File constant id'>File</span><span class='dot token'>.</span><span class='join identifier id'>join</span><span class='lparen token'>(</span><span class='@__dir ivar id'>@__dir</span><span class='comma token'>,</span> <span class='feature identifier id'>feature</span><span class='rparen token'>)</span>
+    <span class='file identifier id'>file</span> <span class='assign token'>=</span> <span class='feature identifier id'>feature</span>
     <span class='file identifier id'>file</span> <span class='opasgn op'>+=</span> <span class='string val'>&quot;.rb&quot;</span> <span class='unless unless_mod kw'>unless</span> <span class='regexp val'>/\.rb$/</span> <span class='match op'>=~</span> <span class='file identifier id'>file</span>
     <span class='load_in_module identifier id'>load_in_module</span><span class='lparen token'>(</span><span class='file identifier id'>file</span><span class='rparen token'>)</span>
   <span class='end end kw'>end</span>
@@ -597,12 +599,12 @@ argument is an extension or is not found locally.
       <pre class="lines">
 
 
-105
 106
-107</pre>
+107
+108</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/plist4r/mixin/script.rb', line 105</span>
+      <pre class="code"><span class="info file"># File 'lib/plist4r/mixin/script.rb', line 106</span>
 
 <span class='def def kw'>def</span> <span class='to_s identifier id'>to_s</span> 
   <span class='dstring node'>&quot;#&lt;#{self.class}:#{File.join(__dir, File.basename(__main_file))}&gt;&quot;</span>
@@ -619,7 +621,7 @@ argument is an extension or is not found locally.
 </div>
     
     <div id="footer">
-  Generated on Sun Jul 11 11:03:34 2010 by 
+  Generated on Sat Jul 17 12:03:56 2010 by 
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool">yard</a>
   0.5.8  and the 
   <a href="http://github.com/dreamcat4/yard-slipstream">yard-slipstream</a> plugin
