@@ -2,17 +2,23 @@
 require 'plist4r/backend_base'
 require 'plist4r/backend/c_f_property_list/rbCFPropertyList'
 
+# C.Kruse's CFPropertyList Library. Used by {Plist4r::Backend::CFPropertyList}
+# @author Christian Kruse (http://github.com/ckruse)
+module CFPropertyList
+end
+
+# Source: http://github.com/ckruse/CFPropertyList
+# 
 # C.Kruse's CFPropertyList is an independant Ruby Library and written natively in Ruby.
 # Supports binary and xml format property lists. With a dependency on libxml-ruby
 # for reading/writing the xml plists.
 # @author Christian Kruse (http://github.com/ckruse)
 module Plist4r::Backend::CFPropertyList
   class << self
-
     def from_string plist
-      cf_plist = Plist4r::Backend::CFPropertyList::List.new
+      cf_plist = CFPropertyList::List.new
       cf_plist.load_str(plist.from_string)
-      ruby_object = Plist4r::Backend::CFPropertyList.native_types(cf_plist.value)
+      ruby_object = CFPropertyList.native_types(cf_plist.value)
 
       hash_obj = nil
       if ruby_object.is_a? Hash
@@ -41,15 +47,15 @@ module Plist4r::Backend::CFPropertyList
     end
 
     def to_xml plist
-      cf_plist = Plist4r::Backend::CFPropertyList::List.new
-      cf_plist.value = Plist4r::Backend::CFPropertyList.guess(plist.to_hash)
-      return cf_plist.to_str(Plist4r::Backend::CFPropertyList::List::FORMAT_XML)
+      cf_plist = CFPropertyList::List.new
+      cf_plist.value = CFPropertyList.guess(plist.to_hash)
+      return cf_plist.to_str(CFPropertyList::List::FORMAT_XML)
     end
 
     def to_binary plist
-      cf_plist = Plist4r::Backend::CFPropertyList::List.new
-      cf_plist.value = Plist4r::Backend::CFPropertyList.guess(plist.to_hash)
-      return cf_plist.to_str(Plist4r::Backend::CFPropertyList::List::FORMAT_BINARY)
+      cf_plist = CFPropertyList::List.new
+      cf_plist.value = CFPropertyList.guess(plist.to_hash)
+      return cf_plist.to_str(CFPropertyList::List::FORMAT_BINARY)
     end
 
   end
