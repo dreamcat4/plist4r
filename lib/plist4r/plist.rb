@@ -3,16 +3,18 @@ require 'plist4r/mixin/ordered_hash'
 require 'plist4r/mixin/ruby_stdlib'
 require 'plist4r/plist_cache'
 require 'plist4r/plist_type'
-Dir.glob(File.dirname(__FILE__) + "/plist_type/**/*.rb").each {|t| require File.expand_path t}
+Dir.glob(File.dirname(__FILE__) + "/plist_type/*.rb").each {|t| require File.expand_path t}
 # require 'plist4r/backend'
 
 module Plist4r
+  # See {file:README} and {file:InfoPlistExample} for usage examples. Also see {file:EditingPlistFiles}
   class Plist
     # Recognised keys of the options hash. Passed when instantiating a new Plist Object
     # @see #initialize
     # @see #parse_opts
     OptionsHash = %w[filename path file_format plist_type strict_keys backends from_string]
-    # The plist file formats, written as symbols. 
+
+    # The plist file formats, written as symbols.
     # @see #file_format
     FileFormats      = %w[binary xml gnustep]
 
@@ -86,7 +88,7 @@ module Plist4r
       end
     end
 
-    # Set or return the filename attribute of the plist object.
+    # Set or return the filename attribute of the plist object. Used in cojunction with the {#path} attribute
     # @param [String] filename either a relative path or absolute
     # @return The plist's filename
     # @see Plist::Plist#open
@@ -160,7 +162,7 @@ module Plist4r
     # using an algorithm that stats the plist data. The plist types with the highest stat (score) 
     # is chosen to be the object's "Plist Type".
     # @see Plist4r::PlistType
-    # @return [true] always
+    # @return The plist's known type, written as a symbol. Will be a sublcass of Plist4r::PlistType. Defaults to :plist
     def detect_plist_type
       stat_m = {}
       stat_r = {}
@@ -170,6 +172,7 @@ module Plist4r
           t = eval "::Plist4r::PlistType::#{t.to_s.camelcase}"
         when Class
           t = t
+        when nil
         else
           raise "Unrecognized plist type: #{t.inspect}"
         end
@@ -204,7 +207,8 @@ module Plist4r
       begin
         case plist_type
         when Class
-          unless plist_type.is_a? ::Plist4r::PlistType
+          # unless plist_type.is_a? ::Plist4r::PlistType # .is_a? returns false in spec
+          unless plist_type.ancestors.include? Plist4r::PlistType
             raise "Unrecognized Plist type. Class #{plist_type.inspect} isnt inherited from ::Plist4r::PlistType"
           end
         when Symbol, String
@@ -251,8 +255,9 @@ module Plist4r
         @backends = backends.collect do |b| 
           case b
           when Symbol, String
-            eval "::Plist4r::Backend::#{b.to_s.camelcase}"
+            eval "Plist4r::Backend::#{b.to_s.camelcase}"
             b.to_sym
+          when nil
           else
             raise "Backend #{b.inspect} is of unsupported type: #{b.class}"
           end
@@ -272,14 +277,14 @@ module Plist4r
       OptionsHash.each do |opt|
         if opts[opt.to_sym]
           value = opts[opt.to_sym]
-          eval "self.#{opt}(value)"
+          self.send opt, value
         end
       end
     end
 
     # Opens a plist file
     # 
-    # @param [String] filename plist file to load. Uses the @filename attribute when nil
+    # @param [String] filename plist file to load. Uses the {#filename} attribute when nil
     # @return [Plist4r::Plist] The loaded Plist object
     # @example Load from file
     # plist = Plist4r.new
@@ -293,7 +298,7 @@ module Plist4r
     # An alias of {#edit}
     # @example
     #  plist.<< do
-    #    set "PFReleaseVersion" "0.1.1"
+    #    store "PFReleaseVersion" "0.1.1"
     #  end
     # @see #edit
     def << *args, &blk
@@ -302,35 +307,35 @@ module Plist4r
 
     # Edit a plist object. Set or return plist keys. Add or remove a selection of keys.
     # Plist key accessor methods are snake-cased versions of the key string.
-    # @example Set some arbitrary keys and values via {DataMethods#set}
+    # @example Edit some keys and values with {#[]} and {#store}
     #  plist.edit do
-    #    set "PFInstance" "4982394823"
-    #    set "PFReleaseVersion" "0.1.1"
+    #    store "PFInstance" "4982394823"
+    #    store "PFReleaseVersion" "0.1.1"
     #  end
-    # @example Retrieve, and modify a plist key, value pair, with {DataMethods#set} and {DataMethods#value_of}
+    # 
     #  plist.edit do
-    #    new_ver = value_of("PFReleaseVersion") + 0.1
-    #    set "PFReleaseVersion" new_ver
+    #    new_ver = self["PFReleaseVersion"] + 0.1
+    #    store "PFReleaseVersion" new_ver
     #  end
-    # @example Modify a Launchd plist, by camel-cased accessor methods
+    # @example Edit with implicit methods. Calls method_missing()
     #  plist.edit do
-    #    new_ver = value_of("PFReleaseVersion") + 0.1
-    #    set "PFReleaseVersion" new_ver
+    #    new_ver = p_f_release_version + 0.1
+    #    p_f_release_version(new_ver)
     #  end
     def edit *args, &blk
       @plist_type.hash @hash
       instance_eval *args, &blk
-      detect_plist_type
+      detect_plist_type if plist_type == :plist
     end
   
     # Pass down unknown method calls to the selected plist_type, to set or return plist keys.
     # All plist data manipulation API is called through method_missing -> PlistType -> DataMethods.
-    # @example This will actually call {DataMethods#set}
-    # plist.set "CFBundleVersion" "0.1.0"
+    # @example This will actually call {DataMethods#method_missing}
+    # plist.store "CFBundleVersion" "0.1.0"
     # @see Plist4r::DataMethods#method_missing
     # @see #plist_type
     def method_missing method_sym, *args, &blk
-      @plist_type.send method_sym, *args, &blk
+      @plist_type.method_missing method_sym, *args, &blk
     end
   
     # Backend method to set or return all new plist data resulting from a backend API. Used in load operations.
@@ -347,11 +352,204 @@ module Plist4r
         raise "Please use ::Plist4r::OrderedHash.new for your hashes"
       end
     end
-  
-    # The primary storage object for plist data
+
+    # Element Reference — Retrieve the value object corresponding to the key object. If not found, returns nil
+    # @param [Symbol, String] key The plist key name, either a snake-cased symbol, or literal string
+    # @return The value associated with the plist key
+    # @example
+    #   plist["CFBundleIdentifier"]   # => "com.apple.myapp"
+    # @example
+    #   plist[:c_f_bundle_identifier] # => "com.apple.myapp"
+    def [] key
+      @plist_type.set_or_return key
+    end
+
+
+    # Element Assignment — Assign a value to the given plist key
+    # @param [Symbol, String] key The plist key name, either a snake-cased symbol, or literal string
+    # @param value The value to store under the plist key name
+    # @example
+    #   plist["CFBundleIdentifier"]   = "com.apple.myapp"
+    # @example
+    #   plist[:c_f_bundle_identifier] = "com.apple.myapp"
+    def []= key, value
+      store key, value
+    end
+
+    # Element Assignment — Assign a value to the given plist key
+    # @param [Symbol, String] key The plist key name, either a snake-cased symbol, or literal string
+    # @param value The value to store under the plist key name
+    # @example
+    #   plist.store "CFBundleIdentifier",   "com.apple.myapp"
+    # @example
+    #   plist.store :c_f_bundle_identifier, "com.apple.myapp"
+    def store key, value
+      @plist_type.set_or_return key, value
+    end
+
+    # Element selection - Keep selected plist keys and discard others.
+    # @param [Array, *args] keys List of Plist Keys to keep. Can be an array, or method argument list
+    # @yield Keep every key-value pair for which the passed block evaluates to true. Works as per the ruby core classes Hash#select method
+    def select *keys, &blk
+      if block_given?
+        a = @hash.select &blk
+        old_hash = @hash.deep_clone
+        clear
+        a.each do |pair|
+          store pair[0], pair[1]
+        end
+        keys.each do |k|
+          store k, old_hash[k]
+        end
+      else
+        @plist_type.array_dict :select, *keys
+      end
+    end
+
+    # Invokes block &blk once for each key-value pair in plist. Similar to the ruby core classes Array#map.
+    # Replaces the plist keys and values with the [key,value] pairs returned by &blk.
+    # @yield For each iteration of the block, must return a 2-element Array which is a [key,value] pair to replace the original [key,value] pair from the plist.
+    # Key names can be given as either snake_case'd Symbol or camelcased String
+    def map &blk
+      if block_given?
+        old_hash = @hash.deep_clone
+        clear
+
+        old_hash.each do |k,v|
+          pair = yield k,v
+          case pair
+          when Array
+            store pair[0], pair[1]
+          when nil
+          else
+            raise "The supplied block must return plist [key, value] pairs, or nil"
+          end
+        end
+      else
+        raise "No block given"
+      end
+    end
+
+    # Alias for {#map}
+    def collect &blk
+      map &blk
+    end
+
+    # Alias for {#delete}
+    def unselect *keys
+      delete *keys
+    end
+
+    # Delete plist keys from the object.
+    # @param [Array, *args] keys The list of Plist Keys to delete unconditionally. Can be an array, or argument list
+    # Key names can be given as either snake_case'd Symbol or camelcased String
+    # @example
+    #   plist.delete :c_f_bundle_identifier
+    def delete *keys
+      @plist_type.array_dict :unselect, *keys
+    end
+
+    # Conditionally delete plist keys from the object.
+    # @param [Array, *args] keys The list of Plist Keys to delete unconditionally. Can be an array, or argument list
+    # @yield Delete a key-value pair if block evaluates to true.
+    # @example
+    #   plist.delete_if "CFBundleIdentifier"
+    # @example
+    #   plist.delete_if { |k,v| k.length > 20 }
+    # @example
+    #   plist.delete_if { |k,v| k =~ /Identifier/ }
+    def delete_if *keys, &blk
+      delete *keys
+      @hash.delete_if &blk
+      @plist_type.hash @hash
+    end
+
+    # Clears all plist keys and their contents
+    # @example
+    #   plist.clear
+    #   plist.size # => 0
+    def clear
+      @plist_type.array_dict :unselect_all
+    end
+
+    # Merge together plist objects.
+    # Adds the contents of other_plist to the current object, overwriting any entries of the same key name with those from other_plist.
+    # Other attributes (filename, plist_type, file_format, etc) remain unaffected
+    # @param [Plist4r::Plist] other_plist The other plist to merge with
+    def merge! other_plist
+      if plist_type == other_plist.plist_type
+        @hash.merge! other_plist.to_hash
+        @plist_type.hash @hash
+      else
+        raise "plist_type differs, one is #{plist_type.inspect}, and the other is #{plist.plist_type.inspect}"
+      end
+      self
+    end
+
+    # Check if key exists in plist
+    # This is equivalent to the ruby core classes method Hash#include?
+    # @param [String, Symbol] key The plist key name
+    # @return [true,false] True if the plist has the specified key
+    def include? key
+      key.to_s.camelcase if key.class == Symbol
+      @hash.include? key
+    end
+
+    # Alias of {#include?}
+    # @param [String, Symbol] key The plist key name
+    # @return [true,false] True if the plist has the specified key
+    def has_key? key
+      key.to_s.camelcase if key.class == Symbol
+      @hash.has_key? key
+    end
+
+    # This is equivalent to the ruby core classes method Array#empty?
+    def empty?
+      @hash.empty?
+    end
+
+    # This is equivalent to the ruby core classes method Hash#each
+    # @yield A block to execute for each key, value pair in plist
+    # @example
+    #   plist.each do |k,v|
+    #     puts "key = #{k.inspect}, value = #{v.inspect}"
+    #   end
+    def each &blk
+      @hash.each &blk
+    end
+
+    # This is equivalent to the ruby core classes method Array#length
+    # @example
+    #   plist.length # => 14
+    def length
+      @hash.length
+    end
+
+    # This is equivalent to the ruby core classes method Array#size
+    #   plist.size # => 14
+    def size
+      @hash.size
+    end
+
+    # This is equivalent to the ruby core classes method Hash#keys
+    # @example
+    #   plist.keys # => ["Key1", "Key2", "Key3", "etc.."]
+    # @return [Array <String, Symbol>] The keys of the plist
+    def keys
+      @hash.keys
+    end
+
+    # The internal data storage object for the plist data
     # 
-    # @return [::Plist4r::OrderedHash] Nested hash of ruby objects. The raw Plist data
-    # @see ::Plist4r::OrderedHash
+    # This is a pretty standard (either ActiveSupport or Ruby 1.9) ordered hash.
+    # Key names - regular ruby strings of arbitrary length.
+    # 
+    # Values - Must only store generic Ruby objects data such as TrueClass, FalseClass, Integer, Float, String, Time, Array, Hash, and Data
+    # 
+    # Data (NSData / CFData) - see {file:EditingPlistFiles}
+    # 
+    # @return [Plist4r::OrderedHash] Nested hash of ruby objects. The raw Plist data
+    # @see Plist4r::OrderedHash
     # @example 
     # plist = "{ \"key1\" = \"value1\"; \"key2\" = \"value2\"; }".to_plist
     # plist.to_hash => {"key1"=>"value1", "key2"=>"value2"}
@@ -359,7 +557,17 @@ module Plist4r
       @hash
     end
 
-    # Calls out to the plist cache
+    # # The internal ruby data representation for the plist data.
+    # # This is a pretty standard (either ActiveSupport or Ruby 1.9) ordered hash.
+    # # Key names - regular ruby strings of arbitrary length.
+    # # Values - Must only store generic Ruby objects data such as TrueClass, FalseClass, Integer, Float, String, Time, Array, Hash, and Data
+    # # @return [Plist4r::OrderedHash] Nested hash of ruby objects. The raw Plist data
+    # def hash
+    #   @hash
+    # end
+
+    # Export the plist to xml string representation.
+    # Calls through the plist cache
     # 
     # @return [String] An xml string which represents the entire plist, as would be the plist xml file
     # @example 
@@ -369,8 +577,12 @@ module Plist4r
     def to_xml
       @plist_cache.to_xml
     end
-  
-    # @example 
+
+    # Write out a binary string representation of the plist
+    # 
+    # Looking for how to store a bytestream in CFData / NSData? See {file:EditingPlistFiles}
+    # 
+    # @example
     # plist = "{ \"key1\" = \"value1\"; \"key2\" = \"value2\"; }".to_plist
     # plist.to_binary
     #  => "bplist00\322\001\002\003\004Tkey2Tkey1Vvalue2Vvalue1\b\r\022\027\036\000\000\000\000\000\000\001\001\000\000\000\000\000\000\000\005\000\000\000\000\000\000\000\000\000\000\000\000\000\000\000%"
@@ -378,23 +590,21 @@ module Plist4r
       @plist_cache.to_binary
     end
 
-    # @todo Needs a backend
-    #   We are missing a backend for writing out :gnustep strings and saving :gnustep files to disk
+    # We are missing a backend for writing out plist strings in Gnustep / Nextstep / Openstep format. Contributions appreciated.
     def to_gnustep
       @plist_cache.to_gnustep
     end
   
-    # Save plist to #filename
+    # Save plist to {#filename_path}
     # @raise [RuntimeError] if the {#filename} attribute is nil
-    # @see #filename
-    # @see #path
+    # @see #filename_path
     def save
       raise "No filename specified" unless @filename
       @plist_cache.save
     end
   
     # Save the plist under a new filename
-    # @param [String] filename The new file name to save as. If a relative path, will be concactenated to plist.path
+    # @param [String] filename The new file name to save as. If relative, will be appended to {#path}
     # @see #save
     def save_as filename
       @filename = filename
