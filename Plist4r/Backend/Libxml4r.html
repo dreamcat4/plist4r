@@ -173,15 +173,15 @@ Dreamcat4 (dreamcat4@gmail.com)
       <pre class="lines">
 
 
-110
-111
-112
-113
-114
-115</pre>
+87
+88
+89
+90
+91
+92</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/plist4r/backend/libxml4r.rb', line 110</span>
+      <pre class="code"><span class="info file"># File 'lib/plist4r/backend/libxml4r.rb', line 87</span>
 
 <span class='def def kw'>def</span> <span class='from_xml identifier id'>from_xml</span> <span class='plist identifier id'>plist</span>
   <span class='hash identifier id'>hash</span> <span class='assign token'>=</span> <span class='parse_plist_xml identifier id'>parse_plist_xml</span> <span class='plist identifier id'>plist</span><span class='dot token'>.</span><span class='from_string identifier id'>from_string</span>
@@ -209,33 +209,29 @@ Dreamcat4 (dreamcat4@gmail.com)
       <pre class="lines">
 
 
-89
-90
-91
-92
-93
-94
-95
-96
-97
-98
-99
-100
-101
-102
-103
-104
-105
-106
-107
-108</pre>
+68
+69
+70
+71
+72
+73
+74
+75
+76
+77
+78
+79
+80
+81
+82
+83
+84
+85</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/plist4r/backend/libxml4r.rb', line 89</span>
+      <pre class="code"><span class="info file"># File 'lib/plist4r/backend/libxml4r.rb', line 68</span>
 
 <span class='def def kw'>def</span> <span class='parse_plist_xml identifier id'>parse_plist_xml</span> <span class='string identifier id'>string</span>
-  <span class='require identifier id'>require</span> <span class='string val'>'libxml4r'</span>
-
   <span class='colon3 op'>::</span><span class='LibXML constant id'>LibXML</span><span class='colon2 op'>::</span><span class='XML constant id'>XML</span><span class='dot token'>.</span><span class='default_keep_blanks identifier id'>default_keep_blanks</span> <span class='assign token'>=</span> <span class='false false kw'>false</span>
   <span class='doc identifier id'>doc</span> <span class='assign token'>=</span> <span class='string identifier id'>string</span><span class='dot token'>.</span><span class='to_xmldoc identifier id'>to_xmldoc</span>
   <span class='doc identifier id'>doc</span><span class='dot token'>.</span><span class='strip! fid id'>strip!</span>
@@ -273,6 +269,15 @@ Dreamcat4 (dreamcat4@gmail.com)
       <pre class="lines">
 
 
+41
+42
+43
+44
+45
+46
+47
+48
+49
 50
 51
 52
@@ -289,31 +294,10 @@ Dreamcat4 (dreamcat4@gmail.com)
 63
 64
 65
-66
-67
-68
-69
-70
-71
-72
-73
-74
-75
-76
-77
-78
-79
-80
-81
-82
-83
-84
-85
-86
-87</pre>
+66</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/plist4r/backend/libxml4r.rb', line 50</span>
+      <pre class="code"><span class="info file"># File 'lib/plist4r/backend/libxml4r.rb', line 41</span>
 
 <span class='def def kw'>def</span> <span class='tree_array identifier id'>tree_array</span> <span class='n identifier id'>n</span>
   <span class='array identifier id'>array</span> <span class='assign token'>=</span> <span class='lbrack token'>[</span><span class='rbrack token'>]</span>
@@ -326,29 +310,17 @@ Dreamcat4 (dreamcat4@gmail.com)
     <span class='when when kw'>when</span> <span class='string val'>&quot;integer&quot;</span>
       <span class='array identifier id'>array</span> <span class='lshft op'>&lt;&lt;</span> <span class='node identifier id'>node</span><span class='dot token'>.</span><span class='inner_xml identifier id'>inner_xml</span><span class='dot token'>.</span><span class='to_i identifier id'>to_i</span>
     <span class='when when kw'>when</span> <span class='string val'>&quot;real&quot;</span>
-      <span class='hash identifier id'>hash</span><span class='lbrack token'>[</span><span class='k identifier id'>k</span><span class='rbrack token'>]</span> <span class='assign token'>=</span> <span class='vnode identifier id'>vnode</span><span class='dot token'>.</span><span class='inner_xml identifier id'>inner_xml</span><span class='dot token'>.</span><span class='to_f identifier id'>to_f</span>
+      <span class='array identifier id'>array</span> <span class='lshft op'>&lt;&lt;</span> <span class='node identifier id'>node</span><span class='dot token'>.</span><span class='inner_xml identifier id'>inner_xml</span><span class='dot token'>.</span><span class='to_f identifier id'>to_f</span>
     <span class='when when kw'>when</span> <span class='string val'>&quot;date&quot;</span>
-      <span class='require identifier id'>require</span> <span class='string val'>'date'</span>
-      <span class='hash identifier id'>hash</span><span class='lbrack token'>[</span><span class='k identifier id'>k</span><span class='rbrack token'>]</span> <span class='assign token'>=</span> <span class='Time constant id'>Time</span><span class='dot token'>.</span><span class='parse identifier id'>parse</span> <span class='vnode identifier id'>vnode</span><span class='dot token'>.</span><span class='inner_xml identifier id'>inner_xml</span>
+      <span class='array identifier id'>array</span> <span class='lshft op'>&lt;&lt;</span> <span class='Time constant id'>Time</span><span class='dot token'>.</span><span class='parse identifier id'>parse</span><span class='lparen token'>(</span><span class='node identifier id'>node</span><span class='dot token'>.</span><span class='inner_xml identifier id'>inner_xml</span><span class='rparen token'>)</span>
     <span class='when when kw'>when</span> <span class='string val'>&quot;data&quot;</span>
-      <span class='require identifier id'>require</span> <span class='string val'>'base64'</span>
-      <span class='data identifier id'>data</span> <span class='assign token'>=</span> <span class='Base64 constant id'>Base64</span><span class='dot token'>.</span><span class='decode64 identifier id'>decode64</span><span class='lparen token'>(</span><span class='vnode identifier id'>vnode</span><span class='dot token'>.</span><span class='inner_xml identifier id'>inner_xml</span><span class='dot token'>.</span><span class='gsub identifier id'>gsub</span><span class='lparen token'>(</span><span class='regexp val'>/\s+/</span><span class='comma token'>,</span> <span class='string val'>''</span><span class='rparen token'>)</span><span class='rparen token'>)</span>
-      <span class='obj identifier id'>obj</span> <span class='assign token'>=</span> <span class='nil nil kw'>nil</span>
-      <span class='begin begin kw'>begin</span>
-        <span class='obj identifier id'>obj</span> <span class='assign token'>=</span> <span class='Marshal constant id'>Marshal</span><span class='dot token'>.</span><span class='load identifier id'>load</span><span class='lparen token'>(</span><span class='data identifier id'>data</span><span class='rparen token'>)</span>
-        <span class='hash identifier id'>hash</span><span class='lbrack token'>[</span><span class='k identifier id'>k</span><span class='rbrack token'>]</span> <span class='assign token'>=</span> <span class='obj identifier id'>obj</span>
-      <span class='rescue rescue kw'>rescue</span> <span class='Exception constant id'>Exception</span> <span class='assign token'>=</span><span class='gt op'>&gt;</span> <span class='e identifier id'>e</span>
-        <span class='io identifier id'>io</span> <span class='assign token'>=</span> <span class='StringIO constant id'>StringIO</span><span class='dot token'>.</span><span class='new identifier id'>new</span>
-        <span class='io identifier id'>io</span><span class='dot token'>.</span><span class='write identifier id'>write</span> <span class='data identifier id'>data</span>
-        <span class='io identifier id'>io</span><span class='dot token'>.</span><span class='rewind identifier id'>rewind</span>
-        <span class='hash identifier id'>hash</span><span class='lbrack token'>[</span><span class='k identifier id'>k</span><span class='rbrack token'>]</span> <span class='assign token'>=</span> <span class='io identifier id'>io</span>
-      <span class='end end kw'>end</span>
+      <span class='bstr identifier id'>bstr</span> <span class='assign token'>=</span> <span class='bstr identifier id'>bstr</span> <span class='assign token'>=</span> <span class='Base64 constant id'>Base64</span><span class='dot token'>.</span><span class='decode64 identifier id'>decode64</span><span class='lparen token'>(</span><span class='node identifier id'>node</span><span class='dot token'>.</span><span class='inner_xml identifier id'>inner_xml</span><span class='rparen token'>)</span>
+      <span class='bstr identifier id'>bstr</span><span class='dot token'>.</span><span class='blob identifier id'>blob</span> <span class='assign token'>=</span> <span class='true true kw'>true</span>
+      <span class='array identifier id'>array</span> <span class='lshft op'>&lt;&lt;</span> <span class='bstr identifier id'>bstr</span>
     <span class='when when kw'>when</span> <span class='string val'>&quot;array&quot;</span>
       <span class='array identifier id'>array</span> <span class='lshft op'>&lt;&lt;</span> <span class='tree_array identifier id'>tree_array</span><span class='lparen token'>(</span><span class='node identifier id'>node</span><span class='rparen token'>)</span>
     <span class='when when kw'>when</span> <span class='string val'>&quot;dict&quot;</span>
       <span class='array identifier id'>array</span> <span class='lshft op'>&lt;&lt;</span> <span class='tree_hash identifier id'>tree_hash</span><span class='lparen token'>(</span><span class='node identifier id'>node</span><span class='rparen token'>)</span>
-    <span class='else else kw'>else</span>
-      <span class='raise identifier id'>raise</span> <span class='dstring node'>&quot;Unsupported / not recognized plist key: #{vnode.name}&quot;</span>
     <span class='end end kw'>end</span>
   <span class='end end kw'>end</span>
   <span class='return return kw'>return</span> <span class='array identifier id'>array</span>
@@ -373,9 +345,6 @@ Dreamcat4 (dreamcat4@gmail.com)
       <pre class="lines">
 
 
-8
-9
-10
 11
 12
 13
@@ -404,19 +373,10 @@ Dreamcat4 (dreamcat4@gmail.com)
 36
 37
 38
-39
-40
-41
-42
-43
-44
-45
-46
-47
-48</pre>
+39</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/plist4r/backend/libxml4r.rb', line 8</span>
+      <pre class="code"><span class="info file"># File 'lib/plist4r/backend/libxml4r.rb', line 11</span>
 
 <span class='def def kw'>def</span> <span class='tree_hash identifier id'>tree_hash</span> <span class='n identifier id'>n</span>
   <span class='hash identifier id'>hash</span> <span class='assign token'>=</span> <span class='colon3 op'>::</span><span class='Plist4r constant id'>Plist4r</span><span class='colon2 op'>::</span><span class='OrderedHash constant id'>OrderedHash</span><span class='dot token'>.</span><span class='new identifier id'>new</span>
@@ -434,27 +394,15 @@ Dreamcat4 (dreamcat4@gmail.com)
     <span class='when when kw'>when</span> <span class='string val'>&quot;real&quot;</span>
       <span class='hash identifier id'>hash</span><span class='lbrack token'>[</span><span class='k identifier id'>k</span><span class='rbrack token'>]</span> <span class='assign token'>=</span> <span class='vnode identifier id'>vnode</span><span class='dot token'>.</span><span class='inner_xml identifier id'>inner_xml</span><span class='dot token'>.</span><span class='to_f identifier id'>to_f</span>
     <span class='when when kw'>when</span> <span class='string val'>&quot;date&quot;</span>
-      <span class='require identifier id'>require</span> <span class='string val'>'date'</span>
       <span class='hash identifier id'>hash</span><span class='lbrack token'>[</span><span class='k identifier id'>k</span><span class='rbrack token'>]</span> <span class='assign token'>=</span> <span class='Time constant id'>Time</span><span class='dot token'>.</span><span class='parse identifier id'>parse</span> <span class='vnode identifier id'>vnode</span><span class='dot token'>.</span><span class='inner_xml identifier id'>inner_xml</span>
     <span class='when when kw'>when</span> <span class='string val'>&quot;data&quot;</span>
-      <span class='require identifier id'>require</span> <span class='string val'>'base64'</span>
-      <span class='data identifier id'>data</span> <span class='assign token'>=</span> <span class='Base64 constant id'>Base64</span><span class='dot token'>.</span><span class='decode64 identifier id'>decode64</span><span class='lparen token'>(</span><span class='vnode identifier id'>vnode</span><span class='dot token'>.</span><span class='inner_xml identifier id'>inner_xml</span><span class='dot token'>.</span><span class='gsub identifier id'>gsub</span><span class='lparen token'>(</span><span class='regexp val'>/\s+/</span><span class='comma token'>,</span> <span class='string val'>''</span><span class='rparen token'>)</span><span class='rparen token'>)</span>
-      <span class='obj identifier id'>obj</span> <span class='assign token'>=</span> <span class='nil nil kw'>nil</span>
-      <span class='begin begin kw'>begin</span>
-        <span class='obj identifier id'>obj</span> <span class='assign token'>=</span> <span class='Marshal constant id'>Marshal</span><span class='dot token'>.</span><span class='load identifier id'>load</span><span class='lparen token'>(</span><span class='data identifier id'>data</span><span class='rparen token'>)</span>
-        <span class='hash identifier id'>hash</span><span class='lbrack token'>[</span><span class='k identifier id'>k</span><span class='rbrack token'>]</span> <span class='assign token'>=</span> <span class='obj identifier id'>obj</span>
-      <span class='rescue rescue kw'>rescue</span> <span class='Exception constant id'>Exception</span> <span class='assign token'>=</span><span class='gt op'>&gt;</span> <span class='e identifier id'>e</span>
-        <span class='io identifier id'>io</span> <span class='assign token'>=</span> <span class='StringIO constant id'>StringIO</span><span class='dot token'>.</span><span class='new identifier id'>new</span>
-        <span class='io identifier id'>io</span><span class='dot token'>.</span><span class='write identifier id'>write</span> <span class='data identifier id'>data</span>
-        <span class='io identifier id'>io</span><span class='dot token'>.</span><span class='rewind identifier id'>rewind</span>
-        <span class='hash identifier id'>hash</span><span class='lbrack token'>[</span><span class='k identifier id'>k</span><span class='rbrack token'>]</span> <span class='assign token'>=</span> <span class='io identifier id'>io</span>
-      <span class='end end kw'>end</span>
+      <span class='bstr identifier id'>bstr</span> <span class='assign token'>=</span> <span class='Base64 constant id'>Base64</span><span class='dot token'>.</span><span class='decode64 identifier id'>decode64</span><span class='lparen token'>(</span><span class='vnode identifier id'>vnode</span><span class='dot token'>.</span><span class='inner_xml identifier id'>inner_xml</span><span class='rparen token'>)</span>
+      <span class='bstr identifier id'>bstr</span><span class='dot token'>.</span><span class='blob identifier id'>blob</span> <span class='assign token'>=</span> <span class='true true kw'>true</span>
+      <span class='hash identifier id'>hash</span><span class='lbrack token'>[</span><span class='k identifier id'>k</span><span class='rbrack token'>]</span> <span class='assign token'>=</span> <span class='bstr identifier id'>bstr</span>
     <span class='when when kw'>when</span> <span class='string val'>&quot;array&quot;</span>
       <span class='hash identifier id'>hash</span><span class='lbrack token'>[</span><span class='k identifier id'>k</span><span class='rbrack token'>]</span> <span class='assign token'>=</span> <span class='tree_array identifier id'>tree_array</span><span class='lparen token'>(</span><span class='vnode identifier id'>vnode</span><span class='rparen token'>)</span>
     <span class='when when kw'>when</span> <span class='string val'>&quot;dict&quot;</span>
       <span class='hash identifier id'>hash</span><span class='lbrack token'>[</span><span class='k identifier id'>k</span><span class='rbrack token'>]</span> <span class='assign token'>=</span> <span class='tree_hash identifier id'>tree_hash</span><span class='lparen token'>(</span><span class='vnode identifier id'>vnode</span><span class='rparen token'>)</span>
-    <span class='else else kw'>else</span>
-      <span class='raise identifier id'>raise</span> <span class='dstring node'>&quot;Unsupported / not recognized plist key: #{vnode.name}&quot;</span>
     <span class='end end kw'>end</span>
   <span class='end end kw'>end</span>
   <span class='return return kw'>return</span> <span class='hash identifier id'>hash</span>
@@ -471,7 +419,7 @@ Dreamcat4 (dreamcat4@gmail.com)
 </div>
     
     <div id="footer">
-  Generated on Sat Jul 17 13:03:19 2010 by 
+  Generated on Tue Jul 20 11:07:42 2010 by 
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool">yard</a>
   0.5.8  and the 
   <a href="http://github.com/dreamcat4/yard-slipstream">yard-slipstream</a> plugin

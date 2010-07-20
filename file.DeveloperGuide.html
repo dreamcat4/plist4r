@@ -98,16 +98,17 @@ plist format also goes by the names openstep, and nextstep)
   <span class='FileFormats constant id'>FileFormats</span> <span class='assign token'>=</span> <span class='dstring node'>%w[ binary xml gnustep ]</span>
 </pre>
 <p>
-And so a plist4r backend can implement any number of these 6 supported API
-methods
+A plist4r backend can implement any number of these 6 supported API methods
 </p>
 <pre class="code">
   <span class='ApiMethods constant id'>ApiMethods</span> <span class='assign token'>=</span> <span class='dstring node'>%w[ from_xml from_binary from_gnustep to_xml to_binary to_gnustep ]</span>
 </pre>
 <p>
-Other API methods are `generated` methods, which call upon the real backend
-API methods. Generally speaking, these methods should not be provided by a
-Plist4r backend
+Other API methods are &#8220;generated&#8221; methods, which translate the
+call onto real backend API methods. A good example is <tt>from_string()</tt>,
+which gets resolved to <tt>from_binary</tt> or <tt>from_xml</tt>. Generally
+speaking, those <tt><a href="Plist4r/Backend.html#PrivateApiMethods-constant" target="_self" title="Plist4r::Backend::PrivateApiMethods (constant)">Plist4r::Backend::PrivateApiMethods</a></tt> methods are cached and
+should not be provided by a Plist4r backend
 </p>
 <pre class="code">
   <span class='PrivateApiMethods constant id'>PrivateApiMethods</span> <span class='assign token'>=</span> <span class='dstring node'>%w[ from_string open save ]</span>
@@ -117,7 +118,7 @@ For backends performance data see <a href="file.Backends.html" target="_self" ti
 </p>
 <h2>Plist4r Types</h2>
 <p>
-A Plist type can be one of `%w[plist info launchd]`, and is the data type
+A Plist type can be one of <tt>%w[plist info launchd]</tt>, and is the data type
 for the whole plist file. A PlistType can provide special convenience
 methods for its Type-specific data structures. For example
 <tt><a href="Plist4r/PlistType/Launchd.html#socket-instance_method" target="_self" title="Plist4r::PlistType::Launchd#socket (method)">Plist4r::PlistType::Launchd#socket</a></tt>.
@@ -155,11 +156,14 @@ topic branch name
 For a change in the <tt><a href="Plist4r.html" target="_self" title="Plist4r (module)">Plist4r</a></tt> Core library
 </p>
 <ul>
-<li>Please include documentation for any new methods (in yardoc format)
+<li>Please update the inline source code documentation, generate locally with
+<tt>rake yard</tt>
 
 </li>
-<li>Please include regression tests. This ensures your code wont get broken
-further down the line
+<li>Please run the regression tests with <tt>rake spec</tt> and <tt>rake backend:tests</tt>
+
+</li>
+<li>Please update the existing regression tests (in RSpec) or write new ones
 
 </li>
 </ul>
@@ -167,10 +171,11 @@ further down the line
 For a <tt><a href="Plist4r/Backend.html" target="_self" title="Plist4r::Backend (class)">Plist4r::Backend</a></tt>
 </p>
 <ul>
-<li>Please include your name with the @author tag as yard inline comment
+<li>Please include attribution with an @author tag in the yard inline comments
 
 </li>
-<li>If requires new gem dependencies, be sure to add those to the Rakefile
+<li>If requires new gem dependencies, be add to the Rakefile and run +rake
+gemspec+
 
 </li>
 </ul>
@@ -178,20 +183,26 @@ For a <tt><a href="Plist4r/Backend.html" target="_self" title="Plist4r::Backend 
 For a <tt><a href="Plist4r/PlistType.html" target="_self" title="Plist4r::PlistType (class)">Plist4r::PlistType</a></tt>
 </p>
 <ul>
-<li>Conform to the conventions used by <tt><a href="Plist4r/PlistType/Launchd.html" target="_self" title="Plist4r::PlistType::Launchd (class)">Plist4r::PlistType::Launchd</a></tt>
+<li>Conform to the conventions used by <tt><a href="Plist4r/PlistType/Info.html" target="_self" title="Plist4r::PlistType::Info (class)">Plist4r::PlistType::Info</a></tt> and
+<tt><a href="Plist4r/PlistType/Launchd.html" target="_self" title="Plist4r::PlistType::Launchd (class)">Plist4r::PlistType::Launchd</a></tt>
 
 </li>
-<li>Utilize <tt><a href="Plist4r/ArrayDict.html" target="_self" title="Plist4r::ArrayDict (class)">Plist4r::ArrayDict</a></tt> and <tt><a href="Plist4r/DataMethods.html" target="_self" title="Plist4r::DataMethods (module)">Plist4r::DataMethods</a></tt>
+<li>Use <tt><a href="Plist4r/OrderedHash.html" target="_self" title="Plist4r::OrderedHash (class)">Plist4r::OrderedHash</a></tt> instead of <tt>Hash</tt> or <tt>{}</tt>
 
 </li>
-<li>Use yard to document any custom key functions
+<li>Try to use <tt><a href="Plist4r/DataMethods.html" target="_self" title="Plist4r::DataMethods (module)">Plist4r::DataMethods</a></tt> and <tt><a href="Plist4r/ArrayDict.html" target="_self" title="Plist4r::ArrayDict (class)">Plist4r::ArrayDict</a></tt> for storing the
+data
+
+</li>
+<li>Use yard to help document any custom key functions and <tt>rake yard</tt>
+afterward
 
 </li>
 </ul>
 </div></div>
     
     <div id="footer">
-  Generated on Sat Jul 17 13:03:18 2010 by 
+  Generated on Tue Jul 20 11:07:34 2010 by 
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool">yard</a>
   0.5.8  and the 
   <a href="http://github.com/dreamcat4/yard-slipstream">yard-slipstream</a> plugin

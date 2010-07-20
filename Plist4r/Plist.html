@@ -233,7 +233,19 @@
 	    </ul>
 
 
+<h2>Overview</h2><div class="docstring">
+  <div class="discussion">
+    <p>
+See <a href="../file.README.html" target="_self" title="README">README</a> and <a href="../file.InfoPlistExample.html" target="_self" title="InfoPlistExample">InfoPlistExample</a> for usage examples. Also see
+<a href="../file.EditingPlistFiles.html" target="_self" title="EditingPlistFiles">EditingPlistFiles</a>
+</p>
 
+
+  </div>
+</div>
+<div class="tags">
+  
+</div>
   <h2>Constant Summary</h2>
   
     <dl class="constants">
@@ -411,7 +423,6 @@ An optional block to instance_eval &amp;blk, and apply an edit on creation
       <pre class="lines">
 
 
-38
 39
 40
 41
@@ -437,10 +448,11 @@ An optional block to instance_eval &amp;blk, and apply an edit on creation
 61
 62
 63
-64</pre>
+64
+65</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/plist4r/plist.rb', line 38</span>
+      <pre class="code"><span class="info file"># File 'lib/plist4r/plist.rb', line 39</span>
 
 <span class='def def kw'>def</span> <span class='initialize identifier id'>initialize</span> <span class='mult op'>*</span><span class='args identifier id'>args</span><span class='comma token'>,</span> <span class='bitand op'>&amp;</span><span class='blk identifier id'>blk</span>
   <span class='@hash ivar id'>@hash</span>             <span class='assign token'>=</span> <span class='colon3 op'>::</span><span class='Plist4r constant id'>Plist4r</span><span class='colon2 op'>::</span><span class='OrderedHash constant id'>OrderedHash</span><span class='dot token'>.</span><span class='new identifier id'>new</span>
@@ -531,12 +543,12 @@ This will actually call <tt><a href="DataMethods.html#method_missing-instance_me
       <pre class="lines">
 
 
-336
 337
-338</pre>
+338
+339</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/plist4r/plist.rb', line 336</span>
+      <pre class="code"><span class="info file"># File 'lib/plist4r/plist.rb', line 337</span>
 
 <span class='def def kw'>def</span> <span class='method_missing identifier id'>method_missing</span> <span class='method_sym identifier id'>method_sym</span><span class='comma token'>,</span> <span class='mult op'>*</span><span class='args identifier id'>args</span><span class='comma token'>,</span> <span class='bitand op'>&amp;</span><span class='blk identifier id'>blk</span>
   <span class='@plist_type ivar id'>@plist_type</span><span class='dot token'>.</span><span class='method_missing identifier id'>method_missing</span> <span class='method_sym identifier id'>method_sym</span><span class='comma token'>,</span> <span class='mult op'>*</span><span class='args identifier id'>args</span><span class='comma token'>,</span> <span class='bitand op'>&amp;</span><span class='blk identifier id'>blk</span>
@@ -596,12 +608,12 @@ An alias of <tt><a href="#edit-instance_method" target="_self" title="Plist4r::P
       <pre class="lines">
 
 
-303
 304
-305</pre>
+305
+306</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/plist4r/plist.rb', line 303</span>
+      <pre class="code"><span class="info file"># File 'lib/plist4r/plist.rb', line 304</span>
 
 <span class='def def kw'>def</span> <span class='lshft op'>&lt;&lt;</span> <span class='mult op'>*</span><span class='args identifier id'>args</span><span class='comma token'>,</span> <span class='bitand op'>&amp;</span><span class='blk identifier id'>blk</span>
   <span class='edit identifier id'>edit</span> <span class='mult op'>*</span><span class='args identifier id'>args</span><span class='comma token'>,</span> <span class='bitand op'>&amp;</span><span class='blk identifier id'>blk</span>
@@ -691,12 +703,12 @@ The value associated with the plist key
       <pre class="lines">
 
 
-362
 363
-364</pre>
+364
+365</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/plist4r/plist.rb', line 362</span>
+      <pre class="code"><span class="info file"># File 'lib/plist4r/plist.rb', line 363</span>
 
 <span class='def def kw'>def</span> <span class='aref op'>[]</span> <span class='key identifier id'>key</span>
   <span class='@plist_type ivar id'>@plist_type</span><span class='dot token'>.</span><span class='set_or_return identifier id'>set_or_return</span> <span class='key identifier id'>key</span>
@@ -783,12 +795,12 @@ The value to store under the plist key name
       <pre class="lines">
 
 
-374
 375
-376</pre>
+376
+377</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/plist4r/plist.rb', line 374</span>
+      <pre class="code"><span class="info file"># File 'lib/plist4r/plist.rb', line 375</span>
 
 <span class='def def kw'>def</span> <span class='aset op'>[]=</span> <span class='key identifier id'>key</span><span class='comma token'>,</span> <span class='value identifier id'>value</span>
   <span class='store identifier id'>store</span> <span class='key identifier id'>key</span><span class='comma token'>,</span> <span class='value identifier id'>value</span>
@@ -885,7 +897,6 @@ Plist4r::Backend Defaults to <tt><a href="Config.html" target="_self" title="Pli
       <pre class="lines">
 
 
-251
 252
 253
 254
@@ -903,10 +914,11 @@ Plist4r::Backend Defaults to <tt><a href="Config.html" target="_self" title="Pli
 266
 267
 268
-269</pre>
+269
+270</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/plist4r/plist.rb', line 251</span>
+      <pre class="code"><span class="info file"># File 'lib/plist4r/plist.rb', line 252</span>
 
 <span class='def def kw'>def</span> <span class='backends identifier id'>backends</span> <span class='backends identifier id'>backends</span><span class='assign token'>=</span><span class='nil nil kw'>nil</span>
   <span class='case case kw'>case</span> <span class='backends identifier id'>backends</span>
@@ -968,12 +980,12 @@ Clears all plist keys and their contents
       <pre class="lines">
 
 
-470
 471
-472</pre>
+472
+473</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/plist4r/plist.rb', line 470</span>
+      <pre class="code"><span class="info file"># File 'lib/plist4r/plist.rb', line 471</span>
 
 <span class='def def kw'>def</span> <span class='clear identifier id'>clear</span>
   <span class='@plist_type ivar id'>@plist_type</span><span class='dot token'>.</span><span class='array_dict identifier id'>array_dict</span> <span class='symbol val'>:unselect_all</span>
@@ -1009,12 +1021,12 @@ Alias for <tt><a href="#map-instance_method" target="_self" title="Plist4r::Plis
       <pre class="lines">
 
 
-433
 434
-435</pre>
+435
+436</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/plist4r/plist.rb', line 433</span>
+      <pre class="code"><span class="info file"># File 'lib/plist4r/plist.rb', line 434</span>
 
 <span class='def def kw'>def</span> <span class='collect identifier id'>collect</span> <span class='bitand op'>&amp;</span><span class='blk identifier id'>blk</span>
   <span class='map identifier id'>map</span> <span class='bitand op'>&amp;</span><span class='blk identifier id'>blk</span>
@@ -1082,12 +1094,12 @@ camelcased String
       <pre class="lines">
 
 
-447
 448
-449</pre>
+449
+450</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/plist4r/plist.rb', line 447</span>
+      <pre class="code"><span class="info file"># File 'lib/plist4r/plist.rb', line 448</span>
 
 <span class='def def kw'>def</span> <span class='delete identifier id'>delete</span> <span class='mult op'>*</span><span class='keys identifier id'>keys</span>
   <span class='@plist_type ivar id'>@plist_type</span><span class='dot token'>.</span><span class='array_dict identifier id'>array_dict</span> <span class='symbol val'>:unselect</span><span class='comma token'>,</span> <span class='mult op'>*</span><span class='keys identifier id'>keys</span>
@@ -1181,14 +1193,14 @@ Delete a key-value pair if block evaluates to true.
       <pre class="lines">
 
 
-460
 461
 462
 463
-464</pre>
+464
+465</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/plist4r/plist.rb', line 460</span>
+      <pre class="code"><span class="info file"># File 'lib/plist4r/plist.rb', line 461</span>
 
 <span class='def def kw'>def</span> <span class='delete_if identifier id'>delete_if</span> <span class='mult op'>*</span><span class='keys identifier id'>keys</span><span class='comma token'>,</span> <span class='bitand op'>&amp;</span><span class='blk identifier id'>blk</span>
   <span class='delete identifier id'>delete</span> <span class='mult op'>*</span><span class='keys identifier id'>keys</span>
@@ -1256,7 +1268,6 @@ Plist4r::PlistType. Defaults to :plist
       <pre class="lines">
 
 
-165
 166
 167
 168
@@ -1289,10 +1300,11 @@ Plist4r::PlistType. Defaults to :plist
 195
 196
 197
-198</pre>
+198
+199</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/plist4r/plist.rb', line 165</span>
+      <pre class="code"><span class="info file"># File 'lib/plist4r/plist.rb', line 166</span>
 
 <span class='def def kw'>def</span> <span class='detect_plist_type identifier id'>detect_plist_type</span>
   <span class='stat_m identifier id'>stat_m</span> <span class='assign token'>=</span> <span class='lbrace token'>{</span><span class='rbrace token'>}</span>
@@ -1389,12 +1401,12 @@ A block to execute for each key, value pair in plist
       <pre class="lines">
 
 
-516
 517
-518</pre>
+518
+519</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/plist4r/plist.rb', line 516</span>
+      <pre class="code"><span class="info file"># File 'lib/plist4r/plist.rb', line 517</span>
 
 <span class='def def kw'>def</span> <span class='each identifier id'>each</span> <span class='bitand op'>&amp;</span><span class='blk identifier id'>blk</span>
   <span class='@hash ivar id'>@hash</span><span class='dot token'>.</span><span class='each identifier id'>each</span> <span class='bitand op'>&amp;</span><span class='blk identifier id'>blk</span>
@@ -1462,14 +1474,14 @@ Edit with implicit methods. Calls method_missing()
       <pre class="lines">
 
 
-324
 325
 326
 327
-328</pre>
+328
+329</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/plist4r/plist.rb', line 324</span>
+      <pre class="code"><span class="info file"># File 'lib/plist4r/plist.rb', line 325</span>
 
 <span class='def def kw'>def</span> <span class='edit identifier id'>edit</span> <span class='mult op'>*</span><span class='args identifier id'>args</span><span class='comma token'>,</span> <span class='bitand op'>&amp;</span><span class='blk identifier id'>blk</span>
   <span class='@plist_type ivar id'>@plist_type</span><span class='dot token'>.</span><span class='hash identifier id'>hash</span> <span class='@hash ivar id'>@hash</span>
@@ -1520,12 +1532,12 @@ This is equivalent to the ruby core classes method Array#empty?
       <pre class="lines">
 
 
-506
 507
-508</pre>
+508
+509</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/plist4r/plist.rb', line 506</span>
+      <pre class="code"><span class="info file"># File 'lib/plist4r/plist.rb', line 507</span>
 
 <span class='def def kw'>def</span> <span class='empty? fid id'>empty?</span>
   <span class='@hash ivar id'>@hash</span><span class='dot token'>.</span><span class='empty? fid id'>empty?</span>
@@ -1611,7 +1623,6 @@ The file format associated to this current plist object
       <pre class="lines">
 
 
-145
 146
 147
 148
@@ -1624,10 +1635,11 @@ The file format associated to this current plist object
 155
 156
 157
-158</pre>
+158
+159</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/plist4r/plist.rb', line 145</span>
+      <pre class="code"><span class="info file"># File 'lib/plist4r/plist.rb', line 146</span>
 
 <span class='def def kw'>def</span> <span class='file_format identifier id'>file_format</span> <span class='file_format identifier id'>file_format</span><span class='assign token'>=</span><span class='nil nil kw'>nil</span>
   <span class='case case kw'>case</span> <span class='file_format identifier id'>file_format</span>
@@ -1660,7 +1672,8 @@ The file format associated to this current plist object
 </p><div class="docstring">
   <div class="discussion">
     <p>
-Set or return the filename attribute of the plist object.
+Set or return the filename attribute of the plist object. Used in
+cojunction with the <tt><a href="#path-instance_method" target="_self" title="Plist4r::Plist#path (method)">#path</a></tt> attribute
 </p>
 
 
@@ -1727,7 +1740,6 @@ The plist&#8217;s filename
       <pre class="lines">
 
 
-96
 97
 98
 99
@@ -1736,10 +1748,11 @@ The plist&#8217;s filename
 102
 103
 104
-105</pre>
+105
+106</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/plist4r/plist.rb', line 96</span>
+      <pre class="code"><span class="info file"># File 'lib/plist4r/plist.rb', line 97</span>
 
 <span class='def def kw'>def</span> <span class='filename identifier id'>filename</span> <span class='filename identifier id'>filename</span><span class='assign token'>=</span><span class='nil nil kw'>nil</span>
   <span class='case case kw'>case</span> <span class='filename identifier id'>filename</span>
@@ -1835,7 +1848,6 @@ the full, expanded path to the plist file
       <pre class="lines">
 
 
-128
 129
 130
 131
@@ -1845,10 +1857,11 @@ the full, expanded path to the plist file
 135
 136
 137
-138</pre>
+138
+139</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/plist4r/plist.rb', line 128</span>
+      <pre class="code"><span class="info file"># File 'lib/plist4r/plist.rb', line 129</span>
 
 <span class='def def kw'>def</span> <span class='filename_path identifier id'>filename_path</span> <span class='filename_path identifier id'>filename_path</span><span class='assign token'>=</span><span class='nil nil kw'>nil</span>
   <span class='case case kw'>case</span> <span class='filename_path identifier id'>filename_path</span>
@@ -1911,7 +1924,6 @@ Load from string
       <pre class="lines">
 
 
-72
 73
 74
 75
@@ -1927,10 +1939,11 @@ Load from string
 85
 86
 87
-88</pre>
+88
+89</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/plist4r/plist.rb', line 72</span>
+      <pre class="code"><span class="info file"># File 'lib/plist4r/plist.rb', line 73</span>
 
 <span class='def def kw'>def</span> <span class='from_string identifier id'>from_string</span> <span class='string identifier id'>string</span><span class='assign token'>=</span><span class='nil nil kw'>nil</span>
   <span class='case case kw'>case</span> <span class='string identifier id'>string</span>
@@ -2020,13 +2033,13 @@ True if the plist has the specified key
       <pre class="lines">
 
 
-500
 501
 502
-503</pre>
+503
+504</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/plist4r/plist.rb', line 500</span>
+      <pre class="code"><span class="info file"># File 'lib/plist4r/plist.rb', line 501</span>
 
 <span class='def def kw'>def</span> <span class='has_key? fid id'>has_key?</span> <span class='key identifier id'>key</span>
   <span class='key identifier id'>key</span><span class='dot token'>.</span><span class='to_s identifier id'>to_s</span><span class='dot token'>.</span><span class='camelcase identifier id'>camelcase</span> <span class='if if_mod kw'>if</span> <span class='key identifier id'>key</span><span class='dot token'>.</span><span class='class identifier id'>class</span> <span class='eq op'>==</span> <span class='Symbol constant id'>Symbol</span>
@@ -2114,7 +2127,6 @@ root object
       <pre class="lines">
 
 
-344
 345
 346
 347
@@ -2123,10 +2135,11 @@ root object
 350
 351
 352
-353</pre>
+353
+354</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/plist4r/plist.rb', line 344</span>
+      <pre class="code"><span class="info file"># File 'lib/plist4r/plist.rb', line 345</span>
 
 <span class='def def kw'>def</span> <span class='import_hash identifier id'>import_hash</span> <span class='hash identifier id'>hash</span><span class='assign token'>=</span><span class='nil nil kw'>nil</span>
   <span class='case case kw'>case</span> <span class='hash identifier id'>hash</span>
@@ -2210,13 +2223,13 @@ True if the plist has the specified key
       <pre class="lines">
 
 
-492
 493
 494
-495</pre>
+495
+496</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/plist4r/plist.rb', line 492</span>
+      <pre class="code"><span class="info file"># File 'lib/plist4r/plist.rb', line 493</span>
 
 <span class='def def kw'>def</span> <span class='include? fid id'>include?</span> <span class='key identifier id'>key</span>
   <span class='key identifier id'>key</span><span class='dot token'>.</span><span class='to_s identifier id'>to_s</span><span class='dot token'>.</span><span class='camelcase identifier id'>camelcase</span> <span class='if if_mod kw'>if</span> <span class='key identifier id'>key</span><span class='dot token'>.</span><span class='class identifier id'>class</span> <span class='eq op'>==</span> <span class='Symbol constant id'>Symbol</span>
@@ -2281,12 +2294,12 @@ The keys of the plist
       <pre class="lines">
 
 
-537
 538
-539</pre>
+539
+540</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/plist4r/plist.rb', line 537</span>
+      <pre class="code"><span class="info file"># File 'lib/plist4r/plist.rb', line 538</span>
 
 <span class='def def kw'>def</span> <span class='keys identifier id'>keys</span>
   <span class='@hash ivar id'>@hash</span><span class='dot token'>.</span><span class='keys identifier id'>keys</span>
@@ -2331,12 +2344,12 @@ This is equivalent to the ruby core classes method Array#length
       <pre class="lines">
 
 
-523
 524
-525</pre>
+525
+526</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/plist4r/plist.rb', line 523</span>
+      <pre class="code"><span class="info file"># File 'lib/plist4r/plist.rb', line 524</span>
 
 <span class='def def kw'>def</span> <span class='length identifier id'>length</span>
   <span class='@hash ivar id'>@hash</span><span class='dot token'>.</span><span class='length identifier id'>length</span>
@@ -2396,7 +2409,6 @@ String
       <pre class="lines">
 
 
-412
 413
 414
 415
@@ -2414,10 +2426,11 @@ String
 427
 428
 429
-430</pre>
+430
+431</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/plist4r/plist.rb', line 412</span>
+      <pre class="code"><span class="info file"># File 'lib/plist4r/plist.rb', line 413</span>
 
 <span class='def def kw'>def</span> <span class='map identifier id'>map</span> <span class='bitand op'>&amp;</span><span class='blk identifier id'>blk</span>
   <span class='if if kw'>if</span> <span class='block_given? fid id'>block_given?</span>
@@ -2493,7 +2506,6 @@ The other plist to merge with
       <pre class="lines">
 
 
-478
 479
 480
 481
@@ -2501,10 +2513,11 @@ The other plist to merge with
 483
 484
 485
-486</pre>
+486
+487</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/plist4r/plist.rb', line 478</span>
+      <pre class="code"><span class="info file"># File 'lib/plist4r/plist.rb', line 479</span>
 
 <span class='def def kw'>def</span> <span class='merge! fid id'>merge!</span> <span class='other_plist identifier id'>other_plist</span>
   <span class='if if kw'>if</span> <span class='plist_type identifier id'>plist_type</span> <span class='eq op'>==</span> <span class='other_plist identifier id'>other_plist</span><span class='dot token'>.</span><span class='plist_type identifier id'>plist_type</span>
@@ -2568,7 +2581,7 @@ Load from file
       
         &mdash;
         <div class='inline'><p>
-plist file to load. Uses the @filename attribute when nil
+plist file to load. Uses the <tt><a href="#filename-instance_method" target="_self" title="Plist4r::Plist#filename (method)">#filename</a></tt> attribute when nil
 </p>
 </div>
       
@@ -2601,14 +2614,14 @@ The loaded Plist object
       <pre class="lines">
 
 
-291
 292
 293
 294
-295</pre>
+295
+296</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/plist4r/plist.rb', line 291</span>
+      <pre class="code"><span class="info file"># File 'lib/plist4r/plist.rb', line 292</span>
 
 <span class='def def kw'>def</span> <span class='open identifier id'>open</span> <span class='filename identifier id'>filename</span><span class='assign token'>=</span><span class='nil nil kw'>nil</span>
   <span class='@filename ivar id'>@filename</span> <span class='assign token'>=</span> <span class='filename identifier id'>filename</span> <span class='if if_mod kw'>if</span> <span class='filename identifier id'>filename</span>
@@ -2675,17 +2688,17 @@ The options hash, containing keys of <tt><a href="#OptionsHash-constant" target=
       <pre class="lines">
 
 
-275
 276
 277
 278
 279
 280
 281
-282</pre>
+282
+283</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/plist4r/plist.rb', line 275</span>
+      <pre class="code"><span class="info file"># File 'lib/plist4r/plist.rb', line 276</span>
 
 <span class='def def kw'>def</span> <span class='parse_opts identifier id'>parse_opts</span> <span class='opts identifier id'>opts</span>
   <span class='OptionsHash constant id'>OptionsHash</span><span class='dot token'>.</span><span class='each identifier id'>each</span> <span class='do do kw'>do</span> <span class='bitor op'>|</span><span class='opt identifier id'>opt</span><span class='bitor op'>|</span>
@@ -2776,7 +2789,6 @@ The plist&#8217;s working path
       <pre class="lines">
 
 
-111
 112
 113
 114
@@ -2785,10 +2797,11 @@ The plist&#8217;s working path
 117
 118
 119
-120</pre>
+120
+121</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/plist4r/plist.rb', line 111</span>
+      <pre class="code"><span class="info file"># File 'lib/plist4r/plist.rb', line 112</span>
 
 <span class='def def kw'>def</span> <span class='path identifier id'>path</span> <span class='path identifier id'>path</span><span class='assign token'>=</span><span class='nil nil kw'>nil</span>
   <span class='case case kw'>case</span> <span class='path identifier id'>path</span>
@@ -2882,7 +2895,6 @@ Plist4r::PlistType. Defaults to :plist
       <pre class="lines">
 
 
-205
 206
 207
 208
@@ -2902,10 +2914,11 @@ Plist4r::PlistType. Defaults to :plist
 222
 223
 224
-225</pre>
+225
+226</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/plist4r/plist.rb', line 205</span>
+      <pre class="code"><span class="info file"># File 'lib/plist4r/plist.rb', line 206</span>
 
 <span class='def def kw'>def</span> <span class='plist_type identifier id'>plist_type</span> <span class='plist_type identifier id'>plist_type</span><span class='assign token'>=</span><span class='nil nil kw'>nil</span>
   <span class='begin begin kw'>begin</span>
@@ -2985,13 +2998,13 @@ if the <tt><a href="#filename-instance_method" target="_self" title="Plist4r::Pl
       <pre class="lines">
 
 
-593
-594
-595
-596</pre>
+601
+602
+603
+604</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/plist4r/plist.rb', line 593</span>
+      <pre class="code"><span class="info file"># File 'lib/plist4r/plist.rb', line 601</span>
 
 <span class='def def kw'>def</span> <span class='save identifier id'>save</span>
   <span class='raise identifier id'>raise</span> <span class='string val'>&quot;No filename specified&quot;</span> <span class='unless unless_mod kw'>unless</span> <span class='@filename ivar id'>@filename</span>
@@ -3056,13 +3069,13 @@ The new file name to save as. If relative, will be appended to <tt><a href="#pat
       <pre class="lines">
 
 
-601
-602
-603
-604</pre>
+609
+610
+611
+612</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/plist4r/plist.rb', line 601</span>
+      <pre class="code"><span class="info file"># File 'lib/plist4r/plist.rb', line 609</span>
 
 <span class='def def kw'>def</span> <span class='save_as identifier id'>save_as</span> <span class='filename identifier id'>filename</span>
   <span class='@filename ivar id'>@filename</span> <span class='assign token'>=</span> <span class='filename identifier id'>filename</span>
@@ -3140,7 +3153,6 @@ Works as per the ruby core classes Hash#select method
       <pre class="lines">
 
 
-392
 393
 394
 395
@@ -3154,10 +3166,11 @@ Works as per the ruby core classes Hash#select method
 403
 404
 405
-406</pre>
+406
+407</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/plist4r/plist.rb', line 392</span>
+      <pre class="code"><span class="info file"># File 'lib/plist4r/plist.rb', line 393</span>
 
 <span class='def def kw'>def</span> <span class='select identifier id'>select</span> <span class='mult op'>*</span><span class='keys identifier id'>keys</span><span class='comma token'>,</span> <span class='bitand op'>&amp;</span><span class='blk identifier id'>blk</span>
   <span class='if if kw'>if</span> <span class='block_given? fid id'>block_given?</span>
@@ -3208,12 +3221,12 @@ This is equivalent to the ruby core classes method Array#size
       <pre class="lines">
 
 
-529
 530
-531</pre>
+531
+532</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/plist4r/plist.rb', line 529</span>
+      <pre class="code"><span class="info file"># File 'lib/plist4r/plist.rb', line 530</span>
 
 <span class='def def kw'>def</span> <span class='size identifier id'>size</span>
   <span class='@hash ivar id'>@hash</span><span class='dot token'>.</span><span class='size identifier id'>size</span>
@@ -3300,12 +3313,12 @@ The value to store under the plist key name
       <pre class="lines">
 
 
-385
 386
-387</pre>
+387
+388</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/plist4r/plist.rb', line 385</span>
+      <pre class="code"><span class="info file"># File 'lib/plist4r/plist.rb', line 386</span>
 
 <span class='def def kw'>def</span> <span class='store identifier id'>store</span> <span class='key identifier id'>key</span><span class='comma token'>,</span> <span class='value identifier id'>value</span>
   <span class='@plist_type ivar id'>@plist_type</span><span class='dot token'>.</span><span class='set_or_return identifier id'>set_or_return</span> <span class='key identifier id'>key</span><span class='comma token'>,</span> <span class='value identifier id'>value</span>
@@ -3391,7 +3404,6 @@ The strict_keys setting for this object
       <pre class="lines">
 
 
-231
 232
 233
 234
@@ -3400,10 +3412,11 @@ The strict_keys setting for this object
 237
 238
 239
-240</pre>
+240
+241</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/plist4r/plist.rb', line 231</span>
+      <pre class="code"><span class="info file"># File 'lib/plist4r/plist.rb', line 232</span>
 
 <span class='def def kw'>def</span> <span class='strict_keys identifier id'>strict_keys</span> <span class='bool identifier id'>bool</span><span class='assign token'>=</span><span class='nil nil kw'>nil</span>
   <span class='case case kw'>case</span> <span class='bool identifier id'>bool</span>
@@ -3434,6 +3447,10 @@ The strict_keys setting for this object
     <p>
 Write out a binary string representation of the plist
 </p>
+<p>
+Looking for how to store a bytestream in CFData / NSData? See
+<a href="../file.EditingPlistFiles.html" target="_self" title="EditingPlistFiles">EditingPlistFiles</a>
+</p>
 
 
   </div>
@@ -3457,12 +3474,12 @@ Write out a binary string representation of the plist
       <pre class="lines">
 
 
-581
-582
-583</pre>
+589
+590
+591</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/plist4r/plist.rb', line 581</span>
+      <pre class="code"><span class="info file"># File 'lib/plist4r/plist.rb', line 589</span>
 
 <span class='def def kw'>def</span> <span class='to_binary identifier id'>to_binary</span>
   <span class='@plist_cache ivar id'>@plist_cache</span><span class='dot token'>.</span><span class='to_binary identifier id'>to_binary</span>
@@ -3499,12 +3516,12 @@ Nextstep / Openstep format. Contributions appreciated.
       <pre class="lines">
 
 
-586
-587
-588</pre>
+594
+595
+596</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/plist4r/plist.rb', line 586</span>
+      <pre class="code"><span class="info file"># File 'lib/plist4r/plist.rb', line 594</span>
 
 <span class='def def kw'>def</span> <span class='to_gnustep identifier id'>to_gnustep</span>
   <span class='@plist_cache ivar id'>@plist_cache</span><span class='dot token'>.</span><span class='to_gnustep identifier id'>to_gnustep</span>
@@ -3530,9 +3547,14 @@ The internal data storage object for the plist data
 </p>
 <p>
 This is a pretty standard (either ActiveSupport or Ruby 1.9) ordered hash.
-Key names - regular ruby strings of arbitrary length. Values - Must only
-store generic Ruby objects data such as TrueClass, FalseClass, Integer,
-Float, String, Time, Array, Hash
+Key names - regular ruby strings of arbitrary length.
+</p>
+<p>
+Values - Must only store generic Ruby objects data such as TrueClass,
+FalseClass, Integer, Float, String, Time, Array, Hash, and Data
+</p>
+<p>
+Data (NSData / CFData) - see <a href="../file.EditingPlistFiles.html" target="_self" title="EditingPlistFiles">EditingPlistFiles</a>
 </p>
 
 
@@ -3582,12 +3604,12 @@ Nested hash of ruby objects. The raw Plist data
       <pre class="lines">
 
 
-551
-552
-553</pre>
+556
+557
+558</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/plist4r/plist.rb', line 551</span>
+      <pre class="code"><span class="info file"># File 'lib/plist4r/plist.rb', line 556</span>
 
 <span class='def def kw'>def</span> <span class='to_hash identifier id'>to_hash</span>
   <span class='@hash ivar id'>@hash</span>
@@ -3655,12 +3677,12 @@ file
       <pre class="lines">
 
 
-572
-573
-574</pre>
+577
+578
+579</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/plist4r/plist.rb', line 572</span>
+      <pre class="code"><span class="info file"># File 'lib/plist4r/plist.rb', line 577</span>
 
 <span class='def def kw'>def</span> <span class='to_xml identifier id'>to_xml</span>
   <span class='@plist_cache ivar id'>@plist_cache</span><span class='dot token'>.</span><span class='to_xml identifier id'>to_xml</span>
@@ -3696,12 +3718,12 @@ Alias for <tt><a href="#delete-instance_method" target="_self" title="Plist4r::P
       <pre class="lines">
 
 
-438
 439
-440</pre>
+440
+441</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/plist4r/plist.rb', line 438</span>
+      <pre class="code"><span class="info file"># File 'lib/plist4r/plist.rb', line 439</span>
 
 <span class='def def kw'>def</span> <span class='unselect identifier id'>unselect</span> <span class='mult op'>*</span><span class='keys identifier id'>keys</span>
   <span class='delete identifier id'>delete</span> <span class='mult op'>*</span><span class='keys identifier id'>keys</span>
@@ -3718,7 +3740,7 @@ Alias for <tt><a href="#delete-instance_method" target="_self" title="Plist4r::P
 </div>
     
     <div id="footer">
-  Generated on Sat Jul 17 13:03:38 2010 by 
+  Generated on Tue Jul 20 11:07:53 2010 by 
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool">yard</a>
   0.5.8  and the 
   <a href="http://github.com/dreamcat4/yard-slipstream">yard-slipstream</a> plugin

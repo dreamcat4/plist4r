@@ -98,7 +98,7 @@
 		<dd class="r1 last">
   		
   lib/plist4r/backend.rb<span class="defines">,<br />
-    lib/plist4r/backend_base.rb,<br /> lib/plist4r/backend/test/data.rb,<br /> lib/plist4r/backend/test/output.rb,<br /> lib/plist4r/backend/test/harness.rb</span>
+    lib/plist4r/backend_base.rb,<br /> lib/plist4r/backend/test/output.rb,<br /> lib/plist4r/backend/test/harness.rb,<br /> lib/plist4r/backend/test/data_types.rb</span>
 
 
 		</dd>
@@ -172,7 +172,7 @@
     <p>
 This class is the Backend broker. The purpose of this object is to manage
 and handle API calls, passing them over to the appropriate Plist4r
-backends.
+backends. Also see the <a href="../file.Backends.html" target="_self" title="Backends">Backends</a> Rdoc page.
 </p>
 
 
@@ -279,12 +279,12 @@ refers back to the plist instance object.
       <pre class="lines">
 
 
-23
-24
-25</pre>
+25
+26
+27</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/plist4r/backend.rb', line 23</span>
+      <pre class="code"><span class="info file"># File 'lib/plist4r/backend.rb', line 25</span>
 
 <span class='def def kw'>def</span> <span class='initialize identifier id'>initialize</span> <span class='plist identifier id'>plist</span><span class='comma token'>,</span> <span class='mult op'>*</span><span class='args identifier id'>args</span><span class='comma token'>,</span> <span class='bitand op'>&amp;</span><span class='blk identifier id'>blk</span>
   <span class='@plist ivar id'>@plist</span> <span class='assign token'>=</span> <span class='plist identifier id'>plist</span>
@@ -380,8 +380,6 @@ if no backend was able to sucessfully execute the request.
       <pre class="lines">
 
 
-89
-90
 91
 92
 93
@@ -442,7 +440,7 @@ if no backend was able to sucessfully execute the request.
 148</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/plist4r/backend.rb', line 89</span>
+      <pre class="code"><span class="info file"># File 'lib/plist4r/backend.rb', line 91</span>
 
 <span class='def def kw'>def</span> <span class='call identifier id'>call</span> <span class='method_sym identifier id'>method_sym</span>
   <span class='raise identifier id'>raise</span> <span class='dstring node'>&quot;Unsupported api call #{method_sym.inspect}&quot;</span> <span class='unless unless_mod kw'>unless</span> <span class='PlistCacheApiMethods constant id'>PlistCacheApiMethods</span><span class='dot token'>.</span><span class='include? fid id'>include?</span> <span class='method_sym identifier id'>method_sym</span><span class='dot token'>.</span><span class='to_s identifier id'>to_s</span>
@@ -453,19 +451,17 @@ if no backend was able to sucessfully execute the request.
   <span class='backend identifier id'>backend</span> <span class='assign token'>=</span> <span class='eval identifier id'>eval</span> <span class='dstring node'>&quot;Plist4r::Backend::#{b_sym.to_s.camelcase}&quot;</span>
 
     <span class='begin begin kw'>begin</span>
-      <span class='Timeout constant id'>Timeout</span><span class='colon2 op'>::</span><span class='timeout identifier id'>timeout</span><span class='lparen token'>(</span><span class='Config constant id'>Config</span><span class='lbrack token'>[</span><span class='symbol val'>:backend_timeout</span><span class='rbrack token'>]</span><span class='rparen token'>)</span> <span class='do do kw'>do</span>
-        <span class='if if kw'>if</span> <span class='backend identifier id'>backend</span><span class='dot token'>.</span><span class='respond_to? fid id'>respond_to?</span><span class='lparen token'>(</span><span class='method_sym identifier id'>method_sym</span><span class='rparen token'>)</span> <span class='andop op'>&amp;&amp;</span> <span class='method_sym identifier id'>method_sym</span> <span class='neq op'>!=</span> <span class='symbol val'>:from_string</span>
-          <span class='Timeout constant id'>Timeout</span><span class='colon2 op'>::</span><span class='timeout identifier id'>timeout</span><span class='lparen token'>(</span><span class='Config constant id'>Config</span><span class='lbrack token'>[</span><span class='symbol val'>:backend_timeout</span><span class='rbrack token'>]</span><span class='rparen token'>)</span> <span class='do do kw'>do</span>
-            <span class='return return kw'>return</span> <span class='eval identifier id'>eval</span><span class='lparen token'>(</span><span class='dstring node'>&quot;#{backend}.#{method_sym} @plist&quot;</span><span class='rparen token'>)</span>
-          <span class='end end kw'>end</span>
+      <span class='if if kw'>if</span> <span class='backend identifier id'>backend</span><span class='dot token'>.</span><span class='respond_to? fid id'>respond_to?</span><span class='lparen token'>(</span><span class='method_sym identifier id'>method_sym</span><span class='rparen token'>)</span> <span class='andop op'>&amp;&amp;</span> <span class='method_sym identifier id'>method_sym</span> <span class='neq op'>!=</span> <span class='symbol val'>:from_string</span>
+        <span class='Timeout constant id'>Timeout</span><span class='colon2 op'>::</span><span class='timeout identifier id'>timeout</span><span class='lparen token'>(</span><span class='Plist4r constant id'>Plist4r</span><span class='colon2 op'>::</span><span class='Config constant id'>Config</span><span class='lbrack token'>[</span><span class='symbol val'>:backend_timeout</span><span class='rbrack token'>]</span><span class='rparen token'>)</span> <span class='do do kw'>do</span>
+          <span class='return return kw'>return</span> <span class='eval identifier id'>eval</span><span class='lparen token'>(</span><span class='dstring node'>&quot;#{backend}.#{method_sym} @plist&quot;</span><span class='rparen token'>)</span>
+        <span class='end end kw'>end</span>
 
-        <span class='elsif elsif kw'>elsif</span> <span class='PrivateApiMethods constant id'>PrivateApiMethods</span><span class='dot token'>.</span><span class='include? fid id'>include?</span> <span class='method_sym identifier id'>method_sym</span><span class='dot token'>.</span><span class='to_s identifier id'>to_s</span>
-          <span class='result identifier id'>result</span> <span class='assign token'>=</span> <span class='generic_call identifier id'>generic_call</span> <span class='backend identifier id'>backend</span><span class='comma token'>,</span> <span class='method_sym identifier id'>method_sym</span>
-          <span class='if if kw'>if</span> <span class='result identifier id'>result</span><span class='dot token'>.</span><span class='is_a? fid id'>is_a?</span> <span class='Exception constant id'>Exception</span>
-            <span class='generic_call_exception identifier id'>generic_call_exception</span> <span class='assign token'>=</span> <span class='result identifier id'>result</span>
-          <span class='else else kw'>else</span>
-            <span class='return return kw'>return</span> <span class='result identifier id'>result</span>
-          <span class='end end kw'>end</span>
+      <span class='elsif elsif kw'>elsif</span> <span class='PrivateApiMethods constant id'>PrivateApiMethods</span><span class='dot token'>.</span><span class='include? fid id'>include?</span> <span class='method_sym identifier id'>method_sym</span><span class='dot token'>.</span><span class='to_s identifier id'>to_s</span>
+        <span class='result identifier id'>result</span> <span class='assign token'>=</span> <span class='generic_call identifier id'>generic_call</span> <span class='backend identifier id'>backend</span><span class='comma token'>,</span> <span class='method_sym identifier id'>method_sym</span>
+        <span class='if if kw'>if</span> <span class='result identifier id'>result</span><span class='dot token'>.</span><span class='is_a? fid id'>is_a?</span> <span class='Exception constant id'>Exception</span>
+          <span class='generic_call_exception identifier id'>generic_call_exception</span> <span class='assign token'>=</span> <span class='result identifier id'>result</span>
+        <span class='else else kw'>else</span>
+          <span class='return return kw'>return</span> <span class='result identifier id'>result</span>
         <span class='end end kw'>end</span>
       <span class='end end kw'>end</span>
 
@@ -574,8 +570,6 @@ The API method call to execute. One of <tt><a href="#PrivateApiMethods-constant"
       <pre class="lines">
 
 
-30
-31
 32
 33
 34
@@ -618,10 +612,12 @@ The API method call to execute. One of <tt><a href="#PrivateApiMethods-constant"
 71
 72
 73
-74</pre>
+74
+75
+76</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/plist4r/backend.rb', line 30</span>
+      <pre class="code"><span class="info file"># File 'lib/plist4r/backend.rb', line 32</span>
 
 <span class='def def kw'>def</span> <span class='generic_call identifier id'>generic_call</span> <span class='backend identifier id'>backend</span><span class='comma token'>,</span> <span class='method_sym identifier id'>method_sym</span>
   <span class='case case kw'>case</span> <span class='method_sym identifier id'>method_sym</span>
@@ -658,7 +654,7 @@ The API method call to execute. One of <tt><a href="#PrivateApiMethods-constant"
     <span class='if if kw'>if</span> <span class='backend identifier id'>backend</span><span class='dot token'>.</span><span class='respond_to? fid id'>respond_to?</span> <span class='dstring node'>&quot;from_#{fmt}&quot;</span>
       <span class='@from_string_fmt ivar id'>@from_string_fmt</span> <span class='assign token'>=</span> <span class='nil nil kw'>nil</span>
 
-      <span class='Timeout constant id'>Timeout</span><span class='colon2 op'>::</span><span class='timeout identifier id'>timeout</span><span class='lparen token'>(</span><span class='Config constant id'>Config</span><span class='lbrack token'>[</span><span class='symbol val'>:backend_timeout</span><span class='rbrack token'>]</span><span class='rparen token'>)</span> <span class='do do kw'>do</span>
+      <span class='Timeout constant id'>Timeout</span><span class='colon2 op'>::</span><span class='timeout identifier id'>timeout</span><span class='lparen token'>(</span><span class='Plist4r constant id'>Plist4r</span><span class='colon2 op'>::</span><span class='Config constant id'>Config</span><span class='lbrack token'>[</span><span class='symbol val'>:backend_timeout</span><span class='rbrack token'>]</span><span class='rparen token'>)</span> <span class='do do kw'>do</span>
         <span class='backend identifier id'>backend</span><span class='dot token'>.</span><span class='send identifier id'>send</span><span class='lparen token'>(</span><span class='dstring node'>&quot;from_#{fmt}&quot;</span><span class='dot token'>.</span><span class='to_sym identifier id'>to_sym</span><span class='comma token'>,</span> <span class='@plist ivar id'>@plist</span><span class='rparen token'>)</span>
       <span class='end end kw'>end</span>
       <span class='@plist ivar id'>@plist</span><span class='dot token'>.</span><span class='file_format identifier id'>file_format</span> <span class='fmt identifier id'>fmt</span>
@@ -680,7 +676,7 @@ The API method call to execute. One of <tt><a href="#PrivateApiMethods-constant"
 </div>
     
     <div id="footer">
-  Generated on Sat Jul 17 13:03:20 2010 by 
+  Generated on Tue Jul 20 11:07:37 2010 by 
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool">yard</a>
   0.5.8  and the 
   <a href="http://github.com/dreamcat4/yard-slipstream">yard-slipstream</a> plugin

@@ -306,7 +306,7 @@ name has a corresponding set_or_return method call. For example
 </p><div class="docstring">
   <div class="discussion">
     <p>
-Set or return the plist key &#8220;EnvironmentVariables&#8220;
+Set or return the plist key <tt>EnvironmentVariables</tt>
 </p>
 
 
@@ -416,7 +416,7 @@ be set before running the job.
 </p><div class="docstring">
   <div class="discussion">
     <p>
-Set or return the plist key &#8220;HardResourceLimits&#8220;
+Set or return the plist key <tt>HardResourceLimits</tt>
 </p>
 <p>
 Resource limits to be imposed on the job. These adjust variables set with
@@ -537,7 +537,7 @@ Example
 </p><div class="docstring">
   <div class="discussion">
     <p>
-Set or return the plist key &#8220;inetdCompatibility&#8220;
+Set or return the plist key <tt>inetdCompatibility</tt>
 </p>
 
 
@@ -667,7 +667,7 @@ in/out/error descriptors.
 </p><div class="docstring">
   <div class="discussion">
     <p>
-Set or return the plist key &#8220;KeepAlive&#8220;
+Set or return the plist key <tt>KeepAlive</tt>
 </p>
 
 
@@ -880,11 +880,10 @@ This feature should not be considered a substitute for the use of IPC.
 </p><div class="docstring">
   <div class="discussion">
     <p>
-Set or return the plist key &#8220;MachServices&#8220;
+Set or return the plist key <tt>MachServices</tt>
 </p>
 <p>
-Structure: &#8220;A dictionary of booleans&#8221; or a &#8220;dictionary of
-dictionaries&#8220;
+Structure: <tt>dictionary of booleans</tt> or <tt>dictionary of dictionaries</tt>
 </p>
 <p>
 This optional key is used to specify Mach services to be registered with
@@ -991,11 +990,11 @@ Example
 </p><div class="docstring">
   <div class="discussion">
     <p>
-Set or return the plist key &#8220;Sockets&#8220;
+Set or return the plist key <tt>Sockets</tt>
 </p>
 <p>
-Structure: &#8220;dictionary of dictionaries&#8230; OR dictionary of array
-of dictionaries&#8230;&#8220;
+Structure: <tt>dictionary of dictionaries</tt> or <tt>dictionary of array</tt>
+<tt>of</tt> <tt>dictionaries</tt>
 </p>
 <p>
 Please see <a
@@ -1155,7 +1154,7 @@ Correct Usage, and Erroneous usage
    <span class='bonjour identifier id'>bonjour</span> <span class='lbrack token'>[</span><span class='string val'>'smb'</span><span class='rbrack token'>]</span>
  <span class='end end kw'>end</span>
 <span class='comment val'># =&gt; Result: Exception error is raise the second time because the &quot;Listeners&quot; key already </span>
-<span class='comment val'># exists. We can forcefully overwrite this existing sockets key with `socket &quot;Listeners&quot; do`.</span>
+<span class='comment val'># exists. We can forcefully overwrite this existing sockets key with +socket &quot;Listeners&quot; do+.</span>
 
 <span class='comment val'># scenario 3:</span>
  <span class='socket identifier id'>socket</span> <span class='string val'>&quot;netbios-ssn&quot;</span> <span class='do do kw'>do</span>
@@ -1303,7 +1302,7 @@ NOTE: Accessing the default sockets
 </p><div class="docstring">
   <div class="discussion">
     <p>
-Set or return the plist key &#8220;SoftResourceLimits&#8220;
+Set or return the plist key <tt>SoftResourceLimits</tt>
 </p>
 <p>
 Resource limits to be imposed on the job. These adjust variables set with
@@ -1424,7 +1423,7 @@ Example
 </p><div class="docstring">
   <div class="discussion">
     <p>
-Set or return the plist key &#8220;StartCalendarInterval&#8220;
+Set or return the plist key <tt>StartCalendarInterval</tt>
 </p>
 <p>
 This optional key causes the job to be started every calendar interval as
@@ -1590,7 +1589,7 @@ to the end of the array if no index specified.
 </div>
     
     <div id="footer">
-  Generated on Sat Jul 17 13:03:34 2010 by 
+  Generated on Tue Jul 20 11:07:50 2010 by 
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool">yard</a>
   0.5.8  and the 
   <a href="http://github.com/dreamcat4/yard-slipstream">yard-slipstream</a> plugin

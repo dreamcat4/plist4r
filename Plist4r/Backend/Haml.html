@@ -167,22 +167,16 @@ Dreamcat4 (dreamcat4@gmail.com)
       <pre class="lines">
 
 
-87
-88
-89
-90
-91
-92
-93
-94</pre>
+79
+80
+81
+82
+83</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/plist4r/backend/haml.rb', line 87</span>
+      <pre class="code"><span class="info file"># File 'lib/plist4r/backend/haml.rb', line 79</span>
 
 <span class='def def kw'>def</span> <span class='to_xml identifier id'>to_xml</span> <span class='plist identifier id'>plist</span>
-  <span class='require identifier id'>require</span> <span class='string val'>'haml'</span>
-  <span class='require identifier id'>require</span> <span class='string val'>'base64'</span>
-
   <span class='@plist ivar id'>@plist</span> <span class='assign token'>=</span> <span class='plist identifier id'>plist</span>
   <span class='engine identifier id'>engine</span> <span class='assign token'>=</span> <span class='Haml constant id'>Haml</span><span class='colon2 op'>::</span><span class='Engine constant id'>Engine</span><span class='dot token'>.</span><span class='new identifier id'>new</span> <span class='to_xml_haml identifier id'>to_xml_haml</span>
   <span class='rendered_xml_output identifier id'>rendered_xml_output</span> <span class='assign token'>=</span> <span class='engine identifier id'>engine</span><span class='dot token'>.</span><span class='render identifier id'>render</span> <span class='self self kw'>self</span>
@@ -207,15 +201,15 @@ Dreamcat4 (dreamcat4@gmail.com)
       <pre class="lines">
 
 
-8
-9
-10</pre>
+12
+13
+14</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/plist4r/backend/haml.rb', line 8</span>
+      <pre class="code"><span class="info file"># File 'lib/plist4r/backend/haml.rb', line 12</span>
 
 <span class='def def kw'>def</span> <span class='to_xml_haml identifier id'>to_xml_haml</span>
-  <span class='@to_xml_haml ivar id'>@to_xml_haml</span> <span class='opasgn op'>||=</span> <span class='string val'>&quot;!!! XML UTF-8\n&lt;!DOCTYPE plist PUBLIC \&quot;-//Apple Computer//DTD PLIST 1.0//EN\&quot;\n\&quot;http://www.apple.com/DTDs/PropertyList-1.0.dtd\&quot; &gt;\n%plist{ :version =&gt; '1.0' }\n%dict\n- p = Proc.new do |data, block|\n- data.each_pair do |k,v|\n- raise \&quot;Invalid input. Hash: \#{data.inspect} can only contain keys of type Symbol or String. Found key \#{k.inspect}, of type: \\\&quot;\#{k.class}\\\&quot;\&quot; unless [Symbol,String].include? k.class\n- case v\n- when TrueClass, FalseClass\n%key \#{k}\n&lt;\#{v}/&gt;\n- when String\n%key \#{k}\n%string \#{v}\n- when Integer\n%key \#{k}\n%integer \#{v}\n- when Float\n%key \#{k}\n%real \#{v}\n- when Time\n%key \#{k}\n%date \#{v.utc.strftime('%Y-%m-%dT%H:%M:%SZ')}\n- when Date\n%key \#{k}\n%date \#{v.strftime('%Y-%m-%dT%H:%M:%SZ')}\n- when IO, StringIO\n- data = String.new; v.rewind\n- Base64::encode64(v.read).gsub(/\\s+/, '').scan(/.{1,68}/o) { data &lt;&lt; $&amp; &lt;&lt; \&quot;\\n\&quot; }\n%key \#{k}\n%data \#{data}\n- when Array\n%key \#{k}\n%array\n- v.compact.each do |e|\n- case e\n- when TrueClass, FalseClass\n&lt;\#{v}/&gt;\n- when String\n%string \#{e}\n- when Integer\n%integer \#{v}\n- when Float\n%real \#{v}\n- when Time\n%date \#{v.utc.strftime('%Y-%m-%dT%H:%M:%SZ')}\n- when Date\n%date \#{v.strftime('%Y-%m-%dT%H:%M:%SZ')}\n- when IO, StringIO\n- data = String.new; v.rewind\n- Base64::encode64(v.read).gsub(/\\s+/, '').scan(/.{1,68}/o) { data &lt;&lt; $&amp; &lt;&lt; \&quot;\\n\&quot; }\n-# data = Base64::encode64(v.read)\n%data \#{data}\n- when Hash\n%dict\n- tab_up ; block.call(e, block) ; tab_down\n- else\n- data = String.new\n- Base64::encode64(Marshal.dump(v)).gsub(/\\s+/, '').scan(/.{1,68}/o) { data &lt;&lt; $&amp; &lt;&lt; \&quot;\\n\&quot; }\n- when Hash\n%key \#{k}\n%dict\n- tab_up ; block.call(v, block) ; tab_down\n- else\n- data = String.new\n- Base64::encode64(Marshal.dump(v)).gsub(/\\s+/, '').scan(/.{1,68}/o) { data &lt;&lt; $&amp; &lt;&lt; \&quot;\\n\&quot; }\n-# data = Base64::encode64(v.read)\n%key \#{k}\n%data\n\#{data}\n\n- p.call( @plist.to_hash, p)\n&quot;</span>
+  <span class='@to_xml_haml ivar id'>@to_xml_haml</span> <span class='opasgn op'>||=</span> <span class='string val'>&quot;!!! XML UTF-8\n&lt;!DOCTYPE plist PUBLIC \&quot;-//Apple Computer//DTD PLIST 1.0//EN\&quot;\n\&quot;http://www.apple.com/DTDs/PropertyList-1.0.dtd\&quot; &gt;\n%plist{ :version =&gt; '1.0' }\n%dict\n- p = Proc.new do |data, block|\n- data.each_pair do |k,v|\n- raise \&quot;Invalid input. Hash: \#{data.inspect} can only contain keys of type Symbol or String. Found key \#{k.inspect}, of type: \\\&quot;\#{k.class}\\\&quot;\&quot; unless [Symbol,String].include? k.class\n- case v\n- when TrueClass, FalseClass\n%key \#{k}\n&lt;\#{v}/&gt;\n- when String\n%key \#{k}\n- if v.blob?\n- data = Base64::encode64(v)\n%data \#{data}\n- else\n%string \#{v}\n- when Integer\n%key \#{k}\n%integer \#{v}\n- when Float\n%key \#{k}\n%real \#{v}\n- when Time\n%key \#{k}\n%date \#{v.utc.strftime('%Y-%m-%dT%H:%M:%SZ')}\n- when Date\n%key \#{k}\n%date \#{v.strftime('%Y-%m-%dT%H:%M:%SZ')}\n- when Array\n%key \#{k}\n%array\n- v.compact.each do |e|\n- case e\n- when TrueClass, FalseClass\n&lt;\#{e}/&gt;\n- when String\n- if e.blob?\n- data = Base64::encode64(e)\n%data \#{data}\n- else\n%string \#{e}\n- when Integer\n%integer \#{e}\n- when Float\n%real \#{e}\n- when Time\n%date \#{e.utc.strftime('%Y-%m-%dT%H:%M:%SZ')}\n- when Date\n%date \#{e.strftime('%Y-%m-%dT%H:%M:%SZ')}\n- when Hash\n%dict\n- tab_up ; block.call(e, block) ; tab_down\n- when Hash\n%key \#{k}\n%dict\n- tab_up ; block.call(v, block) ; tab_down\n\n- p.call( @plist.to_hash, p)\n&quot;</span>
 <span class='end end kw'>end</span>
 </pre>
     </td>
@@ -229,7 +223,7 @@ Dreamcat4 (dreamcat4@gmail.com)
 </div>
     
     <div id="footer">
-  Generated on Sat Jul 17 13:03:21 2010 by 
+  Generated on Tue Jul 20 11:07:37 2010 by 
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool">yard</a>
   0.5.8  and the 
   <a href="http://github.com/dreamcat4/yard-slipstream">yard-slipstream</a> plugin

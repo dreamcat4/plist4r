@@ -77,21 +77,10 @@
     <iframe id="search_frame"></iframe>
     
     <div id="content"><div id='filecontents'><h1>Editing Plist Files</h1>
-<h2>Plist Types</h2>
-<p>
-Its important to understand that there are potentially different types of
-Plist file. These &#8220;Plist Types&#8221; determine the methods and
-options available to you for setting plist keys in the plist file.
-</p>
-<p>
-If you are developing a custom application, and intend to exchange data in
-a custom plist file format, it may be worth writing a custom Plist Type. In
-which case please see the <a href="file.DeveloperGuide.html" target="_self" title="DeveloperGuide">DeveloperGuide</a> for more info.
-</p>
-<p>
-For these following examples, we will use <tt><a href="Plist4r/PlistType/Launchd.html" target="_self" title="Plist4r::PlistType::Launchd (class)">Plist4r::PlistType::Launchd</a></tt>.
-</p>
 <h2>Editing</h2>
+<p>
+In this example, we will be editing a Launchd plist file.
+</p>
 <p>
 When we wish to perform an edit operation on a plist object, we (almost
 always) are calling an accessor method on the Plist Object. We may call the
@@ -141,13 +130,86 @@ another way of writing plist.edit.
 <p>
 Certain kinds of edit operation are available on the plist keys. These are
 useful when we want to treat the plist keys like we would an Array object
-or a Hash object. Methods select, map/collect, delete_if, clear and
-similar. These methods are all documented as part of <tt><a href="Plist4r/Plist.html" target="_self" title="Plist4r::Plist (class)">Plist4r::Plist</a></tt>.
+or a Hash object. Methods like <tt><a href="Plist4r/Plist.html#select-instance_method" target="_self" title="Plist4r::Plist#select (method)">Plist4r::Plist#select</a></tt>,
+<tt><a href="Plist4r/Plist.html#map-instance_method" target="_self" title="Plist4r::Plist#map (method)">Plist4r::Plist#map</a></tt>, <tt><a href="Plist4r/Plist.html#delete_if-instance_method" target="_self" title="Plist4r::Plist#delete_if (method)">Plist4r::Plist#delete_if</a></tt>, <tt><a href="Plist4r/Plist.html#clear-instance_method" target="_self" title="Plist4r::Plist#clear (method)">Plist4r::Plist#clear</a></tt>
+and similar. Such methods are all documented in <tt><a href="Plist4r/Plist.html" target="_self" title="Plist4r::Plist (class)">Plist4r::Plist</a></tt>.
+</p>
+<h2>Plist Data (CFData / NSData)</h2>
+<p>
+A plist file supports key-value pairs in several types, including Base64
+encoded binary data. For example, a plist key that stores binary data might
+look something like this
+</p>
+<pre class="code">
+  <span class='lt op'>&lt;</span><span class='data identifier id'>data</span><span class='gt op'>&gt;</span>
+      <span class='PEKBpYGlmYFCPA constant id'>PEKBpYGlmYFCPA</span><span class='eq op'>==</span>
+  <span class='lt op'>&lt;</span><span class='regexp val'>/data&gt;
+</span></pre>
+<p>
+When its decoded, this is a byte stream (8-bit bytes), of some finite
+length. In Ruby we have no dedicated class to represent this, but instead
+can use a ruby <tt>String</tt> as a binary string.
+</p>
+<p>
+In Plist4r, we extend <tt><a href="String.html" target="_self" title="String (class)">String</a></tt> with 2 methods, <tt><a href="String.html#blob%3D-instance_method" target="_self" title="String#blob= (method)">String#blob=</a></tt> and
+<tt><a href="String.html#blob%3F-instance_method" target="_self" title="String#blob? (method)">String#blob?</a></tt>. This allows us to identify and differentiate a binary
+string from a regular string object.
+</p>
+<p>
+So to store binary data into a plist data key&#8230;
+</p>
+<pre class="code">
+  <span class='@plist ivar id'>@plist</span> <span class='assign token'>=</span> <span class='Plist4r constant id'>Plist4r</span><span class='dot token'>.</span><span class='new identifier id'>new</span>
+  <span class='bstr identifier id'>bstr</span> <span class='assign token'>=</span> <span class='string val'>&quot;my_binary_data&quot;</span>
+  <span class='bstr identifier id'>bstr</span><span class='dot token'>.</span><span class='blob identifier id'>blob</span> <span class='assign token'>=</span> <span class='true true kw'>true</span> <span class='comment val'># mark as a binary string</span>
+  <span class='@plist ivar id'>@plist</span><span class='dot token'>.</span><span class='store identifier id'>store</span> <span class='string val'>&quot;MyData&quot;</span><span class='comma token'>,</span> <span class='bstr identifier id'>bstr</span>
+</pre>
+<p>
+&#8230;and to read or inspect the binary data in Ruby from a
+<tt><a href="Plist4r/Plist.html" target="_self" title="Plist4r::Plist (class)">Plist4r::Plist</a></tt> object
+</p>
+<pre class="code">
+  <span class='@plist ivar id'>@plist</span><span class='dot token'>.</span><span class='my_data identifier id'>my_data</span>
+  <span class='assign token'>=</span><span class='gt op'>&gt;</span> <span class='string val'>&quot;my_binary_data&quot;</span>
+  <span class='@plist ivar id'>@plist</span><span class='dot token'>.</span><span class='my_data identifier id'>my_data</span><span class='dot token'>.</span><span class='blob? fid id'>blob?</span>
+  <span class='assign token'>=</span><span class='gt op'>&gt;</span> <span class='true true kw'>true</span>
+</pre>
+<p>
+If we forget the <tt>blob?</tt> and <tt>blob=</tt> methods, then we simple
+are storing and reading our data as a regular textual <tt>String</tt>. So
+heh, just remember to set <tt>blob=</tt> true at some point.
+</p>
+<p>
+If we want to perform byte stream IO operations on our binary string&#8230;
+</p>
+<pre class="code">
+  <span class='comment val'># wrap it in a StringIO object</span>
+  <span class='stream identifier id'>stream</span> <span class='assign token'>=</span> <span class='StringIO constant id'>StringIO</span><span class='dot token'>.</span><span class='new identifier id'>new</span><span class='lparen token'>(</span><span class='@plist ivar id'>@plist</span><span class='dot token'>.</span><span class='my_data identifier id'>my_data</span><span class='rparen token'>)</span>
+  <span class='next_byte identifier id'>next_byte</span> <span class='assign token'>=</span> <span class='stream identifier id'>stream</span><span class='dot token'>.</span><span class='getc identifier id'>getc</span> <span class='comment val'># or stream.putc(int) to write a byte</span>
+</pre>
+<p>
+See <a
+href="http://www.ruby-doc.org/core/classes/IO.html">www.ruby-doc.org/core/classes/IO.html</a>
+and <a
+href="http://www.ruby-doc.org/core/classes/StringIO.html">www.ruby-doc.org/core/classes/StringIO.html</a>
+for more information about the IO object classes.
+</p>
+<h2>Plist Types</h2>
+<p>
+The class <tt><a href="Plist4r/PlistType.html" target="_self" title="Plist4r::PlistType (class)">Plist4r::PlistType</a></tt> allows you to save those more complex data
+structures to specific plist keys in a plist file. For example the method
+<tt><a href="Plist4r/PlistType/Launchd.html#socket-instance_method" target="_self" title="Plist4r::PlistType::Launchd#socket (method)">Plist4r::PlistType::Launchd#socket</a></tt> will construct a Socket entry for a
+launchd plist file.
+</p>
+<p>
+If you are developing a custom application, and intend to exchange data in
+a custom plist file format, it may be worth writing a custom Plist Type. In
+which case please see the <a href="file.DeveloperGuide.html" target="_self" title="DeveloperGuide">DeveloperGuide</a> for more info.
 </p>
 </div></div>
     
     <div id="footer">
-  Generated on Sat Jul 17 13:03:17 2010 by 
+  Generated on Tue Jul 20 11:07:34 2010 by 
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool">yard</a>
   0.5.8  and the 
   <a href="http://github.com/dreamcat4/yard-slipstream">yard-slipstream</a> plugin
