@@ -1,6 +1,6 @@
 
-# require 'digest/md5'
 require 'plist4r/backend'
+require 'plist4r/mixin/ruby_stdlib'
 
 module Plist4r
   class PlistCache
@@ -15,19 +15,18 @@ module Plist4r
         unless @from_string_plist_type == @plist.plist_type
           @from_string_plist_type = @plist.detect_plist_type
         end
+        unless @from_string_file_format == @plist.file_format
+          @plist.file_format @from_string_file_format
+        end
       else
         @backend.call :from_string
         @from_string = @plist.from_string
+        @from_string_file_format = @plist.file_format
 
         @plist.detect_plist_type
         unless @from_string_plist_type == @plist.plist_type
           @from_string_plist_type = @plist.plist_type
         end
-
-      end
-
-      unless @from_string_file_format == @plist.file_format
-        @plist.file_format @from_string_file_format
       end
       @plist
     end
