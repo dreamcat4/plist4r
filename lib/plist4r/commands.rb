@@ -21,9 +21,10 @@ module Plist4r
       end
     end
 
-    # Implements the `plist4r --ruby-lib` subcommand.
+    # Implements the +plist4r --ruby-lib+ subcommand.
     # @see Plist4r::CLI
     def ruby_lib
+      plist4r_root = File.expand_path "../../", File.dirname(__FILE__)
       plist4r_lib = File.expand_path "../../lib", File.dirname(__FILE__)
       dest = File.expand_path(Plist4r::Config[:args][:dir] || FileUtils.pwd)
 
@@ -33,16 +34,22 @@ module Plist4r
       FileUtils.mkdir_p dest
       FileUtils.rm_rf "#{dest}/plist4r"
       FileUtils.cp_r Dir.glob("#{plist4r_lib}/*"), dest
+      FileUtils.cp_r Dir.glob("#{plist4r_root}/VERSION"), "#{dest}/plist4r"
       
       if Plist4r::Config[:args][:brew]
         backends = Dir.glob "#{dest}/plist4r/backend/*"
+        docs = Dir.glob "#{dest}/plist4r/docs*"
+        haml4r = Dir.glob "#{dest}/plist4r/mixin/haml4r*"
         non_brew_files = [
-          backends - ["#{dest}/plist4r/backend/ruby_cocoa.rb"],
-          "#{dest}/plist4r/mixin/mixlib_cli.rb",
-          "#{dest}/plist4r/options.rb",
-          "#{dest}/plist4r/commands.rb",
           "#{dest}/plist4r/application.rb",
-          # "#{dest}/plist4r/",
+          backends - ["#{dest}/plist4r/backend/ruby_cocoa.rb"],
+          "#{dest}/plist4r/cli.rb",
+          "#{dest}/plist4r/commands.rb",
+          docs,
+          haml4r,
+          "#{dest}/plist4r/mixin/mixlib_cli.rb",
+          "#{dest}/plist4r/mixin/script.rb",
+          "#{dest}/plist4r/mixin/table.rb",
         ].flatten
         FileUtils.rm_rf(non_brew_files)
 
