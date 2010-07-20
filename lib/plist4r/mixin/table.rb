@@ -247,14 +247,12 @@ module Plist4r
       (col_range.end - @array.size + 1).times do
         @array << []
       end
-      # puts "" unless EmptyCells.include? data
+
       col_range.each do |col|
         row_range.each do |row|
-          # puts "col = #{col}, row= #{row}" unless EmptyCells.include? data
           @array[col][row] = data.deep_clone if EmptyCells.include? @array[col][row]
         end
       end
-      # puts @array[0].inspect unless EmptyCells.include? data
     end
 
     def pad_all data
