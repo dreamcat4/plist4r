@@ -2,17 +2,7 @@
 
 # for irb
 require './launchd_plist.rb'
-class String
-  def camelcase
-    str = self.dup.capitalize.gsub(/[-_.\s]([a-zA-Z0-9])/) { $1.upcase } \
-                  .gsub('+', 'x')
-  end
 
-  def snake_case
-    str = self.dup.gsub(/[A-Z]/) {|s| "_" + s}
-    str = str.downcase.sub(/^\_/, "")
-  end
-end
 @launchd_plists = []
 def plist name=nil, *program_args, &blk
   puts self
@@ -190,135 +180,137 @@ end
 # engine = Haml::Engine.new File.read("#{pwd}/launchd_plist.haml")
 # print engine.render(self)
 
-<key>Sockets</key>
-<dict>
-	<key>Listeners</key>
-	<dict>
-		<key>SockFamily</key>
-		<string>Unix</string>
-		<key>SockPathMode</key>
-		<integer>384</integer>
-		<key>SockPathName</key>
-		<string>/var/run/vpncontrol.sock</string>
-	</dict>
-</dict>
 
 
-<key>Sockets</key>
-<dict>
-	<key>Listeners</key>
-	<array>
-		<dict>
-			<key>SockNodeName</key>
-			<string>::1</string>
-			<key>SockServiceName</key>
-			<string>ipp</string>
-		</dict>
-		<dict>
-			<key>SockNodeName</key>
-			<string>127.0.0.1</string>
-			<key>SockServiceName</key>
-			<string>ipp</string>
-		</dict>
-		<dict>
-			<key>SockPathMode</key>
-			<integer>49663</integer>
-			<key>SockPathName</key>
-			<string>/private/var/run/cupsd</string>
-		</dict>
-	</array>
-</dict>
-
-<key>Sockets</key>
-<dict>
-	<key>listener1</key>
-	<dict>
-		<key>SockNodeName</key>
-		<string>::1</string>
-		<key>SockServiceName</key>
-		<string>ipp</string>
-	</dict>
-	<key>listener2</key>
-	<dict>
-		<key>SockNodeName</key>
-		<string>127.0.0.1</string>
-		<key>SockServiceName</key>
-		<string>ipp</string>
-	</dict>
-	<key>listener3</key>
-	<dict>
-		<key>SockPathMode</key>
-		<integer>49663</integer>
-		<key>SockPathName</key>
-		<string>/private/var/run/cupsd</string>
-	</dict>
-</dict>
+# <key>Sockets</key>
+# <dict>
+#   <key>Listeners</key>
+#   <dict>
+#     <key>SockFamily</key>
+#     <string>Unix</string>
+#     <key>SockPathMode</key>
+#     <integer>384</integer>
+#     <key>SockPathName</key>
+#     <string>/var/run/vpncontrol.sock</string>
+#   </dict>
+# </dict>
 
 
+# <key>Sockets</key>
+# <dict>
+#   <key>Listeners</key>
+#   <array>
+#     <dict>
+#       <key>SockNodeName</key>
+#       <string>::1</string>
+#       <key>SockServiceName</key>
+#       <string>ipp</string>
+#     </dict>
+#     <dict>
+#       <key>SockNodeName</key>
+#       <string>127.0.0.1</string>
+#       <key>SockServiceName</key>
+#       <string>ipp</string>
+#     </dict>
+#     <dict>
+#       <key>SockPathMode</key>
+#       <integer>49663</integer>
+#       <key>SockPathName</key>
+#       <string>/private/var/run/cupsd</string>
+#     </dict>
+#   </array>
+# </dict>
 
-
-
-<key>Sockets</key>
-<dict>
-  <key>listener1</key>
-	<array>
-		<dict>
-			<key>SockNodeName</key>
-			<string>::1</string>
-			<key>SockServiceName</key>
-			<string>ipp</string>
-		</dict>
-	</array>
-	<key>listener2</key>
-	<array>
-		<dict>
-			<key>SockNodeName</key>
-			<string>127.0.0.1</string>
-			<key>SockServiceName</key>
-			<string>ipp</string>
-		</dict>
-	</array>
-	<key>listener3</key>
-	<array>
-		<dict>
-			<key>SockPathMode</key>
-			<integer>49663</integer>
-			<key>SockPathName</key>
-			<string>/private/var/run/cupsd</string>
-		</dict>
-	</array>
-</dict>
+# <key>Sockets</key>
+# <dict>
+#   <key>listener1</key>
+#   <dict>
+#     <key>SockNodeName</key>
+#     <string>::1</string>
+#     <key>SockServiceName</key>
+#     <string>ipp</string>
+#   </dict>
+#   <key>listener2</key>
+#   <dict>
+#     <key>SockNodeName</key>
+#     <string>127.0.0.1</string>
+#     <key>SockServiceName</key>
+#     <string>ipp</string>
+#   </dict>
+#   <key>listener3</key>
+#   <dict>
+#     <key>SockPathMode</key>
+#     <integer>49663</integer>
+#     <key>SockPathName</key>
+#     <string>/private/var/run/cupsd</string>
+#   </dict>
+# </dict>
 
 
 
 
 
+# <key>Sockets</key>
+# <dict>
+#   <key>listener1</key>
+#   <array>
+#     <dict>
+#       <key>SockNodeName</key>
+#       <string>::1</string>
+#       <key>SockServiceName</key>
+#       <string>ipp</string>
+#     </dict>
+#   </array>
+#   <key>listener2</key>
+#   <array>
+#     <dict>
+#       <key>SockNodeName</key>
+#       <string>127.0.0.1</string>
+#       <key>SockServiceName</key>
+#       <string>ipp</string>
+#     </dict>
+#   </array>
+#   <key>listener3</key>
+#   <array>
+#     <dict>
+#       <key>SockPathMode</key>
+#       <integer>49663</integer>
+#       <key>SockPathName</key>
+#       <string>/private/var/run/cupsd</string>
+#     </dict>
+#   </array>
+# </dict>
 
 
 
 
 
-<key>Sockets</key>
-<dict>
-  <key>netbios</key>
-  <dict>
-    <key>SockServiceName</key>
-    <string>netbios-ssn</string>
-    <key>SockFamily</key>
-    <string>IPv4</string>
-  </dict>
-  <key>direct</key>
-  <dict>
-    <key>SockServiceName</key>
-    <string>microsoft-ds</string>
-    <key>SockFamily</key>
-    <string>IPv4</string>
-    <key>Bonjour</key>
-    <array>
-      <string>smb</string>
-    </array>
-  </dict>
-</dict>
+
+
+
+
+
+# <key>Sockets</key>
+# <dict>
+#   <key>netbios</key>
+#   <dict>
+#     <key>SockServiceName</key>
+#     <string>netbios-ssn</string>
+#     <key>SockFamily</key>
+#     <string>IPv4</string>
+#   </dict>
+#   <key>direct</key>
+#   <dict>
+#     <key>SockServiceName</key>
+#     <string>microsoft-ds</string>
+#     <key>SockFamily</key>
+#     <string>IPv4</string>
+#     <key>Bonjour</key>
+#     <array>
+#       <string>smb</string>
+#     </array>
+#   </dict>
+# </dict>
 
 # <key>StartCalendarInterval</key>
 # <dict>

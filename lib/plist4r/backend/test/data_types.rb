@@ -4,23 +4,15 @@ module Plist4r
     module Test
 
       class DataTypes
-        # PlistDataTypes = [:bool, :integer, :float, :string, :time, :date_time, :data, :array, :hash]
-        # PlistDataTypes =  [:bool, :integer, :float, :string, :time, :date_time, :array, :hash]
-        # PlistDataTypes =  [:bool, :integer, :float, :string, :time, :array, :hash, :hash_array_string_integer_bool]
-
-        PlistDataTypes =  [:bool, :integer, :float, :string, :time, :array, :hash]
-        # PlistDataTypes =  [:bool, :integer, :float, :string, :time, :array, :hash, :gen_mixed]
-        # PlistDataTypes =  [:bool, :integer, :float, :string, :time, :data, :array, :hash]
+        PlistDataTypes =  [:bool, :integer, :float, :string, :time, :array, :hash, :data]
 
         def initialize *args, &blk
-          
           @plists = Plist4r::OrderedHash.new
           PlistDataTypes.each do |pdt|
             @plist = Plist4r.new
             self.send "gen_#{pdt}"
             @plists[pdt] = @plist
           end
-          # puts @plists.keys.inspect
           
           @plist_1024 = gen_plist_1024
         end
@@ -39,98 +31,95 @@ module Plist4r
 
         def gen_bool
           [true,false].each do |bool|
-            @plist.set "BoolKey#{bool.to_s.capitalize}", bool
+            @plist.store "BoolKey#{bool.to_s.capitalize}", bool
           end
         end
-      
+
         def gen_integer
           (0..9).each do |i|
-            @plist.set "IntegerKey#{(65+i).chr}", i
+            @plist.store "IntegerKey#{(65+i).chr}", i
           end
         end
-      
+
         def gen_float
           (0..100).each do |i|
-            @plist.set "RealKey#{i}", i.to_f / 100
+            @plist.store "RealKey#{i}", i.to_f / 100
           end
         end
-      
+
         def gen_string
           (0..25).each do |i|
-            @plist.set "StringKey#{(65+i).chr}", "#{(97+i).chr}"*(i+1)
+            @plist.store "StringKey#{(65+i).chr}", "#{(97+i).chr}"*(i+1)
           end
         end
-      
+
         def gen_time
           require 'date'
           (0..25).each do |i|
-            @plist.set "DateKey#{(65+i).chr}", Time.parse("2010-04-#{sprintf("%.2i",i+1)}T19:50:01Z")
+            @plist.store "DateKey#{(65+i).chr}", Time.parse("2010-04-#{sprintf("%.2i",i+1)}T19:50:01Z")
           end
         end
-      
-        # def gen_date_time
-        #   require 'date'
-        #   (0..25).each do |i|
-        #     @plist.set "DateKey#{(65+i).chr}", DateTime.parse("2010-04-#{sprintf("%.2i",i+1)}T19:50:01Z")
-        #   end
-        # end
-      
+
         def gen_data
-          # Should be IO.new ... 
-          Struct.new("Customer", :name, :id)
+          # a = []
           (0..25).each do |i|
-            @plist.set "DataKey#{(65+i).chr}", Struct::Customer.new("Dave", "#{(65+i).chr}")
+            s = "1"*i
+            bstr = "DataBytes#{s}"
+            bstr.blob = true
+            @plist.store "DataKey#{(65+i).chr}", bstr
+            # a << bstr
           end
+          # @plist.store "BinaryArray", a
         end
-      
+
         def gen_array
           (0..25).each do |i|
             a = []
             (0..i).each do |j|
               a << "String#{(65+j).chr}"
             end
-            @plist.set "ArrayKey#{(65+i).chr}", a
+            @plist.store "ArrayKey#{(65+i).chr}", a
           end
         end
-      
+
         def gen_hash
           (0..25).each do |i|
             h = Plist4r::OrderedHash.new
             (0..i).each do |j|
               h["String#{(65+j).chr}"] = "#{(97+j).chr}"*(j+1)
             end
-            @plist.set "HashKey#{(65+i).chr}", h
+            @plist.store "HashKey#{(65+i).chr}", h
           end
         end
-      
+
         def gen_mixed
           @plist.edit do
             [true,false].each do |bool|
-              set "BoolKey#{bool.to_s.capitalize}", bool
+              store "BoolKey#{bool.to_s.capitalize}", bool
             end
         
             (0..9).each do |i|
-              set "IntegerKey#{(65+i).chr}", i
+              store "IntegerKey#{(65+i).chr}", i
             end
         
             (0..25).each do |i|
-              set "StringKey#{(65+i).chr}", "#{(97+i).chr}"*(i+1)
+              store "StringKey#{(65+i).chr}", "#{(97+i).chr}"*(i+1)
             end
-        
+
             (0..25).each do |i|
               a = []
               (0..i).each do |j|
                 a << "String#{(65+j).chr}"
               end
-              set "ArrayKey#{(65+i).chr}", a
+              store "ArrayKey#{(65+i).chr}", a
             end
-        
+
             (0..25).each do |i|
               h = Plist4r::OrderedHash.new
               (0..i).each do |j|
                 h["String#{(65+j).chr}"] = "#{(97+j).chr}"*(j+1)
               end
-              set "HashKey#{(65+i).chr}", h
+              store "HashKey#{(65+i).chr}", h
             end
           end
         end
@@ -144,26 +133,26 @@ module Plist4r
               (0..25).each do |j|
                 a << "String#{(65+j).chr}"
               end
-              set "ArrayKey#{i}", a
+              store "ArrayKey#{i}", a
 
               h = Plist4r::OrderedHash.new
               (0..25).each do |j|
                 h["String#{(65+j).chr}"] = "#{(97+j).chr}"*(j+1)
               end
-              set "HashKey#{i}", h
+              store "HashKey#{i}", h
             end
-            
+
             a = []
             (0..11).each do |j|
               a << "String#{(65+j).chr}"
             end
-            set "ArrayKeyPad1", a
-            
+            store "ArrayKeyPad1", a
+
             a = []
             (0..23).each do |j|
               a << "String#{(65+j).chr}"
             end
-            set "ArrayKeyPad2", a
+            store "ArrayKeyPad2", a
           end
           @plist_1024
         end

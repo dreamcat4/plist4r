@@ -2,7 +2,7 @@ require 'plist4r/mixin/mixlib_cli'
 require 'plist4r/mixin/mixlib_config'
 
 module Plist4r
-  # Defines options for the `plist4r` command line utility
+  # Defines options for the +plist4r+ command line utility
   class CLI
     include Plist4r::Mixlib::CLI
 
