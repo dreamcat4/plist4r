@@ -158,7 +158,7 @@ class String
   # @example
   #  "my_plist_key".camelcase => "MyPlistKey"
   def camelcase
-    str = self.dup.capitalize.gsub(/[-_.\s]([a-zA-Z0-9])/) { $1.upcase } \
+    str = self.dup.gsub(/(^|[-_.\s])([a-zA-Z0-9])/) { $2.upcase } \
                   .gsub('+', 'x')
   end
 
