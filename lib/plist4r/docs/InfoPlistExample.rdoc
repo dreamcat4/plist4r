@@ -1,0 +1,33 @@
+= Info Plist Example
+
+In this example, we edit an Apple Info.plist, to modify a couple of the keys and write them back to the same file. For setting the plist file attributes see {Plist4r::Plist}. For more information specifically about Info Plists, see {Plist4r::PlistType::Info}.
+
+  # standard method
+  info_plist = Plist4r.open "/Applications/MyApp.app/Contents/Info.plist"
+  info_plist[:c_f_bundle_signature] # => "????"
+  info_plist["LSUIElement"] = true
+  info_plist.save
+
+  # block method
+  info_plist = Plist4r.open "/Applications/MyApp.app/Contents/Info.plist" do
+
+    # plist attributes
+    filename    # => "/Applications/MyApp.app/Contents/Info.plist"
+    file_format # => :xml
+    plist_type  # => :info
+
+    # read
+    c_f_bundle_executable # => "MyApp"
+    c_f_bundle_icon_file  # => "Icon"
+    c_f_bundle_identifier # => "com.mydomain.MyApp"
+    c_f_bundle_name       # => "MyApp"
+    c_f_bundle_signature  # => "????"
+
+    # write
+    c_f_bundle_signature "MYAP"
+    store "LSUIElement" true
+    
+    # call info_plist.save
+    save
+  end
+

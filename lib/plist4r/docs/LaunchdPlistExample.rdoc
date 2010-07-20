@@ -1,0 +1,33 @@
+= Launchd Plist Example
+
+In this example, we edit an Apple Launchd plist, to modify a couple of the keys and write them back to the same file. For setting the plist file attributes see {Plist4r::Plist}. For more information specifically about Launchd Plists, see {Plist4r::PlistType::Launchd}.
+
+  # standard method
+  launchd_plist = Plist4r.open "/Library/LaunchDaemons/com.mydomain.MyApp.plist"
+  launchd_plist[:label] # => "com.mydomain.Myapp"
+  launchd_plist[:start_on_mount] = true
+  launchd_plist.save
+
+  # block method
+  launchd_plist = Plist4r.open "/Library/LaunchDaemons/com.mydomain.MyApp.plist" do
+
+    # plist attributes
+    filename    # => "/Library/LaunchDaemons/com.mydomain.MyApp.plist"
+    file_format # => :xml
+    plist_type  # => :launchd
+
+    # read
+    label             # => "com.mydomain.Myapp"
+    program_arguments # => ["/Applications/MyApp.app/Contents/MacOS/MyApp"]
+    queue_directories # => ["/dir/to/watch/1","/dir/to/watch/2","etc..."]
+    run_at_load    # => false
+    start_on_mount # => false
+
+    # write
+    run_at_load true
+    store "StartOnMount" true
+    
+    # call launchd_plist.save
+    save
+  end
+
