@@ -17,7 +17,6 @@ module Plist4r
     # Plist4r.new => #<Plist4r::Plist:0x111546c @file_format=nil, ...>
     # @api public
     def new *args, &blk
-      # puts args.inspect
       return Plist.new *args, &blk
     end
 

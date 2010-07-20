@@ -1,5 +1,5 @@
 require 'plist4r/config'
-require 'plist4r/options'
+require 'plist4r/cli'
 require 'plist4r/commands'
 
 module Plist4r
@@ -11,7 +11,6 @@ module Plist4r
       @cli = Plist4r::CLI.new
       Plist4r::Config[:args] = @cli.parse
 
-      puts "Plist4r::Config[:args] = " + Plist4r::Config[:args].inspect
       @commands = Plist4r::Commands.new
       @commands.run
     end
