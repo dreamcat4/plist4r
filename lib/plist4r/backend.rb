@@ -1,10 +1,12 @@
 
 require 'plist4r/config'
 require 'plist4r/mixin/ordered_hash'
+require 'timeout'
 
 module Plist4r
   # This class is the Backend broker. The purpose of this object is to manage and handle API
   # calls, passing them over to the appropriate Plist4r backends.
+  # Also see the {file:Backends} Rdoc page.
   class Backend
     # The list backend API methods. A Plist4r::Backend should implement 1 or more of these methods
     # @see Plist4r::Backend::Example
@@ -27,8 +29,7 @@ module Plist4r
     # Implements a generic version of each of the Plist4r Private API Calls.
     # @param [Symbol] backend the currently iterated backend from which we will try to generate the API call
     # @param [Symbol] method_sym The API method call to execute. One of {PrivateApiMethods}
-    # @param *args Any optional arguments to pass to the backend
-    def generic_call backend, method_sym, *args, &blk
+    def generic_call backend, method_sym
       case method_sym
 
       when :save
@@ -47,11 +48,13 @@ module Plist4r
         end
         fmt = @open_fmt
         if backend.respond_to? "from_#{fmt}"
+          @from_string_fmt = @open_fmt
           @open_fmt = nil
+
+          @plist.instance_eval { @plist_cache.send :from_string }
         else
           return Exception.new "Plist4r: No backend found to handle method :from_#{fmt}. Could not execute method :open on plist #{@plist.inspect}"
         end
-        @plist.instance_eval { @plist_cache.send :from_string }
 
       when :from_string
         unless @from_string_fmt
@@ -60,12 +63,15 @@ module Plist4r
         fmt = @from_string_fmt
         if backend.respond_to? "from_#{fmt}"
           @from_string_fmt = nil
+
+          Timeout::timeout(Plist4r::Config[:backend_timeout]) do
+            backend.send("from_#{fmt}".to_sym, @plist)
+          end
+          @plist.file_format fmt
+          @plist
         else
           return Exception.new "Plist4r: No backend found to handle method :from_#{fmt}. Could not execute method :from_string on plist #{@plist.inspect}"
         end
-        backend.send("from_#{fmt}".to_sym, @plist)
-        @plist.file_format fmt
-        @plist
       end
     end
 
@@ -73,40 +79,35 @@ module Plist4r
     # as one of the parameters, which will also contain all the input data to work on.
     # 
     # This function loops through the array of available backends, and calls the
-    # same method on the first backend found to implemente the specific request.
+    # first backend found to implement the appropriate fullfilment request.
     # 
-    # If the request fails, the call is re-executed on the next available 
+    # If the request fails, the call is re-executed on the next available
     # backend.
     # 
-    # The plist object is updated in-place.
+    # The plist object is updated in-place and also usually placed as the return argument.
     # 
-    # @raise if no backend is able to sucessfully execute the request.
+    # @raise if no backend was able to sucessfully execute the request.
     # @param [Symbol] method_sym The API method call to execute
-    # @param *args Any optional arguments to pass to the backend
-    def call method_sym, *args, &blk
-      # puts "in call"
-      # puts "#{method_sym.inspect} #{args.inspect}"
+    def call method_sym
       raise "Unsupported api call #{method_sym.inspect}" unless PlistCacheApiMethods.include? method_sym.to_s
       exceptions = []
       generic_call_exception = nil
 
       @plist.backends.each do |b_sym|
-        backend = eval "::Plist4r::Backend::#{b_sym.to_s.camelcase}"
+      backend = eval "Plist4r::Backend::#{b_sym.to_s.camelcase}"
 
         begin
-          # Timeout::timeout(15) do
-          Timeout::timeout(Config[:backend_timeout]) do
-            if backend.respond_to?(method_sym) && method_sym != :from_string
-                return backend.send(method_sym, @plist, *args, &blk)
+          if backend.respond_to?(method_sym) && method_sym != :from_string
+            Timeout::timeout(Plist4r::Config[:backend_timeout]) do
+              return eval("#{backend}.#{method_sym} @plist")
+            end
 
-            elsif PrivateApiMethods.include? method_sym
-              result = generic_call backend, method_sym, *args, &blk
-              if result.is_a? Exception
-                generic_call_exception = result
-              else
-                return result
-              end
-              return result unless result.is_a? Exception
+          elsif PrivateApiMethods.include? method_sym.to_s
+            result = generic_call backend, method_sym
+            if result.is_a? Exception
+              generic_call_exception = result
+            else
+              return result
             end
           end
 
@@ -128,6 +129,7 @@ module Plist4r
           raise exceptions.first
         end
       end
+      
       if exceptions.empty?
         if generic_call_exception
           raise generic_call_exception
