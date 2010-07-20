@@ -1,5 +1,44 @@
 
 require 'plist4r/backend_base'
+require 'plist4r/mixin/ruby_stdlib'
+
+module Plist4r
+  class StringIOData
+    attr_accessor :string
+    def initialize string
+      @string = string
+    end
+
+    def to_s
+      @string
+    end
+
+    def _dump arg
+      @string
+    end
+
+    def self._load string
+      bstr = String.new(string)
+      bstr.blob = true
+      bstr
+    end
+  end
+end
+
+class String
+  def _dump arg
+    if self.blob?
+      string_io_data = Plist4r::StringIOData.new(self)
+      string_io_data._dump arg
+    else
+      self
+    end
+  end
+  
+  def self._load string
+    String.new string
+  end
+end
 
 # This backend only works on MacOSX. It supports everything except {Backend::Example.to_gnustep}, 
 # and saving in the :gnustep file format. This is Because RubyCocoa uses the 
@@ -27,6 +66,38 @@ $LOAD_PATH.unshift dir unless $LOAD_PATH.include?(dir)
 require 'osx/cocoa'
 require 'date'
 require 'plist4r/mixin/ordered_hash'
+require 'plist4r/mixin/ruby_stdlib'
+
+module Plist4r
+  class StringIOData
+    attr_accessor :string
+    def initialize string
+      @string = string
+    end
+
+    def to_s
+      @string
+    end
+
+    def _dump arg
+      @string
+    end
+
+    def self._load string
+      OSX::NSData.dataWithRubyString(string)
+    end
+  end
+end
+
+class String
+  def _dump arg
+    self
+  end
+  
+  def self._load string
+    String.new(string)
+  end
+end
 
 # Property list API.
 module OSX
@@ -60,6 +131,8 @@ class OSX::NSObject
       self.integer? ? self.to_i : self.to_f
     when OSX::NSString
       self.to_s
+    when OSX::NSData
+      Plist4r::StringIOData.new self.rubyString
     when OSX::NSAttributedString
       self.string.to_s
     when OSX::NSArray
@@ -158,9 +231,9 @@ EOC
         stdin.close
 
         ignored, status = [nil,nil]
-        timeout = 15
+
         begin
-          Timeout::timeout(timeout) do
+          Timeout::timeout(Plist4r::Config[:backend_timeout]) do
             ignored, status = Process::waitpid2 pid
           end
         rescue Timeout::Error => exc

@@ -1,5 +1,8 @@
 
 require 'plist4r/backend_base'
+require 'libxml4r'
+require 'base64'
+require 'date'
 
 # This backend uses Libxml4r / Libxml-Ruby to parse xml plists
 # @author Dreamcat4 (dreamcat4@gmail.com)
@@ -21,27 +24,15 @@ module Plist4r::Backend::Libxml4r
         when "real"
           hash[k] = vnode.inner_xml.to_f
         when "date"
-          require 'date'
           hash[k] = Time.parse vnode.inner_xml
         when "data"
-          require 'base64'
-          data = Base64.decode64(vnode.inner_xml.gsub(/\s+/, ''))
-          obj = nil
-          begin
-            obj = Marshal.load(data)
-            hash[k] = obj
-          rescue Exception => e
-            io = StringIO.new
-            io.write data
-            io.rewind
-            hash[k] = io
-          end
+          bstr = Base64.decode64(vnode.inner_xml)
+          bstr.blob = true
+          hash[k] = bstr
         when "array"
           hash[k] = tree_array(vnode)
         when "dict"
           hash[k] = tree_hash(vnode)
-        else
-          raise "Unsupported / not recognized plist key: #{vnode.name}"
         end
       end
       return hash
@@ -58,37 +49,23 @@ module Plist4r::Backend::Libxml4r
         when "integer"
           array << node.inner_xml.to_i
         when "real"
-          hash[k] = vnode.inner_xml.to_f
+          array << node.inner_xml.to_f
         when "date"
-          require 'date'
-          hash[k] = Time.parse vnode.inner_xml
+          array << Time.parse(node.inner_xml)
         when "data"
-          require 'base64'
-          data = Base64.decode64(vnode.inner_xml.gsub(/\s+/, ''))
-          obj = nil
-          begin
-            obj = Marshal.load(data)
-            hash[k] = obj
-          rescue Exception => e
-            io = StringIO.new
-            io.write data
-            io.rewind
-            hash[k] = io
-          end
+          bstr = bstr = Base64.decode64(node.inner_xml)
+          bstr.blob = true
+          array << bstr
         when "array"
           array << tree_array(node)
         when "dict"
           array << tree_hash(node)
-        else
-          raise "Unsupported / not recognized plist key: #{vnode.name}"
         end
       end
       return array
     end
 
     def parse_plist_xml string
-      require 'libxml4r'
-
       ::LibXML::XML.default_keep_blanks = false
       doc = string.to_xmldoc
       doc.strip!

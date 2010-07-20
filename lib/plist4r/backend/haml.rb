@@ -1,12 +1,16 @@
 
 require 'plist4r/backend_base'
+require 'plist4r/mixin/ruby_stdlib'
+require 'haml'
+require 'base64'
+require 'date'
 
 # This backend uses haml to generate xml plists
 # @author Dreamcat4 (dreamcat4@gmail.com)
 module Plist4r::Backend::Haml
-  class << self
-    def to_xml_haml
-      @to_xml_haml ||= <<-'EOC'
+	class << self
+		def to_xml_haml
+			@to_xml_haml ||= <<-'EOC'
 !!! XML UTF-8
 <!DOCTYPE plist PUBLIC "-//Apple Computer//DTD PLIST 1.0//EN"
 "http://www.apple.com/DTDs/PropertyList-1.0.dtd" >
@@ -21,7 +25,11 @@ module Plist4r::Backend::Haml
 						<#{v}/>
 					- when String
 						%key #{k}
-						%string #{v}
+						- if v.blob?
+							- data = Base64::encode64(v)
+							%data #{data}
+						- else
+							%string #{v}
 					- when Integer
 						%key #{k}
 						%integer #{v}
@@ -34,51 +42,45 @@ module Plist4r::Backend::Haml
 					- when Date
 						%key #{k}
 						%date #{v.strftime('%Y-%m-%dT%H:%M:%SZ')}
-					- when IO, StringIO
-						- data = String.new; v.rewind
-						- Base64::encode64(v.read).gsub(/\s+/, '').scan(/.{1,68}/o) { data << $& << "\n" }
-						%key #{k}
-						%data #{data}
 					- when Array
 						%key #{k}
 						%array
 							- v.compact.each do |e|
 								- case e
 									- when TrueClass, FalseClass
-										<#{v}/>
+										<#{e}/>
 									- when String
-										%string #{e}
-									- when Fixnum
-										%integer #{v}
+										- if e.blob?
+											- data = Base64::encode64(e)
+											%data #{data}
+										- else
+											%string #{e}
+									- when Integer
+										%integer #{e}
+									- when Float
+										%real #{e}
+									- when Time
+										%date #{e.utc.strftime('%Y-%m-%dT%H:%M:%SZ')}
+									- when Date
+										%date #{e.strftime('%Y-%m-%dT%H:%M:%SZ')}
 									- when Hash
 										%dict
 											- tab_up ; block.call(e, block) ; tab_down
-									- else
-										- raise "Invalid input. Array: #{v.inspect} can only contain elements of type String (<string>) or Hash (<dict>). Found element: #{e.inspect} of type: \"#{e.class}\""
 					- when Hash
 						%key #{k}
 						%dict
 							- tab_up ; block.call(v, block) ; tab_down
-					- else
-						- data = String.new
-						- Base64::encode64(Marshal.dump(v)).gsub(/\s+/, '').scan(/.{1,68}/o) { data << $& << "\n" }
-						%key #{k}
-						%data
-							#{data}
 
 		- p.call( @plist.to_hash, p)
 EOC
-    end
+		end
 
-    def to_xml plist
-      require 'haml'
-      require 'base64'
+		def to_xml plist
+			@plist = plist
+			engine = Haml::Engine.new to_xml_haml
+			rendered_xml_output = engine.render self
+		end
 
-      @plist = plist
-      engine = Haml::Engine.new to_xml_haml
-      rendered_xml_output = engine.render self
-    end
-
-  end
+	end
 end
 
