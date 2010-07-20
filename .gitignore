@@ -21,3 +21,7 @@ pkg
 ## PROJECT::SPECIFIC
 .yardoc
 doc
+
+# Ruby
+*.bundle
+

@@ -1,6 +1,8 @@
 
 require 'plist4r/backend_base'
 
+# Source: http://github.com/kballard/osx-plist
+# 
 # This backend only works on MacOSX. It supports everything using a compiled CoreFoundation helper
 # in ext directory, and uses native Cocoa CoreFoundation API calls. This backend invokes 
 # CFPropertyListWriteToStream.
@@ -8,8 +10,6 @@ require 'plist4r/backend_base'
 # Should work for any 10.5 (Leopard), 10.6 (Snow Leopard) Mac OSX distribution.
 # It will do nothing on non-mac platforms (eg Linux etc).
 # @author Kevin Ballard (http://github.com/kballard)
-# 
-# @see Plist4r::Backend
 module Plist4r::Backend::OsxPlist
   class << self
 

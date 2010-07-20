@@ -2,7 +2,6 @@
 require 'plist4r/mixin/mixlib_config'
 require 'plist4r/backend'
 
-# Dir.glob(File.dirname(__FILE__) + "/backend/**/*.rb").each {|b| require File.expand_path b}
 Dir.glob(File.dirname(__FILE__) + "/backend/*.rb").each {|b| require File.expand_path b}
 
 module Plist4r
@@ -27,28 +26,32 @@ module Plist4r
   # # Raise an exception plist keys which dont belong to the selected Plist type
   # Plist4r::Config[:strict_keys] = true
   class Config
+    extend Mixlib::Config
+
+    CoreFoundationFramework = "/System/Library/Frameworks/CoreFoundation.framework"
+    RubycocoaFramework      = "/System/Library/Frameworks/RubyCocoa.framework"
+
+    DefaultBackendsAny = ["c_f_property_list","haml","libxml4r"]
+    DefaultBackendsOsx = ["osx_plist","c_f_property_list","haml","libxml4r"]
+    
     def self.default_backends sym=nil
       case sym
       when :brew
         ["ruby_cocoa"]
       else
-        core_foundation_framework = "/System/Library/Frameworks/CoreFoundation.framework"
-        rubycocoa_framework       = "/System/Library/Frameworks/RubyCocoa.framework"
-        if File.exists? core_foundation_framework
-          if File.exists? rubycocoa_framework
-            ["osx_plist","c_f_property_list","haml","libxml4r","ruby_cocoa"]
+        if File.exists? CoreFoundationFramework
+          if File.exists? RubycocoaFramework
+            DefaultBackendsOsx + ["ruby_cocoa"]
           else
-            ["osx_plist","c_f_property_list","haml","libxml4r"]
+            DefaultBackendsOsx
           end
         else
-          ["c_f_property_list","haml","libxml4r"]
+          DefaultBackendsAny
         end
       end
     end
 
-    extend Mixlib::Config
-
-    types [] << Dir.glob(File.dirname(__FILE__) + "/plist_type/**/*.rb").collect {|b| File.basename(b,".rb") }
+    types [] << Dir.glob(File.dirname(__FILE__) + "/plist_type/*.rb").collect {|b| File.basename(b,".rb") }
     types.flatten!.uniq!
     
     backends default_backends
