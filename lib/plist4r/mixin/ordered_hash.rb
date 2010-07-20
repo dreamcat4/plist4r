@@ -68,6 +68,11 @@ module Plist4r
           @keys = other.keys
         end
 
+        def store(key, value)
+          @keys << key if !has_key?(key)
+          super
+        end
+
         def []=(key, value)
           @keys << key if !has_key?(key)
           super
@@ -80,7 +85,7 @@ module Plist4r
           end
           super
         end
-      
+
         def delete_if
           super
           sync_keys!
