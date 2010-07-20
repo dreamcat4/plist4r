@@ -11,7 +11,7 @@ Gem::Specification.new do |s|
   s.authors = ["dreamcat4"]
   s.date = %q{2010-07-20}
   s.default_executable = %q{plist4r}
-  s.description = %q{In development. Plist4R is a gem which is striving for 3 things: ease of use, speed, and reliability handling of plists. To help achieve these goals, we may plug-in or re-write this gem with one or several backends. Notably, we try to distinguish this gem by providing easy-to use DSL interface for users. For common plist type(s), such as convenience methods for Launchd Plist}
+  s.description = %q{Plist4r is for editing Plist files in an easy-to-use, fast, and reliabile way. A comprehensive and fully featured Ruby library. Xml and Binary file formats are supported, with backends for Linux and Mac.}
   s.email = %q{dreamcat4@gmail.com}
   s.executables = ["plist4r"]
   s.extensions = ["ext/osx_plist/extconf.rb"]

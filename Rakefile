@@ -6,7 +6,7 @@ begin
   Jeweler::Tasks.new do |gem|
     gem.name = "plist4r"
     gem.summary = %Q{Dreamcat4's plist4r gem. For reading/writing plists in ruby}
-    gem.description = %Q{In development. Plist4R is a gem which is striving for 3 things: ease of use, speed, and reliability handling of plists. To help achieve these goals, we may plug-in or re-write this gem with one or several backends. Notably, we try to distinguish this gem by providing easy-to use DSL interface for users. For common plist type(s), such as convenience methods for Launchd Plist}
+    gem.description = %Q{Plist4r is for editing Plist files in an easy-to-use, fast, and reliabile way. A comprehensive and fully featured Ruby library. Xml and Binary file formats are supported, with backends for Linux and Mac.}
     gem.email = "dreamcat4@gmail.com"
     gem.homepage = "http://github.com/dreamcat4/plist4r"
     gem.authors = ["dreamcat4"]
