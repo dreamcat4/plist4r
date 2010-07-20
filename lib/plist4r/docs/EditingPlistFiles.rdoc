@@ -1,14 +1,8 @@
 = Editing Plist Files
 
-== Plist Types
-
-Its important to understand that there are potentially different types of Plist file. These "Plist Types" determine the methods and options available to you for setting plist keys in the plist file.
-
-If you are developing a custom application, and intend to exchange data in a custom plist file format, it may be worth writing a custom Plist Type. In which case please see the {file:DeveloperGuide} for more info.
-
-For these following examples, we will use {Plist4r::PlistType::Launchd}.
-
 == Editing
+
+In this example, we will be editing a Launchd plist file.
 
 When we wish to perform an edit operation on a plist object, we (almost always) are calling an accessor method on the Plist Object. We may call the method directly on the object, like this
 
@@ -47,5 +41,48 @@ The << operator can alternatively be used, interchangeably. Its just another way
 
 == Editing operations
 
-Certain kinds of edit operation are available on the plist keys. These are useful when we want to treat the plist keys like we would an Array object or a Hash object. Methods select, map/collect, delete_if, clear and similar. These methods are all documented as part of  {Plist4r::Plist}.
+Certain kinds of edit operation are available on the plist keys. These are useful when we want to treat the plist keys like we would an Array object or a Hash object. Methods like {Plist4r::Plist#select}, {Plist4r::Plist#map}, {Plist4r::Plist#delete_if}, {Plist4r::Plist#clear} and similar. Such methods are all documented in {Plist4r::Plist}.
+
+== Plist Data (CFData / NSData)
+
+A plist file supports key-value pairs in several types, including Base64 encoded binary data. For example, a plist key that stores binary data might look something like this
+
+  <data>
+      PEKBpYGlmYFCPA==
+  </data>
+
+When its decoded, this is a byte stream (8-bit bytes), of some finite length. In Ruby we have no dedicated class to represent this, but instead can use a ruby +String+ as a binary string.
+
+In Plist4r, we extend {String} with 2 methods, {String#blob=} and {String#blob?}. This allows us to identify and differentiate a binary string from a regular string object.
+
+So to store binary data into a plist data key...
+
+  @plist = Plist4r.new
+  bstr = "my_binary_data"
+  bstr.blob = true # mark as a binary string
+  @plist.store "MyData", bstr
+
+...and to read or inspect the binary data in Ruby from a {Plist4r::Plist} object
+
+  @plist.my_data
+  => "my_binary_data"
+  @plist.my_data.blob?
+  => true
+
+If we forget the +blob?+ and +blob=+ methods, then we simple are storing and reading our data as a regular textual +String+. So heh, just remember to set +blob=+ true at some point.
+  
+If we want to perform byte stream IO operations on our binary string...
+
+  # wrap it in a StringIO object
+  stream = StringIO.new(@plist.my_data)
+  next_byte = stream.getc # or stream.putc(int) to write a byte
+
+See http://www.ruby-doc.org/core/classes/IO.html and http://www.ruby-doc.org/core/classes/StringIO.html for more information about the IO object classes.
+
+== Plist Types
+
+The class {Plist4r::PlistType} allows you to save those more complex data structures to specific plist keys in a plist file. For example the method {Plist4r::PlistType::Launchd#socket} will construct a Socket entry for a launchd plist file.
+
+If you are developing a custom application, and intend to exchange data in a custom plist file format, it may be worth writing a custom Plist Type. In which case please see the {file:DeveloperGuide} for more info.
+
 

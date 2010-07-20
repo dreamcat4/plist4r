@@ -8,11 +8,11 @@ There are only 3 generally recognized Plist file formats. (the gnustep plist for
 
   FileFormats = %w[ binary xml gnustep ]
 
-And so a plist4r backend can implement any number of these 6 supported API methods
+A plist4r backend can implement any number of these 6 supported API methods
 
   ApiMethods = %w[ from_xml from_binary from_gnustep to_xml to_binary to_gnustep ]
 
-Other API methods are `generated` methods, which call upon the real backend API methods. Generally speaking, these methods should not be provided by a Plist4r backend
+Other API methods are "generated" methods, which translate the call onto real backend API methods. A good example is +from_string()+, which gets resolved to +from_binary+ or +from_xml+. Generally speaking, those {Plist4r::Backend.PrivateApiMethods} methods are cached and should not be provided by a Plist4r backend
 
   PrivateApiMethods = %w[ from_string open save ]
 
@@ -20,7 +20,7 @@ For backends performance data see {file:Backends}.
 
 == Plist4r Types
 
-A Plist type can be one of `%w[plist info launchd]`, and is the data type for the whole plist file. A PlistType can provide special convenience methods for its Type-specific data structures. For example {Plist4r::PlistType::Launchd#socket}.
+A Plist type can be one of +%w[plist info launchd]+, and is the data type for the whole plist file. A PlistType can provide special convenience methods for its Type-specific data structures. For example {Plist4r::PlistType::Launchd#socket}.
 
 We re-use common support objects when writing a new PlistType
 * {Plist4r::PlistType}
@@ -35,17 +35,19 @@ We re-use common support objects when writing a new PlistType
 
 For a change in the {Plist4r} Core library
 
-* Please include documentation for any new methods (in yardoc format)
-* Please include regression tests. This ensures your code wont get broken further down the line
+* Please update the inline source code documentation, generate locally with +rake yard+
+* Please run the regression tests with +rake spec+ and +rake backend:tests+
+* Please update the existing regression tests (in RSpec) or write new ones
 
 For a {Plist4r::Backend}
 
-* Please include your name with the @author tag as yard inline comment
-* If requires new gem dependencies, be sure to add those to the Rakefile
+* Please include attribution with an @author tag in the yard inline comments
+* If requires new gem dependencies, be add to the Rakefile and run +rake gemspec+
 
 For a {Plist4r::PlistType}
 
-* Conform to the conventions used by {Plist4r::PlistType::Launchd}
-* Utilize {Plist4r::ArrayDict} and {Plist4r::DataMethods}
-* Use yard to document any custom key functions
+* Conform to the conventions used by {Plist4r::PlistType::Info} and {Plist4r::PlistType::Launchd}
+* Use {Plist4r::OrderedHash} instead of +Hash+ or +{}+
+* Try to use {Plist4r::DataMethods} and {Plist4r::ArrayDict} for storing the data
+* Use yard to help document any custom key functions and +rake yard+ afterward
 

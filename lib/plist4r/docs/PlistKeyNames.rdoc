@@ -31,19 +31,17 @@ For an unknown key name which isnt specifically supported, these are all passed 
   plist.to_hash
   # => { "SomeArbitraryKey" => ["some", "arbitrary", "data"] }
 
-=== set() and value_for()
+=== store(), [] and []=
 
-If our key name cannot be camel-cased into a valid method name, just call the set() method and pass in the key name explicitly
+Sometimes a plist key name will be in lowercase, and we cannot use method_missing(). To store or read the plist key we call the regular Hash accessor methods with the literal key name. See {Plist4r::Plist#store}, {Plist4r::Plist#[]}, and {Plist4r::Plist#[]=}.
 
+  # writing with plist.store("key",value)
   plist.<< do
-    set "some lowercase key with spaces" true
+    store "keyname" "value"
   end
-  plist.to_hash
-  # => { "some lowercase key with spaces" => true }
 
-Similarly, the value_for() method will retrieve a keys stored value
+  # reading and writing with plist["key"], and plist["key"]="value"
+  plist["keyname"] = "value"
+  plist["keyname"] # => "value"
 
-  plist.<< do
-    value_for "some lowercase key with spaces"
-    # => true
-  end
+

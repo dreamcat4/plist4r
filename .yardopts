@@ -1,9 +1,12 @@
 --no-private
+--exclude "backend\/c_f_property_list\/cf*"
+--exclude "backend\/c_f_property_list\/rb*"
+--exclude "mixin\/haml4r*"
 -
-"lib/plist4r/docs/ToyCarExample.rdoc"
+"lib/plist4r/docs/InfoPlistExample.rdoc"
+"lib/plist4r/docs/LaunchdPlistExample.rdoc"
 "lib/plist4r/docs/EditingPlistFiles.rdoc"
 "lib/plist4r/docs/PlistKeyNames.rdoc"
 "lib/plist4r/docs/Backends.html"
-"lib/plist4r/docs/Todo.rdoc"
 "lib/plist4r/docs/DeveloperGuide.rdoc"
 "LICENSE"

@@ -23,38 +23,31 @@ Plist4r is a friendly rubygem / ruby lib for handling plist files.
   # => :xml
 
   p.edit do
-    ProgramArguments ["/usr/local/bin/myservice"]
-    WatchPaths ["/var/db/myservice"]
+    program_arguments ["/usr/local/bin/myservice"]
+    watch_paths ["/var/db/myservice"]
   end
 
   p.save
 
 == Overview
 
-* The principal class is {Plist4r::Plist}. This is commonly where you will find most documentation.
-
 * For convenience we invoke {Plist4r.open} and {Plist4r.new} to initially create a plist object.
 
-* Use {Plist4r::Config} to set any global configuration defaults.
+* And use {Plist4r::Config} to set any global configuration defaults.
 
 * See {file:Backends} for the backends performance data.
 
-Further reading
-* See {file:ToyCarExample}
+Examples
+* See {file:InfoPlistExample}
+* See {file:LaunchdPlistExample}
+
+Recommended reading
+* See {file:EditingPlistFiles}
+* See {file:PlistKeyNames}
 * Please see the inline source-code documentation on {Plist4r::Plist}
 
-For more advanced usage, you might want to read up on the following help files:
-* {file:EditingPlistFiles}
-* {file:PlistKeyNames}
+How to contribute
 * {file:DeveloperGuide}
-
-Through method_missing, we can also call methods from these subclasses:
-* {Plist4r::PlistType::Launchd}
-* {Plist4r::Backend::Example}
-* {Plist4r::DataMethods}
-* {Plist4r::ArrayDict}
-
-Please see the inline source-code documentation on those classes.
 
 == Copyright
 

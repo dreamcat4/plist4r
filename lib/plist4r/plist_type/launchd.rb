@@ -26,7 +26,7 @@ module Plist4r
                                SoftResourceLimits, HardResourceLimits MachServices Sockets ]
     }
 
-    # Set or return the plist key "inetdCompatibility"
+    # Set or return the plist key +inetdCompatibility+
     # @param [Hash <true,false>] value the 
     # The presence of this key specifies that the daemon expects to be run as if it were launched from inetd.
     # 
@@ -65,7 +65,7 @@ module Plist4r
       }
     end
 
-    # Set or return the plist key "KeepAlive"
+    # Set or return the plist key +KeepAlive+
     #
     # @param [true, false, Hash] value 
     # This optional key is used to control whether your job is to be kept continuously running or to let demand and conditions control the invocation. The default is
@@ -129,7 +129,7 @@ module Plist4r
       end
     end
 
-    # Set or return the plist key "EnvironmentVariables"
+    # Set or return the plist key +EnvironmentVariables+
     #
     # @example
     #  # Set environment variables
@@ -164,7 +164,7 @@ module Plist4r
       ValidKeys = { :integer => %w[ Minute Hour Day Weekday Month ] }
     end
 
-    # Set or return the plist key "StartCalendarInterval"
+    # Set or return the plist key +StartCalendarInterval+
     # 
     # This optional key causes the job to be started every calendar interval as specified. Missing arguments are considered to be wildcard. The semantics are much like
     # crontab(5).  Unlike cron which skips job invocations when the computer is asleep, launchd will start the job the next time the computer wakes up.  If multiple
@@ -237,7 +237,7 @@ module Plist4r
                                     NumberOfProcesses ResidentSetSize Stack ] }
     end
   
-    # Set or return the plist key "SoftResourceLimits"
+    # Set or return the plist key +SoftResourceLimits+
     # 
     # Resource limits to be imposed on the job. These adjust variables set with setrlimit(2).  The following keys apply:
     # 
@@ -302,7 +302,7 @@ module Plist4r
       end
     end
 
-    # Set or return the plist key "HardResourceLimits"
+    # Set or return the plist key +HardResourceLimits+
     # 
     # Resource limits to be imposed on the job. These adjust variables set with setrlimit(2).  The following keys apply:
     # 
@@ -375,7 +375,7 @@ module Plist4r
   	  def add service, value=nil, &blk
         if value
     	    @hash[service] = value
-          set_or_return :bool, service, value
+          set_or_return_of_type :bool, service, value
         elsif blk
           @hash[service] = ::Plist4r::OrderedHash.new
           @hash[service] = ::LaunchdPlistStructs::MachServices::MachService.new(@hash[service],&blk).hash
@@ -385,9 +385,9 @@ module Plist4r
       end    
     end
   
-    # Set or return the plist key "MachServices"
+    # Set or return the plist key +MachServices+
     #
-    # Structure: "A dictionary of booleans" or a "dictionary of dictionaries"
+    # Structure: +dictionary of booleans+ or +dictionary of dictionaries+
     # 
     # This optional key is used to specify Mach services to be registered with the Mach bootstrap sub-system.  Each key in this dictionary should be the name of service
     # to be advertised. The value of the key must be a boolean and set to true.  Alternatively, a dictionary can be used instead of a simple true value.
@@ -476,9 +476,9 @@ module Plist4r
       end
     end
 
-    # Set or return the plist key "Sockets"
+    # Set or return the plist key +Sockets+
     # 
-    # Structure: "dictionary of dictionaries... OR dictionary of array of dictionaries..."
+    # Structure: +dictionary of dictionaries+ or +dictionary of array+ +of+ +dictionaries+
     # 
     # Please see http://developer.apple.com/mac/library/documentation/MacOSX/Conceptual/BPSystemStartup/Articles/LaunchOnDemandDaemons.html
     # for more information about how to properly use the Sockets feature.
@@ -597,7 +597,7 @@ module Plist4r
     #     bonjour ['smb']
     #   end
     #  # => Result: Exception error is raise the second time because the "Listeners" key already 
-    #  # exists. We can forcefully overwrite this existing sockets key with `socket "Listeners" do`.
+    #  # exists. We can forcefully overwrite this existing sockets key with +socket "Listeners" do+.
     #  
     #  # scenario 3:
     #   socket "netbios-ssn" do
