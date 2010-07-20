@@ -8,14 +8,16 @@ module Plist4r
 
         def haml
           @haml ||= <<-'EOC'
-%h1 Backend Test Matrix
+%h1 Backends
 %div
-  %h3 Performance Results
-  %p A test performed 1x times each with non-flat (nested) plist structure of 1024 keys.
-  %p Real elapsed time is based on a 2GB, 2GHz Intel Core Duo Architecture
+  %p Documentation for the Plist4r backend modules - please see <tt><a href="Plist4r/Backend.html" target="_self" title="Plist4r::Backend (class)">Plist4r::Backend</a></tt>
+  %h3 Performance
+  %p Time elapsed for encoding / decoding a non-flat (nested) plist structure of 1024 keys
+  %p Real elapsed time based on - 2GHz Intel Core Duo with 2GB Ram
   %p Ruby Enterprise Edition (REE) 1.8.7 p248, Mac OS-X 10.6.3
   = @test_harness.results
-  
+  %p To re-run the backend tests
+  %pre{ :class => "code" } $ cd plist4r && rake backend:tests
 %p
 EOC
         end

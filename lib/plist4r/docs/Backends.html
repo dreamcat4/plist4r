@@ -1,56 +1,59 @@
 <h1>Backends</h1>
 <div>
-  <h3>Performance Results</h3>
-  <p>A test performed 1x times each with non-flat (nested) plist structure of 1024 keys.</p>
-  <p>Real elapsed time is based on a 2GB, 2GHz Intel Core Duo Architecture</p>
+  <p>Documentation for the Plist4r backend modules - please see <tt><a href="Plist4r/Backend.html" target="_self" title="Plist4r::Backend (class)">Plist4r::Backend</a></tt></p>
+  <h3>Performance</h3>
+  <p>Time elapsed for encoding / decoding a non-flat (nested) plist structure of 1024 keys</p>
+  <p>Real elapsed time based on - 2GHz Intel Core Duo with 2GB Ram</p>
   <p>Ruby Enterprise Edition (REE) 1.8.7 p248, Mac OS-X 10.6.3</p>
   <table>
     <thead>
       <tr>
         <th>&nbsp;</th>
-        <th>:from_xml</th>
-        <th>:to_xml</th>
-        <th>:from_binary</th>
-        <th>:to_binary</th>
+        <th style='padding: 5px; padding-left: 15px; padding-right: 15px; background-color: #F5F5FF; text-align: center'>:from_xml</th>
+        <th style='padding: 5px; padding-left: 15px; padding-right: 15px; background-color: #F5F5FF; text-align: center'>:to_xml</th>
+        <th style='padding: 5px; padding-left: 15px; padding-right: 15px; background-color: #F5F5FF; text-align: center'>:from_binary</th>
+        <th style='padding: 5px; padding-left: 15px; padding-right: 15px; background-color: #F5F5FF; text-align: center'>:to_binary</th>
       </tr>
     </thead>
     <tbody>
       <tr>
-        <th>c_f_property_list</th>
-        <td>51.8 ms</td>
-        <td>19.4 ms</td>
-        <td>28.3 ms</td>
-        <td>63.9 ms</td>
+        <th style='padding: 5px; padding-left: 15px; padding-right: 15px; background-color: #F5F5FF; text-align: right'>c_f_property_list</th>
+        <td style='padding: 5px; padding-left: 15px; padding-right: 15px; background-color: #FAFAFA; text-align: center'>18.2 ms</td>
+        <td style='padding: 5px; padding-left: 15px; padding-right: 15px; background-color: #FAFAFA; text-align: center'>19.5 ms</td>
+        <td style='padding: 5px; padding-left: 15px; padding-right: 15px; background-color: #FAFAFA; text-align: center'>33.4 ms</td>
+        <td style='padding: 5px; padding-left: 15px; padding-right: 15px; background-color: #FAFAFA; text-align: center'>34.9 ms</td>
       </tr>
       <tr>
-        <th>haml</th>
-        <td>n/a</td>
-        <td>65.9 ms</td>
-        <td>n/a</td>
-        <td>n/a</td>
+        <th style='padding: 5px; padding-left: 15px; padding-right: 15px; background-color: #F5F5FF; text-align: right'>haml</th>
+        <td style='padding: 5px; padding-left: 15px; padding-right: 15px; background-color: #FAFAFA; text-align: center'>n/a</td>
+        <td style='padding: 5px; padding-left: 15px; padding-right: 15px; background-color: #FAFAFA; text-align: center'>126.8 ms</td>
+        <td style='padding: 5px; padding-left: 15px; padding-right: 15px; background-color: #FAFAFA; text-align: center'>n/a</td>
+        <td style='padding: 5px; padding-left: 15px; padding-right: 15px; background-color: #FAFAFA; text-align: center'>n/a</td>
       </tr>
       <tr>
-        <th>libxml4r</th>
-        <td>40.6 ms</td>
-        <td>n/a</td>
-        <td>n/a</td>
-        <td>n/a</td>
+        <th style='padding: 5px; padding-left: 15px; padding-right: 15px; background-color: #F5F5FF; text-align: right'>libxml4r</th>
+        <td style='padding: 5px; padding-left: 15px; padding-right: 15px; background-color: #FAFAFA; text-align: center'>41.4 ms</td>
+        <td style='padding: 5px; padding-left: 15px; padding-right: 15px; background-color: #FAFAFA; text-align: center'>n/a</td>
+        <td style='padding: 5px; padding-left: 15px; padding-right: 15px; background-color: #FAFAFA; text-align: center'>n/a</td>
+        <td style='padding: 5px; padding-left: 15px; padding-right: 15px; background-color: #FAFAFA; text-align: center'>n/a</td>
       </tr>
       <tr>
-        <th>osx_plist</th>
-        <td>4.6 ms</td>
-        <td>4.3 ms</td>
-        <td>2.9 ms</td>
-        <td>4.3 ms</td>
+        <th style='padding: 5px; padding-left: 15px; padding-right: 15px; background-color: #F5F5FF; text-align: right'>osx_plist</th>
+        <td style='padding: 5px; padding-left: 15px; padding-right: 15px; background-color: #FAFAFA; text-align: center'>4.8 ms</td>
+        <td style='padding: 5px; padding-left: 15px; padding-right: 15px; background-color: #FAFAFA; text-align: center'>5.0 ms</td>
+        <td style='padding: 5px; padding-left: 15px; padding-right: 15px; background-color: #FAFAFA; text-align: center'>4.6 ms</td>
+        <td style='padding: 5px; padding-left: 15px; padding-right: 15px; background-color: #FAFAFA; text-align: center'>4.6 ms</td>
       </tr>
       <tr>
-        <th>ruby_cocoa</th>
-        <td>781.5 ms</td>
-        <td>251.1 ms</td>
-        <td>311.3 ms</td>
-        <td>250.7 ms</td>
+        <th style='padding: 5px; padding-left: 15px; padding-right: 15px; background-color: #F5F5FF; text-align: right'>ruby_cocoa</th>
+        <td style='padding: 5px; padding-left: 15px; padding-right: 15px; background-color: #FAFAFA; text-align: center'>320.4 ms</td>
+        <td style='padding: 5px; padding-left: 15px; padding-right: 15px; background-color: #FAFAFA; text-align: center'>318.8 ms</td>
+        <td style='padding: 5px; padding-left: 15px; padding-right: 15px; background-color: #FAFAFA; text-align: center'>319.7 ms</td>
+        <td style='padding: 5px; padding-left: 15px; padding-right: 15px; background-color: #FAFAFA; text-align: center'>319.2 ms</td>
       </tr>
     </tbody>
   </table>
+  <p>To re-run the backend tests</p>
+  <pre class='code'>$ cd plist4r && rake backend:tests</pre>
 </div>
 <p></p>

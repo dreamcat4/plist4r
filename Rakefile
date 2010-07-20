@@ -50,6 +50,16 @@ end
 
 task :default => :spec
 
+namespace :backend do
+  task :tests do
+    require 'lib/plist4r'
+    require 'plist4r/backend/test/output'
+    o = Plist4r::Backend::Test::Output.new
+    puts o
+    o.write_html_file
+  end
+end
+
 require 'yard'
 YARD::Rake::YardocTask.new do |t|
   t.after = lambda { `touch doc/.nojekyll` }
