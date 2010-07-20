@@ -154,6 +154,15 @@ class Range
 end
 
 class String
+  # The blob status of this string (set this to true if a binary string)
+  attr_accessor :blob
+
+  # Returns whether or not +str+ is a blob.
+  # @return [true,false] If true, this string contains binary data. If false, its a regular string
+  def blob?
+    @blob
+  end
+
   # A Camel-ized string. The reverse of {#snake_case}
   # @example
   #  "my_plist_key".camelcase => "MyPlistKey"
@@ -180,9 +189,3 @@ class Float
         (self * (10.0 ** n)).round_orig * (10.0 ** (-n))
     end
 end
-
-# class Time
-#   def inspect
-#     "#{super}"
-#   end
-# end
