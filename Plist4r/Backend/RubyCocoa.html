@@ -110,34 +110,37 @@
 	    <ul id="methods_ribbon">
 	    
 	    
-	      <li class="r1"><a href="#from_binary-class_method" target="_self" title="Plist4r::Backend::RubyCocoa.from_binary (method)">from_binary</a></li>
+	      <li class="r1"><a href="#convert_19_to_hash-class_method" target="_self" title="Plist4r::Backend::RubyCocoa.convert_19_to_hash (method)">convert_19_to_hash</a></li>
 	      
 	    
-	      <li class="r2"><a href="#from_gnustep-class_method" target="_self" title="Plist4r::Backend::RubyCocoa.from_gnustep (method)">from_gnustep</a></li>
+	      <li class="r2"><a href="#from_binary-class_method" target="_self" title="Plist4r::Backend::RubyCocoa.from_binary (method)">from_binary</a></li>
 	      
 	    
-	      <li class="r1"><a href="#from_string-class_method" target="_self" title="Plist4r::Backend::RubyCocoa.from_string (method)">from_string</a></li>
+	      <li class="r1"><a href="#from_gnustep-class_method" target="_self" title="Plist4r::Backend::RubyCocoa.from_gnustep (method)">from_gnustep</a></li>
 	      
 	    
-	      <li class="r2"><a href="#from_xml-class_method" target="_self" title="Plist4r::Backend::RubyCocoa.from_xml (method)">from_xml</a></li>
+	      <li class="r2"><a href="#from_string-class_method" target="_self" title="Plist4r::Backend::RubyCocoa.from_string (method)">from_string</a></li>
 	      
 	    
-	      <li class="r1"><a href="#open_with_args-class_method" target="_self" title="Plist4r::Backend::RubyCocoa.open_with_args (method)">open_with_args</a></li>
+	      <li class="r1"><a href="#from_xml-class_method" target="_self" title="Plist4r::Backend::RubyCocoa.from_xml (method)">from_xml</a></li>
 	      
 	    
-	      <li class="r2"><a href="#read_result_file-class_method" target="_self" title="Plist4r::Backend::RubyCocoa.read_result_file (method)">read_result_file</a></li>
+	      <li class="r2"><a href="#open_with_args-class_method" target="_self" title="Plist4r::Backend::RubyCocoa.open_with_args (method)">open_with_args</a></li>
 	      
 	    
-	      <li class="r1"><a href="#ruby_cocoa_exec-class_method" target="_self" title="Plist4r::Backend::RubyCocoa.ruby_cocoa_exec (method)">ruby_cocoa_exec</a></li>
+	      <li class="r1"><a href="#read_result_file-class_method" target="_self" title="Plist4r::Backend::RubyCocoa.read_result_file (method)">read_result_file</a></li>
 	      
 	    
-	      <li class="r2"><a href="#ruby_cocoa_wrapper_rb-class_method" target="_self" title="Plist4r::Backend::RubyCocoa.ruby_cocoa_wrapper_rb (method)">ruby_cocoa_wrapper_rb</a></li>
+	      <li class="r2"><a href="#ruby_cocoa_exec-class_method" target="_self" title="Plist4r::Backend::RubyCocoa.ruby_cocoa_exec (method)">ruby_cocoa_exec</a></li>
 	      
 	    
-	      <li class="r1"><a href="#to_binary-class_method" target="_self" title="Plist4r::Backend::RubyCocoa.to_binary (method)">to_binary</a></li>
+	      <li class="r1"><a href="#ruby_cocoa_wrapper_rb-class_method" target="_self" title="Plist4r::Backend::RubyCocoa.ruby_cocoa_wrapper_rb (method)">ruby_cocoa_wrapper_rb</a></li>
 	      
 	    
-	      <li class="r2"><a href="#to_xml-class_method" target="_self" title="Plist4r::Backend::RubyCocoa.to_xml (method)">to_xml</a></li>
+	      <li class="r2"><a href="#to_binary-class_method" target="_self" title="Plist4r::Backend::RubyCocoa.to_binary (method)">to_binary</a></li>
+	      
+	    
+	      <li class="r1"><a href="#to_xml-class_method" target="_self" title="Plist4r::Backend::RubyCocoa.to_xml (method)">to_xml</a></li>
 	      
 	    
 	    </ul>
@@ -191,8 +194,58 @@ Dreamcat4 (dreamcat4@gmail.com)
     <h2>Class Method Details</h2>
     
     
-      <div class="method_details first" id="from_binary-class_method">
+      <div class="method_details first" id="convert_19_to_hash-class_method">
   <p class="signature first"">
+  
+    + (<tt><a href="../../Object.html" target="_self" title="Object (class)">Object</a></tt>) <strong>convert_19_to_hash</strong>(hash, key = nil) 
+  
+
+  
+</p><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+263
+264
+265
+266
+267
+268
+269
+270
+271
+272
+273
+274
+275</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/plist4r/backend/ruby_cocoa.rb', line 263</span>
+
+<span class='def def kw'>def</span> <span class='convert_19_to_hash identifier id'>convert_19_to_hash</span> <span class='hash identifier id'>hash</span><span class='comma token'>,</span> <span class='key identifier id'>key</span><span class='assign token'>=</span><span class='nil nil kw'>nil</span>
+  <span class='h identifier id'>h</span> <span class='assign token'>=</span> <span class='Hash constant id'>Hash</span><span class='dot token'>.</span><span class='new identifier id'>new</span>
+  <span class='h identifier id'>h</span><span class='dot token'>.</span><span class='replace identifier id'>replace</span> <span class='hash identifier id'>hash</span>
+
+  <span class='hash identifier id'>hash</span><span class='dot token'>.</span><span class='each identifier id'>each</span> <span class='do do kw'>do</span> <span class='bitor op'>|</span><span class='key identifier id'>key</span><span class='comma token'>,</span><span class='value identifier id'>value</span><span class='bitor op'>|</span>
+    <span class='if if kw'>if</span> <span class='value identifier id'>value</span><span class='dot token'>.</span><span class='class identifier id'>class</span><span class='dot token'>.</span><span class='ancestors identifier id'>ancestors</span><span class='dot token'>.</span><span class='include? fid id'>include?</span> <span class='Hash constant id'>Hash</span>
+      <span class='unless unless kw'>unless</span> <span class='value identifier id'>value</span><span class='dot token'>.</span><span class='class identifier id'>class</span> <span class='eq op'>==</span> <span class='Hash constant id'>Hash</span>
+        <span class='h identifier id'>h</span><span class='lbrack token'>[</span><span class='key identifier id'>key</span><span class='rbrack token'>]</span> <span class='assign token'>=</span> <span class='convert_19_to_hash identifier id'>convert_19_to_hash</span><span class='lparen token'>(</span><span class='value identifier id'>value</span><span class='rparen token'>)</span>
+      <span class='end end kw'>end</span>
+    <span class='end end kw'>end</span>
+  <span class='end end kw'>end</span>
+  <span class='h identifier id'>h</span>
+<span class='end end kw'>end</span>
+</pre>
+    </td>
+  </tr>
+</table>
+</div>
+
+    
+      <div class="method_details " id="from_binary-class_method">
+  <p class="signature "">
   
     + (<tt><a href="../../Object.html" target="_self" title="Object (class)">Object</a></tt>) <strong>from_binary</strong>(plist) 
   
@@ -204,12 +257,12 @@ Dreamcat4 (dreamcat4@gmail.com)
       <pre class="lines">
 
 
-320
-321
-322</pre>
+356
+357
+358</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/plist4r/backend/ruby_cocoa.rb', line 320</span>
+      <pre class="code"><span class="info file"># File 'lib/plist4r/backend/ruby_cocoa.rb', line 356</span>
 
 <span class='def def kw'>def</span> <span class='from_binary identifier id'>from_binary</span> <span class='plist identifier id'>plist</span>
   <span class='from_string identifier id'>from_string</span> <span class='plist identifier id'>plist</span>
@@ -234,12 +287,12 @@ Dreamcat4 (dreamcat4@gmail.com)
       <pre class="lines">
 
 
-324
-325
-326</pre>
+360
+361
+362</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/plist4r/backend/ruby_cocoa.rb', line 324</span>
+      <pre class="code"><span class="info file"># File 'lib/plist4r/backend/ruby_cocoa.rb', line 360</span>
 
 <span class='def def kw'>def</span> <span class='from_gnustep identifier id'>from_gnustep</span> <span class='plist identifier id'>plist</span>
   <span class='from_string identifier id'>from_string</span> <span class='plist identifier id'>plist</span>
@@ -264,17 +317,17 @@ Dreamcat4 (dreamcat4@gmail.com)
       <pre class="lines">
 
 
-307
-308
-309
-310
-311
-312
-313
-314</pre>
+343
+344
+345
+346
+347
+348
+349
+350</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/plist4r/backend/ruby_cocoa.rb', line 307</span>
+      <pre class="code"><span class="info file"># File 'lib/plist4r/backend/ruby_cocoa.rb', line 343</span>
 
 <span class='def def kw'>def</span> <span class='from_string identifier id'>from_string</span> <span class='plist identifier id'>plist</span>
   <span class='require identifier id'>require</span> <span class='string val'>'tempfile'</span>
@@ -304,12 +357,12 @@ Dreamcat4 (dreamcat4@gmail.com)
       <pre class="lines">
 
 
-316
-317
-318</pre>
+352
+353
+354</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/plist4r/backend/ruby_cocoa.rb', line 316</span>
+      <pre class="code"><span class="info file"># File 'lib/plist4r/backend/ruby_cocoa.rb', line 352</span>
 
 <span class='def def kw'>def</span> <span class='from_xml identifier id'>from_xml</span> <span class='plist identifier id'>plist</span>
   <span class='from_string identifier id'>from_string</span> <span class='plist identifier id'>plist</span>
@@ -334,32 +387,30 @@ Dreamcat4 (dreamcat4@gmail.com)
       <pre class="lines">
 
 
-291
-292
-293
-294
-295
-296
-297
-298
-299
-300
-301
-302
-303
-304
-305</pre>
+328
+329
+330
+331
+332
+333
+334
+335
+336
+337
+338
+339
+340
+341</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/plist4r/backend/ruby_cocoa.rb', line 291</span>
+      <pre class="code"><span class="info file"># File 'lib/plist4r/backend/ruby_cocoa.rb', line 328</span>
 
 <span class='def def kw'>def</span> <span class='open_with_args identifier id'>open_with_args</span> <span class='plist identifier id'>plist</span><span class='comma token'>,</span> <span class='filename identifier id'>filename</span>
-  <span class='require identifier id'>require</span> <span class='string val'>'date'</span>
-
   <span class='result identifier id'>result</span> <span class='assign token'>=</span> <span class='ruby_cocoa_exec identifier id'>ruby_cocoa_exec</span> <span class='dstring node'>&quot;open(\&quot;#{filename}\&quot;)&quot;</span>
   <span class='case case kw'>case</span> <span class='result identifier id'>result</span><span class='lbrack token'>[</span><span class='integer val'>1</span><span class='rbrack token'>]</span><span class='dot token'>.</span><span class='exitstatus identifier id'>exitstatus</span>
   <span class='when when kw'>when</span> <span class='integer val'>0</span>
-    <span class='hash identifier id'>hash</span> <span class='assign token'>=</span> <span class='colon3 op'>::</span><span class='Plist4r constant id'>Plist4r</span><span class='colon2 op'>::</span><span class='OrderedHash constant id'>OrderedHash</span><span class='dot token'>.</span><span class='new identifier id'>new</span>
+    <span class='hash identifier id'>hash</span> <span class='assign token'>=</span> <span class='Plist4r constant id'>Plist4r</span><span class='colon2 op'>::</span><span class='OrderedHash constant id'>OrderedHash</span><span class='dot token'>.</span><span class='new identifier id'>new</span>
+    
     <span class='hash identifier id'>hash</span><span class='dot token'>.</span><span class='replace identifier id'>replace</span> <span class='Marshal constant id'>Marshal</span><span class='dot token'>.</span><span class='load identifier id'>load</span><span class='lparen token'>(</span><span class='read_result_file identifier id'>read_result_file</span><span class='rparen token'>)</span>
     <span class='plist identifier id'>plist</span><span class='dot token'>.</span><span class='import_hash identifier id'>import_hash</span> <span class='hash identifier id'>hash</span>
   <span class='else else kw'>else</span>
@@ -388,12 +439,12 @@ Dreamcat4 (dreamcat4@gmail.com)
       <pre class="lines">
 
 
-253
-254
-255</pre>
+259
+260
+261</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/plist4r/backend/ruby_cocoa.rb', line 253</span>
+      <pre class="code"><span class="info file"># File 'lib/plist4r/backend/ruby_cocoa.rb', line 259</span>
 
 <span class='def def kw'>def</span> <span class='read_result_file identifier id'>read_result_file</span>
   <span class='File constant id'>File</span><span class='dot token'>.</span><span class='read identifier id'>read</span> <span class='@result_file ivar id'>@result_file</span><span class='dot token'>.</span><span class='path identifier id'>path</span>
@@ -469,12 +520,6 @@ cmd, status, stdout_result, stderr_result
       <pre class="lines">
 
 
-210
-211
-212
-213
-214
-215
 216
 217
 218
@@ -510,10 +555,16 @@ cmd, status, stdout_result, stderr_result
 248
 249
 250
-251</pre>
+251
+252
+253
+254
+255
+256
+257</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/plist4r/backend/ruby_cocoa.rb', line 210</span>
+      <pre class="code"><span class="info file"># File 'lib/plist4r/backend/ruby_cocoa.rb', line 216</span>
 
 <span class='def def kw'>def</span> <span class='ruby_cocoa_exec identifier id'>ruby_cocoa_exec</span> <span class='stdin_str identifier id'>stdin_str</span>
   <span class='rubycocoa_framework identifier id'>rubycocoa_framework</span> <span class='assign token'>=</span> <span class='string val'>&quot;/System/Library/Frameworks/RubyCocoa.framework&quot;</span>
@@ -595,15 +646,15 @@ A seperate ruby script, which runs in its own process.
       <pre class="lines">
 
 
-58
-59
-60</pre>
+62
+63
+64</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/plist4r/backend/ruby_cocoa.rb', line 58</span>
+      <pre class="code"><span class="info file"># File 'lib/plist4r/backend/ruby_cocoa.rb', line 62</span>
 
 <span class='def def kw'>def</span> <span class='ruby_cocoa_wrapper_rb identifier id'>ruby_cocoa_wrapper_rb</span>
-  <span class='@ruby_cocoa_wrapper_rb ivar id'>@ruby_cocoa_wrapper_rb</span> <span class='opasgn op'>||=</span> <span class='string val'>&quot;#!/usr/bin/ruby\nraise \&quot;No path given to plist4r\&quot; unless ARGV[0] &amp;&amp; File.exists?(\&quot;\#{ARGV[0]}/plist4r.rb\&quot;)\n\ndir = ARGV[0]\n$LOAD_PATH.unshift dir unless $LOAD_PATH.include?(dir)\n\nrequire 'osx/cocoa'\nrequire 'date'\nrequire 'plist4r/mixin/ordered_hash'\nrequire 'plist4r/mixin/ruby_stdlib'\n\nmodule Plist4r\nclass StringIOData\nattr_accessor :string\ndef initialize string\n@string = string\nend\n\ndef to_s\n@string\nend\n\ndef _dump arg\n@string\nend\n\ndef self._load string\nOSX::NSData.dataWithRubyString(string)\nend\nend\nend\n\nclass String\ndef _dump arg\nself\nend\n\ndef self._load string\nString.new(string)\nend\nend\n\n# Property list API.\nmodule OSX\ndef object_to_plist(object, format=nil)\nformat ||= OSX::NSPropertyListXMLFormat_v1_0\ndata, error = OSX::NSPropertyListSerialization.objc_send \\\n:dataFromPropertyList, object,\n:format, format,\n:errorDescription\nraise error.to_s if data.nil?\ncase format\nwhen OSX::NSPropertyListXMLFormat_v1_0,\nOSX::NSPropertyListOpenStepFormat\nOSX::NSString.alloc.initWithData_encoding(data,\nOSX::NSUTF8StringEncoding).to_s\nelse\ndata.bytes.bytestr(data.length)\nend\nend\nmodule_function :object_to_plist\nend\n\nclass OSX::NSObject\ndef to_ruby\ncase self\nwhen OSX::NSDate\nself.to_time\nwhen OSX::NSCFBoolean\nself.boolValue\nwhen OSX::NSNumber\nself.integer? ? self.to_i : self.to_f\nwhen OSX::NSString\nself.to_s\nwhen OSX::NSData\nPlist4r::StringIOData.new self.rubyString\nwhen OSX::NSAttributedString\nself.string.to_s\nwhen OSX::NSArray\nself.to_a.map { |x| x.is_a?(OSX::NSObject) ? x.to_ruby : x }\nwhen OSX::NSDictionary\nh = ::Plist4r::OrderedHash.new\nself.each do |x, y|\nx = x.to_ruby if x.is_a?(OSX::NSObject)\ny = y.to_ruby if y.is_a?(OSX::NSObject)\nh[x] = y\nend\nh\nelse\nself\nend\nend\nend\n\nmodule Plist\ndef write_result_file obj\nFile.open @result_file, 'w' do |o|\no &lt;&lt; obj\nend\nend\n\ndef to_xml input_file\n# to_plist defaults to NSPropertyListXMLFormat_v1_0\nhash = Marshal.load(File.read(input_file))\nx = hash.to_plist\nwrite_result_file x\nend\n\ndef to_binary input_file\n# Here 200 == NSPropertyListBinaryFormat_v1_0\nhash = Marshal.load(File.read(input_file))\nx = hash.to_plist 200\nwrite_result_file x\nend\n\ndef open filename\nplist_dict = ::OSX::NSDictionary.dictionaryWithContentsOfFile(filename)\nunless plist_dict\nplist_array = ::OSX::NSArray.arrayWithContentsOfFile(filename) unless plist_dict\nraise \&quot;Couldnt parse file: \#{filename}\&quot; unless plist_array\nplist_dict = ::Plist4r::OrderedHash.new\nplist_dict[\&quot;Array\&quot;] = plist_array.to_ruby\nend\n\nFile.open @result_file, 'w' do |o|\no.write Marshal.dump(plist_dict.to_ruby)\nend\nend\nend\n\nclass RubyCocoaWrapper\ninclude Plist\n\ndef exec stdin\n@result_file = ARGV[1]\ninstance_eval stdin\nexit 0\nend\nend\n\nstdin = $stdin.read()\nwrapper = RubyCocoaWrapper.new()\nwrapper.exec stdin\n&quot;</span>
+  <span class='@ruby_cocoa_wrapper_rb ivar id'>@ruby_cocoa_wrapper_rb</span> <span class='opasgn op'>||=</span> <span class='string val'>&quot;#!/usr/bin/ruby\nraise \&quot;No path given to plist4r\&quot; unless ARGV[0] &amp;&amp; File.exists?(\&quot;\#{ARGV[0]}/plist4r.rb\&quot;)\n\ndir = ARGV[0]\n$LOAD_PATH.unshift dir unless $LOAD_PATH.include?(dir)\n\nrequire 'osx/cocoa'\nrequire 'time'\nrequire 'plist4r/mixin/ordered_hash'\nrequire 'plist4r/mixin/ruby_stdlib'\n\nmodule Plist4r\nclass StringIOData\nattr_accessor :string\ndef initialize string\n@string = string\nend\n\ndef to_s\n@string\nend\n\ndef _dump arg\n@string\nend\n\ndef self._load string\nOSX::NSData.dataWithRubyString(string)\nend\nend\nend\n\nclass String\ndef _dump arg\nself\nend\n\ndef self._load string\nString.new(string)\nend\nend\n\n# Property list API.\nmodule OSX\ndef object_to_plist(object, format=nil)\nformat ||= OSX::NSPropertyListXMLFormat_v1_0\ndata, error = OSX::NSPropertyListSerialization.objc_send \\\n:dataFromPropertyList, object,\n:format, format,\n:errorDescription\nraise error.to_s if data.nil?\ncase format\nwhen OSX::NSPropertyListXMLFormat_v1_0,\nOSX::NSPropertyListOpenStepFormat\nOSX::NSString.alloc.initWithData_encoding(data,\nOSX::NSUTF8StringEncoding).to_s\nelse\ndata.bytes.bytestr(data.length)\nend\nend\nmodule_function :object_to_plist\nend\n\nclass OSX::NSObject\ndef to_ruby\ncase self\nwhen OSX::NSDate\nself.to_time\nwhen OSX::NSCFBoolean\nself.boolValue\nwhen OSX::NSNumber\nself.integer? ? self.to_i : self.to_f\nwhen OSX::NSString\nself.to_s\nwhen OSX::NSData\nPlist4r::StringIOData.new self.rubyString\nwhen OSX::NSAttributedString\nself.string.to_s\nwhen OSX::NSArray\nself.to_a.map { |x| x.is_a?(OSX::NSObject) ? x.to_ruby : x }\nwhen OSX::NSDictionary\nh = Plist4r::ActiveSupport::OrderedHash.new\nself.each do |x, y|\nx = x.to_ruby if x.is_a?(OSX::NSObject)\ny = y.to_ruby if y.is_a?(OSX::NSObject)\nh[x] = y\nend\nh\nelse\nself\nend\nend\nend\n\nmodule Plist\ndef write_result_file obj\nFile.open @result_file, 'w' do |o|\no &lt;&lt; obj\nend\nend\n\ndef to_xml input_file\n# to_plist defaults to NSPropertyListXMLFormat_v1_0\nhash = Marshal.load(File.read(input_file))\nx = hash.to_plist\n# x = hash.inspect\nwrite_result_file x\nend\n\ndef to_binary input_file\n# Here 200 == NSPropertyListBinaryFormat_v1_0\nhash = Marshal.load(File.read(input_file))\nx = hash.to_plist 200\n# x = hash.inspect\nwrite_result_file x\nend\n\ndef open filename\nplist_dict = ::OSX::NSDictionary.dictionaryWithContentsOfFile(filename)\nunless plist_dict\nplist_array = ::OSX::NSArray.arrayWithContentsOfFile(filename) unless plist_dict\nraise \&quot;Couldnt parse file: \#{filename}\&quot; unless plist_array\nplist_dict = Plist4r::ActiveSupport::OrderedHash.new\nplist_dict[\&quot;Array\&quot;] = plist_array.to_ruby\nend\n\nFile.open @result_file, 'w' do |o|\no.write Marshal.dump(plist_dict.to_ruby)\nend\nend\nend\n\nclass RubyCocoaWrapper\ninclude Plist\n\ndef exec stdin\n@result_file = ARGV[1]\ninstance_eval stdin\nexit 0\nend\nend\n\nstdin = $stdin.read()\nwrapper = RubyCocoaWrapper.new()\nwrapper.exec stdin\n&quot;</span>
 <span class='end end kw'>end</span>
 </pre>
     </td>
@@ -625,32 +676,48 @@ A seperate ruby script, which runs in its own process.
       <pre class="lines">
 
 
-274
-275
-276
-277
-278
-279
-280
-281
-282
-283
-284
-285
-286
-287
-288
-289</pre>
+303
+304
+305
+306
+307
+308
+309
+310
+311
+312
+313
+314
+315
+316
+317
+318
+319
+320
+321
+322
+323
+324
+325
+326</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/plist4r/backend/ruby_cocoa.rb', line 274</span>
+      <pre class="code"><span class="info file"># File 'lib/plist4r/backend/ruby_cocoa.rb', line 303</span>
 
 <span class='def def kw'>def</span> <span class='to_binary identifier id'>to_binary</span> <span class='plist identifier id'>plist</span>
   <span class='require identifier id'>require</span> <span class='string val'>'tempfile'</span>
   <span class='input_file identifier id'>input_file</span> <span class='assign token'>=</span> <span class='Tempfile constant id'>Tempfile</span><span class='dot token'>.</span><span class='new identifier id'>new</span> <span class='string val'>&quot;input_file.rb.&quot;</span>
-  <span class='input_file identifier id'>input_file</span><span class='dot token'>.</span><span class='puts identifier id'>puts</span> <span class='Marshal constant id'>Marshal</span><span class='dot token'>.</span><span class='dump identifier id'>dump</span><span class='lparen token'>(</span><span class='plist identifier id'>plist</span><span class='dot token'>.</span><span class='to_hash identifier id'>to_hash</span><span class='rparen token'>)</span>
+
+  <span class='if if kw'>if</span> <span class='RUBY_VERSION constant id'>RUBY_VERSION</span> <span class='geq op'>&gt;=</span> <span class='string val'>'1.9'</span>
+    <span class='old_style_hash identifier id'>old_style_hash</span> <span class='assign token'>=</span> <span class='convert_19_to_hash identifier id'>convert_19_to_hash</span><span class='lparen token'>(</span><span class='plist identifier id'>plist</span><span class='dot token'>.</span><span class='to_hash identifier id'>to_hash</span><span class='rparen token'>)</span>
+    <span class='input_file identifier id'>input_file</span><span class='dot token'>.</span><span class='puts identifier id'>puts</span> <span class='Marshal constant id'>Marshal</span><span class='dot token'>.</span><span class='dump identifier id'>dump</span><span class='lparen token'>(</span><span class='old_style_hash identifier id'>old_style_hash</span><span class='rparen token'>)</span>
+  <span class='else else kw'>else</span>
+    <span class='input_file identifier id'>input_file</span><span class='dot token'>.</span><span class='puts identifier id'>puts</span> <span class='Marshal constant id'>Marshal</span><span class='dot token'>.</span><span class='dump identifier id'>dump</span><span class='lparen token'>(</span><span class='plist identifier id'>plist</span><span class='dot token'>.</span><span class='to_hash identifier id'>to_hash</span><span class='rparen token'>)</span>
+  <span class='end end kw'>end</span>
+
   <span class='input_file identifier id'>input_file</span><span class='dot token'>.</span><span class='close identifier id'>close</span>
   <span class='result identifier id'>result</span> <span class='assign token'>=</span> <span class='ruby_cocoa_exec identifier id'>ruby_cocoa_exec</span> <span class='dstring node'>&quot;to_binary(\&quot;#{input_file.path}\&quot;)&quot;</span>
+  <span class='comment val'># print read_result_file</span>
 
   <span class='case case kw'>case</span> <span class='result identifier id'>result</span><span class='lbrack token'>[</span><span class='integer val'>1</span><span class='rbrack token'>]</span><span class='dot token'>.</span><span class='exitstatus identifier id'>exitstatus</span>
   <span class='when when kw'>when</span> <span class='integer val'>0</span>
@@ -681,33 +748,51 @@ A seperate ruby script, which runs in its own process.
       <pre class="lines">
 
 
-257
-258
-259
-260
-261
-262
-263
-264
-265
-266
-267
-268
-269
-270
-271
-272</pre>
+277
+278
+279
+280
+281
+282
+283
+284
+285
+286
+287
+288
+289
+290
+291
+292
+293
+294
+295
+296
+297
+298
+299
+300
+301</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/plist4r/backend/ruby_cocoa.rb', line 257</span>
+      <pre class="code"><span class="info file"># File 'lib/plist4r/backend/ruby_cocoa.rb', line 277</span>
 
 <span class='def def kw'>def</span> <span class='to_xml identifier id'>to_xml</span> <span class='plist identifier id'>plist</span>
   <span class='require identifier id'>require</span> <span class='string val'>'tempfile'</span>
   <span class='input_file identifier id'>input_file</span> <span class='assign token'>=</span> <span class='Tempfile constant id'>Tempfile</span><span class='dot token'>.</span><span class='new identifier id'>new</span> <span class='string val'>&quot;input_file.rb.&quot;</span>
-  <span class='input_file identifier id'>input_file</span><span class='dot token'>.</span><span class='puts identifier id'>puts</span> <span class='Marshal constant id'>Marshal</span><span class='dot token'>.</span><span class='dump identifier id'>dump</span><span class='lparen token'>(</span><span class='plist identifier id'>plist</span><span class='dot token'>.</span><span class='to_hash identifier id'>to_hash</span><span class='rparen token'>)</span>
+
+  <span class='oh identifier id'>oh</span> <span class='assign token'>=</span> <span class='nil nil kw'>nil</span>
+  <span class='if if kw'>if</span> <span class='RUBY_VERSION constant id'>RUBY_VERSION</span> <span class='geq op'>&gt;=</span> <span class='string val'>'1.9'</span>
+    <span class='old_style_hash identifier id'>old_style_hash</span> <span class='assign token'>=</span> <span class='convert_19_to_hash identifier id'>convert_19_to_hash</span><span class='lparen token'>(</span><span class='plist identifier id'>plist</span><span class='dot token'>.</span><span class='to_hash identifier id'>to_hash</span><span class='rparen token'>)</span>
+    <span class='input_file identifier id'>input_file</span><span class='dot token'>.</span><span class='puts identifier id'>puts</span> <span class='Marshal constant id'>Marshal</span><span class='dot token'>.</span><span class='dump identifier id'>dump</span><span class='lparen token'>(</span><span class='old_style_hash identifier id'>old_style_hash</span><span class='rparen token'>)</span>
+  <span class='else else kw'>else</span>
+    <span class='input_file identifier id'>input_file</span><span class='dot token'>.</span><span class='puts identifier id'>puts</span> <span class='Marshal constant id'>Marshal</span><span class='dot token'>.</span><span class='dump identifier id'>dump</span><span class='lparen token'>(</span><span class='plist identifier id'>plist</span><span class='dot token'>.</span><span class='to_hash identifier id'>to_hash</span><span class='rparen token'>)</span>
+  <span class='end end kw'>end</span>
+
   <span class='input_file identifier id'>input_file</span><span class='dot token'>.</span><span class='close identifier id'>close</span>
   <span class='result identifier id'>result</span> <span class='assign token'>=</span> <span class='ruby_cocoa_exec identifier id'>ruby_cocoa_exec</span> <span class='dstring node'>&quot;to_xml(\&quot;#{input_file.path}\&quot;)&quot;</span>
-  
+  <span class='comment val'># print read_result_file</span>
+
   <span class='case case kw'>case</span> <span class='result identifier id'>result</span><span class='lbrack token'>[</span><span class='integer val'>1</span><span class='rbrack token'>]</span><span class='dot token'>.</span><span class='exitstatus identifier id'>exitstatus</span>
   <span class='when when kw'>when</span> <span class='integer val'>0</span>
     <span class='xml_string identifier id'>xml_string</span> <span class='assign token'>=</span> <span class='read_result_file identifier id'>read_result_file</span>
@@ -729,7 +814,7 @@ A seperate ruby script, which runs in its own process.
 </div>
     
     <div id="footer">
-  Generated on Tue Jul 20 11:07:40 2010 by 
+  Generated on Wed Jul 21 21:56:37 2010 by 
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool">yard</a>
   0.5.8  and the 
   <a href="http://github.com/dreamcat4/yard-slipstream">yard-slipstream</a> plugin

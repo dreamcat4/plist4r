@@ -166,10 +166,7 @@
 	      <li class="r1"><a href="Plist4r/Script.html" target="_self" title="Plist4r::Script (class)">Script</a></li>
 	      
 	    
-	      <li class="r2"><a href="Plist4r/StringIOData.html" target="_self" title="Plist4r::StringIOData (class)">StringIOData</a></li>
-	      
-	    
-	      <li class="r1"><a href="Plist4r/Table.html" target="_self" title="Plist4r::Table (class)">Table</a></li>
+	      <li class="r2"><a href="Plist4r/Table.html" target="_self" title="Plist4r::Table (class)">Table</a></li>
 	      
 	    
 	    </ul>
@@ -288,12 +285,12 @@ Plist4r::Plist.FileFormats
       <pre class="lines">
 
 
-72
-73
-74</pre>
+77
+78
+79</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/plist4r.rb', line 72</span>
+      <pre class="code"><span class="info file"># File 'lib/plist4r.rb', line 77</span>
 
 <span class='def def kw'>def</span> <span class='file_detect_format identifier id'>file_detect_format</span> <span class='filename identifier id'>filename</span>
   <span class='string_detect_format identifier id'>string_detect_format</span> <span class='File constant id'>File</span><span class='dot token'>.</span><span class='read identifier id'>read</span><span class='lparen token'>(</span><span class='filename identifier id'>filename</span><span class='rparen token'>)</span>
@@ -590,12 +587,22 @@ Plist4r::Plist.FileFormats
 61
 62
 63
-64</pre>
+64
+65
+66
+67
+68
+69</pre>
     </td>
     <td>
       <pre class="code"><span class="info file"># File 'lib/plist4r.rb', line 44</span>
 
 <span class='def def kw'>def</span> <span class='string_detect_format identifier id'>string_detect_format</span> <span class='string identifier id'>string</span>
+  <span class='if if kw'>if</span> <span class='RUBY_VERSION constant id'>RUBY_VERSION</span> <span class='geq op'>&gt;=</span> <span class='string val'>'1.9'</span>
+    <span class='string identifier id'>string</span> <span class='assign token'>=</span> <span class='string identifier id'>string</span><span class='dot token'>.</span><span class='force_encoding identifier id'>force_encoding</span><span class='lparen token'>(</span><span class='Encoding constant id'>Encoding</span><span class='colon2 op'>::</span><span class='ASCII_8BIT constant id'>ASCII_8BIT</span><span class='rparen token'>)</span>
+  <span class='end end kw'>end</span>
+
+
   <span class='string identifier id'>string</span><span class='dot token'>.</span><span class='strip! fid id'>strip!</span> <span class='if if_mod kw'>if</span> <span class='string identifier id'>string</span><span class='lbrack token'>[</span><span class='integer val'>0</span><span class='comma token'>,</span><span class='integer val'>1</span><span class='rbrack token'>]</span> <span class='match op'>=~</span> <span class='regexp val'>/\s/</span>
   <span class='case case kw'>case</span> <span class='string identifier id'>string</span><span class='lbrack token'>[</span><span class='integer val'>0</span><span class='comma token'>,</span><span class='integer val'>1</span><span class='rbrack token'>]</span>
   <span class='when when kw'>when</span> <span class='string val'>&quot;{&quot;</span><span class='comma token'>,</span><span class='string val'>&quot;(&quot;</span>
@@ -628,7 +635,7 @@ Plist4r::Plist.FileFormats
 </div>
     
     <div id="footer">
-  Generated on Tue Jul 20 11:07:43 2010 by 
+  Generated on Wed Jul 21 21:56:44 2010 by 
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool">yard</a>
   0.5.8  and the 
   <a href="http://github.com/dreamcat4/yard-slipstream">yard-slipstream</a> plugin

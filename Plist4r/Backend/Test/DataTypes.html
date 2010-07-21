@@ -449,7 +449,8 @@ A new instance of DataTypes
 90
 91
 92
-93</pre>
+93
+94</pre>
     </td>
     <td>
       <pre class="code"><span class="info file"># File 'lib/plist4r/backend/test/data_types.rb', line 85</span>
@@ -457,6 +458,7 @@ A new instance of DataTypes
 <span class='def def kw'>def</span> <span class='gen_hash identifier id'>gen_hash</span>
   <span class='lparen token'>(</span><span class='integer val'>0</span><span class='dot2 op'>..</span><span class='integer val'>25</span><span class='rparen token'>)</span><span class='dot token'>.</span><span class='each identifier id'>each</span> <span class='do do kw'>do</span> <span class='bitor op'>|</span><span class='i identifier id'>i</span><span class='bitor op'>|</span>
     <span class='h identifier id'>h</span> <span class='assign token'>=</span> <span class='Plist4r constant id'>Plist4r</span><span class='colon2 op'>::</span><span class='OrderedHash constant id'>OrderedHash</span><span class='dot token'>.</span><span class='new identifier id'>new</span>
+    <span class='comment val'># (0..0).each do |j|</span>
     <span class='lparen token'>(</span><span class='integer val'>0</span><span class='dot2 op'>..</span><span class='i identifier id'>i</span><span class='rparen token'>)</span><span class='dot token'>.</span><span class='each identifier id'>each</span> <span class='do do kw'>do</span> <span class='bitor op'>|</span><span class='j identifier id'>j</span><span class='bitor op'>|</span>
       <span class='h identifier id'>h</span><span class='lbrack token'>[</span><span class='dstring node'>&quot;String#{(65+j).chr}&quot;</span><span class='rbrack token'>]</span> <span class='assign token'>=</span> <span class='dstring node'>&quot;#{(97+j).chr}&quot;</span><span class='mult op'>*</span><span class='lparen token'>(</span><span class='j identifier id'>j</span><span class='plus op'>+</span><span class='integer val'>1</span><span class='rparen token'>)</span>
     <span class='end end kw'>end</span>
@@ -517,7 +519,6 @@ A new instance of DataTypes
       <pre class="lines">
 
 
-95
 96
 97
 98
@@ -547,10 +548,11 @@ A new instance of DataTypes
 122
 123
 124
-125</pre>
+125
+126</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/plist4r/backend/test/data_types.rb', line 95</span>
+      <pre class="code"><span class="info file"># File 'lib/plist4r/backend/test/data_types.rb', line 96</span>
 
 <span class='def def kw'>def</span> <span class='gen_mixed identifier id'>gen_mixed</span>
   <span class='@plist ivar id'>@plist</span><span class='dot token'>.</span><span class='edit identifier id'>edit</span> <span class='do do kw'>do</span>
@@ -603,7 +605,6 @@ A new instance of DataTypes
       <pre class="lines">
 
 
-127
 128
 129
 130
@@ -634,10 +635,11 @@ A new instance of DataTypes
 155
 156
 157
-158</pre>
+158
+159</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/plist4r/backend/test/data_types.rb', line 127</span>
+      <pre class="code"><span class="info file"># File 'lib/plist4r/backend/test/data_types.rb', line 128</span>
 
 <span class='def def kw'>def</span> <span class='gen_plist_1024 identifier id'>gen_plist_1024</span>
   <span class='@plist_1024 ivar id'>@plist_1024</span> <span class='opasgn op'>||=</span> <span class='Plist4r constant id'>Plist4r</span><span class='dot token'>.</span><span class='new identifier id'>new</span> <span class='do do kw'>do</span>
@@ -736,7 +738,7 @@ A new instance of DataTypes
       <pre class="code"><span class="info file"># File 'lib/plist4r/backend/test/data_types.rb', line 56</span>
 
 <span class='def def kw'>def</span> <span class='gen_time identifier id'>gen_time</span>
-  <span class='require identifier id'>require</span> <span class='string val'>'date'</span>
+  <span class='require identifier id'>require</span> <span class='string val'>'time'</span>
   <span class='lparen token'>(</span><span class='integer val'>0</span><span class='dot2 op'>..</span><span class='integer val'>25</span><span class='rparen token'>)</span><span class='dot token'>.</span><span class='each identifier id'>each</span> <span class='do do kw'>do</span> <span class='bitor op'>|</span><span class='i identifier id'>i</span><span class='bitor op'>|</span>
     <span class='@plist ivar id'>@plist</span><span class='dot token'>.</span><span class='store identifier id'>store</span> <span class='dstring node'>&quot;DateKey#{(65+i).chr}&quot;</span><span class='comma token'>,</span> <span class='Time constant id'>Time</span><span class='dot token'>.</span><span class='parse identifier id'>parse</span><span class='lparen token'>(</span><span class='dstring node'>&quot;2010-04-#{sprintf(&quot;%.2i&quot;,i+1)}T19:50:01Z&quot;</span><span class='rparen token'>)</span>
   <span class='end end kw'>end</span>
@@ -813,7 +815,7 @@ A new instance of DataTypes
 </div>
     
     <div id="footer">
-  Generated on Tue Jul 20 11:07:44 2010 by 
+  Generated on Wed Jul 21 21:56:34 2010 by 
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool">yard</a>
   0.5.8  and the 
   <a href="http://github.com/dreamcat4/yard-slipstream">yard-slipstream</a> plugin

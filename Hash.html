@@ -143,32 +143,72 @@
   
 
   
-</p><table class="source_code">
+</p><div class="docstring">
+  <div class="discussion">
+    <p>
+Merge together an array of complex hash structures
+</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+  <div class="examples">
+    <h3>Examples:</h3>
+    
+      <h4><div class='inline'></div></h4>
+      <pre class="example code"><span class='@aohoa1 ivar id'>@aohoa1</span> <span class='assign token'>=</span> <span class='lbrace token'>{</span><span class='rbrace token'>}</span>
+
+<span class='@aohoa2 ivar id'>@aohoa2</span> <span class='assign token'>=</span> <span class='lbrack token'>[</span>
+  <span class='lbrace token'>{</span> <span class='symbol val'>:array1</span> <span class='assign token'>=</span><span class='gt op'>&gt;</span> <span class='lbrack token'>[</span><span class='symbol val'>:a</span><span class='rbrack token'>]</span><span class='comma token'>,</span> <span class='symbol val'>:array2</span> <span class='assign token'>=</span><span class='gt op'>&gt;</span> <span class='lbrack token'>[</span><span class='symbol val'>:a</span><span class='comma token'>,</span><span class='symbol val'>:b</span><span class='rbrack token'>]</span><span class='comma token'>,</span> <span class='symbol val'>:array3</span> <span class='assign token'>=</span><span class='gt op'>&gt;</span> <span class='lbrack token'>[</span><span class='symbol val'>:a</span><span class='comma token'>,</span><span class='symbol val'>:b</span><span class='comma token'>,</span><span class='symbol val'>:c</span><span class='rbrack token'>]</span> <span class='rbrace token'>}</span><span class='comma token'>,</span>
+  <span class='lbrace token'>{</span> <span class='symbol val'>:array1</span> <span class='assign token'>=</span><span class='gt op'>&gt;</span> <span class='lbrack token'>[</span><span class='symbol val'>:aa</span><span class='rbrack token'>]</span><span class='comma token'>,</span> <span class='symbol val'>:array2</span> <span class='assign token'>=</span><span class='gt op'>&gt;</span> <span class='lbrack token'>[</span><span class='symbol val'>:aa</span><span class='comma token'>,</span><span class='symbol val'>:bb</span><span class='rbrack token'>]</span><span class='comma token'>,</span> <span class='symbol val'>:array3</span> <span class='assign token'>=</span><span class='gt op'>&gt;</span> <span class='lbrack token'>[</span><span class='symbol val'>:aa</span><span class='comma token'>,</span><span class='symbol val'>:bb</span><span class='comma token'>,</span><span class='symbol val'>:cc</span><span class='rbrack token'>]</span> <span class='rbrace token'>}</span><span class='comma token'>,</span>
+  <span class='lbrace token'>{</span> <span class='symbol val'>:array1</span> <span class='assign token'>=</span><span class='gt op'>&gt;</span> <span class='lbrack token'>[</span><span class='symbol val'>:aaa</span><span class='rbrack token'>]</span><span class='comma token'>,</span> <span class='symbol val'>:array2</span> <span class='assign token'>=</span><span class='gt op'>&gt;</span> <span class='lbrack token'>[</span><span class='symbol val'>:aaa</span><span class='comma token'>,</span><span class='symbol val'>:bbb</span><span class='rbrack token'>]</span><span class='comma token'>,</span> <span class='symbol val'>:array3</span> <span class='assign token'>=</span><span class='gt op'>&gt;</span> <span class='lbrack token'>[</span><span class='symbol val'>:aaa</span><span class='comma token'>,</span><span class='symbol val'>:bbb</span><span class='comma token'>,</span><span class='symbol val'>:ccc</span><span class='rbrack token'>]</span> <span class='rbrace token'>}</span>
+<span class='rbrack token'>]</span>
+
+<span class='@aohoa1 ivar id'>@aohoa1</span><span class='dot token'>.</span><span class='merge_array_of_hashes_of_arrays identifier id'>merge_array_of_hashes_of_arrays</span><span class='lparen token'>(</span><span class='@aohoa2 ivar id'>@aohoa2</span><span class='rparen token'>)</span>
+<span class='assign token'>=</span><span class='gt op'>&gt;</span> <span class='lbrace token'>{</span> 
+  <span class='symbol val'>:array1</span> <span class='assign token'>=</span><span class='gt op'>&gt;</span> <span class='lbrack token'>[</span><span class='symbol val'>:a</span><span class='comma token'>,</span><span class='symbol val'>:aa</span><span class='comma token'>,</span><span class='symbol val'>:aaa</span><span class='rbrack token'>]</span><span class='comma token'>,</span> 
+  <span class='symbol val'>:array2</span> <span class='assign token'>=</span><span class='gt op'>&gt;</span> <span class='lbrack token'>[</span><span class='symbol val'>:a</span><span class='comma token'>,</span><span class='symbol val'>:b</span><span class='comma token'>,</span><span class='symbol val'>:aa</span><span class='comma token'>,</span><span class='symbol val'>:bb</span><span class='comma token'>,</span><span class='symbol val'>:aaa</span><span class='comma token'>,</span><span class='symbol val'>:bbb</span><span class='rbrack token'>]</span><span class='comma token'>,</span> 
+  <span class='symbol val'>:array3</span> <span class='assign token'>=</span><span class='gt op'>&gt;</span> <span class='lbrack token'>[</span><span class='symbol val'>:a</span><span class='comma token'>,</span><span class='symbol val'>:b</span><span class='comma token'>,</span><span class='symbol val'>:c</span><span class='comma token'>,</span><span class='symbol val'>:aa</span><span class='comma token'>,</span><span class='symbol val'>:bb</span><span class='comma token'>,</span><span class='symbol val'>:cc</span><span class='comma token'>,</span><span class='symbol val'>:aaa</span><span class='comma token'>,</span><span class='symbol val'>:bbb</span><span class='comma token'>,</span><span class='symbol val'>:ccc</span><span class='rbrack token'>]</span>
+<span class='rbrace token'>}</span>
+</pre>
+    
+  </div>
+
+  <h3>See Also:</h3>
+  <ul class="see">
+    
+      <li><a href="Plist4r/PlistType/Info.html#ValidKeys-constant" target="_self" title="Plist4r::PlistType::Info::ValidKeys (constant)">Plist4r::PlistType::Info::ValidKeys</a></li>
+    
+  </ul>
+
+</div><table class="source_code">
   <tr>
     <td>
       <pre class="lines">
 
 
-73
-74
-75
-76
-77
-78
-79
-80
-81
-82
-83
-84
-85
-86
-87
-88
-89</pre>
+90
+91
+92
+93
+94
+95
+96
+97
+98
+99
+100
+101
+102
+103
+104
+105
+106</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/plist4r/mixin/ruby_stdlib.rb', line 73</span>
+      <pre class="code"><span class="info file"># File 'lib/plist4r/mixin/ruby_stdlib.rb', line 90</span>
 
 <span class='def def kw'>def</span> <span class='merge_array_of_hashes_of_arrays identifier id'>merge_array_of_hashes_of_arrays</span> <span class='array_of_hashes_of_arrays identifier id'>array_of_hashes_of_arrays</span>
   <span class='a identifier id'>a</span> <span class='assign token'>=</span> <span class='array_of_hashes_of_arrays identifier id'>array_of_hashes_of_arrays</span>
@@ -201,20 +241,35 @@
   
 
   
-</p><table class="source_code">
+</p><div class="docstring">
+  <div class="discussion">
+    
+
+  </div>
+</div>
+<div class="tags">
+  
+  <h3>See Also:</h3>
+  <ul class="see">
+    
+      <li><a href="#merge_array_of_hashes_of_arrays-instance_method" target="_self" title="Hash#merge_array_of_hashes_of_arrays (method)">#merge_array_of_hashes_of_arrays</a></li>
+    
+  </ul>
+
+</div><table class="source_code">
   <tr>
     <td>
       <pre class="lines">
 
 
-91
-92
-93
-94
-95</pre>
+109
+110
+111
+112
+113</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/plist4r/mixin/ruby_stdlib.rb', line 91</span>
+      <pre class="code"><span class="info file"># File 'lib/plist4r/mixin/ruby_stdlib.rb', line 109</span>
 
 <span class='def def kw'>def</span> <span class='merge_array_of_hashes_of_arrays! fid id'>merge_array_of_hashes_of_arrays!</span> <span class='array_of_hashes_of_arrays identifier id'>array_of_hashes_of_arrays</span>
   <span class='h identifier id'>h</span> <span class='assign token'>=</span> <span class='merge_array_of_hashes_of_arrays identifier id'>merge_array_of_hashes_of_arrays</span> <span class='array_of_hashes_of_arrays identifier id'>array_of_hashes_of_arrays</span>
@@ -233,7 +288,7 @@
 </div>
     
     <div id="footer">
-  Generated on Tue Jul 20 11:07:39 2010 by 
+  Generated on Wed Jul 21 21:56:27 2010 by 
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool">yard</a>
   0.5.8  and the 
   <a href="http://github.com/dreamcat4/yard-slipstream">yard-slipstream</a> plugin
