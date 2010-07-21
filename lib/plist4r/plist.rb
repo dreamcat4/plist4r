@@ -73,7 +73,7 @@ module Plist4r
     def from_string string=nil
       case string
       when String
-        plist_format = ::Plist4r.string_detect_format(string)
+        plist_format = Plist4r.string_detect_format(string)
         if plist_format
           @from_string = string
           @plist_cache ||= PlistCache.new self
@@ -344,12 +344,12 @@ module Plist4r
     # @see Backend::Example
     def import_hash hash=nil
       case hash
-      when ::Plist4r::OrderedHash
+      when Plist4r::OrderedHash
         @hash = hash
       when nil
         @hash = ::Plist4r::OrderedHash.new
       else
-        raise "Please use ::Plist4r::OrderedHash.new for your hashes"
+        raise "Please use Plist4r::OrderedHash.new for your hashes"
       end
     end
 
@@ -392,11 +392,17 @@ module Plist4r
     # @yield Keep every key-value pair for which the passed block evaluates to true. Works as per the ruby core classes Hash#select method
     def select *keys, &blk
       if block_given?
-        a = @hash.select &blk
+        selection = @hash.select &blk
         old_hash = @hash.deep_clone
         clear
-        a.each do |pair|
-          store pair[0], pair[1]
+        if RUBY_VERSION >= '1.9'
+          selection.each do |key,value|
+            store key, value
+          end
+        else
+          selection.each do |pair|
+            store pair[0], pair[1]
+          end
         end
         keys.each do |k|
           store k, old_hash[k]

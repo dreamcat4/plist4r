@@ -3,7 +3,7 @@ require 'plist4r/backend_base'
 require 'plist4r/mixin/ruby_stdlib'
 require 'haml'
 require 'base64'
-require 'date'
+require 'time'
 
 # This backend uses haml to generate xml plists
 # @author Dreamcat4 (dreamcat4@gmail.com)
@@ -39,9 +39,6 @@ module Plist4r::Backend::Haml
 					- when Time
 						%key #{k}
 						%date #{v.utc.strftime('%Y-%m-%dT%H:%M:%SZ')}
-					- when Date
-						%key #{k}
-						%date #{v.strftime('%Y-%m-%dT%H:%M:%SZ')}
 					- when Array
 						%key #{k}
 						%array
@@ -61,8 +58,6 @@ module Plist4r::Backend::Haml
 										%real #{e}
 									- when Time
 										%date #{e.utc.strftime('%Y-%m-%dT%H:%M:%SZ')}
-									- when Date
-										%date #{e.strftime('%Y-%m-%dT%H:%M:%SZ')}
 									- when Hash
 										%dict
 											- tab_up ; block.call(e, block) ; tab_down

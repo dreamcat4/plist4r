@@ -36,7 +36,7 @@ We re-use common support objects when writing a new PlistType
 For a change in the {Plist4r} Core library
 
 * Please update the inline source code documentation, generate locally with +rake yard+
-* Please run the regression tests with +rake spec+ and +rake backend:tests+
+* Please run the regression tests with +rake spec+ and +rake backends:test+
 * Please update the existing regression tests (in RSpec) or write new ones
 
 For a {Plist4r::Backend}

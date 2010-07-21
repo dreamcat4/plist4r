@@ -2,7 +2,7 @@
 require 'plist4r/backend_base'
 require 'libxml4r'
 require 'base64'
-require 'date'
+require 'time'
 
 # This backend uses Libxml4r / Libxml-Ruby to parse xml plists
 # @author Dreamcat4 (dreamcat4@gmail.com)

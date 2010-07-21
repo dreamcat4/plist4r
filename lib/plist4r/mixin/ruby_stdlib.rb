@@ -70,6 +70,23 @@ class Array
 end
 
 class Hash
+  # Merge together an array of complex hash structures
+  # @example
+  #   @aohoa1 = {}
+  #   
+  #   @aohoa2 = [
+  #     { :array1 => [:a], :array2 => [:a,:b], :array3 => [:a,:b,:c] },
+  #     { :array1 => [:aa], :array2 => [:aa,:bb], :array3 => [:aa,:bb,:cc] },
+  #     { :array1 => [:aaa], :array2 => [:aaa,:bbb], :array3 => [:aaa,:bbb,:ccc] }
+  #   ]
+  #   
+  #   @aohoa1.merge_array_of_hashes_of_arrays(@aohoa2)
+  #   => { 
+  #     :array1 => [:a,:aa,:aaa], 
+  #     :array2 => [:a,:b,:aa,:bb,:aaa,:bbb], 
+  #     :array3 => [:a,:b,:c,:aa,:bb,:cc,:aaa,:bbb,:ccc]
+  #   }
+  # @see Plist4r::PlistType::Info::ValidKeys
   def merge_array_of_hashes_of_arrays array_of_hashes_of_arrays
     a = array_of_hashes_of_arrays
     raise "not an array_of_hashes_of_arrays" unless a.is_a? Array
@@ -88,6 +105,7 @@ class Hash
     h
   end
 
+  # @see #merge_array_of_hashes_of_arrays
   def merge_array_of_hashes_of_arrays! array_of_hashes_of_arrays
     h = merge_array_of_hashes_of_arrays array_of_hashes_of_arrays
     self.replace h
@@ -186,6 +204,11 @@ class Float
     # @example
     #  16.347.round(2) => 16.35
     def round(n=0)
-        (self * (10.0 ** n)).round_orig * (10.0 ** (-n))
+      sprintf("%#{n}.#{n}f", self).to_f
     end
 end
+
+
+
+
+

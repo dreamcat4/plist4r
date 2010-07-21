@@ -1,8 +1,10 @@
 
 require 'plist4r/backend_base'
 require 'plist4r/mixin/ruby_stdlib'
+require 'time'
 
 module Plist4r
+  # @private
   class StringIOData
     attr_accessor :string
     def initialize string
@@ -26,6 +28,7 @@ module Plist4r
 end
 
 class String
+  # @private
   def _dump arg
     if self.blob?
       string_io_data = Plist4r::StringIOData.new(self)
@@ -35,6 +38,7 @@ class String
     end
   end
   
+  # @private
   def self._load string
     String.new string
   end
@@ -64,7 +68,7 @@ dir = ARGV[0]
 $LOAD_PATH.unshift dir unless $LOAD_PATH.include?(dir)
 
 require 'osx/cocoa'
-require 'date'
+require 'time'
 require 'plist4r/mixin/ordered_hash'
 require 'plist4r/mixin/ruby_stdlib'
 
@@ -138,7 +142,7 @@ class OSX::NSObject
     when OSX::NSArray
       self.to_a.map { |x| x.is_a?(OSX::NSObject) ? x.to_ruby : x }
     when OSX::NSDictionary
-      h = ::Plist4r::OrderedHash.new
+      h = Plist4r::ActiveSupport::OrderedHash.new
       self.each do |x, y| 
         x = x.to_ruby if x.is_a?(OSX::NSObject)
         y = y.to_ruby if y.is_a?(OSX::NSObject)
@@ -162,6 +166,7 @@ module Plist
     # to_plist defaults to NSPropertyListXMLFormat_v1_0
     hash = Marshal.load(File.read(input_file))
     x = hash.to_plist
+    # x = hash.inspect
     write_result_file x
   end
 
@@ -169,6 +174,7 @@ module Plist
     # Here 200 == NSPropertyListBinaryFormat_v1_0
     hash = Marshal.load(File.read(input_file))
     x = hash.to_plist 200
+    # x = hash.inspect
     write_result_file x
   end
 
@@ -177,7 +183,7 @@ module Plist
     unless plist_dict
       plist_array = ::OSX::NSArray.arrayWithContentsOfFile(filename) unless plist_dict
       raise "Couldnt parse file: #{filename}" unless plist_array
-      plist_dict = ::Plist4r::OrderedHash.new
+      plist_dict = Plist4r::ActiveSupport::OrderedHash.new
       plist_dict["Array"] = plist_array.to_ruby
     end
 
@@ -253,13 +259,36 @@ EOC
       File.read @result_file.path
     end
 
+    def convert_19_to_hash hash, key=nil
+      h = Hash.new
+      h.replace hash
+    
+      hash.each do |key,value|
+        if value.class.ancestors.include? Hash
+          unless value.class == Hash
+            h[key] = convert_19_to_hash(value)
+          end
+        end
+      end
+      h
+    end
+
     def to_xml plist
       require 'tempfile'
       input_file = Tempfile.new "input_file.rb."
-      input_file.puts Marshal.dump(plist.to_hash)
+
+      oh = nil
+      if RUBY_VERSION >= '1.9'
+        old_style_hash = convert_19_to_hash(plist.to_hash)
+        input_file.puts Marshal.dump(old_style_hash)
+      else
+        input_file.puts Marshal.dump(plist.to_hash)
+      end
+
       input_file.close
       result = ruby_cocoa_exec "to_xml(\"#{input_file.path}\")"
-      
+      # print read_result_file
+
       case result[1].exitstatus
       when 0
         xml_string = read_result_file
@@ -273,9 +302,17 @@ EOC
     def to_binary plist
       require 'tempfile'
       input_file = Tempfile.new "input_file.rb."
-      input_file.puts Marshal.dump(plist.to_hash)
+
+      if RUBY_VERSION >= '1.9'
+        old_style_hash = convert_19_to_hash(plist.to_hash)
+        input_file.puts Marshal.dump(old_style_hash)
+      else
+        input_file.puts Marshal.dump(plist.to_hash)
+      end
+
       input_file.close
       result = ruby_cocoa_exec "to_binary(\"#{input_file.path}\")"
+      # print read_result_file
 
       case result[1].exitstatus
       when 0
@@ -288,12 +325,11 @@ EOC
     end
 
     def open_with_args plist, filename
-      require 'date'
-
       result = ruby_cocoa_exec "open(\"#{filename}\")"
       case result[1].exitstatus
       when 0
-        hash = ::Plist4r::OrderedHash.new
+        hash = Plist4r::OrderedHash.new
+        
         hash.replace Marshal.load(read_result_file)
         plist.import_hash hash
       else

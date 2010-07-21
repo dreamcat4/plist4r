@@ -42,6 +42,11 @@ module Plist4r
     # @example
     # Plist4r.string_detect_format("{ \"key1\" = \"value1\"; \"key2\" = \"value2\"; }") => :gnustep
     def string_detect_format string
+      if RUBY_VERSION >= '1.9'
+        string = string.force_encoding(Encoding::ASCII_8BIT)
+      end
+
+
       string.strip! if string[0,1] =~ /\s/
       case string[0,1]
       when "{","("

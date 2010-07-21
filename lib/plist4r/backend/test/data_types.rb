@@ -54,7 +54,7 @@ module Plist4r
         end
 
         def gen_time
-          require 'date'
+          require 'time'
           (0..25).each do |i|
             @plist.store "DateKey#{(65+i).chr}", Time.parse("2010-04-#{sprintf("%.2i",i+1)}T19:50:01Z")
           end
@@ -85,6 +85,7 @@ module Plist4r
         def gen_hash
           (0..25).each do |i|
             h = Plist4r::OrderedHash.new
+            # (0..0).each do |j|
             (0..i).each do |j|
               h["String#{(65+j).chr}"] = "#{(97+j).chr}"*(j+1)
             end

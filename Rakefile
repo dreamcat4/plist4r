@@ -51,13 +51,24 @@ end
 
 task :default => :spec
 
-namespace :backend do
-  task :tests do
+namespace :backends do
+  task :compile do
+    if File.exists? "/System/Library/Frameworks/CoreFoundation.framework"
+      r = %x[rm ext/osx_plist/osx_plist.bundle lib/plist4r/backend/osx_plist/ext/osx_plist.bundle]
+      puts r if r.length > 0
+      puts %x[cd ext/osx_plist && ./extconf.rb && make clean && make]
+      r = %x[cp ext/osx_plist/osx_plist.bundle lib/plist4r/backend/osx_plist/ext/osx_plist.bundle]
+      puts r if r.length > 0
+    end
+  end
+
+  task :test => :compile do
     require 'lib/plist4r'
     require 'plist4r/backend/test/output'
     o = Plist4r::Backend::Test::Output.new
     puts o
     o.write_html_file
+    o.results_stdout
   end
 end
 
