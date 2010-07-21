@@ -21,6 +21,8 @@ pkg
 ## PROJECT::SPECIFIC
 .yardoc
 doc
+ext/osx_plist/plist.o
+ext/osx_plist/Makefile
 
 # Ruby
 *.bundle
