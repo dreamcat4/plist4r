@@ -1,4 +1,4 @@
-#!/usr/bin/ruby
+#!/usr/bin/env ruby
 
 if File.exists? "/System/Library/Frameworks/CoreFoundation.framework"
   require 'mkmf'
