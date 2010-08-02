@@ -23,7 +23,7 @@ module Plist4r
       :array_of_strings => %w[ LimitLoadToHosts LimitLoadFromHosts ProgramArguments WatchPaths QueueDirectories ],
 
       :method_defined   => %w[ inetdCompatibility KeepAlive EnvironmentVariables StartCalendarInterval 
-                               SoftResourceLimits, HardResourceLimits MachServices Sockets ]
+                               SoftResourceLimits, HardResourceLimits MachServices Socket ]
     }
 
     # Set or return the plist key +inetdCompatibility+

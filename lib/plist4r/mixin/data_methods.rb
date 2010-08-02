@@ -134,7 +134,7 @@ module Plist4r
     #  plist.validate_value :string, "CFBundleIdentifier", ["com.apple.myapp"]
     #  # => Raises Class mismatch. Value is of type Array, should be String
     def validate_value key_type, key, value
-      unless ClassesForKeyType[key_type].include? value.class
+      unless ClassesForKeyType[key_type].include?(value.class)
         raise "Key: #{key}, value: #{value.inspect} is of type #{value.class}. Should be: #{ClassesForKeyType[key_type].join ", "}"
       end
       case key_type
@@ -219,7 +219,7 @@ module Plist4r
       when nil
         @orig[key]
       else
-        validate_value key_type, key, value unless key_type == nil
+        validate_value key_type, key, value if ClassesForKeyType.keys.include?(key_type)
         @hash[key] = value
       end
     end
