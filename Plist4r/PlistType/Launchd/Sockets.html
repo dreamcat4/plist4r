@@ -147,7 +147,7 @@
   
   
   <h3 class="inherited">Methods inherited from <a href="../../ArrayDict.html" target="_self" title="Plist4r::ArrayDict (class)">Plist4r::ArrayDict</a></h3>
-  <p class="inherited"><a href="../../ArrayDict.html#hash-instance_method" target="_self" title="Plist4r::ArrayDict#hash (method)">#hash</a>, <a href="../../ArrayDict.html#initialize-instance_method" target="_self" title="Plist4r::ArrayDict#initialize (method)">#initialize</a>, <a href="../../ArrayDict.html#select-instance_method" target="_self" title="Plist4r::ArrayDict#select (method)">#select</a>, <a href="../../ArrayDict.html#select_all-instance_method" target="_self" title="Plist4r::ArrayDict#select_all (method)">#select_all</a>, <a href="../../ArrayDict.html#unselect-instance_method" target="_self" title="Plist4r::ArrayDict#unselect (method)">#unselect</a>, <a href="../../ArrayDict.html#unselect_all-instance_method" target="_self" title="Plist4r::ArrayDict#unselect_all (method)">#unselect_all</a></p>
+  <p class="inherited"><a href="../../ArrayDict.html#hash-instance_method" target="_self" title="Plist4r::ArrayDict#hash (method)">#hash</a>, <a href="../../ArrayDict.html#initialize-instance_method" target="_self" title="Plist4r::ArrayDict#initialize (method)">#initialize</a>, <a href="../../ArrayDict.html#select-instance_method" target="_self" title="Plist4r::ArrayDict#select (method)">#select</a>, <a href="../../ArrayDict.html#select_all-instance_method" target="_self" title="Plist4r::ArrayDict#select_all (method)">#select_all</a>, <a href="../../ArrayDict.html#to_hash-instance_method" target="_self" title="Plist4r::ArrayDict#to_hash (method)">#to_hash</a>, <a href="../../ArrayDict.html#unselect-instance_method" target="_self" title="Plist4r::ArrayDict#unselect (method)">#unselect</a>, <a href="../../ArrayDict.html#unselect_all-instance_method" target="_self" title="Plist4r::ArrayDict#unselect_all (method)">#unselect_all</a></p>
 
   
   
@@ -208,12 +208,6 @@
       <pre class="lines">
 
 
-462
-463
-464
-465
-466
-467
 468
 469
 470
@@ -222,10 +216,16 @@
 473
 474
 475
-476</pre>
+476
+477
+478
+479
+480
+481
+482</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/plist4r/plist_type/launchd.rb', line 462</span>
+      <pre class="code"><span class="info file"># File 'lib/plist4r/plist_type/launchd.rb', line 468</span>
 
 <span class='def def kw'>def</span> <span class='add_socket identifier id'>add_socket</span> <span class='plicity identifier id'>plicity</span><span class='comma token'>,</span> <span class='key identifier id'>key</span><span class='comma token'>,</span> <span class='index identifier id'>index</span><span class='assign token'>=</span><span class='nil nil kw'>nil</span><span class='comma token'>,</span> <span class='bitand op'>&amp;</span><span class='blk identifier id'>blk</span>
   <span class='select_all identifier id'>select_all</span>
@@ -262,19 +262,19 @@
       <pre class="lines">
 
 
-456
-457
-458
-459
-460</pre>
+462
+463
+464
+465
+466</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/plist4r/plist_type/launchd.rb', line 456</span>
+      <pre class="code"><span class="info file"># File 'lib/plist4r/plist_type/launchd.rb', line 462</span>
 
 <span class='def def kw'>def</span> <span class='add_socket_to_array identifier id'>add_socket_to_array</span> <span class='key identifier id'>key</span><span class='comma token'>,</span> <span class='index identifier id'>index</span><span class='comma token'>,</span> <span class='bitand op'>&amp;</span><span class='blk identifier id'>blk</span>
   <span class='@orig ivar id'>@orig</span><span class='lbrack token'>[</span><span class='key identifier id'>key</span><span class='rbrack token'>]</span> <span class='assign token'>=</span> <span class='lbrack token'>[</span><span class='rbrack token'>]</span> <span class='unless unless_mod kw'>unless</span> <span class='@orig ivar id'>@orig</span><span class='lbrack token'>[</span><span class='key identifier id'>key</span><span class='rbrack token'>]</span><span class='dot token'>.</span><span class='class identifier id'>class</span> <span class='eq op'>==</span> <span class='Array constant id'>Array</span>
   <span class='@hash ivar id'>@hash</span><span class='lbrack token'>[</span><span class='key identifier id'>key</span><span class='rbrack token'>]</span> <span class='opasgn op'>||=</span> <span class='lbrack token'>[</span><span class='rbrack token'>]</span>
-  <span class='@hash ivar id'>@hash</span><span class='lbrack token'>[</span><span class='key identifier id'>key</span><span class='rbrack token'>]</span><span class='lbrack token'>[</span><span class='index identifier id'>index</span><span class='rbrack token'>]</span> <span class='assign token'>=</span> <span class='colon3 op'>::</span><span class='LaunchdPlistStructs constant id'>LaunchdPlistStructs</span><span class='colon2 op'>::</span><span class='Sockets constant id'>Sockets</span><span class='colon2 op'>::</span><span class='Socket constant id'>Socket</span><span class='dot token'>.</span><span class='new identifier id'>new</span><span class='lparen token'>(</span><span class='@orig ivar id'>@orig</span><span class='lbrack token'>[</span><span class='key identifier id'>key</span><span class='rbrack token'>]</span><span class='comma token'>,</span><span class='index identifier id'>index</span><span class='comma token'>,</span><span class='bitand op'>&amp;</span><span class='blk identifier id'>blk</span><span class='rparen token'>)</span><span class='dot token'>.</span><span class='hash identifier id'>hash</span>
+  <span class='@hash ivar id'>@hash</span><span class='lbrack token'>[</span><span class='key identifier id'>key</span><span class='rbrack token'>]</span><span class='lbrack token'>[</span><span class='index identifier id'>index</span><span class='rbrack token'>]</span> <span class='assign token'>=</span> <span class='Sockets constant id'>Sockets</span><span class='colon2 op'>::</span><span class='Socket constant id'>Socket</span><span class='dot token'>.</span><span class='new identifier id'>new</span><span class='lparen token'>(</span><span class='@orig ivar id'>@orig</span><span class='lbrack token'>[</span><span class='key identifier id'>key</span><span class='rbrack token'>]</span><span class='comma token'>,</span><span class='index identifier id'>index</span><span class='comma token'>,</span><span class='bitand op'>&amp;</span><span class='blk identifier id'>blk</span><span class='rparen token'>)</span><span class='dot token'>.</span><span class='to_hash identifier id'>to_hash</span>
 <span class='end end kw'>end</span>
 </pre>
     </td>
@@ -296,15 +296,15 @@
       <pre class="lines">
 
 
-452
-453
-454</pre>
+458
+459
+460</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/plist4r/plist_type/launchd.rb', line 452</span>
+      <pre class="code"><span class="info file"># File 'lib/plist4r/plist_type/launchd.rb', line 458</span>
 
 <span class='def def kw'>def</span> <span class='add_socket_to_dictionary identifier id'>add_socket_to_dictionary</span> <span class='key identifier id'>key</span><span class='comma token'>,</span> <span class='bitand op'>&amp;</span><span class='blk identifier id'>blk</span>
-  <span class='@hash ivar id'>@hash</span><span class='lbrack token'>[</span><span class='key identifier id'>key</span><span class='rbrack token'>]</span> <span class='assign token'>=</span> <span class='colon3 op'>::</span><span class='LaunchdPlistStructs constant id'>LaunchdPlistStructs</span><span class='colon2 op'>::</span><span class='Sockets constant id'>Sockets</span><span class='colon2 op'>::</span><span class='Socket constant id'>Socket</span><span class='dot token'>.</span><span class='new identifier id'>new</span><span class='lparen token'>(</span><span class='@hash ivar id'>@hash</span><span class='lbrack token'>[</span><span class='key identifier id'>key</span><span class='rbrack token'>]</span><span class='comma token'>,</span><span class='bitand op'>&amp;</span><span class='blk identifier id'>blk</span><span class='rparen token'>)</span><span class='dot token'>.</span><span class='hash identifier id'>hash</span>
+  <span class='@hash ivar id'>@hash</span><span class='lbrack token'>[</span><span class='key identifier id'>key</span><span class='rbrack token'>]</span> <span class='assign token'>=</span> <span class='Sockets constant id'>Sockets</span><span class='colon2 op'>::</span><span class='Socket constant id'>Socket</span><span class='dot token'>.</span><span class='new identifier id'>new</span><span class='lparen token'>(</span><span class='@hash ivar id'>@hash</span><span class='lbrack token'>[</span><span class='key identifier id'>key</span><span class='rbrack token'>]</span><span class='comma token'>,</span><span class='bitand op'>&amp;</span><span class='blk identifier id'>blk</span><span class='rparen token'>)</span><span class='dot token'>.</span><span class='to_hash identifier id'>to_hash</span>
 <span class='end end kw'>end</span>
 </pre>
     </td>
@@ -318,7 +318,7 @@
 </div>
     
     <div id="footer">
-  Generated on Thu Jul 29 10:50:38 2010 by 
+  Generated on Wed Aug 18 16:10:01 2010 by 
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool">yard</a>
   0.5.8  and the 
   <a href="http://github.com/dreamcat4/yard-slipstream">yard-slipstream</a> plugin

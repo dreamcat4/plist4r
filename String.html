@@ -123,6 +123,9 @@
 	      <li class="r2"><a href="#to_plist-instance_method" target="_self" title="String#to_plist (method)">to_plist</a></li>
 	      
 	    
+	      <li class="r1"><a href="#undent-instance_method" target="_self" title="String#undent (method)">undent</a></li>
+	      
+	    
 	    </ul>
 
 
@@ -258,13 +261,13 @@ A Camel-ized string. The reverse of <tt><a href="#snake_case-instance_method" ta
       <pre class="lines">
 
 
-187
-188
-189
-190</pre>
+201
+202
+203
+204</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/plist4r/mixin/ruby_stdlib.rb', line 187</span>
+      <pre class="code"><span class="info file"># File 'lib/plist4r/mixin/ruby_stdlib.rb', line 201</span>
 
 <span class='def def kw'>def</span> <span class='camelcase identifier id'>camelcase</span>
   <span class='str identifier id'>str</span> <span class='assign token'>=</span> <span class='self self kw'>self</span><span class='dot token'>.</span><span class='dup identifier id'>dup</span><span class='dot token'>.</span><span class='gsub identifier id'>gsub</span><span class='lparen token'>(</span><span class='regexp val'>/(^|[-_.\s])([a-zA-Z0-9])/</span><span class='rparen token'>)</span> <span class='lbrace token'>{</span> <span class='$2 nth_ref id'>$2</span><span class='dot token'>.</span><span class='upcase identifier id'>upcase</span> <span class='rbrace token'>}</span> \
@@ -310,13 +313,13 @@ A snake-cased string. The reverse of <tt><a href="#camelcase-instance_method" ta
       <pre class="lines">
 
 
-195
-196
-197
-198</pre>
+209
+210
+211
+212</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/plist4r/mixin/ruby_stdlib.rb', line 195</span>
+      <pre class="code"><span class="info file"># File 'lib/plist4r/mixin/ruby_stdlib.rb', line 209</span>
 
 <span class='def def kw'>def</span> <span class='snake_case identifier id'>snake_case</span>
   <span class='str identifier id'>str</span> <span class='assign token'>=</span> <span class='self self kw'>self</span><span class='dot token'>.</span><span class='dup identifier id'>dup</span><span class='dot token'>.</span><span class='gsub identifier id'>gsub</span><span class='lparen token'>(</span><span class='regexp val'>/[A-Z]/</span><span class='rparen token'>)</span> <span class='lbrace token'>{</span><span class='bitor op'>|</span><span class='s identifier id'>s</span><span class='bitor op'>|</span> <span class='string val'>&quot;_&quot;</span> <span class='plus op'>+</span> <span class='s identifier id'>s</span><span class='rbrace token'>}</span>
@@ -396,12 +399,65 @@ The new Plist object
 </div>
 
     
+      <div class="method_details " id="undent-instance_method">
+  <p class="signature "">
+  
+    - (<tt><a href="Object.html" target="_self" title="Object (class)">Object</a></tt>) <strong>undent</strong> 
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    <p>
+Remove the leading spaces of the first line, and same to all lines of a
+multiline string. This effectively shifts all the lines across to the left,
+until the first line hits the left margin.
+</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+  <div class="examples">
+    <h3>Examples:</h3>
+    
+      <h4><div class='inline'></div></h4>
+      <pre class="example code"><span class='def def kw'>def</span> <span class='usage identifier id'>usage</span><span class='semicolon token'>;</span> <span class='string val'>&quot;# leading indent\n# subsequent indent\n# subsequent indent + '  '\n&quot;</span><span class='dot token'>.</span><span class='undent identifier id'>undent</span>
+<span class='end end kw'>end</span>
+</pre>
+    
+  </div>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+194
+195
+196</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/plist4r/mixin/ruby_stdlib.rb', line 194</span>
+
+<span class='def def kw'>def</span> <span class='undent identifier id'>undent</span>
+  <span class='gsub identifier id'>gsub</span> <span class='dregexp node'>/^.{#{slice(/^ +/).length}}/</span><span class='comma token'>,</span> <span class='string val'>''</span>
+<span class='end end kw'>end</span>
+</pre>
+    </td>
+  </tr>
+</table>
+</div>
+
+    
   </div>
 
 </div>
     
     <div id="footer">
-  Generated on Thu Jul 29 10:50:40 2010 by 
+  Generated on Wed Aug 18 16:09:52 2010 by 
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool">yard</a>
   0.5.8  and the 
   <a href="http://github.com/dreamcat4/yard-slipstream">yard-slipstream</a> plugin

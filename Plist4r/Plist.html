@@ -551,7 +551,7 @@ This will actually call <tt><a href="DataMethods.html#method_missing-instance_me
       <pre class="code"><span class="info file"># File 'lib/plist4r/plist.rb', line 337</span>
 
 <span class='def def kw'>def</span> <span class='method_missing identifier id'>method_missing</span> <span class='method_sym identifier id'>method_sym</span><span class='comma token'>,</span> <span class='mult op'>*</span><span class='args identifier id'>args</span><span class='comma token'>,</span> <span class='bitand op'>&amp;</span><span class='blk identifier id'>blk</span>
-  <span class='@plist_type ivar id'>@plist_type</span><span class='dot token'>.</span><span class='method_missing identifier id'>method_missing</span> <span class='method_sym identifier id'>method_sym</span><span class='comma token'>,</span> <span class='mult op'>*</span><span class='args identifier id'>args</span><span class='comma token'>,</span> <span class='bitand op'>&amp;</span><span class='blk identifier id'>blk</span>
+  <span class='eval identifier id'>eval</span> <span class='dstring node'>&quot;@plist_type.#{method_sym} *args, &amp;blk&quot;</span>
 <span class='end end kw'>end</span>
 </pre>
     </td>
@@ -1205,7 +1205,7 @@ Delete a key-value pair if block evaluates to true.
 <span class='def def kw'>def</span> <span class='delete_if identifier id'>delete_if</span> <span class='mult op'>*</span><span class='keys identifier id'>keys</span><span class='comma token'>,</span> <span class='bitand op'>&amp;</span><span class='blk identifier id'>blk</span>
   <span class='delete identifier id'>delete</span> <span class='mult op'>*</span><span class='keys identifier id'>keys</span>
   <span class='@hash ivar id'>@hash</span><span class='dot token'>.</span><span class='delete_if identifier id'>delete_if</span> <span class='bitand op'>&amp;</span><span class='blk identifier id'>blk</span>
-  <span class='@plist_type ivar id'>@plist_type</span><span class='dot token'>.</span><span class='hash identifier id'>hash</span> <span class='@hash ivar id'>@hash</span>
+  <span class='@plist_type ivar id'>@plist_type</span><span class='dot token'>.</span><span class='to_hash identifier id'>to_hash</span> <span class='@hash ivar id'>@hash</span>
 <span class='end end kw'>end</span>
 </pre>
     </td>
@@ -1484,7 +1484,7 @@ Edit with implicit methods. Calls method_missing()
       <pre class="code"><span class="info file"># File 'lib/plist4r/plist.rb', line 325</span>
 
 <span class='def def kw'>def</span> <span class='edit identifier id'>edit</span> <span class='mult op'>*</span><span class='args identifier id'>args</span><span class='comma token'>,</span> <span class='bitand op'>&amp;</span><span class='blk identifier id'>blk</span>
-  <span class='@plist_type ivar id'>@plist_type</span><span class='dot token'>.</span><span class='hash identifier id'>hash</span> <span class='@hash ivar id'>@hash</span>
+  <span class='@plist_type ivar id'>@plist_type</span><span class='dot token'>.</span><span class='to_hash identifier id'>to_hash</span> <span class='@hash ivar id'>@hash</span>
   <span class='instance_eval identifier id'>instance_eval</span> <span class='mult op'>*</span><span class='args identifier id'>args</span><span class='comma token'>,</span> <span class='bitand op'>&amp;</span><span class='blk identifier id'>blk</span>
   <span class='detect_plist_type identifier id'>detect_plist_type</span> <span class='if if_mod kw'>if</span> <span class='plist_type identifier id'>plist_type</span> <span class='eq op'>==</span> <span class='symbol val'>:plist</span>
 <span class='end end kw'>end</span>
@@ -2522,7 +2522,7 @@ The other plist to merge with
 <span class='def def kw'>def</span> <span class='merge! fid id'>merge!</span> <span class='other_plist identifier id'>other_plist</span>
   <span class='if if kw'>if</span> <span class='plist_type identifier id'>plist_type</span> <span class='eq op'>==</span> <span class='other_plist identifier id'>other_plist</span><span class='dot token'>.</span><span class='plist_type identifier id'>plist_type</span>
     <span class='@hash ivar id'>@hash</span><span class='dot token'>.</span><span class='merge! fid id'>merge!</span> <span class='other_plist identifier id'>other_plist</span><span class='dot token'>.</span><span class='to_hash identifier id'>to_hash</span>
-    <span class='@plist_type ivar id'>@plist_type</span><span class='dot token'>.</span><span class='hash identifier id'>hash</span> <span class='@hash ivar id'>@hash</span>
+    <span class='@plist_type ivar id'>@plist_type</span><span class='dot token'>.</span><span class='to_hash identifier id'>to_hash</span> <span class='@hash ivar id'>@hash</span>
   <span class='else else kw'>else</span>
     <span class='raise identifier id'>raise</span> <span class='dstring node'>&quot;plist_type differs, one is #{plist_type.inspect}, and the other is #{plist.plist_type.inspect}&quot;</span>
   <span class='end end kw'>end</span>
@@ -3752,7 +3752,7 @@ Alias for <tt><a href="#delete-instance_method" target="_self" title="Plist4r::P
 </div>
     
     <div id="footer">
-  Generated on Thu Jul 29 10:50:48 2010 by 
+  Generated on Wed Aug 18 16:10:00 2010 by 
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool">yard</a>
   0.5.8  and the 
   <a href="http://github.com/dreamcat4/yard-slipstream">yard-slipstream</a> plugin

@@ -167,6 +167,7 @@ to. This is class-based data validation.
   <span class='symbol val'>:hash_of_arrays</span> <span class='assign token'>=</span><span class='gt op'>&gt;</span> <span class='lbrack token'>[</span><span class='Hash constant id'>Hash</span><span class='rbrack token'>]</span><span class='comma token'>,</span>
   <span class='symbol val'>:hash_of_arrays_of_strings</span> <span class='assign token'>=</span><span class='gt op'>&gt;</span> <span class='lbrack token'>[</span><span class='Hash constant id'>Hash</span><span class='rbrack token'>]</span><span class='comma token'>,</span>
   <span class='symbol val'>:hash</span> <span class='assign token'>=</span><span class='gt op'>&gt;</span> <span class='lbrack token'>[</span><span class='Hash constant id'>Hash</span><span class='rbrack token'>]</span><span class='comma token'>,</span>
+  <span class='symbol val'>:bool_or_hash_of_bools</span> <span class='assign token'>=</span><span class='gt op'>&gt;</span> <span class='lbrack token'>[</span><span class='TrueClass constant id'>TrueClass</span><span class='comma token'>,</span><span class='FalseClass constant id'>FalseClass</span><span class='comma token'>,</span><span class='Hash constant id'>Hash</span><span class='rbrack token'>]</span><span class='comma token'>,</span>
   <span class='symbol val'>:bool_or_string_or_array_of_strings</span> <span class='assign token'>=</span><span class='gt op'>&gt;</span> <span class='lbrack token'>[</span><span class='TrueClass constant id'>TrueClass</span><span class='comma token'>,</span><span class='FalseClass constant id'>FalseClass</span><span class='comma token'>,</span><span class='String constant id'>String</span><span class='comma token'>,</span><span class='Array constant id'>Array</span><span class='rbrack token'>]</span>
 <span class='rbrace token'>}</span>
 </pre></dd>
@@ -312,12 +313,12 @@ unrecognised Plist Keys.
       <pre class="lines">
 
 
-101
 102
-103</pre>
+103
+104</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/plist4r/mixin/data_methods.rb', line 101</span>
+      <pre class="code"><span class="info file"># File 'lib/plist4r/mixin/data_methods.rb', line 102</span>
 
 <span class='def def kw'>def</span> <span class='method_missing identifier id'>method_missing</span> <span class='method_symbol identifier id'>method_symbol</span><span class='comma token'>,</span> <span class='mult op'>*</span><span class='args identifier id'>args</span><span class='comma token'>,</span> <span class='bitand op'>&amp;</span><span class='blk identifier id'>blk</span>
   <span class='set_or_return identifier id'>set_or_return</span> <span class='method_symbol identifier id'>method_symbol</span><span class='dot token'>.</span><span class='to_s identifier id'>to_s</span><span class='dot token'>.</span><span class='camelcase identifier id'>camelcase</span><span class='comma token'>,</span> <span class='mult op'>*</span><span class='args identifier id'>args</span><span class='comma token'>,</span> <span class='bitand op'>&amp;</span><span class='blk identifier id'>blk</span>
@@ -379,12 +380,12 @@ true
       <pre class="lines">
 
 
-95
 96
-97</pre>
+97
+98</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/plist4r/mixin/data_methods.rb', line 95</span>
+      <pre class="code"><span class="info file"># File 'lib/plist4r/mixin/data_methods.rb', line 96</span>
 
 <span class='def def kw'>def</span> <span class='_respond_to? fid id'>_respond_to?</span> <span class='method_sym identifier id'>method_sym</span>
   <span class='true true kw'>true</span>
@@ -480,7 +481,6 @@ The Object stored under key
       <pre class="lines">
 
 
-109
 110
 111
 112
@@ -495,10 +495,11 @@ The Object stored under key
 121
 122
 123
-124</pre>
+124
+125</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/plist4r/mixin/data_methods.rb', line 109</span>
+      <pre class="code"><span class="info file"># File 'lib/plist4r/mixin/data_methods.rb', line 110</span>
 
 <span class='def def kw'>def</span> <span class='set_or_return identifier id'>set_or_return</span> <span class='key identifier id'>key</span><span class='comma token'>,</span> <span class='value identifier id'>value</span><span class='assign token'>=</span><span class='nil nil kw'>nil</span>
   <span class='key identifier id'>key</span> <span class='assign token'>=</span> <span class='key identifier id'>key</span><span class='dot token'>.</span><span class='to_s identifier id'>to_s</span><span class='dot token'>.</span><span class='camelcase identifier id'>camelcase</span> <span class='if if_mod kw'>if</span> <span class='key identifier id'>key</span><span class='dot token'>.</span><span class='class identifier id'>class</span> <span class='eq op'>==</span> <span class='Symbol constant id'>Symbol</span>
@@ -607,7 +608,6 @@ the key&#8217;s value
       <pre class="lines">
 
 
-217
 218
 219
 220
@@ -615,17 +615,18 @@ the key&#8217;s value
 222
 223
 224
-225</pre>
+225
+226</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/plist4r/mixin/data_methods.rb', line 217</span>
+      <pre class="code"><span class="info file"># File 'lib/plist4r/mixin/data_methods.rb', line 218</span>
 
 <span class='def def kw'>def</span> <span class='set_or_return_of_type identifier id'>set_or_return_of_type</span> <span class='key_type identifier id'>key_type</span><span class='comma token'>,</span> <span class='key identifier id'>key</span><span class='comma token'>,</span> <span class='value identifier id'>value</span><span class='assign token'>=</span><span class='nil nil kw'>nil</span>
   <span class='case case kw'>case</span> <span class='value identifier id'>value</span>
   <span class='when when kw'>when</span> <span class='nil nil kw'>nil</span>
     <span class='@orig ivar id'>@orig</span><span class='lbrack token'>[</span><span class='key identifier id'>key</span><span class='rbrack token'>]</span>
   <span class='else else kw'>else</span>
-    <span class='validate_value identifier id'>validate_value</span> <span class='key_type identifier id'>key_type</span><span class='comma token'>,</span> <span class='key identifier id'>key</span><span class='comma token'>,</span> <span class='value identifier id'>value</span> <span class='unless unless_mod kw'>unless</span> <span class='key_type identifier id'>key_type</span> <span class='eq op'>==</span> <span class='nil nil kw'>nil</span>
+    <span class='validate_value identifier id'>validate_value</span> <span class='key_type identifier id'>key_type</span><span class='comma token'>,</span> <span class='key identifier id'>key</span><span class='comma token'>,</span> <span class='value identifier id'>value</span> <span class='if if_mod kw'>if</span> <span class='ClassesForKeyType constant id'>ClassesForKeyType</span><span class='dot token'>.</span><span class='keys identifier id'>keys</span><span class='dot token'>.</span><span class='include? fid id'>include?</span><span class='lparen token'>(</span><span class='key_type identifier id'>key_type</span><span class='rparen token'>)</span>
     <span class='@hash ivar id'>@hash</span><span class='lbrack token'>[</span><span class='key identifier id'>key</span><span class='rbrack token'>]</span> <span class='assign token'>=</span> <span class='value identifier id'>value</span>
   <span class='end end kw'>end</span>
 <span class='end end kw'>end</span>
@@ -738,7 +739,6 @@ Class mistmatch
       <pre class="lines">
 
 
-136
 137
 138
 139
@@ -787,13 +787,14 @@ Class mistmatch
 182
 183
 184
-185</pre>
+185
+186</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/plist4r/mixin/data_methods.rb', line 136</span>
+      <pre class="code"><span class="info file"># File 'lib/plist4r/mixin/data_methods.rb', line 137</span>
 
 <span class='def def kw'>def</span> <span class='validate_value identifier id'>validate_value</span> <span class='key_type identifier id'>key_type</span><span class='comma token'>,</span> <span class='key identifier id'>key</span><span class='comma token'>,</span> <span class='value identifier id'>value</span>
-  <span class='unless unless kw'>unless</span> <span class='ClassesForKeyType constant id'>ClassesForKeyType</span><span class='lbrack token'>[</span><span class='key_type identifier id'>key_type</span><span class='rbrack token'>]</span><span class='dot token'>.</span><span class='include? fid id'>include?</span> <span class='value identifier id'>value</span><span class='dot token'>.</span><span class='class identifier id'>class</span>
+  <span class='unless unless kw'>unless</span> <span class='ClassesForKeyType constant id'>ClassesForKeyType</span><span class='lbrack token'>[</span><span class='key_type identifier id'>key_type</span><span class='rbrack token'>]</span><span class='dot token'>.</span><span class='include? fid id'>include?</span><span class='lparen token'>(</span><span class='value identifier id'>value</span><span class='dot token'>.</span><span class='class identifier id'>class</span><span class='rparen token'>)</span>
     <span class='raise identifier id'>raise</span> <span class='dstring node'>&quot;Key: #{key}, value: #{value.inspect} is of type #{value.class}. Should be: #{ClassesForKeyType[key_type].join &quot;, &quot;}&quot;</span>
   <span class='end end kw'>end</span>
   <span class='case case kw'>case</span> <span class='key_type identifier id'>key_type</span>
@@ -854,7 +855,7 @@ Class mistmatch
 </div>
     
     <div id="footer">
-  Generated on Thu Jul 29 10:50:49 2010 by 
+  Generated on Wed Aug 18 16:10:00 2010 by 
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool">yard</a>
   0.5.8  and the 
   <a href="http://github.com/dreamcat4/yard-slipstream">yard-slipstream</a> plugin

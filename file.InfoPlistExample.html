@@ -93,19 +93,19 @@ Info Plists, see <tt><a href="Plist4r/PlistType/Info.html" target="_self" title=
   <span class='comment val'># block method</span>
   <span class='info_plist identifier id'>info_plist</span> <span class='assign token'>=</span> <span class='Plist4r constant id'>Plist4r</span><span class='dot token'>.</span><span class='open identifier id'>open</span> <span class='string val'>&quot;/Applications/MyApp.app/Contents/Info.plist&quot;</span> <span class='do do kw'>do</span>
 
-    <span class='comment val'># plist attributes</span>
+    <span class='comment val'># plist file attributes</span>
     <span class='filename identifier id'>filename</span>    <span class='comment val'># =&gt; &quot;/Applications/MyApp.app/Contents/Info.plist&quot;</span>
     <span class='file_format identifier id'>file_format</span> <span class='comment val'># =&gt; :xml</span>
     <span class='plist_type identifier id'>plist_type</span>  <span class='comment val'># =&gt; :info</span>
 
-    <span class='comment val'># read</span>
+    <span class='comment val'># read plist keys</span>
     <span class='c_f_bundle_executable identifier id'>c_f_bundle_executable</span> <span class='comment val'># =&gt; &quot;MyApp&quot;</span>
     <span class='c_f_bundle_icon_file identifier id'>c_f_bundle_icon_file</span>  <span class='comment val'># =&gt; &quot;Icon&quot;</span>
     <span class='c_f_bundle_identifier identifier id'>c_f_bundle_identifier</span> <span class='comment val'># =&gt; &quot;com.mydomain.MyApp&quot;</span>
     <span class='c_f_bundle_name identifier id'>c_f_bundle_name</span>       <span class='comment val'># =&gt; &quot;MyApp&quot;</span>
     <span class='c_f_bundle_signature identifier id'>c_f_bundle_signature</span>  <span class='comment val'># =&gt; &quot;????&quot;</span>
 
-    <span class='comment val'># write</span>
+    <span class='comment val'># write plist keys</span>
     <span class='c_f_bundle_signature identifier id'>c_f_bundle_signature</span> <span class='string val'>&quot;MYAP&quot;</span>
     <span class='store identifier id'>store</span> <span class='string val'>&quot;LSUIElement&quot;</span> <span class='true true kw'>true</span>
 
@@ -116,7 +116,7 @@ Info Plists, see <tt><a href="Plist4r/PlistType/Info.html" target="_self" title=
 </div></div>
     
     <div id="footer">
-  Generated on Thu Jul 29 10:50:27 2010 by 
+  Generated on Wed Aug 18 16:09:40 2010 by 
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool">yard</a>
   0.5.8  and the 
   <a href="http://github.com/dreamcat4/yard-slipstream">yard-slipstream</a> plugin

@@ -93,19 +93,19 @@ Launchd Plists, see <tt><a href="Plist4r/PlistType/Launchd.html" target="_self" 
   <span class='comment val'># block method</span>
   <span class='launchd_plist identifier id'>launchd_plist</span> <span class='assign token'>=</span> <span class='Plist4r constant id'>Plist4r</span><span class='dot token'>.</span><span class='open identifier id'>open</span> <span class='string val'>&quot;/Library/LaunchDaemons/com.mydomain.MyApp.plist&quot;</span> <span class='do do kw'>do</span>
 
-    <span class='comment val'># plist attributes</span>
+    <span class='comment val'># plist file attributes</span>
     <span class='filename identifier id'>filename</span>    <span class='comment val'># =&gt; &quot;/Library/LaunchDaemons/com.mydomain.MyApp.plist&quot;</span>
     <span class='file_format identifier id'>file_format</span> <span class='comment val'># =&gt; :xml</span>
     <span class='plist_type identifier id'>plist_type</span>  <span class='comment val'># =&gt; :launchd</span>
 
-    <span class='comment val'># read</span>
+    <span class='comment val'># read plist keys</span>
     <span class='label identifier id'>label</span>             <span class='comment val'># =&gt; &quot;com.mydomain.Myapp&quot;</span>
     <span class='program_arguments identifier id'>program_arguments</span> <span class='comment val'># =&gt; [&quot;/Applications/MyApp.app/Contents/MacOS/MyApp&quot;]</span>
     <span class='queue_directories identifier id'>queue_directories</span> <span class='comment val'># =&gt; [&quot;/dir/to/watch/1&quot;,&quot;/dir/to/watch/2&quot;,&quot;etc...&quot;]</span>
     <span class='run_at_load identifier id'>run_at_load</span>    <span class='comment val'># =&gt; false</span>
     <span class='start_on_mount identifier id'>start_on_mount</span> <span class='comment val'># =&gt; false</span>
 
-    <span class='comment val'># write</span>
+    <span class='comment val'># write plist keys</span>
     <span class='run_at_load identifier id'>run_at_load</span> <span class='true true kw'>true</span>
     <span class='store identifier id'>store</span> <span class='string val'>&quot;StartOnMount&quot;</span> <span class='true true kw'>true</span>
 
@@ -116,7 +116,7 @@ Launchd Plists, see <tt><a href="Plist4r/PlistType/Launchd.html" target="_self" 
 </div></div>
     
     <div id="footer">
-  Generated on Thu Jul 29 10:50:27 2010 by 
+  Generated on Wed Aug 18 16:09:40 2010 by 
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool">yard</a>
   0.5.8  and the 
   <a href="http://github.com/dreamcat4/yard-slipstream">yard-slipstream</a> plugin
