@@ -61,7 +61,7 @@ module Plist4r
       ValidKeys =
       {
         :bool => %w[SuccessfulExit NetworkState],
-        :hash_of_bools => %w[PathState OtherJobEnabled]
+        :bool_or_hash_of_bools => %w[PathState OtherJobEnabled]
       }
     end
 
@@ -115,12 +115,13 @@ module Plist4r
       key = "KeepAlive"
     
       case value
-      when TrueCass, FalseClass
+      when TrueClass, FalseClass
         @hash[key] = value
       when nil
-        if blk
-          @hash[key] ||= ::Plist4r::OrderedHash.new
-          @hash[key] = ::LaunchdPlistStructs::KeepAlive.new(@hash[key],&blk).hash
+        if block_given?
+          puts KeepAlive.new(@hash[key],&blk).to_hash
+          @hash[key] = ::Plist4r::OrderedHash.new
+          @hash[key] = KeepAlive.new(@hash[key],&blk).to_hash
         else
           @hash[key]
         end
@@ -221,7 +222,7 @@ module Plist4r
       end
       if blk
         @hash[key] ||= []
-        h = ::LaunchdPlistStructs::StartCalendarInterval.new(@hash[key],index,&blk).hash
+        h = StartCalendarInterval.new(@hash[key],index,&blk).to_hash
         if index
           @hash[key][index] = h
         else
@@ -296,7 +297,7 @@ module Plist4r
       key = "SoftResourceLimits"
       if blk
         @hash[key] ||= ::Plist4r::OrderedHash.new
-        @hash[key] = ::LaunchdPlistStructs::ResourceLimits.new(@hash[key],&blk).hash
+        @hash[key] = ResourceLimits.new(@hash[key],&blk).to_hash
       else
         @hash[key]
       end
@@ -361,7 +362,7 @@ module Plist4r
       key = "HardResourceLimits"
       if blk
         @hash[key] ||= ::Plist4r::OrderedHash.new
-        @hash[key] = ::LaunchdPlistStructs::ResourceLimits.new(@hash[key],&blk).hash
+        @hash[key] = ResourceLimits.new(@hash[key],&blk).to_hash
       else
         @hash[key]
       end
@@ -378,7 +379,7 @@ module Plist4r
           set_or_return_of_type :bool, service, value
         elsif blk
           @hash[service] = ::Plist4r::OrderedHash.new
-          @hash[service] = ::LaunchdPlistStructs::MachServices::MachService.new(@hash[service],&blk).hash
+          @hash[service] = MachServices::MachService.new(@hash[service],&blk).to_hash
         else
           @orig
         end
@@ -428,7 +429,7 @@ module Plist4r
       key = "MachServices"
       if blk
         @hash[key] ||= ::Plist4r::OrderedHash.new
-        @hash[key] = ::LaunchdPlistStructs::MachServices.new(@hash[key],&blk).hash
+        @hash[key] = MachServices.new(@hash[key],&blk).to_hash
       else
         @hash[key]
       end
@@ -450,13 +451,13 @@ module Plist4r
       end
 
       def add_socket_to_dictionary key, &blk
-        @hash[key] = ::LaunchdPlistStructs::Sockets::Socket.new(@hash[key],&blk).hash
+        @hash[key] = Sockets::Socket.new(@hash[key],&blk).to_hash
       end
 
       def add_socket_to_array key, index, &blk
         @orig[key] = [] unless @orig[key].class == Array
         @hash[key] ||= []
-        @hash[key][index] = ::LaunchdPlistStructs::Sockets::Socket.new(@orig[key],index,&blk).hash
+        @hash[key][index] = Sockets::Socket.new(@orig[key],index,&blk).to_hash
       end
 
       def add_socket plicity, key, index=nil, &blk
@@ -661,7 +662,7 @@ module Plist4r
       key = "Sockets"
       if blk
         @hash[key] ||= ::Plist4r::OrderedHash.new
-        sockets = ::LaunchdPlistStructs::Sockets.new(@hash[key]).hash
+        sockets = Sockets.new(@hash[key]).to_hash
       
         case index_or_key
         when nil

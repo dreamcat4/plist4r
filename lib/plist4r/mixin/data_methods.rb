@@ -23,6 +23,7 @@ module Plist4r
       :hash_of_arrays => [Hash],
       :hash_of_arrays_of_strings => [Hash],
       :hash => [Hash],
+      :bool_or_hash_of_bools => [TrueClass,FalseClass,Hash],
       :bool_or_string_or_array_of_strings => [TrueClass,FalseClass,String,Array]
     }
 

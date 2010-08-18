@@ -335,7 +335,7 @@ module Plist4r
     # @see Plist4r::DataMethods#method_missing
     # @see #plist_type
     def method_missing method_sym, *args, &blk
-      @plist_type.method_missing method_sym, *args, &blk
+      eval "@plist_type.#{method_sym} *args, &blk"
     end
   
     # Backend method to set or return all new plist data resulting from a backend API. Used in load operations.
