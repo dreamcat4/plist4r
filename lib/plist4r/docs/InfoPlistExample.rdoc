@@ -11,19 +11,19 @@ In this example, we edit an Apple Info.plist, to modify a couple of the keys and
   # block method
   info_plist = Plist4r.open "/Applications/MyApp.app/Contents/Info.plist" do
 
-    # plist attributes
+    # plist file attributes
     filename    # => "/Applications/MyApp.app/Contents/Info.plist"
     file_format # => :xml
     plist_type  # => :info
 
-    # read
+    # read plist keys
     c_f_bundle_executable # => "MyApp"
     c_f_bundle_icon_file  # => "Icon"
     c_f_bundle_identifier # => "com.mydomain.MyApp"
     c_f_bundle_name       # => "MyApp"
     c_f_bundle_signature  # => "????"
 
-    # write
+    # write plist keys
     c_f_bundle_signature "MYAP"
     store "LSUIElement" true
     

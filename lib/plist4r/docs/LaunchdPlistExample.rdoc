@@ -11,19 +11,19 @@ In this example, we edit an Apple Launchd plist, to modify a couple of the keys 
   # block method
   launchd_plist = Plist4r.open "/Library/LaunchDaemons/com.mydomain.MyApp.plist" do
 
-    # plist attributes
+    # plist file attributes
     filename    # => "/Library/LaunchDaemons/com.mydomain.MyApp.plist"
     file_format # => :xml
     plist_type  # => :launchd
 
-    # read
+    # read plist keys
     label             # => "com.mydomain.Myapp"
     program_arguments # => ["/Applications/MyApp.app/Contents/MacOS/MyApp"]
     queue_directories # => ["/dir/to/watch/1","/dir/to/watch/2","etc..."]
     run_at_load    # => false
     start_on_mount # => false
 
-    # write
+    # write plist keys
     run_at_load true
     store "StartOnMount" true
     
