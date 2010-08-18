@@ -190,7 +190,11 @@
   <p class="inherited"><a href="../DataMethods.html#_respond_to%3F-instance_method" target="_self" title="Plist4r::DataMethods#_respond_to? (method)">#_respond_to?</a>, <a href="../DataMethods.html#method_missing-instance_method" target="_self" title="Plist4r::DataMethods#method_missing (method)">#method_missing</a>, <a href="../DataMethods.html#set_or_return-instance_method" target="_self" title="Plist4r::DataMethods#set_or_return (method)">#set_or_return</a>, <a href="../DataMethods.html#set_or_return_of_type-instance_method" target="_self" title="Plist4r::DataMethods#set_or_return_of_type (method)">#set_or_return_of_type</a>, <a href="../DataMethods.html#validate_value-instance_method" target="_self" title="Plist4r::DataMethods#validate_value (method)">#validate_value</a></p>
 <h2>Overview</h2><div class="docstring">
   <div class="discussion">
-    
+    <p>
+For help in working with launchd, see <a
+href="http://www.mactech.com/articles/mactech/Vol.21/21.06/launchd">www.mactech.com/articles/mactech/Vol.21/21.06/launchd</a>/
+</p>
+
 
   </div>
 </div>
@@ -360,9 +364,6 @@ be set before running the job.
       <pre class="lines">
 
 
-149
-150
-151
 152
 153
 154
@@ -378,10 +379,13 @@ be set before running the job.
 164
 165
 166
-167</pre>
+167
+168
+169
+170</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/plist4r/plist_type/launchd.rb', line 149</span>
+      <pre class="code"><span class="info file"># File 'lib/plist4r/plist_type/launchd.rb', line 152</span>
 
 <span class='def def kw'>def</span> <span class='environment_variables identifier id'>environment_variables</span> <span class='value identifier id'>value</span><span class='assign token'>=</span><span class='nil nil kw'>nil</span><span class='comma token'>,</span> <span class='bitand op'>&amp;</span><span class='blk identifier id'>blk</span>
   <span class='key identifier id'>key</span> <span class='assign token'>=</span> <span class='string val'>&quot;EnvironmentVariables&quot;</span>
@@ -501,18 +505,18 @@ Example
       <pre class="lines">
 
 
-366
-367
-368
 369
 370
 371
 372
 373
-374</pre>
+374
+375
+376
+377</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/plist4r/plist_type/launchd.rb', line 366</span>
+      <pre class="code"><span class="info file"># File 'lib/plist4r/plist_type/launchd.rb', line 369</span>
 
 <span class='def def kw'>def</span> <span class='hard_resource_limits identifier id'>hard_resource_limits</span> <span class='value identifier id'>value</span><span class='assign token'>=</span><span class='nil nil kw'>nil</span><span class='comma token'>,</span> <span class='bitand op'>&amp;</span><span class='blk identifier id'>blk</span>
   <span class='key identifier id'>key</span> <span class='assign token'>=</span> <span class='string val'>&quot;HardResourceLimits&quot;</span>
@@ -577,17 +581,21 @@ Set or return the plist key <tt>inetdCompatibility</tt>
 The presence of this key specifies that the daemon expects to be run as if
 it were launched from inetd.
 </p>
+<p>
+<tt>wait [true,false]</tt>
+</p>
+<p>
+This flag corresponds to the &#8220;wait&#8221; or &#8220;nowait&#8221;
+option of inetd. If true, then the listening socket is passed via the
+standard in/out/error file descriptors. If false, then accept(2) is called
+on behalf of the job, and the result is passed via the standard
+in/out/error descriptors.
+</p>
 </div>
       
     </li>
   
 </ul>
-
-  
-    
-    
-    
-    
 
 </div><table class="source_code">
   <tr>
@@ -595,9 +603,6 @@ it were launched from inetd.
       <pre class="lines">
 
 
-49
-50
-51
 52
 53
 54
@@ -610,10 +615,13 @@ it were launched from inetd.
 61
 62
 63
-64</pre>
+64
+65
+66
+67</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/plist4r/plist_type/launchd.rb', line 49</span>
+      <pre class="code"><span class="info file"># File 'lib/plist4r/plist_type/launchd.rb', line 52</span>
 
 <span class='def def kw'>def</span> <span class='inetd_compatibility identifier id'>inetd_compatibility</span> <span class='value identifier id'>value</span><span class='assign token'>=</span><span class='nil nil kw'>nil</span><span class='comma token'>,</span> <span class='bitand op'>&amp;</span><span class='blk identifier id'>blk</span>
   <span class='key identifier id'>key</span> <span class='assign token'>=</span> <span class='string val'>&quot;inetdCompatibility&quot;</span>
@@ -806,9 +814,6 @@ This feature should not be considered a substitute for the use of IPC.
       <pre class="lines">
 
 
-120
-121
-122
 123
 124
 125
@@ -822,10 +827,13 @@ This feature should not be considered a substitute for the use of IPC.
 133
 134
 135
-136</pre>
+136
+137
+138
+139</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/plist4r/plist_type/launchd.rb', line 120</span>
+      <pre class="code"><span class="info file"># File 'lib/plist4r/plist_type/launchd.rb', line 123</span>
 
 <span class='def def kw'>def</span> <span class='keep_alive identifier id'>keep_alive</span> <span class='value identifier id'>value</span><span class='assign token'>=</span><span class='nil nil kw'>nil</span><span class='comma token'>,</span> <span class='bitand op'>&amp;</span><span class='blk identifier id'>blk</span>
   <span class='key identifier id'>key</span> <span class='assign token'>=</span> <span class='string val'>&quot;KeepAlive&quot;</span>
@@ -932,18 +940,18 @@ Example
       <pre class="lines">
 
 
-433
-434
-435
 436
 437
 438
 439
 440
-441</pre>
+441
+442
+443
+444</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/plist4r/plist_type/launchd.rb', line 433</span>
+      <pre class="code"><span class="info file"># File 'lib/plist4r/plist_type/launchd.rb', line 436</span>
 
 <span class='def def kw'>def</span> <span class='mach_services identifier id'>mach_services</span> <span class='value identifier id'>value</span><span class='assign token'>=</span><span class='nil nil kw'>nil</span><span class='comma token'>,</span> <span class='bitand op'>&amp;</span><span class='blk identifier id'>blk</span>
   <span class='key identifier id'>key</span> <span class='assign token'>=</span> <span class='string val'>&quot;MachServices&quot;</span>
@@ -1208,9 +1216,6 @@ NOTE: Accessing the default sockets
       <pre class="lines">
 
 
-666
-667
-668
 669
 670
 671
@@ -1234,10 +1239,13 @@ NOTE: Accessing the default sockets
 689
 690
 691
-692</pre>
+692
+693
+694
+695</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/plist4r/plist_type/launchd.rb', line 666</span>
+      <pre class="code"><span class="info file"># File 'lib/plist4r/plist_type/launchd.rb', line 669</span>
 
 <span class='def def kw'>def</span> <span class='socket identifier id'>socket</span> <span class='index_or_key identifier id'>index_or_key</span><span class='assign token'>=</span><span class='nil nil kw'>nil</span><span class='comma token'>,</span> <span class='index identifier id'>index</span><span class='assign token'>=</span><span class='nil nil kw'>nil</span><span class='comma token'>,</span> <span class='bitand op'>&amp;</span><span class='blk identifier id'>blk</span>
   <span class='key identifier id'>key</span> <span class='assign token'>=</span> <span class='string val'>&quot;Sockets&quot;</span>
@@ -1365,18 +1373,18 @@ Example
       <pre class="lines">
 
 
-301
-302
-303
 304
 305
 306
 307
 308
-309</pre>
+309
+310
+311
+312</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/plist4r/plist_type/launchd.rb', line 301</span>
+      <pre class="code"><span class="info file"># File 'lib/plist4r/plist_type/launchd.rb', line 304</span>
 
 <span class='def def kw'>def</span> <span class='soft_resource_limits identifier id'>soft_resource_limits</span> <span class='value identifier id'>value</span><span class='assign token'>=</span><span class='nil nil kw'>nil</span><span class='comma token'>,</span> <span class='bitand op'>&amp;</span><span class='blk identifier id'>blk</span>
   <span class='key identifier id'>key</span> <span class='assign token'>=</span> <span class='string val'>&quot;SoftResourceLimits&quot;</span>
@@ -1520,9 +1528,6 @@ to the end of the array if no index specified.
       <pre class="lines">
 
 
-223
-224
-225
 226
 227
 228
@@ -1536,10 +1541,13 @@ to the end of the array if no index specified.
 236
 237
 238
-239</pre>
+239
+240
+241
+242</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/plist4r/plist_type/launchd.rb', line 223</span>
+      <pre class="code"><span class="info file"># File 'lib/plist4r/plist_type/launchd.rb', line 226</span>
 
 <span class='def def kw'>def</span> <span class='start_calendar_interval identifier id'>start_calendar_interval</span> <span class='index identifier id'>index</span><span class='assign token'>=</span><span class='nil nil kw'>nil</span><span class='comma token'>,</span> <span class='bitand op'>&amp;</span><span class='blk identifier id'>blk</span>
   <span class='key identifier id'>key</span> <span class='assign token'>=</span> <span class='string val'>&quot;StartCalendarInterval&quot;</span>
@@ -1570,7 +1578,7 @@ to the end of the array if no index specified.
 </div>
     
     <div id="footer">
-  Generated on Wed Aug 18 16:09:44 2010 by 
+  Generated on Wed Aug 18 16:27:37 2010 by 
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool">yard</a>
   0.5.8  and the 
   <a href="http://github.com/dreamcat4/yard-slipstream">yard-slipstream</a> plugin

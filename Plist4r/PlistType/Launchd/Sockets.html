@@ -208,9 +208,6 @@
       <pre class="lines">
 
 
-468
-469
-470
 471
 472
 473
@@ -222,10 +219,13 @@
 479
 480
 481
-482</pre>
+482
+483
+484
+485</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/plist4r/plist_type/launchd.rb', line 468</span>
+      <pre class="code"><span class="info file"># File 'lib/plist4r/plist_type/launchd.rb', line 471</span>
 
 <span class='def def kw'>def</span> <span class='add_socket identifier id'>add_socket</span> <span class='plicity identifier id'>plicity</span><span class='comma token'>,</span> <span class='key identifier id'>key</span><span class='comma token'>,</span> <span class='index identifier id'>index</span><span class='assign token'>=</span><span class='nil nil kw'>nil</span><span class='comma token'>,</span> <span class='bitand op'>&amp;</span><span class='blk identifier id'>blk</span>
   <span class='select_all identifier id'>select_all</span>
@@ -262,14 +262,14 @@
       <pre class="lines">
 
 
-462
-463
-464
 465
-466</pre>
+466
+467
+468
+469</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/plist4r/plist_type/launchd.rb', line 462</span>
+      <pre class="code"><span class="info file"># File 'lib/plist4r/plist_type/launchd.rb', line 465</span>
 
 <span class='def def kw'>def</span> <span class='add_socket_to_array identifier id'>add_socket_to_array</span> <span class='key identifier id'>key</span><span class='comma token'>,</span> <span class='index identifier id'>index</span><span class='comma token'>,</span> <span class='bitand op'>&amp;</span><span class='blk identifier id'>blk</span>
   <span class='@orig ivar id'>@orig</span><span class='lbrack token'>[</span><span class='key identifier id'>key</span><span class='rbrack token'>]</span> <span class='assign token'>=</span> <span class='lbrack token'>[</span><span class='rbrack token'>]</span> <span class='unless unless_mod kw'>unless</span> <span class='@orig ivar id'>@orig</span><span class='lbrack token'>[</span><span class='key identifier id'>key</span><span class='rbrack token'>]</span><span class='dot token'>.</span><span class='class identifier id'>class</span> <span class='eq op'>==</span> <span class='Array constant id'>Array</span>
@@ -296,12 +296,12 @@
       <pre class="lines">
 
 
-458
-459
-460</pre>
+461
+462
+463</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/plist4r/plist_type/launchd.rb', line 458</span>
+      <pre class="code"><span class="info file"># File 'lib/plist4r/plist_type/launchd.rb', line 461</span>
 
 <span class='def def kw'>def</span> <span class='add_socket_to_dictionary identifier id'>add_socket_to_dictionary</span> <span class='key identifier id'>key</span><span class='comma token'>,</span> <span class='bitand op'>&amp;</span><span class='blk identifier id'>blk</span>
   <span class='@hash ivar id'>@hash</span><span class='lbrack token'>[</span><span class='key identifier id'>key</span><span class='rbrack token'>]</span> <span class='assign token'>=</span> <span class='Sockets constant id'>Sockets</span><span class='colon2 op'>::</span><span class='Socket constant id'>Socket</span><span class='dot token'>.</span><span class='new identifier id'>new</span><span class='lparen token'>(</span><span class='@hash ivar id'>@hash</span><span class='lbrack token'>[</span><span class='key identifier id'>key</span><span class='rbrack token'>]</span><span class='comma token'>,</span><span class='bitand op'>&amp;</span><span class='blk identifier id'>blk</span><span class='rparen token'>)</span><span class='dot token'>.</span><span class='to_hash identifier id'>to_hash</span>
@@ -318,7 +318,7 @@
 </div>
     
     <div id="footer">
-  Generated on Wed Aug 18 16:10:01 2010 by 
+  Generated on Wed Aug 18 16:27:54 2010 by 
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool">yard</a>
   0.5.8  and the 
   <a href="http://github.com/dreamcat4/yard-slipstream">yard-slipstream</a> plugin
