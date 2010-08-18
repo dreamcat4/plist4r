@@ -26,6 +26,11 @@ module Plist4r
                                SoftResourceLimits, HardResourceLimits MachServices Socket ]
     }
 
+
+    class InetdCompatibility < ArrayDict
+      ValidKeys = { :bool => %w[Wait] }
+    end
+
     # Set or return the plist key +inetdCompatibility+
     # @param [Hash <true,false>] value the 
     # The presence of this key specifies that the daemon expects to be run as if it were launched from inetd.
@@ -41,20 +46,21 @@ module Plist4r
     # # return inetdCompatibility
     # launchd_plist.inetd_compatibility => hash or nil
     #
-    def inetd_compatibility value=nil
+    def inetd_compatibility value=nil, &blk
       key = "inetdCompatibility"
       case value
-      when Hash
-        if value[:wait]
-          @hash[key] = value[:wait]
-        else
-          raise "Invalid value: #{method_name} #{value.inspect}. Should be: #{method_name} :wait => true|false"
-        end
       when nil
-        @hash[key]
+        if block_given?
+          @hash[key] = ::Plist4r::OrderedHash.new
+          @hash[key] = InetdCompatibility.new(@hash[key],&blk).to_hash
+        else
+          @hash[key]
+        end
       else
-        raise "Invalid value: #{method_name} #{value.inspect}. Should be: #{method_name} :wait => true|false"
+        raise "Invalid value: #{method_name} #{value.inspect}. Should be: #{method_name} { wait true|false }"
       end
+
+
     end
     
     class KeepAlive < ArrayDict
@@ -119,7 +125,6 @@ module Plist4r
         @hash[key] = value
       when nil
         if block_given?
-          puts KeepAlive.new(@hash[key],&blk).to_hash
           @hash[key] = ::Plist4r::OrderedHash.new
           @hash[key] = KeepAlive.new(@hash[key],&blk).to_hash
         else
@@ -296,7 +301,7 @@ module Plist4r
     def soft_resource_limits value=nil, &blk
       key = "SoftResourceLimits"
       if blk
-        @hash[key] ||= ::Plist4r::OrderedHash.new
+        @hash[key] = ::Plist4r::OrderedHash.new
         @hash[key] = ResourceLimits.new(@hash[key],&blk).to_hash
       else
         @hash[key]
@@ -361,7 +366,7 @@ module Plist4r
     def hard_resource_limits value=nil, &blk
       key = "HardResourceLimits"
       if blk
-        @hash[key] ||= ::Plist4r::OrderedHash.new
+        @hash[key] = ::Plist4r::OrderedHash.new
         @hash[key] = ResourceLimits.new(@hash[key],&blk).to_hash
       else
         @hash[key]
@@ -428,7 +433,7 @@ module Plist4r
     def mach_services value=nil, &blk
       key = "MachServices"
       if blk
-        @hash[key] ||= ::Plist4r::OrderedHash.new
+        @hash[key] = ::Plist4r::OrderedHash.new
         @hash[key] = MachServices.new(@hash[key],&blk).to_hash
       else
         @hash[key]
@@ -661,8 +666,8 @@ module Plist4r
     def socket index_or_key=nil, index=nil, &blk
       key = "Sockets"
       if blk
-        @hash[key] ||= ::Plist4r::OrderedHash.new
-        sockets = Sockets.new(@hash[key]).to_hash
+        @hash[key] = ::Plist4r::OrderedHash.new
+        sockets = Sockets.new(@hash[key])
       
         case index_or_key
         when nil
@@ -680,7 +685,7 @@ module Plist4r
         else
           raise "Invalid socket key: #{method_name} #{index_or_key.inspect}. Should be: #{method_name} <socket_key> &blk"
         end
-        @hash[key] = sockets
+        @hash[key] = sockets.to_hash
       else
         @hash[key]
       end
