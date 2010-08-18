@@ -181,6 +181,20 @@ class String
     @blob
   end
 
+  # Remove the leading spaces of the first line, and same to all lines of a multiline string.
+  # This effectively shifts all the lines across to the left, until the first line hits the 
+  # left margin.
+  # @example
+  #   def usage; <<-EOS.undent
+  #     # leading indent
+  #     # subsequent indent
+  #        # subsequent indent + '  '
+  #     EOS
+  #   end
+  def undent
+    gsub /^.{#{slice(/^ +/).length}}/, ''
+  end
+
   # A Camel-ized string. The reverse of {#snake_case}
   # @example
   #  "my_plist_key".camelcase => "MyPlistKey"
