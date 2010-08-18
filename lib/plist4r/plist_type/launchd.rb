@@ -32,16 +32,16 @@ module Plist4r
     end
 
     # Set or return the plist key +inetdCompatibility+
-    # @param [Hash <true,false>] value the 
+    # @param [Block] block
     # The presence of this key specifies that the daemon expects to be run as if it were launched from inetd.
     # 
-    # @option value [true,false] :wait (nil)
+    # @option block [true,false] :wait (nil)
     #   This flag corresponds to the "wait" or "nowait" option of inetd. If true, then the listening socket is passed via the standard in/out/error file descriptors.
     #   If false, then accept(2) is called on behalf of the job, and the result is passed via the standard in/out/error descriptors.
     # 
     # @example
     # # set inetdCompatibility
-    # launchd_plist.inetd_compatibility({:wait => true})
+    # launchd_plist.inetd_compatibility { wait true }
     # 
     # # return inetdCompatibility
     # launchd_plist.inetd_compatibility => hash or nil
