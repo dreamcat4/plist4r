@@ -389,10 +389,10 @@ describe Plist4r::Plist, "#method_missing" do
     @plist = Plist4r::Plist.new
   end
 
-  it "should call @plist_type.send with the supplied arguments" do
-    method_missing_args = [:method_sym, :arg1, :arg2, :etc]
-    @plist_type.should_receive(:method_missing).with(method_missing_args)
-    @plist.method_missing(method_missing_args)
+  it "should call eval with @plist_type.#{:method_sym} and the supplied arguments" do
+    method_missing_args = [:arg1, :arg2, :etc]
+    @plist_type.should_receive(:method_sym).with(*method_missing_args)
+    @plist.method_missing(:method_sym,*method_missing_args)
   end
 end
 
@@ -627,8 +627,8 @@ describe Plist4r::Plist, "#delete_if" do
     @plist.delete_if :arg1, :arg2
   end
   
-  it "should call @plist_type.hash with @hash" do
-    @plist_type.should_receive(:hash).with(@hash)
+  it "should call @plist_type.to_hash with @hash" do
+    @plist_type.should_receive(:to_hash).with(@hash)
     @plist.delete_if :arg1, :arg2
   end
 end
@@ -675,7 +675,7 @@ describe Plist4r::Plist, "#merge!" do
     @plist.stub!(:plist_type).and_return(:plist_type)
     @other_plist.stub!(:plist_type).and_return(:plist_type)
     @hash.should_receive(:merge!).with(@other_hash)
-    @plist_type.should_receive(:hash).with(@hash)
+    @plist_type.should_receive(:to_hash).with(@hash)
 
     @plist.merge! @other_plist
   end

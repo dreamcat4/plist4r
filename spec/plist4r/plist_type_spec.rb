@@ -26,18 +26,18 @@ describe Plist4r::PlistType, "#hash" do
   
   it "should set @hash and @orig if the supplied hash is a Plist4r::OrderedHash" do
     hash = Plist4r::OrderedHash.new
-    @plist_type.hash(hash)
+    @plist_type.to_hash(hash)
     @plist_type.instance_eval { @hash }.should == hash
     @plist_type.instance_eval { @orig }.should == hash
   end
   
   it "should return @hash if there are no supplied arguments" do
-    @plist_type.hash.should == "hash"
+    @plist_type.to_hash.should == "hash"
   end
 
   it "should raise an error when the supplied argument is not a Plist4r::OrderedHash, or nil" do
     not_a_plist4r_ordered_hash_or_nil = false
-    lambda { @plist_type.hash(not_a_plist4r_ordered_hash_or_nil) }.should raise_error(Exception)
+    lambda { @plist_type.to_hash(not_a_plist4r_ordered_hash_or_nil) }.should raise_error(Exception)
   end
 end
 

@@ -17,7 +17,7 @@ module Plist4r
     # Set or return the plist's raw data object
     # @param [Plist4r::OrderedHash] hash Set the hash if not nil
     # @return [Plist4r::OrderedHash] @hash
-    def hash hash=nil
+    def to_hash hash=nil
       case hash
       when ::Plist4r::OrderedHash
         @hash = @orig = hash
@@ -65,8 +65,8 @@ module Plist4r
     def array_dict method_sym, *args
       a = ArrayDict.new @hash
       result = eval "a.#{method_sym} *args"
-      @hash = @orig = a.hash
-      @plist.import_hash a.hash
+      @hash = @orig = a.to_hash
+      @plist.import_hash a.to_hash
     end
   end
 end

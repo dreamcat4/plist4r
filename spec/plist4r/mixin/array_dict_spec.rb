@@ -30,7 +30,7 @@ describe Plist4r::ArrayDict, "#hash" do
   
   it "should return @hash" do
     @array_dict.instance_eval { @hash = "hash" }
-    @array_dict.hash.should == "hash"
+    @array_dict.to_hash.should == "hash"
   end
 end
 

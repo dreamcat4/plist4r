@@ -27,6 +27,10 @@ module Plist4r
       @hash
     end
 
+    def to_hash
+      @hash
+    end
+
     # Select (keep) plist keys from the object.
     # Copy them to the resultant object moving forward.
     # @param [Array, *args] keys The list of Plist Keys to keep
