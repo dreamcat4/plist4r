@@ -2,6 +2,8 @@
 require 'plist4r/plist_type'
 
 module Plist4r
+  # For help in working with launchd, see http://www.mactech.com/articles/mactech/Vol.21/21.06/launchd/
+  # 
   # @author Dreamcat4 (dreamcat4@gmail.com)
   class PlistType::Launchd < PlistType
 
@@ -35,9 +37,10 @@ module Plist4r
     # @param [Block] block
     # The presence of this key specifies that the daemon expects to be run as if it were launched from inetd.
     # 
-    # @option block [true,false] :wait (nil)
-    #   This flag corresponds to the "wait" or "nowait" option of inetd. If true, then the listening socket is passed via the standard in/out/error file descriptors.
-    #   If false, then accept(2) is called on behalf of the job, and the result is passed via the standard in/out/error descriptors.
+    # <tt>wait [true,false]</tt>
+    # 
+    # This flag corresponds to the "wait" or "nowait" option of inetd. If true, then the listening socket is passed via the standard in/out/error file descriptors.
+    # If false, then accept(2) is called on behalf of the job, and the result is passed via the standard in/out/error descriptors.
     # 
     # @example
     # # set inetdCompatibility
