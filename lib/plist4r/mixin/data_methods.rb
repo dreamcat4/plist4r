@@ -116,7 +116,7 @@ module Plist4r
         end
       end
 
-      unless @plist.strict_keys
+      if (! @plist) || (@plist && @plist.strict_keys == false)
         key_type = nil
         return set_or_return_of_type key_type, key, value
       else
