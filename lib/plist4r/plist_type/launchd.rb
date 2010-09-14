@@ -13,19 +13,20 @@ module Plist4r
     # @see Plist4r::DataMethods
     ValidKeys =
     {
-      :string           => %w[ Label UserName GroupName LimitLoadToSessionType Program RootDirectory \
+      :string           => %w[ Label UserName GroupName LimitLoadToSessionType Program RootDirectory
                                WorkingDirectory StandardInPath StandardOutPath StandardErrorPath ],
 
-      :bool             => %w[ Disabled EnableGlobbing EnableTransactions OnDemand RunAtLoad InitGroups \
-                               StartOnMount Debug WaitForDebugger AbandonProcessGroup HopefullyExitsFirst \
-                               HopefullyExitsLast LowPriorityIO LaunchOnlyOnce ],
+      :bool             => %w[ Disabled EnableGlobbing EnableTransactions OnDemand RunAtLoad InitGroups
+                               StartOnMount Debug WaitForDebugger AbandonProcessGroup HopefullyExitsFirst
+                               HopefullyExitsLast LowPriorityIO LaunchOnlyOnce SessionCreate ServiceIPC
+                               IgnoreProcessGroupAtShutdown ],
 
       :integer          => %w[ Umask TimeOut ExitTimeOut ThrottleInterval StartInterval Nice ],
 
       :array_of_strings => %w[ LimitLoadToHosts LimitLoadFromHosts ProgramArguments WatchPaths QueueDirectories ],
 
-      :method_defined   => %w[ inetdCompatibility KeepAlive EnvironmentVariables StartCalendarInterval 
-                               SoftResourceLimits, HardResourceLimits MachServices Socket ]
+      :method_defined   => %w[ inetdCompatibility KeepAlive EnvironmentVariables UserEnvironmentVariables
+                               StartCalendarInterval SoftResourceLimits, HardResourceLimits MachServices Socket ]
     }
 
 
@@ -69,8 +70,8 @@ module Plist4r
     class KeepAlive < ArrayDict
       ValidKeys =
       {
-        :bool => %w[SuccessfulExit NetworkState],
-        :bool_or_hash_of_bools => %w[PathState OtherJobEnabled]
+        :bool => %w[SuccessfulExit NetworkState AfterInitialDemand],
+        :bool_or_hash_of_bools => %w[PathState OtherJobEnabled OtherJobActive]
       }
     end
 
@@ -151,6 +152,39 @@ module Plist4r
     # This optional key is used to specify additional environmental variables to be set before running the job.
     def environment_variables value=nil, &blk
       key = "EnvironmentVariables"
+      case value
+      when Hash
+        value.each do |k,v|
+          unless k.class == String
+            raise "Invalid key: #{method_name}[#{k.inspect}]. Should be of type String"
+          end
+          unless v.class == String
+            raise "Invalid value: #{method_name}[#{k.inspect}] = #{v.inspect}. Should be of type String"
+          end
+        end
+        @hash[key] = value
+      when nil
+        @hash[key]
+      else
+        raise "Invalid value: #{method_name} #{value.inspect}. Should be: #{method_name} { hash_of_strings }"
+      end
+    end
+
+    # Set or return the plist key +UserEnvironmentVariables+
+    #
+    # @example
+    #  # Set user environment variables
+    #  launchd_plist.user_environment_variables({ "VAR1" => "VAL1", "VAR2" => "VAL2" })
+    #
+    #  # Return user environment variables
+    #  launchd_plist.user_environment_variables => { "VAR1" => "VAL1", "VAR2" => "VAL2" }
+    #
+    # @param [Hash <String>] value 
+    # This optional key is used to specify additional user environmental variables to be set before running the job.
+    # UserEnvironmentVariables is not a documented feature of Apple Launchd. So it might not be supported.
+    # If in doubt, use "EnvironmentVariables".
+    def user_environment_variables value=nil, &blk
+      key = "UserEnvironmentVariables"
       case value
       when Hash
         value.each do |k,v|
@@ -378,7 +412,7 @@ module Plist4r
 
   	class MachServices < ArrayDict
     	class MachService < ArrayDict
-    	  ValidKeys = { :bool => %w[ ResetAtClose HideUntilCheckIn ] }
+    	  ValidKeys = { :bool => %w[ ResetAtClose HideUntilCheckIn DrainMessagesOnCrash ] }
       end
 
   	  def add service, value=nil, &blk
@@ -447,8 +481,10 @@ module Plist4r
       class Socket < ArrayDict
         ValidKeys =
         {
-          :string  => %w[ SockType SockNodeName SockServiceName SockFamily SockProtocol \
+          :string  => %w[ SockType SockNodeName SockFamily SockProtocol
                           SockPathName SecureSocketWithKey MulticastGroup ],
+
+          :string_or_integer => %w[ SockServiceName ],
 
           :bool    => %w[ SockPassive ],
 

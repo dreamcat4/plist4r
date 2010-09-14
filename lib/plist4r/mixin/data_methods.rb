@@ -10,13 +10,14 @@ module Plist4r
     ClassesForKeyType = 
     {
       :string => [String], 
+      :string_or_integer => [String,Integer,Fixnum], 
       :bool => [TrueClass,FalseClass],
       :bool_or_string => [TrueClass,FalseClass,String],
-      :integer => [Fixnum], 
+      :integer => [Integer,Fixnum],
       :array_of_strings => [Array],
       :array_of_hashes => [Array],
       :array => [Array],
-      :array_or_integer => [Array,Fixnum],
+      :array_or_integer => [Array,Integer,Fixnum],
       :array_or_hash => [Array, Hash],
       :hash_of_bools => [Hash],
       :hash_of_strings => [Hash],
