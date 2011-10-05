@@ -4,15 +4,14 @@
 # -*- encoding: utf-8 -*-
 
 Gem::Specification.new do |s|
-  s.name = %q{plist4r}
-  s.version = "1.1.6"
+  s.name = "plist4r"
+  s.version = "1.2.1"
 
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
   s.authors = ["dreamcat4"]
-  s.date = %q{2010-09-14}
-  s.default_executable = %q{plist4r}
-  s.description = %q{Plist4r is for editing Plist files in an easy-to-use, fast, and reliabile way. A comprehensive and fully featured Ruby library. Xml and Binary file formats are supported, with backends for Linux and Mac.}
-  s.email = %q{dreamcat4@gmail.com}
+  s.date = "2011-10-05"
+  s.description = "Plist4r is for editing Plist files in an easy-to-use, fast, and reliabile way. A comprehensive and fully featured Ruby library. Xml and Binary file formats are supported, with backends for Linux and Mac."
+  s.email = "dreamcat4@gmail.com"
   s.executables = ["plist4r"]
   s.extensions = ["ext/osx_plist/extconf.rb"]
   s.extra_rdoc_files = [
@@ -21,7 +20,6 @@ Gem::Specification.new do |s|
   ]
   s.files = [
     ".document",
-    ".gitignore",
     ".nojekyll",
     ".yardopts",
     "LICENSE",
@@ -106,11 +104,10 @@ Gem::Specification.new do |s|
     "spec/spec.opts",
     "spec/spec_helper.rb"
   ]
-  s.homepage = %q{http://github.com/dreamcat4/plist4r}
-  s.rdoc_options = ["--charset=UTF-8"]
+  s.homepage = "http://github.com/dreamcat4/plist4r"
   s.require_paths = ["lib"]
-  s.rubygems_version = %q{1.3.7}
-  s.summary = %q{Dreamcat4's plist4r gem. For reading/writing plists in ruby}
+  s.rubygems_version = "1.8.10"
+  s.summary = "Dreamcat4's plist4r gem. For reading/writing plists in ruby"
   s.test_files = [
     "spec/launchd_examples.rb",
     "spec/plist4r/application_spec.rb",
@@ -131,7 +128,6 @@ Gem::Specification.new do |s|
   ]
 
   if s.respond_to? :specification_version then
-    current_version = Gem::Specification::CURRENT_SPECIFICATION_VERSION
     s.specification_version = 3
 
     if Gem::Version.new(Gem::VERSION) >= Gem::Version.new('1.2.0') then
