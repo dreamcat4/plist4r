@@ -22,7 +22,7 @@ pkg
 .yardoc
 doc
 ext/osx_plist/plist.o
-ext/osx_plist/Makefile
+ext/Makefile
 
 # Ruby
 *.bundle
