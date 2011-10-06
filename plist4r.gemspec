@@ -5,15 +5,15 @@
 
 Gem::Specification.new do |s|
   s.name = "plist4r"
-  s.version = "1.2.1"
+  s.version = "1.2.2"
 
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
   s.authors = ["dreamcat4"]
-  s.date = "2011-10-05"
+  s.date = "2011-10-06"
   s.description = "Plist4r is for editing Plist files in an easy-to-use, fast, and reliabile way. A comprehensive and fully featured Ruby library. Xml and Binary file formats are supported, with backends for Linux and Mac."
   s.email = "dreamcat4@gmail.com"
   s.executables = ["plist4r"]
-  s.extensions = ["ext/osx_plist/extconf.rb"]
+  s.extensions = ["ext/extconf.rb"]
   s.extra_rdoc_files = [
     "LICENSE",
     "README.rdoc"
@@ -27,7 +27,7 @@ Gem::Specification.new do |s|
     "Rakefile",
     "VERSION",
     "bin/plist4r",
-    "ext/osx_plist/extconf.rb",
+    "ext/extconf.rb",
     "ext/osx_plist/plist.c",
     "features/plist4r.feature",
     "features/step_definitions/plist4r_steps.rb",
